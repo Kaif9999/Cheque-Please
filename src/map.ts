@@ -5,13 +5,17 @@ import {
   NavigationControl,
   type GeoJSONSource,
   type MapGeoJSONFeature,
+  setWorkerUrl,
   type PaddingOptions,
 } from 'maplibre-gl';
 import type { Feature, Point } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import { mapStyle } from './map-style';
 import type { Cafe, City } from './data/types';
 import { receiptsOf, ZONES, zoneOf } from './data/zones';
+
+setWorkerUrl(workerUrl);
 
 type CafePoint = Feature<Point, { slug: string; receipts: number; zone: string }>;
 
@@ -29,7 +33,7 @@ export function createMap(container: HTMLElement, city: City, onPick: (slug: str
     style: mapStyle,
     center: city.center,
     zoom: city.zoom,
-    attributionControl: { compact: true, customAttribution: 'Tiles by <a href="https://openfreemap.org">OpenFreeMap</a>' },
+    attributionControl: { compact: true },
     dragRotate: false,
     pitchWithRotate: false,
     maxPitch: 0,
