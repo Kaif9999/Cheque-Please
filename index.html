@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Cheque, Please — where investors meet founders in Bengaluru and Mumbai</title>
+    <meta name="description" content="The cafés in Bengaluru and Mumbai where VCs and angels have met founders, every pin backed by a public tweet or article." />
+    <meta name="theme-color" content="#ECF1EC" />
+    <meta property="og:title" content="Cheque, Please" />
+    <meta property="og:description" content="Bengaluru and Mumbai cafés where investors meet founders — every pin backed by a public receipt." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="map" aria-label="Map of cafés"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="Cheque, Please home">
+        <span class="brand-stamp" aria-hidden="true">CP</span>
+        <span class="brand-name">Cheque, Please</span>
+      </a>
+      <nav class="switch" aria-label="City">
+        <a class="switch-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
+        <a class="switch-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="headline">
+      <p class="eyebrow" id="eyebrow"></p>
+      <h1 class="headline" id="headline"></h1>
+      <p class="stats" id="stats"></p>
+      <div class="actions">
+        <button type="button" class="btn" id="follow-open"></button>
+        <button type="button" class="btn btn--ghost" id="list-open">List view</button>
+      </div>
+      <p class="disclaimer" id="disclaimer"></p>
+    </section>
+
+    <nav class="legend" id="legend" aria-label="Filter by zone"></nav>
+
+    <aside class="bill" id="bill" role="dialog" aria-labelledby="bill-title" hidden>
+      <button type="button" class="bill-close" id="bill-close" aria-label="Close bill">×</button>
+      <div id="bill-body"></div>
+    </aside>
+
+    <section class="list" id="list" aria-labelledby="list-title" hidden>
+      <header class="list-head">
+        <h2 id="list-title"></h2>
+        <button type="button" class="sheet-close" id="list-close" aria-label="Close list">×</button>
+      </header>
+      <div class="list-body" id="list-body"></div>
+    </section>
+
+    <dialog class="sheet" id="follow" aria-labelledby="follow-title"></dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
