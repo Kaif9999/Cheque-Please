@@ -445,7 +445,7 @@ button {
 .bill-paper {
   --tooth: 9px;
   position: relative;
-  max-height: calc(100vh - 108px);
+  max-height: calc(100vh - 210px);
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 30px 26px 44px;
@@ -500,8 +500,8 @@ button {
 
 .stamp {
   position: absolute;
-  top: 40px;
-  right: 22px;
+  top: 58px;
+  right: 24px;
   padding: 7px 9px;
   border: 2px solid var(--accent);
   border-radius: 4px;
@@ -537,6 +537,7 @@ button {
 
 .items {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2px;
   margin: 8px 0 0;
   padding: 0;
@@ -561,6 +562,7 @@ button {
   align-items: center;
   gap: 6px;
   min-width: 0;
+  overflow: hidden;
   font: 500 12px/1.2 var(--mono);
 }
 
@@ -607,6 +609,7 @@ button {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   quotes: '“' '”';
+  white-space: pre-line;
 }
 
 .item-line:has(.avatar) ~ .item-quote {
@@ -1101,7 +1104,18 @@ body.list-open .hero > * {
   }
 
   .bill-close {
-    top: 16px;
+    top: 18px;
+    right: 12px;
+  }
+
+  body.bill-open .hero,
+  body.bill-open .legend {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  body.bill-open .hero > * {
+    pointer-events: none;
   }
 
   .bill-title {
@@ -1109,7 +1123,8 @@ body.list-open .hero > * {
   }
 
   .stamp {
-    top: 46px;
+    top: 72px;
+    right: 18px;
   }
 
   .list {

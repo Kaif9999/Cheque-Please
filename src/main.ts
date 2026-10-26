@@ -49,8 +49,9 @@ function padding(): PaddingOptions {
     const hero = el.hero.getBoundingClientRect();
     return { top: 96, bottom: 96, left: Math.round(hero.right) + 24, right: billOpen ? 460 : 72 };
   }
-  const top = Math.round(el.hero.getBoundingClientRect().bottom) + 8;
-  return { top, bottom: billOpen ? Math.round(window.innerHeight * 0.55) : 88, left: 28, right: 28 };
+  // On phones the hero steps aside while a bill is open, so only the top bar is in the way.
+  const top = billOpen ? 72 : Math.round(el.hero.getBoundingClientRect().bottom) + 8;
+  return { top, bottom: billOpen ? Math.round(window.innerHeight * 0.66) : 88, left: 28, right: 28 };
 }
 
 function renderCity(fit: boolean): void {
@@ -82,7 +83,8 @@ function openCafe(slug: string, fly = true): void {
   state.selected = slug;
   el.billBody.innerHTML = renderBill(cafe, c, index + 1);
   el.bill.hidden = false;
-  el.bill.scrollTop = 0;
+  document.body.classList.add('bill-open');
+  el.billBody.querySelector('.bill-paper')?.scrollTo(0, 0);
   closeList();
   map.select(slug);
   map.setPadding(padding());
@@ -93,6 +95,7 @@ function openCafe(slug: string, fly = true): void {
 function closeBill(): void {
   if (el.bill.hidden) return;
   el.bill.hidden = true;
+  document.body.classList.remove('bill-open');
   state.selected = null;
   map.select(null);
   map.setPadding(padding());
@@ -123,6 +126,7 @@ function readHash(): void {
   if (cityChanged) {
     state.zone = null;
     el.bill.hidden = true;
+    document.body.classList.remove('bill-open');
     state.selected = null;
     renderCity(!slug);
   }

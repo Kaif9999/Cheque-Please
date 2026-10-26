@@ -53,8 +53,8 @@ export function createMap(container: HTMLElement, city: City, onPick: (slug: str
       type: 'geojson',
       data: { type: 'FeatureCollection', features: [] },
       cluster: true,
-      clusterRadius: 46,
-      clusterMaxZoom: 15,
+      clusterRadius: 40,
+      clusterMaxZoom: 14,
       clusterProperties: { receipts: ['+', ['get', 'receipts']] },
     });
     // Clusters are drawn as HTML markers; this invisible layer just keeps the source's tiles loaded.

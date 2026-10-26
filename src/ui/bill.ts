@@ -14,8 +14,13 @@ function source(url: string): string {
 function proofLabel(vc: Investor): string {
   const { proof } = vc;
   if (proof.kind === 'own') return 'tweet';
-  if (proof.kind === 'spotted') return proof.authorHandle ? `seen by @${proof.authorHandle}` : `seen by ${proof.author ?? 'someone'}`;
+  if (proof.kind === 'spotted') return 'spotted';
   return proof.author ?? source(proof.url);
+}
+
+function spottedBy(vc: Investor): string {
+  if (vc.proof.kind !== 'spotted') return '';
+  return ` · posted by ${esc(vc.proof.authorHandle ? `@${vc.proof.authorHandle}` : vc.proof.author ?? 'someone else')}`;
 }
 
 function investorItem(vc: Investor): string {
@@ -29,7 +34,7 @@ function investorItem(vc: Investor): string {
         <span class="leader" aria-hidden="true"></span>
         <span class="item-what">${esc(proofLabel(vc))} · ${esc(shortDate(vc.proof.date))} ${ARROW}</span>
       </span>
-      <span class="item-name">${esc(vc.name)}</span>
+      <span class="item-name">${esc(vc.name)}${spottedBy(vc)}</span>
       <q class="item-quote">${esc(vc.proof.text)}</q>
     </a>
   </li>`;
