@@ -1,3 +1,557 @@
 {
-  "cafes": []
+  "cafes": [
+    {
+      "slug": "third-wave-hsr",
+      "name": "Third Wave Coffee",
+      "branch": "17th Cross Road",
+      "area": "HSR Layout",
+      "address": "17th Cross Road, PWD Quarters, 1st Sector, HSR Layout, Bengaluru 560102",
+      "lat": 12.911774,
+      "lon": 77.650228,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Third+Wave+Coffee%2C+17th+Cross+Road%2C+PWD+Quarters%2C+1st+Sector%2C+HSR+Layout%2C+Bengaluru+560102",
+      "note": "Rajesh Sawhney recalled meeting about five VCs in 45 minutes at a Third Wave in HSR, Mar 2024.",
+      "vcs": [
+        {
+          "name": "Rajesh Sawhney",
+          "fund": "GSF Accelerator",
+          "handle": "rajeshsawhney",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Rajesh Sawhney 🇮🇳",
+            "authorHandle": "rajeshsawhney",
+            "text": "Third Wave Coffee \n\nEvery time I visit HSR, my day begins with a shot of coffee at this Third Wave Coffee Outlet. \n\nIt was about 5 years back that a friend invited me to this outlet for a meeting. I was amazed to see the level of energy and bustle at this cafe…it was full of startup founders and techies coding and sipping coffees, and I yes bumped into about 5 VCs there in a spate of 45 mins. I asked @etiwary why was this place so vibrant? She said they had designed cafe innovatively for tech workers and coffee was good and well priced. And she said they are raising some money to launch 10 more stores and would I be interested to invest?\n\nI told her I wanted to invest and she introduced me to @sushant_goel founder of @thirdwaveindia who we met the same day and yes I bumped into him again yesterday at this same outlet. \n\nHe informed me that Third Wave Coffee now has 125 outlets and over 40 in Bangalore alone. \n\nBut they had their share of hiccups…post my investment, COVID struck and they had to shut down many of their outlets, \n\nNow they are expanding and how. They will be doubling the number of outlets in the next 12 months. \n\nLong live Third Wave Coffee",
+            "date": "Mar 15, 2024",
+            "url": "https://x.com/rajeshsawhney/status/1768486707052351698"
+          },
+          "avatar": "avatars/rajeshsawhney.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "StartupFeed",
+          "authorHandle": null,
+          "text": "No analysis of HSR’s culture is complete without Third Wave Coffee on 17th Cross. Irrespective of when you step into Third Wave, the chairs are occupied by freelancers, budding entrepreneurs, and even a few VCs signing off initial cheques.",
+          "date": "May 2, 2026",
+          "url": "https://startupfeed.in/hsr-layout-india-startup-capital-unicorn-street-bengaluru/"
+        },
+        {
+          "kind": "tweet",
+          "author": "Sachin M Yaragal",
+          "authorHandle": "0to1foundr",
+          "text": "Back at Bengaluru's \"People's Choice for Startup Hub\" \n\nStartups brainstorming their V1, Marketing Plans Post Diwali and Pitch session all happening at once\n\nCourtesy - Third Wave Coffee, HSR\n\n#Startups #Bengaluru",
+          "date": "Oct 29, 2025",
+          "url": "https://x.com/0to1foundr/status/1983498477419024385"
+        }
+      ]
+    },
+    {
+      "slug": "third-wave-koramangala",
+      "name": "Third Wave Coffee",
+      "branch": "80 Feet Road, 4th Block",
+      "area": "Koramangala",
+      "address": "1, 984, 80 Feet Road, Maharaja Signal, 4th Block, Koramangala, Bengaluru 560034",
+      "lat": 12.93474,
+      "lon": 77.629621,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Third+Wave+Coffee%2C+1%2C+984%2C+80+Feet+Road%2C+Maharaja+Signal%2C+4th+Block%2C+Koramangala%2C+Bengaluru+560034",
+      "note": "A then-Lightspeed partner tweeted that tables here were \"talking TAM, revenue, growth, churn\", Jun 2018.",
+      "vcs": [
+        {
+          "name": "Vaibhav Agrawal",
+          "fund": "ex-Lightspeed",
+          "handle": "tweetingva",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Vaibhav ‘Dr.V’ Agrawal",
+            "authorHandle": "tweetingva",
+            "text": "It's incredible how many people are talking TAM, revenue, growth, churn at Third Wave Coffee in Koramangala! Reminds me of University Ave, Palo Alto :)",
+            "date": "Jun 25, 2018",
+            "url": "https://x.com/tweetingva/status/1011215391459299331"
+          },
+          "avatar": "avatars/tweetingva.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Yash Tak",
+          "authorHandle": "yashktak",
+          "text": "Scene at Third Wave Coffee in Koramangala: Two tech bros passionately pitch to a VC sis. \nThe VC sis (after 20 minutes of good listening) pulls up a -1 slope linear graph showing some kind of a post apocalyptic decline in a metric, smiles, gets up, and walks out. @peakbengaluru",
+          "date": "Dec 16, 2022",
+          "url": "https://x.com/yashktak/status/1603732506955567104"
+        },
+        {
+          "kind": "tweet",
+          "author": "Saurabh / SG",
+          "authorHandle": "saurabh",
+          "text": "In Bangalore. \n\nHave had three meetings since morning. \n\n1. Blue Tokai, Indira Nagar. \n2. Third Wave, Indira Nagar.\n3. Third Wave, Koramangala.\n\nAm I a VC yet?",
+          "date": "Dec 2, 2019",
+          "url": "https://x.com/saurabh/status/1201450874612023297"
+        },
+        {
+          "kind": "tweet",
+          "author": "gcmouli",
+          "authorHandle": "gcmouli",
+          "text": "Third wave Koramangala is losing its touch. At least three tables with just “regular” families. Couple of tables with couples. One table with senior citizens. Just one mac guy. One caucasian guy. One pseudo pitching session. That’s it. Pch Pch.",
+          "date": "Aug 20, 2022",
+          "url": "https://x.com/gcmouli/status/1560934435465609218"
+        }
+      ]
+    },
+    {
+      "slug": "third-wave-indiranagar",
+      "name": "Third Wave Coffee",
+      "branch": "12th Main Road",
+      "area": "Indiranagar",
+      "address": "12th Main Road, HAL 2nd Stage, Appareddipalya, Indiranagar, Bengaluru 560008",
+      "lat": 12.970198,
+      "lon": 77.638662,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Third+Wave+Coffee%2C+12th+Main+Road%2C+HAL+2nd+Stage%2C+Appareddipalya%2C+Indiranagar%2C+Bengaluru+560008",
+      "note": "Lightspeed India announced founder office hours at Third Wave Indiranagar, Jul 2018.",
+      "vcs": [
+        {
+          "name": "Lightspeed India",
+          "fund": "Lightspeed",
+          "handle": "LightspeedIndia",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Lightspeed India",
+            "authorHandle": "LightspeedIndia",
+            "text": "Apply for the next session of Lightspeed Office Hours at Third Wave in Indiranagar on 10th August - https://t.co/R9PuPfFvc8",
+            "date": "Jul 26, 2018",
+            "url": "https://x.com/LightspeedIndia/status/1022485442732613633"
+          },
+          "avatar": "avatars/lightspeedindia.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Deedy",
+          "authorHandle": "deedydas",
+          "text": "If you want to learn about VC in India, Third Wave in Indiranagar.",
+          "date": "Jul 16, 2019",
+          "url": "https://x.com/deedydas/status/1151094554755342337"
+        },
+        {
+          "kind": "tweet",
+          "author": "Adithya Venkatesan",
+          "authorHandle": "adadithya",
+          "text": "The 12th Main Third wave in Indiranagar is empty! \n\nWhat's happening, Bangalore, no more investor decks and fund raising conversations? 👀",
+          "date": "Oct 7, 2023",
+          "url": "https://x.com/adadithya/status/1710549718298726874"
+        },
+        {
+          "kind": "tweet",
+          "author": "whodunnit",
+          "authorHandle": "coldasbarf",
+          "text": "So I met this VC at a third wave coffee in Indiranagar and pitched an Idea to him and here's what I learnt.\n\nThe single most important thing that any VC/seed/angel investor cares about is whether you know more than them about the industry you're entering into with your start-up.",
+          "date": "Jun 2, 2024",
+          "url": "https://x.com/coldasbarf/status/1797235225912856880"
+        },
+        {
+          "kind": "tweet",
+          "author": "anmol maini",
+          "authorHandle": "anmolm_",
+          "text": "Just met a founder raw dogging their fundraise.  \n\nNo pitch deck. No data room. No calendly. \n\nJust talking to randoms at Third Wave in Indiranagar and giving them their UPI handle if the vibes are good.",
+          "date": "Jun 28, 2024",
+          "url": "https://x.com/anmolm_/status/1806575760813277506"
+        }
+      ]
+    },
+    {
+      "slug": "starbucks-indiranagar",
+      "name": "Starbucks",
+      "branch": "12th Main Road",
+      "area": "Indiranagar",
+      "address": "954, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560008",
+      "lat": 12.970306,
+      "lon": 77.639919,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+954%2C+12th+Main+Road%2C+HAL+2nd+Stage%2C+Indiranagar%2C+Bengaluru+560008",
+      "note": "Rahul Chowdhri held open coffee hours here, Jan 2020; Vinod Shankar took a pitch here, Oct 2017.",
+      "vcs": [
+        {
+          "name": "Rahul Chowdhri",
+          "fund": "Stellaris",
+          "handle": "rchowdhri",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Rahul Chowdhri",
+            "authorHandle": "rchowdhri",
+            "text": "#NoFilterCoffee Would love to meet folks who r interested in chatting anything abt startup. No fund raising agenda so no pitching, more 4 me to learn and hope u also benefit. At Starbucks Indiranagar 8:30-9:30am. My calendar is available on\nhttps://t.co/54llQrA7Wp",
+            "date": "Jan 13, 2020",
+            "url": "https://x.com/rchowdhri/status/1216705191942094848"
+          },
+          "avatar": "avatars/rchowdhri.jpg"
+        },
+        {
+          "name": "Vinod Shankar",
+          "fund": "Java Capital",
+          "handle": "vinod_shankar",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Vinod_Java",
+            "authorHandle": "vinod_shankar",
+            "text": "Startup pitch meeting with  @Clappia_com founder ashutosh at starbucks Indiranagar",
+            "date": "Oct 7, 2017",
+            "url": "https://x.com/vinod_shankar/status/916582856347942912"
+          },
+          "avatar": "avatars/vinod_shankar.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Amogh Vaishampayan",
+          "authorHandle": "amogh42",
+          "text": "@banglani Go to Starbucks on 12th Main Indiranagar and eavesdrop on startup founders pitching to investors. Get him an Ultrahuman subscription and then take him to eat Meghana biryani. Then send him to Cult to bring down that glucose spike.",
+          "date": "May 31, 2023",
+          "url": "https://x.com/amogh42/status/1663877091425918977"
+        },
+        {
+          "kind": "tweet",
+          "author": "Peak Bengaluru",
+          "authorHandle": "peakbengaluru",
+          "text": "OH at Starbucks Indiranagar: “I moved to Bangalore to work on my startup so that I could enjoy discounted food and groceries thanks to VC money. it helps while bootstrapping “ \n\nWah what an ecosystem #PeakBengaluru",
+          "date": "Sep 20, 2018",
+          "url": "https://x.com/peakbengaluru/status/1042697349120905216"
+        }
+      ]
+    },
+    {
+      "slug": "araku-indiranagar",
+      "name": "ARAKU Coffee",
+      "branch": "12th Main Road",
+      "area": "Indiranagar",
+      "address": "968, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560008",
+      "lat": 12.969914,
+      "lon": 77.639208,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=ARAKU+Coffee%2C+968%2C+12th+Main+Road%2C+HAL+2nd+Stage%2C+Indiranagar%2C+Bengaluru+560008",
+      "note": "Rahul Chowdhri named it a casual-meeting spot, May 2026; Kunal Shah was spotted working here, Dec 2025.",
+      "vcs": [
+        {
+          "name": "Rahul Chowdhri",
+          "fund": "Stellaris",
+          "handle": "rchowdhri",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Rahul Chowdhri",
+            "authorHandle": "rchowdhri",
+            "text": "Which is a nice breakfast place in indiranagar where you can have a casual meeting and opens at 8:30am? I struggle beyond Araku and The Kind.",
+            "date": "May 6, 2026",
+            "url": "https://x.com/rchowdhri/status/2051859445840560603"
+          },
+          "avatar": "avatars/rchowdhri.jpg"
+        },
+        {
+          "name": "Kunal Shah",
+          "fund": "Angel investor",
+          "handle": "kunalb11",
+          "crowd": "angel",
+          "proof": {
+            "kind": "spotted",
+            "author": "Vivek Shukla",
+            "authorHandle": "whovivekshukla",
+            "text": "no way, i’m here at araku and @kunalb11 is sitting next to my table!",
+            "date": "Dec 20, 2025",
+            "url": "https://x.com/whovivekshukla/status/2002257261352407043"
+          }
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Anshul Bhide",
+          "authorHandle": "anshulbhide",
+          "text": "there's so much alpha in just sitting in araku Indiranagar and just observing who is meeting who\n\nLarge VCs should have analysts just work there the whole day long and take notes on this. You can't automate that using AI :)",
+          "date": "Mar 25, 2026",
+          "url": "https://x.com/anshulbhide/status/2036707236307939383"
+        },
+        {
+          "kind": "tweet",
+          "author": "Ayush Agarwal",
+          "authorHandle": "ayushagarwal",
+          "text": "you will find so many Unicorn founders sitting casually and working in Araku, Indiranagar - feels crazy, since @dodopayments is also in the Indiranagar - we get to see these on regular basis.",
+          "date": "Sep 25, 2026",
+          "url": "https://x.com/ayushagarwal/status/2103485743641604578"
+        },
+        {
+          "kind": "tweet",
+          "author": "Shweta_ಶ್ವೇತಾ",
+          "authorHandle": "iShweta__",
+          "text": "Walk into Araku Indiranagar and you'll be forgiven to think it's a coworking space.\n\nLaptops out in all tables, files aglore, intense discussions. It sure gives the no-nonsense, all-business vibes.\n\nLove to make the this my spot for all client meetings.",
+          "date": "Jun 17, 2026",
+          "url": "https://x.com/iShweta__/status/2067190163500093902"
+        },
+        {
+          "kind": "tweet",
+          "author": "Vanshika Jain | daanyam.com",
+          "authorHandle": "vanshikajainx",
+          "text": "blr founders don’t network anymore  \nthey just keep accidentally meeting each other at Araku👀",
+          "date": "May 17, 2026",
+          "url": "https://x.com/vanshikajainx/status/2055991627563569544"
+        }
+      ]
+    },
+    {
+      "slug": "the-kind-indiranagar",
+      "name": "The Kind",
+      "branch": "12th Main Road",
+      "area": "Indiranagar",
+      "address": "2985, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038",
+      "lat": 12.970207,
+      "lon": 77.644802,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Kind%2C+2985%2C+12th+Main+Road%2C+HAL+2nd+Stage%2C+Indiranagar%2C+Bengaluru+560038",
+      "note": "Rahul Chowdhri named it one of two Indiranagar spots for casual morning meetings, May 2026.",
+      "vcs": [
+        {
+          "name": "Rahul Chowdhri",
+          "fund": "Stellaris",
+          "handle": "rchowdhri",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Rahul Chowdhri",
+            "authorHandle": "rchowdhri",
+            "text": "Which is a nice breakfast place in indiranagar where you can have a casual meeting and opens at 8:30am? I struggle beyond Araku and The Kind.",
+            "date": "May 6, 2026",
+            "url": "https://x.com/rchowdhri/status/2051859445840560603"
+          },
+          "avatar": "avatars/rchowdhri.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "subko-koramangala",
+      "name": "The Craftery by Subko",
+      "branch": "The Craftery, Sarjapura Road",
+      "area": "Koramangala",
+      "address": "374, Sarjapura Road, SBI Colony, Koramangala, Bengaluru 560034",
+      "lat": 12.926029,
+      "lon": 77.625487,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Craftery+by+Subko%2C+374%2C+Sarjapura+Road%2C+SBI+Colony%2C+Koramangala%2C+Bengaluru+560034",
+      "note": "Gautam Shewakramani said he would hold his Bengaluru meetings at Subko Koramangala, Feb 2026.",
+      "vcs": [
+        {
+          "name": "Gautam Shewakramani",
+          "fund": "Inuka Capital",
+          "handle": "gshewakr",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Gautam Shewakramani",
+            "authorHandle": "gshewakr",
+            "text": "Decided to do my BLR meetings at Subko in Koramangala - this is how \"Bombay VC\" brand consistency is built.",
+            "date": "Feb 18, 2026",
+            "url": "https://x.com/gshewakr/status/2024053894331179455"
+          },
+          "avatar": "avatars/gshewakr.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Ranhita Bordoloi",
+          "authorHandle": null,
+          "text": "Is Subko- Koramangala, the new Araku-Indiranagar ; on a weekday?\n\nWalked in late afternoon, stayed till 5 for a bunch of meetings. And honestly? The room surprised me.\n\nFounders. VC folks I've known or worked with. People from the startup ecosystem I've crossed paths with over the years.",
+          "date": "Jul 22, 2026",
+          "url": "https://www.linkedin.com/posts/ranhita-bordoloi-721949166_is-subko-koramangala-the-new-araku-indiranagar-activity-7485751712859721729-tjrj"
+        }
+      ]
+    },
+    {
+      "slug": "subko-ajji-house",
+      "name": "Ajji House by Subko",
+      "branch": "Ajji House",
+      "area": "Shanti Nagar",
+      "address": "Plot No. 105, Kengal Hanumanthaiah Road, Raja Ram Mohan Roy Extension, Shanti Nagar, Bengaluru 560027",
+      "lat": 12.95849,
+      "lon": 77.592754,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ajji+House+by+Subko%2C+Plot+No.+105%2C+Kengal+Hanumanthaiah+Road%2C+Raja+Ram+Mohan+Roy+Extension%2C+Shanti+Nagar%2C+Bengaluru+560027",
+      "note": "Harnidh Kaur booked three days of free founder office hours here, Nov 2025.",
+      "vcs": [
+        {
+          "name": "Harnidh Kaur",
+          "fund": "",
+          "handle": "harnidhish",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Harnidh Kaur",
+            "authorHandle": "harnidhish",
+            "text": "Open Office Hours @ Subko, Ajji House, Bangalore!\n\nI've booked 3 days at Subko to offer free office hours for early-stage founders and operators.\n\nNo agenda from my side, no hidden fees, no upselling. Just 45 minutes to work through whatever challenge is keeping you up at night.",
+            "date": "Nov 17, 2025",
+            "url": "https://x.com/harnidhish/status/1990290316122001688"
+          },
+          "avatar": "avatars/harnidhish.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "paper-and-pie-indiranagar",
+      "name": "Paper & Pie",
+      "branch": "100 Feet Road",
+      "area": "Indiranagar",
+      "address": "100 Feet Road, Indiranagar, Bengaluru 560038",
+      "lat": 12.980973,
+      "lon": 77.641004,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Paper+%26+Pie%2C+100+Feet+Road%2C+Indiranagar%2C+Bengaluru+560038",
+      "note": "Chrysalix VC's Shelly Mittal called it popular with founders and investors, Aug 2025.",
+      "vcs": [
+        {
+          "name": "Shelly Mittal",
+          "fund": "Chrysalix VC",
+          "handle": null,
+          "crowd": "big",
+          "proof": {
+            "kind": "other",
+            "author": "Global Venturing",
+            "authorHandle": null,
+            "text": "Where’s the best place for a coffee meeting? Concu, in Indiranagar, is a stylish patisserie-café with artisanal desserts and an intimate ambiance. Down the road, Paper & Pie is work-friendly, energetic and popular with founders and investors. Beanlore Coffee Roasters, in HSR Layout, provides specialty brews with co-working vibes, and Third Wave Coffee Roasters has multiple locations across Bengaluru.",
+            "date": "Aug 26, 2025",
+            "url": "https://globalventuring.com/corporate/asia/investors-guide-to-bengaluru/"
+          }
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "concu-indiranagar",
+      "name": "Conçu",
+      "branch": "12th Main Road",
+      "area": "Indiranagar",
+      "address": "12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560008",
+      "lat": 12.969814,
+      "lon": 77.637912,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Con%C3%A7u%2C+12th+Main+Road%2C+HAL+2nd+Stage%2C+Indiranagar%2C+Bengaluru+560008",
+      "note": "Shelly Mittal named it first when asked for the best coffee-meeting spot, Aug 2025.",
+      "vcs": [
+        {
+          "name": "Shelly Mittal",
+          "fund": "Chrysalix VC",
+          "handle": null,
+          "crowd": "big",
+          "proof": {
+            "kind": "other",
+            "author": "Global Venturing",
+            "authorHandle": null,
+            "text": "Where’s the best place for a coffee meeting? Concu, in Indiranagar, is a stylish patisserie-café with artisanal desserts and an intimate ambiance. Down the road, Paper & Pie is work-friendly, energetic and popular with founders and investors. Beanlore Coffee Roasters, in HSR Layout, provides specialty brews with co-working vibes, and Third Wave Coffee Roasters has multiple locations across Bengaluru.",
+            "date": "Aug 26, 2025",
+            "url": "https://globalventuring.com/corporate/asia/investors-guide-to-bengaluru/"
+          }
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Samhita",
+          "authorHandle": "Samhitab4u",
+          "text": "Weekend cafes in Bangalore somehow became the unofficial meeting rooms for founders, creators and people figuring out life.\n\nGood coffee, good food and 3 hours of productive conversations without even realizing time passed.\n\nConcu, Indira Nagar absolutely gets the vibe right.",
+          "date": "May 17, 2026",
+          "url": "https://x.com/Samhitab4u/status/2056016331204682217"
+        }
+      ]
+    },
+    {
+      "slug": "beanlore-hsr",
+      "name": "Beanlore Coffee Roasters",
+      "branch": "17th Cross Road, Sector 4",
+      "area": "HSR Layout",
+      "address": "17th Cross Road, MCHS Colony, Sector 4, HSR Layout, Bengaluru 560102",
+      "lat": 12.912355,
+      "lon": 77.641764,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Beanlore+Coffee+Roasters%2C+17th+Cross+Road%2C+MCHS+Colony%2C+Sector+4%2C+HSR+Layout%2C+Bengaluru+560102",
+      "note": "Recommended by Shelly Mittal, Aug 2025; a founder saw \"more pitch decks than coffee cups\", Mar 2024.",
+      "vcs": [
+        {
+          "name": "Shelly Mittal",
+          "fund": "Chrysalix VC",
+          "handle": null,
+          "crowd": "big",
+          "proof": {
+            "kind": "other",
+            "author": "Global Venturing",
+            "authorHandle": null,
+            "text": "Where’s the best place for a coffee meeting? Concu, in Indiranagar, is a stylish patisserie-café with artisanal desserts and an intimate ambiance. Down the road, Paper & Pie is work-friendly, energetic and popular with founders and investors. Beanlore Coffee Roasters, in HSR Layout, provides specialty brews with co-working vibes, and Third Wave Coffee Roasters has multiple locations across Bengaluru.",
+            "date": "Aug 26, 2025",
+            "url": "https://globalventuring.com/corporate/asia/investors-guide-to-bengaluru/"
+          }
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Ganesh Shankar",
+          "authorHandle": "vganeshshankar",
+          "text": "I see more pitch decks than coffee cups in Beanlore, HSR 😅",
+          "date": "Mar 8, 2024",
+          "url": "https://x.com/vganeshshankar/status/1766032856030265831"
+        }
+      ]
+    },
+    {
+      "slug": "still-coffee-indiranagar",
+      "name": "Still Coffee",
+      "branch": "19th Main Road, Kodihalli",
+      "area": "Indiranagar",
+      "address": "19th Main Road, Corporation Colony, Kodihalli, HAL 2nd Stage, Bengaluru 560008",
+      "lat": 12.961339,
+      "lon": 77.645658,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Still+Coffee%2C+19th+Main+Road%2C+Corporation+Colony%2C+Kodihalli%2C+HAL+2nd+Stage%2C+Bengaluru+560008",
+      "note": "Kriscore Capital and WaterBridge Ventures hosted founder office hours here, Sep 2026.",
+      "vcs": [
+        {
+          "name": "Nilesh Balakrishnan",
+          "fund": "Kriscore Capital",
+          "handle": null,
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "LinkedIn",
+            "authorHandle": null,
+            "text": "A few of us are getting together at Still Coffee in Indiranagar this Wednesday to talk about things we love to hypothesize about: building something meaningful, what actually constitutes a moat in an AI reality, and what most investors don't see clearly but should.\n\nNo pitch decks. No formal agenda. Just real conversations. Over coffee.\n  \nIf you're a builder thinking through any of this, or just curious to chat with other people doing the same, come by. At Kriscore Capital, we back pre-seed and seed stage founders so we're always game to learn! \n\nExcited to hangout and jam with my friends from WaterBridge Ventures: Raj Nayan Datta & Sapna Goyal\n\nStill Coffee, Indiranagar | Wednesday Sep 23 | 2PM onwards",
+            "date": "Sep 21, 2026",
+            "url": "https://www.linkedin.com/posts/nileshbala_founder-office-hours-waterbridge-x-kriscore-activity-7507767391628525569-eXzF"
+          }
+        },
+        {
+          "name": "Raj Nayan Datta",
+          "fund": "WaterBridge Ventures",
+          "handle": null,
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "LinkedIn",
+            "authorHandle": null,
+            "text": "A few of us are getting together at Still Coffee in Indiranagar this Wednesday to talk about things we love to hypothesize about: building something meaningful, what actually constitutes a moat in an AI reality, and what most investors don't see clearly but should.\n\nNo pitch decks. No formal agenda. Just real conversations. Over coffee.\n  \nIf you're a builder thinking through any of this, or just curious to chat with other people doing the same, come by. At Kriscore Capital, we back pre-seed and seed stage founders so we're always game to learn! \n\nExcited to hangout and jam with my friends from WaterBridge Ventures: Raj Nayan Datta & Sapna Goyal\n\nStill Coffee, Indiranagar | Wednesday Sep 23 | 2PM onwards",
+            "date": "Sep 21, 2026",
+            "url": "https://www.linkedin.com/posts/nileshbala_founder-office-hours-waterbridge-x-kriscore-activity-7507767391628525569-eXzF"
+          }
+        },
+        {
+          "name": "Sapna Goyal",
+          "fund": "WaterBridge Ventures",
+          "handle": null,
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "LinkedIn",
+            "authorHandle": null,
+            "text": "A few of us are getting together at Still Coffee in Indiranagar this Wednesday to talk about things we love to hypothesize about: building something meaningful, what actually constitutes a moat in an AI reality, and what most investors don't see clearly but should.\n\nNo pitch decks. No formal agenda. Just real conversations. Over coffee.\n  \nIf you're a builder thinking through any of this, or just curious to chat with other people doing the same, come by. At Kriscore Capital, we back pre-seed and seed stage founders so we're always game to learn! \n\nExcited to hangout and jam with my friends from WaterBridge Ventures: Raj Nayan Datta & Sapna Goyal\n\nStill Coffee, Indiranagar | Wednesday Sep 23 | 2PM onwards",
+            "date": "Sep 21, 2026",
+            "url": "https://www.linkedin.com/posts/nileshbala_founder-office-hours-waterbridge-x-kriscore-activity-7507767391628525569-eXzF"
+          }
+        }
+      ],
+      "scene": []
+    }
+  ]
 }
