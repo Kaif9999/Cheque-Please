@@ -1,0 +1,38 @@
+name: Receipt
+description: Add a café receipt, or ask to be removed from the map.
+title: "[receipt] "
+body:
+  - type: dropdown
+    id: request
+    attributes:
+      label: Request
+      options:
+        - Add a receipt
+        - Remove me
+    validations:
+      required: true
+  - type: dropdown
+    id: city
+    attributes:
+      label: City
+      options:
+        - Bengaluru
+        - Mumbai
+    validations:
+      required: true
+  - type: input
+    id: cafe
+    attributes:
+      label: Café and branch
+      placeholder: Third Wave Coffee, Koramangala
+  - type: input
+    id: receipt_url
+    attributes:
+      label: Receipt URL
+      description: A public tweet or article that names the investor and the café. Required for additions.
+      placeholder: https://x.com/…/status/…
+  - type: textarea
+    id: note
+    attributes:
+      label: Anything else
+      description: For removals, say which name to take down.
