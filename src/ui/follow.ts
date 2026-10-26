@@ -2,7 +2,7 @@ import type { Cafe, Investor } from '../data/types';
 import { issueUrl } from '../config';
 import { ARROW, avatar, esc } from './dom';
 
-/** Unique receipted investors, most receipts first. */
+/** Unique receipted investors: followable ones first, then by café count. */
 export function investorsIn(cafes: Cafe[]): (Investor & { cafes: string[] })[] {
   const byKey = new Map<string, Investor & { cafes: string[] }>();
   for (const cafe of cafes) {
@@ -14,7 +14,9 @@ export function investorsIn(cafes: Cafe[]): (Investor & { cafes: string[] })[] {
       } else byKey.set(key, { ...vc, cafes: [cafe.name] });
     }
   }
-  return [...byKey.values()].sort((a, b) => b.cafes.length - a.cafes.length || a.name.localeCompare(b.name));
+  return [...byKey.values()].sort(
+    (a, b) => Number(!!b.handle) - Number(!!a.handle) || b.cafes.length - a.cafes.length || a.name.localeCompare(b.name),
+  );
 }
 
 export function renderFollow(cityName: string, cafes: Cafe[]): string {
