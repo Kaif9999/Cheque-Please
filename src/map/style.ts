@@ -19,11 +19,17 @@ const C = {
 const NAME: ExpressionSpecification = ['coalesce', ['get', 'name:en'], ['get', 'name:latin']];
 
 const roadWidth = (base: number): ExpressionSpecification => [
-  'interpolate', ['exponential', 1.6], ['zoom'],
-  10, base * 0.35,
-  13, base,
-  16, base * 4,
-  18, base * 9,
+  'interpolate',
+  ['exponential', 1.6],
+  ['zoom'],
+  10,
+  base * 0.35,
+  13,
+  base,
+  16,
+  base * 4,
+  18,
+  base * 9,
 ];
 
 export const mapStyle: StyleSpecification = {

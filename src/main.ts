@@ -42,7 +42,8 @@ const map = createMap(
   {
     pick: (slug) => go({ kind: 'cafe', slug }),
     hover: (slug) => {
-      for (const row of el.sheetBody.querySelectorAll<HTMLElement>('[data-slug]')) row.classList.toggle('is-hover', row.dataset.slug === slug);
+      for (const row of el.sheetBody.querySelectorAll<HTMLElement>('[data-slug]'))
+        row.classList.toggle('is-hover', row.dataset.slug === slug);
     },
     userMove: () => dive(false),
     tilesFailing: () => ($('#banner').hidden = false),

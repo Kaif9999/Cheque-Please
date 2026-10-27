@@ -20,6 +20,7 @@ export function avatar(p: { name: string; avatar?: string | undefined }, cls: st
 /** Overlapping faces with a "+N" tile when there are more than `max`. */
 export function avatarStack(people: Investor[], max: number, cls: string): Html {
   const more =
-    people.length > max && html`<span class="${cls} grid flex-none place-items-center bg-ink font-[650] text-white">+${people.length - max}</span>`;
+    people.length > max &&
+    html`<span class="${cls} grid flex-none place-items-center bg-ink font-[650] text-white">+${people.length - max}</span>`;
   return html`<span class="flex flex-none">${people.slice(0, max).map((p) => avatar(p, cls))}${more}</span>`;
 }

@@ -3,7 +3,13 @@ import { circle, distance, hull } from '@/domain/geo';
 
 describe('hull', () => {
   it('drops interior points', () => {
-    const ring = hull([[0, 0], [2, 0], [2, 2], [0, 2], [1, 1]]);
+    const ring = hull([
+      [0, 0],
+      [2, 0],
+      [2, 2],
+      [0, 2],
+      [1, 1],
+    ]);
     expect(ring).toHaveLength(5);
     expect(ring).not.toContainEqual([1, 1]);
   });

@@ -20,7 +20,14 @@ function cafe(crowds: Crowd[], scene = 0, handles?: string[]): Cafe {
       crowd,
       proof: { kind: 'own', author: null, authorHandle: null, text: '', date: '', url: 'https://x.com/a/status/1' },
     })),
-    scene: Array.from({ length: scene }, () => ({ kind: 'article' as const, author: 'Pub', authorHandle: null, text: '', date: '', url: 'https://example.com' })),
+    scene: Array.from({ length: scene }, () => ({
+      kind: 'article' as const,
+      author: 'Pub',
+      authorHandle: null,
+      text: '',
+      date: '',
+      url: 'https://example.com',
+    })),
   };
 }
 
@@ -47,6 +54,9 @@ describe('stats', () => {
   });
   it('orders zones by café count', () => {
     const zones = zonesIn([cafe([], 1), cafe(['angel']), cafe(['angel'])]).map((z) => [z.zone.id, z.count]);
-    expect(zones).toEqual([['angel', 2], ['scene', 1]]);
+    expect(zones).toEqual([
+      ['angel', 2],
+      ['scene', 1],
+    ]);
   });
 });

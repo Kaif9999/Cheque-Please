@@ -1,4 +1,13 @@
-import { LngLatBounds, Map as MapLibre, Marker, NavigationControl, setWorkerUrl, type GeoJSONSource, type MapGeoJSONFeature, type PaddingOptions } from 'maplibre-gl';
+import {
+  LngLatBounds,
+  Map as MapLibre,
+  Marker,
+  NavigationControl,
+  setWorkerUrl,
+  type GeoJSONSource,
+  type MapGeoJSONFeature,
+  type PaddingOptions,
+} from 'maplibre-gl';
 import type { Feature, Point } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
