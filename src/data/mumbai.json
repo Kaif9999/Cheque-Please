@@ -1,3 +1,361 @@
 {
-  "cafes": []
+  "cafes": [
+    {
+      "slug": "subko-bandra",
+      "name": "Subko",
+      "branch": "Chapel Road",
+      "area": "Bandra West",
+      "address": "Mary Lodge, 21A Chapel Road, Ranwar, Bandra West, Mumbai 400050",
+      "lat": 19.053165,
+      "lon": 72.83008,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Subko%2C+Mary+Lodge%2C+21A+Chapel+Road%2C+Ranwar%2C+Bandra+West%2C+Mumbai+400050",
+      "note": "A founder met a VC acquaintance here and spotted Nikhil Kamath upstairs, Aug 2025.",
+      "vcs": [
+        {
+          "name": "Nikhil Kamath",
+          "fund": "Gruhas",
+          "handle": "nikhilkamathcio",
+          "crowd": "angel",
+          "proof": {
+            "kind": "spotted",
+            "author": "Yash Gawde",
+            "authorHandle": "bizibeast",
+            "text": "I saw Nikhil Kamath yesterday.\nHe waved hi to me.\nAnd I gave him this note.\n\nHere is what happened:\n\nI was at Bandra Subko Cafe to meet a VC friend.\n\nAt first, I was just sitting on the first floor.\n\nHe walked in and said:\n“Bro, this is too cramped. Let’s go to the top floor, https://t.co/9LUrdME7gT",
+            "date": "Aug 25, 2025",
+            "url": "https://x.com/bizibeast/status/1959955434707861680"
+          }
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Storyboard18",
+          "authorHandle": null,
+          "text": "Gawde, who runs the early-stage venture BeHooked, was deep in conversation with venture capitalist acquaintance Aakash Sood, dissecting the art of pitching, when Kamath walked in with a group and settled into a private room nearby.",
+          "date": "Aug 28, 2025",
+          "url": "https://www.storyboard18.com/brand-makers/when-preparation-meets-serendipity-how-a-mumbai-based-founder-turned-a-cafe-encounter-into-a-pitch-79742.htm"
+        }
+      ]
+    },
+    {
+      "slug": "abcoffee-lower-parel",
+      "name": "abCoffee",
+      "branch": "One World Center",
+      "area": "Lower Parel",
+      "address": "Kiosk D, Lobby Level, Tower 2B, One World Center, 841 Senapati Bapat Marg, Lower Parel, Mumbai 400013",
+      "lat": 19.00674,
+      "lon": 72.832934,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=abCoffee%2C+Kiosk+D%2C+Lobby+Level%2C+Tower+2B%2C+One+World+Center%2C+841+Senapati+Bapat+Marg%2C+Lower+Parel%2C+Mumbai+400013",
+      "note": "Ninad Karpe of 100X.VC, an early backer, invited the next startup pitch over its coffee, Sep 2025.",
+      "vcs": [
+        {
+          "name": "Ninad Karpe",
+          "fund": "100X.VC",
+          "handle": "NinadKarpe",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Ninad Karpe",
+            "authorHandle": "NinadKarpe",
+            "text": "Nothing sparks ideas like the first sip of coffee.\n\nThrilled to see @AbCoffee open at One India World Centre.\n\nhttps://t.co/cNLLboWvB9   backed them early.  Founder AbhijeetAnand has scaled fast.\n\nNext startup pitch? Let’s do it over Ab Coffee. \n#coffee #startups https://t.co/Y5zoiFbgAc",
+            "date": "Sep 3, 2025",
+            "url": "https://x.com/NinadKarpe/status/1963139804520149369"
+          },
+          "avatar": "avatars/ninadkarpe.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "starbucks-bkc",
+      "name": "Starbucks",
+      "branch": "G Block",
+      "area": "BKC",
+      "address": "G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051",
+      "lat": 19.060914,
+      "lon": 72.86467,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+G+Block%2C+Bandra+Kurla+Complex%2C+Bandra+East%2C+Mumbai+400051",
+      "note": "Vishal Gondal checked in here for a meetup, Feb 2014.",
+      "vcs": [
+        {
+          "name": "Vishal Gondal",
+          "fund": "GOQii",
+          "handle": "vishalgondal",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Vishal Gondal",
+            "authorHandle": "vishalgondal",
+            "text": "Meetup  (Checked in at Starbucks Bkc) http://t.co/u8DPSeMiYt",
+            "date": "Feb 11, 2014",
+            "url": "https://x.com/vishalgondal/status/433193471839457280"
+          },
+          "avatar": "avatars/vishalgondal.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "starbucks-khar",
+      "name": "Starbucks",
+      "branch": "15th Road",
+      "area": "Khar West",
+      "address": "Ground Floor, Red Chillies Entertainment Building, 15th Road / Ramakrishna Mission Road, Khar West, Mumbai 400052",
+      "lat": 19.075672,
+      "lon": 72.831732,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+Ground+Floor%2C+Red+Chillies+Entertainment+Building%2C+15th+Road+%2F+Ramakrishna+Mission+Road%2C+Khar+West%2C+Mumbai+400052",
+      "note": "Miten Sampat called it his \"Saturday office in Mumbai\", Jan 2016.",
+      "vcs": [
+        {
+          "name": "Miten Sampat",
+          "fund": "Angel investor",
+          "handle": "miten",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "miten sampat",
+            "authorHandle": "miten",
+            "text": "my Saturday office in Mumbai ! (@ Starbucks Coffee: A Tata Alliance - @starbucksindia in Mumbai, Santacruz West) https://t.co/syZuUbzGfI",
+            "date": "Jan 23, 2016",
+            "url": "https://x.com/miten/status/690838257425321984"
+          },
+          "avatar": "avatars/miten.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "the-pantry-kala-ghoda",
+      "name": "The Pantry",
+      "branch": "Yeshwant Chambers",
+      "area": "Kala Ghoda",
+      "address": "Yeshwant Chambers, B. Bharucha Road, Kala Ghoda, Fort, Mumbai 400001",
+      "lat": 18.928894,
+      "lon": 72.83211,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Pantry%2C+Yeshwant+Chambers%2C+B.+Bharucha+Road%2C+Kala+Ghoda%2C+Fort%2C+Mumbai+400001",
+      "note": "Miten Sampat checked in and called it a \"super chique cafe\", Nov 2013.",
+      "vcs": [
+        {
+          "name": "Miten Sampat",
+          "fund": "Angel investor",
+          "handle": "miten",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "miten sampat",
+            "authorHandle": "miten",
+            "text": "Super chique cafe in the lanes around Bombay Stock Exchange #french #bakery cc @timescity @ The Pantry http://t.co/Gj8qCDs2m0",
+            "date": "Nov 3, 2013",
+            "url": "https://x.com/miten/status/396996760335577089"
+          },
+          "avatar": "avatars/miten.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "starbucks-kamala-mills",
+      "name": "Starbucks",
+      "branch": "Gate No. 4",
+      "area": "Lower Parel",
+      "address": "Kamala Mills Gate No. 4, Pandurang Budhkar Marg, Lower Parel, Mumbai 400013",
+      "lat": 19.004756,
+      "lon": 72.8261,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+Kamala+Mills+Gate+No.+4%2C+Pandurang+Budhkar+Marg%2C+Lower+Parel%2C+Mumbai+400013",
+      "note": "Rajesh Sawhney posted his order from this Starbucks, Dec 2017.",
+      "vcs": [
+        {
+          "name": "Rajesh Sawhney",
+          "fund": "GSF Accelerator",
+          "handle": "rajeshsawhney",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Rajesh Sawhney 🇮🇳",
+            "authorHandle": "rajeshsawhney",
+            "text": "Expresso Frappeccino with skimmed milk, half pump of sugar \n\nThat's how we order at @Starbucks when with @nishb \n\nKamala Mills, Mumbai https://t.co/G0qT2IoyPT",
+            "date": "Dec 16, 2017",
+            "url": "https://x.com/rajeshsawhney/status/941969015332790272"
+          },
+          "avatar": "avatars/rajeshsawhney.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "starbucks-chowpatty",
+      "name": "Starbucks",
+      "branch": "Near Wilson College",
+      "area": "Chowpatty",
+      "address": "Shree Krishna Hindu Merchant Club, near Wilson College, Chowpatty, Girgaon, Mumbai 400007",
+      "lat": 18.956454,
+      "lon": 72.811976,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+Shree+Krishna+Hindu+Merchant+Club%2C+near+Wilson+College%2C+Chowpatty%2C+Girgaon%2C+Mumbai+400007",
+      "note": "Gautam Shewakramani checked in here, Sep 2014.",
+      "vcs": [
+        {
+          "name": "Gautam Shewakramani",
+          "fund": "Inuka Capital",
+          "handle": "gshewakr",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Gautam Shewakramani",
+            "authorHandle": "gshewakr",
+            "text": "Signed up for a Starbucks card- this has the potential to get dangerous. #jitters @ Starbucks Chowpatty http://t.co/0Z4pZ2QhVK",
+            "date": "Sep 29, 2014",
+            "url": "https://x.com/gshewakr/status/516446764531200000"
+          },
+          "avatar": "avatars/gshewakr.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "cafe-madras-matunga",
+      "name": "Cafe Madras",
+      "branch": "King's Circle",
+      "area": "Matunga",
+      "address": "38-B Circle House, Bhau Daji Road, King's Circle, Matunga East, Mumbai 400019",
+      "lat": 19.027673,
+      "lon": 72.855047,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Cafe+Madras%2C+38-B+Circle+House%2C+Bhau+Daji+Road%2C+King%27s+Circle%2C+Matunga+East%2C+Mumbai+400019",
+      "note": "Ninad Karpe posted from here, May 2014, before 100X.VC existed.",
+      "vcs": [
+        {
+          "name": "Ninad Karpe",
+          "fund": "100X.VC",
+          "handle": "NinadKarpe",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Ninad Karpe",
+            "authorHandle": "NinadKarpe",
+            "text": "At Cafe Madras, Matunga.",
+            "date": "May 25, 2014",
+            "url": "https://x.com/NinadKarpe/status/470463674268659712"
+          },
+          "avatar": "avatars/ninadkarpe.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "grand-hyatt-santacruz",
+      "name": "Grand Hyatt Mumbai",
+      "branch": "Grand Hyatt",
+      "area": "Santacruz East",
+      "address": "Off Western Express Highway, Santacruz East, Mumbai 400055",
+      "lat": 19.077533,
+      "lon": 72.851444,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Mumbai%2C+Off+Western+Express+Highway%2C+Santacruz+East%2C+Mumbai+400055",
+      "note": "Vishal Gondal checked in here for coffee, Oct 2012.",
+      "vcs": [
+        {
+          "name": "Vishal Gondal",
+          "fund": "GOQii",
+          "handle": "vishalgondal",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Vishal Gondal",
+            "authorHandle": "vishalgondal",
+            "text": "Coffee!! (Checked in at Grand Hyatt Mumbai) http://t.co/00EVOqnU",
+            "date": "Oct 25, 2012",
+            "url": "https://x.com/vishalgondal/status/261315077934837760"
+          },
+          "avatar": "avatars/vishalgondal.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "greenr-cafe-bandra",
+      "name": "Greenr Cafe",
+      "branch": "Pali Naka",
+      "area": "Bandra West",
+      "address": "57/116 Drego House, Pali Naka, Dr Ambedkar Road, Bandra West, Mumbai 400050",
+      "lat": 19.063642,
+      "lon": 72.829388,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Greenr+Cafe%2C+57%2F116+Drego+House%2C+Pali+Naka%2C+Dr+Ambedkar+Road%2C+Bandra+West%2C+Mumbai+400050",
+      "note": "Rebalance's Aishwarya Malhi hosted a coffee chat on angel investing here, Sep 2024.",
+      "vcs": [
+        {
+          "name": "Aishwarya Malhi",
+          "fund": "Rebalance",
+          "handle": null,
+          "crowd": "angel",
+          "proof": {
+            "kind": "other",
+            "author": "Luma",
+            "authorHandle": null,
+            "text": "Coffee Meet-up (Mumbai): A Chat on Angel Investing with Aishwarya Malhi (For Women) ... It's a chill sit-down chat, where you can ask anything about angel investing or learn about the Indian startup ecosystem.",
+            "date": "Sep 21, 2024",
+            "url": "https://luma.com/dioveeyk"
+          }
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "blue-tokai-khar",
+      "name": "Blue Tokai Coffee Roasters",
+      "branch": "4th Road",
+      "area": "Khar West",
+      "address": "Ground Floor, Hotel Regal Enclave, Ram Krishna Nagar, 4th Road, near Khar Market, Khar West, Mumbai 400052",
+      "lat": 19.071562,
+      "lon": 72.839313,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Blue+Tokai+Coffee+Roasters%2C+Ground+Floor%2C+Hotel+Regal+Enclave%2C+Ram+Krishna+Nagar%2C+4th+Road%2C+near+Khar+Market%2C+Khar+West%2C+Mumbai+400052",
+      "note": "Sketchnote ran a startup mixer here billed for meeting founders and investors, May 2023.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "SketchnoteCo",
+          "authorHandle": "SketchnoteCo",
+          "text": "📅 A perfect plan for your Friday in Mumbai!\n\nJoin Sketchnote for a startup mixer at Blue Tokai, Khar, from 5 PM onwards. Rub shoulders with founders and investors, and pitch your startup!\n\nFirst 10 guests, your first cup of coffee is on us!\n\nRegister now: https://t.co/5vHQJ6x2oE https://t.co/WfvQgnwxKG",
+          "date": "May 3, 2023",
+          "url": "https://x.com/SketchnoteCo/status/1653738693319065601"
+        },
+        {
+          "kind": "tweet",
+          "author": "SketchnoteCo",
+          "authorHandle": "SketchnoteCo",
+          "text": "Just kicking things off at the Sketchnote Startup Mixer!\n\nAround in Mumbai? Come over to Blue Tokai, Khar and rub shoulder with startuppers, VCs and more! https://t.co/iYsWxkYvi4",
+          "date": "May 5, 2023",
+          "url": "https://x.com/SketchnoteCo/status/1654456059048906758"
+        }
+      ]
+    },
+    {
+      "slug": "soho-house-juhu",
+      "name": "Soho House Mumbai",
+      "branch": "Juhu Tara Road",
+      "area": "Juhu",
+      "address": "16 Juhu Tara Road, Santacruz West, Mumbai 400049",
+      "lat": 19.0915,
+      "lon": 72.8258,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Soho+House+Mumbai%2C+16+Juhu+Tara+Road%2C+Santacruz+West%2C+Mumbai+400049",
+      "note": "Asked if Bombay VCs come here, one user said he was there with \"the Seq India guys\", 2020.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "anmol maini",
+          "authorHandle": "anmolm_",
+          "text": "@AO619 @shuvi Do Bombay VCs hang out at Soho House? cc: @Akjain7353",
+          "date": "May 8, 2020",
+          "url": "https://x.com/anmolm_/status/1258864122738819072"
+        },
+        {
+          "kind": "tweet",
+          "author": "ao619",
+          "authorHandle": "AO619",
+          "text": "@anmolm_ @shuvi @Akjain7353 When I went, was there with the Seq India guys :)",
+          "date": "May 8, 2020",
+          "url": "https://x.com/AO619/status/1258864588151382017"
+        }
+      ]
+    }
+  ]
 }
