@@ -11,8 +11,8 @@
   --color-focus: #3f63e6;
   --color-ok: #12936f;
 
-  --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  --font-sans: 'Satoshi', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Satoshi', system-ui, sans-serif;
 
   --shadow-pin: 0 1px 1px rgb(23 21 17 / 0.06), 0 4px 14px -4px rgb(23 21 17 / 0.3);
   --shadow-sheet: 0 30px 80px -20px rgb(23 21 17 / 0.45);
