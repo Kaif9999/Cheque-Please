@@ -4,6 +4,7 @@ import { handlesText } from '@/domain/people';
 import type { Cafe, CityId, ZoneId } from '@/domain/types';
 import { zoneOf } from '@/domain/zones';
 import { $ } from '@/lib/dom';
+import { html, mount } from '@/lib/html';
 import { icon } from '@/lib/icons';
 import { createMap } from '@/map';
 import { renderDetail } from '@/ui/views/detail';
@@ -46,7 +47,7 @@ function render(): void {
   for (const opt of document.querySelectorAll<HTMLAnchorElement>('.seg-opt')) {
     opt.setAttribute('aria-current', String(opt.dataset.city === c.id));
   }
-  panel.innerHTML = cafe ? renderDetail(c, cafe) : renderList(c, state.filter);
+  mount(panel, cafe ? renderDetail(c, cafe) : renderList(c, state.filter));
   panel.scrollTop = cafe ? 0 : listScroll;
 }
 
@@ -60,7 +61,7 @@ function go(slug: string | null): void {
 function readHash(): void {
   const [cityId, slug] = location.hash.replace(/^#\/?/, '').split('/');
   const nextCity = CITY_ORDER.includes(cityId as CityId) ? (cityId as CityId) : state.city;
-  const cityChanged = nextCity !== state.city || !panel.innerHTML;
+  const cityChanged = nextCity !== state.city || !panel.hasChildNodes();
   if (!state.selected) listScroll = panel.scrollTop;
   if (cityChanged) {
     state.city = nextCity;
@@ -79,11 +80,11 @@ function readHash(): void {
 
 /** Briefly swaps a button's label for a confirmation, then puts it back. */
 function confirm(button: HTMLElement, text: string): void {
-  const before = button.innerHTML;
-  button.innerHTML = `${icon('check')}<span>${text}</span>`;
+  const before = [...button.childNodes];
+  mount(button, html`${icon('check')}<span>${text}</span>`);
   button.classList.add('is-done');
   window.setTimeout(() => {
-    button.innerHTML = before;
+    button.replaceChildren(...before);
     button.classList.remove('is-done');
   }, 1600);
 }
@@ -108,7 +109,7 @@ async function share(button: HTMLElement): Promise<void> {
 }
 
 function openFollow(cafes: Cafe[], title: string): void {
-  follow.innerHTML = renderFollow(title, cafes, city().name);
+  mount(follow, renderFollow(title, cafes, city().name));
   follow.dataset.slugs = cafes.map((c) => c.slug).join(' ');
   follow.showModal();
 }

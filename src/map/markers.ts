@@ -1,7 +1,7 @@
 import { investorsAt, photosFirst } from '@/domain/people';
 import type { Cafe } from '@/domain/types';
 import { ZONES, zoneOf } from '@/domain/zones';
-import { esc } from '@/lib/dom';
+import { html, mount } from '@/lib/html';
 import { avatarStack } from '@/ui/components/avatar';
 import { logo } from '@/ui/components/logo';
 
@@ -35,11 +35,14 @@ export function pinElement(cafe: Cafe): HTMLButtonElement {
   el.dataset.slug = cafe.slug;
   el.style.setProperty('--zone', ZONES[zoneOf(cafe)].color);
   const people = photosFirst(investorsAt([cafe]));
-  el.innerHTML = `<span class="${BODY} group-[.is-selected]:scale-[1.08] group-[.is-selected]:bg-ink group-[.is-selected]:text-white">
+  mount(
+    el,
+    html`<span class="${BODY} group-[.is-selected]:scale-[1.08] group-[.is-selected]:bg-ink group-[.is-selected]:text-white">
     ${logo(cafe, `${LOGO} ring-2 ring-(--zone)`)}
-    <span class="${NAME}">${esc(cafe.name)}</span>
-    ${people.length ? avatarStack(people, 2, '-ml-1.5 first:ml-px size-[22px] rounded-full text-[8.5px] ring-2 ring-white group-[.is-selected]:ring-ink') : ''}
-  </span>`;
+    <span class="${NAME}">${cafe.name}</span>
+    ${people.length > 0 && avatarStack(people, 2, '-ml-1.5 first:ml-px size-[22px] rounded-full text-[8.5px] ring-2 ring-white group-[.is-selected]:ring-ink')}
+  </span>`,
+  );
   return el;
 }
 
@@ -53,11 +56,14 @@ export function fillCluster(el: HTMLElement, cafes: Cafe[]): void {
   const area = mostCommon(cafes.map((c) => c.area));
   el.dataset.slugs = cafes.map((c) => c.slug).join(' ');
   el.setAttribute('aria-label', `${cafes.length} cafés in ${area}. Zoom in.`);
-  el.innerHTML = `<span class="${BODY} group-[.is-selected]:shadow-[0_0_0_2px_var(--color-ink),var(--shadow-pin)]">
-    <span class="flex">${withLogos.map((c) => logo(c, `${LOGO} -ml-2.5 first:ml-0 shadow-[0_0_0_2px_white,inset_0_0_0_1px_var(--color-line)]`)).join('')}</span>
-    <span class="${NAME}">${esc(area)}</span>
+  mount(
+    el,
+    html`<span class="${BODY} group-[.is-selected]:shadow-[0_0_0_2px_var(--color-ink),var(--shadow-pin)]">
+    <span class="flex">${withLogos.map((c) => logo(c, `${LOGO} -ml-2.5 first:ml-0 shadow-[0_0_0_2px_white,inset_0_0_0_1px_var(--color-line)]`))}</span>
+    <span class="${NAME}">${area}</span>
     <span class="-mr-1.5 grid h-[22px] min-w-[22px] place-items-center rounded-full bg-ink px-1.5 text-xs font-[650] text-white tabular-nums">${cafes.length}</span>
-  </span>`;
+  </span>`,
+  );
 }
 
 /** Selected and hovered state; a cluster lights up when it holds the café in question. */

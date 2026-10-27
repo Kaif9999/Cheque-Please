@@ -1,3 +1,5 @@
+import { html, raw, type Html } from './html';
+
 const PATHS = {
   x: '<path fill="currentColor" stroke="none" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77zm-1.08 16.18h1.7L7.4 4.72H5.57z"/>',
   arrow: '<path d="M7 17 17 7M8.5 7H17v8.5"/>',
@@ -11,6 +13,6 @@ const PATHS = {
 
 export type IconName = keyof typeof PATHS;
 
-export function icon(name: IconName, size = 16): string {
-  return `<svg class="flex-none" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PATHS[name]}</svg>`;
+export function icon(name: IconName, size = 16): Html {
+  return html`<svg class="flex-none" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${raw(PATHS[name])}</svg>`;
 }

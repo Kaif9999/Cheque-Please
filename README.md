@@ -22,17 +22,21 @@ npm run preview    # serve dist/ on http://127.0.0.1:4190
 src/
   domain/      types and pure logic: zones, areas, geometry, people. No DOM, no map.
   data/        the city JSON files and city definitions
-  lib/         small helpers: DOM, icons, links, text
+  lib/         small helpers: html templates, DOM, icons, links, text
   map/         MapLibre: basemap style, pins and clusters, neighbourhood zones
   ui/
     components/  avatar, logo, button, post, zone marks
     views/       the city list, the café page, the follow dialog
   main.ts      wires state, routing, views and the map together
-tests/         mirrors src/ (domain, data); tools/smoke.mjs covers the browser flows
+tests/         mirrors src/ (domain, data, lib); tools/smoke.mjs covers the browser flows
 ```
 
 Dependencies point one way: `ui` and `map` may use `domain` and `lib`; `domain` uses nothing
 but itself. Imports use the `@/` alias for `src/`.
+
+Markup is built with the `html` tag from `lib/html`, which escapes every interpolated value
+unless it is already `Html`. `raw()` is only for constants such as icon paths, and `mount()`
+is the one place markup is written to the page.
 
 ## Routes
 

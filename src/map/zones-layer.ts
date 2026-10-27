@@ -3,6 +3,7 @@ import type { Feature, Polygon } from 'geojson';
 import { areasOf } from '@/domain/areas';
 import type { Cafe } from '@/domain/types';
 import { ZONES } from '@/domain/zones';
+import { mount } from '@/lib/html';
 import { zonePill } from '@/ui/components/zone';
 
 type AreaShape = Feature<Polygon, { color: string }>;
@@ -65,7 +66,7 @@ export function createZonesLayer(map: MapLibre, isWide: () => boolean) {
       labels = areas.map((a) => {
         const el = document.createElement('div');
         el.className = 'pointer-events-none z-0';
-        el.innerHTML = zonePill(a.zone, a.area);
+        mount(el, zonePill(a.zone, a.area));
         return new Marker({ element: el, anchor: 'center' }).setLngLat(a.top).addTo(map);
       });
     },
