@@ -68,6 +68,7 @@ npm test                          # schema, bounds and zone-rule checks
 node tools/verify-receipts.mjs    # re-fetches every tweet and article and checks the quotes still match
 node tools/fetch-avatars.mjs      # pulls X profile photos for investors whose receipt is their own tweet
 node tools/smoke.mjs              # drives the main flows in Chrome against the preview server
+node tools/discover.mjs --city bengaluru   # searches X and Reddit through Treg for posts that put investors at cafés
 node tools/shot.mjs --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png
 ```
 
@@ -77,6 +78,14 @@ Bricolage Grotesque (Google Fonts) for headings, Satoshi (Fontshare) for everyth
 shadows) live in the `@theme` block of `src/styles.css`; everything else
 is Tailwind utilities in the markup. Shared class strings are in `src/ui/classes.ts`. Café logos
 are in `public/logos/`, investor photos in `public/avatars/`.
+
+## Finding new cafés
+
+`tools/discover.mjs` searches X and Reddit through [Treg](https://treg.to), a pay-per-call gateway to
+data providers (about $0.04 per city run). It needs `TREG_TOKEN`, plus `TREG_ORG` for a personal
+sign-in token, in the environment or in a git-ignored `.env.local`. It writes candidates to
+`research/candidates-<city>.json`; each one is checked against its source by hand before it goes on
+the map.
 
 ## Config
 

@@ -4,3 +4,4 @@ shots/
 *.log
 
 .env.local
+research/
