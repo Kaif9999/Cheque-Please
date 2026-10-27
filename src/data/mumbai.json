@@ -364,6 +364,254 @@
           "url": "https://x.com/AO619/status/1258864588151382017"
         }
       ]
+    },
+    {
+      "slug": "trident-nariman-point",
+      "name": "Trident",
+      "branch": "Nariman Point",
+      "area": "Nariman Point",
+      "address": "Nariman Point, Mumbai 400021",
+      "lat": 18.927838,
+      "lon": 72.821126,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Trident%2C+Nariman+Point%2C+Mumbai+400021",
+      "note": "Angel Anupam Mittal had a breakfast meeting at the Trident, Feb 2010.",
+      "vcs": [
+        {
+          "name": "Anupam Mittal",
+          "fund": "Angel investor",
+          "handle": "AnupamMittal",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Anupam Mittal",
+            "authorHandle": "AnupamMittal",
+            "text": "Breakfast meeting at trident after a long time - jst realized hardly been there since blasts - shd make effort to go more often #fb",
+            "date": "Feb 25, 2010",
+            "url": "https://x.com/AnupamMittal/status/9607016427"
+          },
+          "avatar": "avatars/anupammittal.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "starbucks-horniman-circle",
+      "name": "Starbucks",
+      "logo": "logos/starbucks.png",
+      "branch": "Horniman Circle",
+      "area": "Kala Ghoda",
+      "address": "Ground Floor, Elphinstone Building, 10 Veer Nariman Road, Horniman Circle, Fort, Mumbai 400023",
+      "lat": 18.932271,
+      "lon": 72.833932,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+Ground+Floor%2C+Elphinstone+Building%2C+10+Veer+Nariman+Road%2C+Horniman+Circle%2C+Fort%2C+Mumbai+400023",
+      "note": "Lightbox co-founder Sid Talwar checked in at the Fort Starbucks, Jun 2013, before Lightbox launched.",
+      "vcs": [
+        {
+          "name": "Sid Talwar",
+          "fund": "Lightbox Ventures",
+          "handle": "sidtalwar",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Sid Talwar",
+            "authorHandle": "sidtalwar",
+            "text": "Shocked at how awesome this @starbucks is at fort! (@ Starbucks Coffee: A Tata Alliance) http://t.co/TM43tsAnOe",
+            "date": "Jun 15, 2013",
+            "url": "https://x.com/sidtalwar/status/345842732230643713"
+          },
+          "avatar": "avatars/sidtalwar.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "aromas-cafe-powai",
+      "name": "Aromas Café",
+      "branch": "Hiranandani Gardens",
+      "area": "Powai",
+      "address": "G6, Ventura Building, Central Avenue, opposite DMart, Hiranandani Gardens, Powai, Mumbai 400076",
+      "lat": 19.116857,
+      "lon": 72.909814,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Aromas+Caf%C3%A9%2C+G6%2C+Ventura+Building%2C+Central+Avenue%2C+opposite+DMart%2C+Hiranandani+Gardens%2C+Powai%2C+Mumbai+400076",
+      "note": "ET reported angel Zishaan Hayath closed deals, including Ola, sitting here, Jun 2015.",
+      "vcs": [
+        {
+          "name": "Zishaan Hayath",
+          "fund": "Powai Lake Ventures",
+          "handle": "Zishaan",
+          "crowd": "angel",
+          "proof": {
+            "kind": "other",
+            "author": "ETRetail",
+            "authorHandle": null,
+            "text": "Zishaan Hayath, founder of online test preparation company Toppr, can't agree more. As an angel, backing nearly a dozen startups across the country as part of the Powai Lake Ventures, he has finalised several deals including cab hailing app Ola sitting at the Aromas Cafe in Powai.",
+            "date": "Jun 6, 2015",
+            "url": "https://retail.economictimes.indiatimes.com/news/e-commerce/e-tailing/how-startup-founders-are-sealing-deals-over-cups-of-coffee/47562074"
+          },
+          "avatar": "avatars/zishaan.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "ETRetail",
+          "authorHandle": null,
+          "text": "Bang in the middle of the tony suburb of Hiranandani Gardens, cafes like Aromas or the nearby CCD, Starbucks one can see 4-5 pitch meetings taking place during the peak hours with venture capitalists from Nexus Venture Partners to Matrix and Sequoia Capital.",
+          "date": "Jun 6, 2015",
+          "url": "https://retail.economictimes.indiatimes.com/news/e-commerce/e-tailing/how-startup-founders-are-sealing-deals-over-cups-of-coffee/47562074"
+        }
+      ]
+    },
+    {
+      "slug": "starbucks-hiranandani-powai",
+      "name": "Starbucks",
+      "logo": "logos/starbucks.png",
+      "branch": "Hiranandani Business Park",
+      "area": "Powai",
+      "address": "G2, Prudential Building, Hiranandani Business Park, Central Avenue, Powai, Mumbai 400076",
+      "lat": 19.116215,
+      "lon": 72.909762,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+G2%2C+Prudential+Building%2C+Hiranandani+Business+Park%2C+Central+Avenue%2C+Powai%2C+Mumbai+400076",
+      "note": "Shreek recalled first telling Kushal Bhagia the idea here, Aug 2021; ET reported VC pitches here, 2015.",
+      "vcs": [
+        {
+          "name": "Kushal Bhagia",
+          "fund": "All In Capital",
+          "handle": "kushalbhagia",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "Shreek",
+            "authorHandle": "FreakShreek",
+            "text": "@kushalbhagia Thank you so much for being the sounding board and guardian angel from the very beginning, still remember our meeting at Starbucks Powai when I first told you about the idea. You are fab. Kushal! https://t.co/jviCkwSc6z",
+            "date": "Aug 12, 2021",
+            "url": "https://x.com/FreakShreek/status/1425668475968757766"
+          },
+          "avatar": "avatars/kushalbhagia.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "ETRetail",
+          "authorHandle": null,
+          "text": "Bang in the middle of the tony suburb of Hiranandani Gardens, cafes like Aromas or the nearby CCD, Starbucks one can see 4-5 pitch meetings taking place during the peak hours with venture capitalists from Nexus Venture Partners to Matrix and Sequoia Capital.",
+          "date": "Jun 6, 2015",
+          "url": "https://retail.economictimes.indiatimes.com/news/e-commerce/e-tailing/how-startup-founders-are-sealing-deals-over-cups-of-coffee/47562074"
+        },
+        {
+          "kind": "tweet",
+          "author": "Pankaj",
+          "authorHandle": "pankajcgupta",
+          "text": "\"Kal ka Kya Plan hai?\"\n\"Meeting an Investor\"\n\"Kahaa\"\n\"Starbucks Powai\"\n\"Tu wahi padaa reh\"\n\n#seemslegit @powaiinfo",
+          "date": "Oct 10, 2015",
+          "url": "https://x.com/pankajcgupta/status/652759923386744832"
+        }
+      ]
+    },
+    {
+      "slug": "starbucks-the-capital-bkc",
+      "name": "Starbucks",
+      "logo": "logos/starbucks.png",
+      "branch": "The Capital",
+      "area": "BKC",
+      "address": "Ground Floor, The Capital, G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051",
+      "lat": 19.0633,
+      "lon": 72.861951,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Starbucks%2C+Ground+Floor%2C+The+Capital%2C+G+Block%2C+Bandra+Kurla+Complex%2C+Bandra+East%2C+Mumbai+400051",
+      "note": "A Reddit user said they used to pitch investors here and use it as an office, Sep 2026.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Friendly_Unit_3565",
+          "authorHandle": null,
+          "text": "Starbucks Hiranandani Powai. Starbucks The Capital BKC.\n\nThese were the 2 places that I used to pitch to investors and use as a makeshift office.",
+          "date": "Sep 6, 2026",
+          "url": "https://www.reddit.com/r/mumbai/comments/1w8x7w0/where_do_i_find_investors_or_founders_having/p86pw4p/"
+        }
+      ]
+    },
+    {
+      "slug": "taj-mahal-palace-colaba",
+      "name": "The Taj Mahal Palace",
+      "branch": "Apollo Bunder",
+      "area": "Colaba",
+      "address": "Apollo Bunder, Colaba, Mumbai 400001",
+      "lat": 18.921778,
+      "lon": 72.833285,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace%2C+Apollo+Bunder%2C+Colaba%2C+Mumbai+400001",
+      "note": "Vishal Gondal checked in and called it his new breakfast joint, Jun 2013.",
+      "vcs": [
+        {
+          "name": "Vishal Gondal",
+          "fund": "GOQii",
+          "handle": "vishalgondal",
+          "crowd": "angel",
+          "avatar": "avatars/vishalgondal.jpg",
+          "proof": {
+            "kind": "own",
+            "author": "Vishal Gondal",
+            "authorHandle": "vishalgondal",
+            "text": "My new breakfast joint  (Checked in at The Taj Mahal Hotel) http://t.co/dzb0TujdUe",
+            "date": "Jun 17, 2013",
+            "url": "https://x.com/vishalgondal/status/346476540139294720"
+          }
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "sun-n-sand-juhu",
+      "name": "Sun-n-Sand",
+      "branch": "Juhu Beach",
+      "area": "Juhu",
+      "address": "39 Juhu Beach, Juhu, Mumbai 400049",
+      "lat": 19.109399,
+      "lon": 72.824154,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Sun-n-Sand%2C+39+Juhu+Beach%2C+Juhu%2C+Mumbai+400049",
+      "note": "Vishal Gondal checked in here for breakfast with a friend, Mar 2012.",
+      "vcs": [
+        {
+          "name": "Vishal Gondal",
+          "fund": "GOQii",
+          "handle": "vishalgondal",
+          "crowd": "angel",
+          "avatar": "avatars/vishalgondal.jpg",
+          "proof": {
+            "kind": "own",
+            "author": "Vishal Gondal",
+            "authorHandle": "vishalgondal",
+            "text": "Breakfast with a dear friend (Checked in at Sun and Sand Hotel Mumbai Juhu Beach) http://t.co/hlSQUm3P",
+            "date": "Mar 25, 2012",
+            "url": "https://x.com/vishalgondal/status/183738737753210881"
+          }
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "third-wave-oberoi-mall",
+      "name": "Third Wave Coffee",
+      "logo": "logos/thirdwave.png",
+      "branch": "Oberoi Mall",
+      "area": "Goregaon East",
+      "address": "3rd Floor, Oberoi Mall, Western Express Highway, Goregaon East, Mumbai 400063",
+      "lat": 19.173839,
+      "lon": 72.860578,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Third+Wave+Coffee%2C+3rd+Floor%2C+Oberoi+Mall%2C+Western+Express+Highway%2C+Goregaon+East%2C+Mumbai+400063",
+      "note": "A founder community held its first meetup here, for founders and builders, Sep 2026.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Offline",
+          "authorHandle": "beofflinee",
+          "text": "Been meeting incredible people online for years.\n\nThought it’s time we met offline.\n\nOffline Meetup #1 ☕🚀\n\n📅 13 September 2026 (Sunday)\n🕒 3:00 PM – 6:00 PM\n📍 Third Wave Coffee, 3rd Floor, Oberoi Mall, Goregaon East, Mumbai\n\nA casual meetup for:\n\n• Founders\n• Creators\n• https://t.co/lGIj0z2ArZ",
+          "date": "Sep 2, 2026",
+          "url": "https://x.com/beofflinee/status/2095006864362864927"
+        }
+      ]
     }
   ]
 }
