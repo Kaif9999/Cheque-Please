@@ -8,7 +8,8 @@ Pick a city and the map shows the cafés where investors have been seen taking m
 café to see who was there and the tweet or article that puts them there, word for word, with a
 link to the original. Nothing is inferred or invented: no post, no pin.
 
-Cities: **Bengaluru** and **Mumbai**. Idea from [meetvc.cafe](https://meetvc.cafe).
+Cities: **Bengaluru**, **Mumbai**, **San Francisco** (with Palo Alto and Menlo Park) and
+**New York**. Idea from [meetvc.cafe](https://meetvc.cafe).
 
 ## Features
 
