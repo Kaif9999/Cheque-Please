@@ -65,6 +65,41 @@ await check('opens on the cover for the city', async () => {
   expect((await mode()) === 'intro', `mode ${await mode()}`);
 });
 
+/** Labels of the pins and clusters inside the viewport. */
+const onScreen = (target = page) =>
+  target.evaluate(() =>
+    [...document.querySelectorAll('.maplibregl-marker[aria-label]')]
+      .filter((m) => {
+        const r = m.getBoundingClientRect();
+        return r.right > 0 && r.left < innerWidth && r.bottom > 0 && r.top < innerHeight;
+      })
+      .map((m) => m.getAttribute('aria-label'))
+      .join(' | '),
+  );
+const MUMBAI = /Bandra|Lower Parel|Kala Ghoda|Khar|Chowpatty|Pantry/;
+
+await check('switching city on the cover moves the map too', async () => {
+  await page.locator('.seg-opt[data-city="mumbai"]').click();
+  await page.waitForTimeout(1800);
+  expect(MUMBAI.test(await onScreen()), `no Mumbai pins on screen: ${await onScreen()}`);
+  await page.locator('.seg-opt[data-city="bengaluru"]').click();
+  await page.waitForTimeout(1800);
+  expect(!MUMBAI.test(await onScreen()), 'still on Mumbai');
+});
+
+await check('a short screen still moves the map when the city changes', async () => {
+  // The cover is taller than this map, which once stopped the camera from moving at all.
+  const short = await browser.newPage({ viewport: { width: 844, height: 390 } });
+  await short.goto(`${base}#/bengaluru`, { waitUntil: 'load' });
+  await short.waitForSelector('.maplibregl-marker', { timeout: 15000 });
+  await short.waitForTimeout(1200);
+  await short.locator('.seg-opt[data-city="mumbai"]').click();
+  await short.waitForTimeout(1800);
+  const seen = await onScreen(short);
+  await short.close();
+  expect(MUMBAI.test(seen), `no Mumbai pins on screen: ${seen}`);
+});
+
 await check('explore clears the cover and shows the legend', async () => {
   await page.locator('[data-explore]').click();
   await page.waitForTimeout(600);

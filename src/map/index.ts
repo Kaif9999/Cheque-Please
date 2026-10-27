@@ -25,6 +25,8 @@ type CafePoint = Feature<Point, { slug: string }>;
 const CLUSTER_MAX_ZOOM = 16;
 /** Cafés closer than this to a neighbour stay clustered until CLUSTER_MAX_ZOOM. */
 const CROWDED_METRES = 250;
+/** The least map, in pixels each way, a camera move keeps clear of the padding. */
+const MIN_ROOM = 120;
 
 export interface CafeMap {
   /** Swap the pins; fits the camera to them unless `fit` is false. */
@@ -101,6 +103,20 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     if ((e as { sourceId?: string }).sourceId === 'omt' && ++tileErrors === 4) hooks.tilesFailing();
   });
 
+  /**
+   * The padding, shrunk where it would leave less than MIN_ROOM to frame into. On short screens the
+   * cover alone can be taller than the map, and MapLibre then refuses to move the camera at all.
+   */
+  function room(): PaddingOptions {
+    const squeeze = (a: number, b: number, size: number): [number, number] => {
+      const spare = Math.max(size - MIN_ROOM, 0);
+      return a + b <= spare ? [a, b] : [(a * spare) / (a + b), (b * spare) / (a + b)];
+    };
+    const [top, bottom] = squeeze(padding.top ?? 0, padding.bottom ?? 0, container.clientHeight);
+    const [left, right] = squeeze(padding.left ?? 0, padding.right ?? 0, container.clientWidth);
+    return { top, bottom, left, right };
+  }
+
   const source = () => map.getSource('cafes') as GeoJSONSource;
   const repaint = () => {
     for (const m of onScreen.values()) paintMarker(m.getElement(), selected, hovered);
@@ -132,7 +148,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
       e.stopPropagation();
       hooks.userMove();
       const zoom = await source().getClusterExpansionZoom(id);
-      map.easeTo({ center: coords, zoom: Math.min(zoom + 0.6, 18), padding, duration: 650 });
+      map.easeTo({ center: coords, zoom: Math.min(zoom + 0.6, 18), padding: room(), duration: 650 });
     });
     return el;
   }
@@ -170,12 +186,12 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     const duration = framed ? 900 : 0;
     framed = true;
     if (list.length === 1) {
-      map.easeTo({ center: [only.lon, only.lat], zoom: 15, padding, duration });
+      map.easeTo({ center: [only.lon, only.lat], zoom: 15, padding: room(), duration });
       return;
     }
     const bounds = new LngLatBounds();
     for (const c of list) bounds.extend([c.lon, c.lat]);
-    map.fitBounds(bounds, { padding, maxZoom: 15, duration });
+    map.fitBounds(bounds, { padding: room(), maxZoom: 15, duration });
   }
 
   return {
@@ -208,7 +224,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     focus(cafe) {
       const crowded = cafes.some((c) => c !== cafe && distance([c.lon, c.lat], [cafe.lon, cafe.lat]) < CROWDED_METRES);
       const zoom = Math.max(map.getZoom(), crowded ? CLUSTER_MAX_ZOOM + 1 : 15.5);
-      map.easeTo({ center: [cafe.lon, cafe.lat], zoom, padding, duration: 800 });
+      map.easeTo({ center: [cafe.lon, cafe.lat], zoom, padding: room(), duration: 800 });
     },
     fit() {
       ready.then(() => fitTo(cafes));
