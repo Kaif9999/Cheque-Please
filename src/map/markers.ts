@@ -11,8 +11,9 @@ import { logo } from '@/ui/components/logo';
  */
 const BUTTON =
   'group z-[1] cursor-pointer border-0 bg-transparent p-0 text-ink hover:z-[3] [&.is-hover]:z-[3] [&.is-selected]:z-[4] max-lg:[zoom:0.88]';
+/** Raised like the buttons: it lifts under the pointer and sinks when pressed. */
 const BODY =
-  'flex h-9 items-center gap-[7px] whitespace-nowrap rounded-full bg-white py-[3px] pl-[3px] pr-[11px] shadow-pin transition duration-200 ease-soft group-hover:scale-[1.06] group-[.is-hover]:scale-[1.06]';
+  'flex h-9 items-center gap-[7px] whitespace-nowrap rounded-full bg-white bg-linear-to-b from-white to-[#f3f0e9] py-[3px] pl-[3px] pr-[11px] shadow-raised transition duration-200 ease-soft group-hover:-translate-y-0.5 group-hover:scale-[1.04] group-hover:shadow-raised-hover group-active:translate-y-0 group-active:shadow-pressed group-[.is-hover]:-translate-y-0.5 group-[.is-hover]:scale-[1.04] group-[.is-hover]:shadow-raised-hover';
 const LOGO = 'size-[30px] rounded-full text-base';
 const NAME = 'text-[13px] font-semibold tracking-[-0.005em]';
 
@@ -37,7 +38,7 @@ export function pinElement(cafe: Cafe): HTMLButtonElement {
   const people = photosFirst(investorsAt([cafe]));
   mount(
     el,
-    html`<span class="${BODY} group-[.is-selected]:scale-[1.08] group-[.is-selected]:bg-ink group-[.is-selected]:text-white">
+    html`<span class="${BODY} group-[.is-selected]:scale-[1.08] group-[.is-selected]:bg-ink group-[.is-selected]:from-[#3d3931] group-[.is-selected]:to-ink group-[.is-selected]:text-white group-[.is-selected]:shadow-raised-ink">
     ${logo(cafe, `${LOGO} ring-2 ring-(--zone)`)}
     <span class="${NAME}">${cafe.name}</span>
     ${people.length > 0 && avatarStack(people, 2, '-ml-1.5 first:ml-px size-[22px] rounded-full text-[8.5px] ring-2 ring-white group-[.is-selected]:ring-ink')}
@@ -58,10 +59,10 @@ export function fillCluster(el: HTMLElement, cafes: Cafe[]): void {
   el.setAttribute('aria-label', `${cafes.length} cafés in ${area}. Zoom in.`);
   mount(
     el,
-    html`<span class="${BODY} group-[.is-selected]:shadow-[0_0_0_2px_var(--color-ink),var(--shadow-pin)]">
+    html`<span class="${BODY} group-[.is-selected]:shadow-[0_0_0_2px_var(--color-ink),var(--shadow-raised)]">
     <span class="flex">${withLogos.map((c) => logo(c, `${LOGO} -ml-2.5 first:ml-0 shadow-[0_0_0_2px_white,inset_0_0_0_1px_var(--color-line)]`))}</span>
     <span class="${NAME}">${area}</span>
-    <span class="-mr-1.5 grid h-[22px] min-w-[22px] place-items-center rounded-full bg-ink px-1.5 text-xs font-[650] text-white tabular-nums">${cafes.length}</span>
+    <span class="-mr-1.5 grid h-[22px] min-w-[22px] place-items-center rounded-full bg-ink bg-linear-to-b from-[#3d3931] to-ink px-1.5 text-xs font-[650] text-white tabular-nums shadow-[inset_0_1px_0_rgb(255_255_255/0.18),0_1px_0_#0c0b09]">${cafes.length}</span>
   </span>`,
   );
 }
