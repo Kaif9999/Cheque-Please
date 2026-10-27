@@ -16,6 +16,7 @@ export const CITIES: Record<CityId, City> = {
       Koramangala: 'In 2018 a Lightspeed partner said Third Wave here reminded him of University Ave, Palo Alto.',
       'HSR Layout': 'An angel counted about five VCs at one Third Wave in 45 minutes.',
       'Shanti Nagar': 'Three days of free founder office hours at Ajji House, Nov 2025.',
+      'Shanthala Nagar': "Peak XV's GV Ravishankar refuelled with dosa and filter coffee at Airlines Hotel, Sep 2026.",
     },
     cafes: bengaluru.cafes as Cafe[],
   },

@@ -44,6 +44,14 @@
           "text": "Back at Bengaluru's \"People's Choice for Startup Hub\" \n\nStartups brainstorming their V1, Marketing Plans Post Diwali and Pitch session all happening at once\n\nCourtesy - Third Wave Coffee, HSR\n\n#Startups #Bengaluru",
           "date": "Oct 29, 2025",
           "url": "https://x.com/0to1foundr/status/1983498477419024385"
+        },
+        {
+          "kind": "tweet",
+          "author": "Rajesh Sawhney 🇮🇳",
+          "authorHandle": "rajeshsawhney",
+          "text": "Cafe Venetia at University Avenue felt like @thirdwaveindia at HSR layout, Bangalore with so many Indian founders and VCs bumping into each other, some planned and some serendipitous. \n\nLovely catch up with @ishan_gupta @kirthigareddy @manthan_3 and Ashish Gupta of Helion fame. https://t.co/MtFKZdlM3X",
+          "date": "Jun 8, 2023",
+          "url": "https://x.com/rajeshsawhney/status/1666693046107512834"
         }
       ]
     },
@@ -302,6 +310,30 @@
           "text": "blr founders don’t network anymore  \nthey just keep accidentally meeting each other at Araku👀",
           "date": "May 17, 2026",
           "url": "https://x.com/vanshikajainx/status/2055991627563569544"
+        },
+        {
+          "kind": "tweet",
+          "author": "Himanshu Goel",
+          "authorHandle": "Himanshugoelyt",
+          "text": "araku, where founders and vc gossip about startups",
+          "date": "Jun 16, 2026",
+          "url": "https://x.com/Himanshugoelyt/status/2066747555913109720"
+        },
+        {
+          "kind": "tweet",
+          "author": "Vatsal Sanghvi",
+          "authorHandle": "vatsal_sanghvi",
+          "text": "starbucks is freelancers, agency and business people \n\nthird wave is builders, kitti party groups and families\n\nbeanlore is builders \n\naraku is VCs, funded founders and generational wealth \n\nblue tokai is startup employees and wanna be founders",
+          "date": "Apr 5, 2026",
+          "url": "https://x.com/vatsal_sanghvi/status/2040758687887991170"
+        },
+        {
+          "kind": "tweet",
+          "author": "AML",
+          "authorHandle": "alysha_lobo",
+          "text": "Forget #VC meetings at Araku, TWC et al!\n\nLunchtime #deeptech and #robotics investment convos over ghee podi idli is underrated! https://t.co/NvSNpDaZmR",
+          "date": "Mar 11, 2025",
+          "url": "https://x.com/alysha_lobo/status/1899404471903666364"
         }
       ]
     },
@@ -361,6 +393,21 @@
             "url": "https://x.com/gshewakr/status/2024053894331179455"
           },
           "avatar": "avatars/gshewakr.jpg"
+        },
+        {
+          "name": "Alysha Lobo",
+          "fund": "Angel investor",
+          "handle": "alysha_lobo",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "AML",
+            "authorHandle": "alysha_lobo",
+            "text": "Got booked for two meetings on a Saturday morning at the same place, but three hours apart 🤦🏻‍♀️\n\nGuess I live here now 😅\n\n📍: The Craftery by Subko https://t.co/HijpvUu3rv",
+            "date": "Aug 9, 2025",
+            "url": "https://x.com/alysha_lobo/status/1954056916826829125"
+          },
+          "avatar": "avatars/alysha_lobo.jpg"
         }
       ],
       "scene": [
@@ -561,6 +608,156 @@
         }
       ],
       "scene": []
+    },
+    {
+      "slug": "airlines-hotel-shanthala-nagar",
+      "name": "Airlines Hotel",
+      "branch": "Madras Bank Road",
+      "area": "Shanthala Nagar",
+      "address": "4, Madras Bank Road, Shanthala Nagar, Bengaluru 560001",
+      "lat": 12.972888,
+      "lon": 77.59991,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Airlines+Hotel%2C+4%2C+Madras+Bank+Road%2C+Shanthala+Nagar%2C+Bengaluru+560001",
+      "note": "GV Ravishankar (Peak XV) breakfasted here Sep 2026; Dev Khare, Nov 2022; GSF held a breakfast mixer, Aug 2013.",
+      "vcs": [
+        {
+          "name": "GV Ravishankar",
+          "fund": "Peak XV Partners",
+          "handle": "gvravishankar",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "G V Ravi Shankar",
+            "authorHandle": "gvravishankar",
+            "text": "Fun morning! Burn at padel and refill with dosa and filter coffee at Airlines hotel :) @mobhat @srikanthiy @GuptPiy @peakxvpartners https://t.co/kMya0ybhn5",
+            "date": "Sep 4, 2026",
+            "url": "https://x.com/gvravishankar/status/2095745245648695371"
+          },
+          "avatar": "avatars/gvravishankar.jpg"
+        },
+        {
+          "name": "Dev Khare",
+          "fund": "Lightspeed",
+          "handle": "dkhare",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Dev Khare",
+            "authorHandle": "dkhare",
+            "text": "Achievement unlocked ✅\nBreakfast dosa this morning at Airlines, near Cubbon. https://t.co/qItQUBRvBx",
+            "date": "Nov 19, 2022",
+            "url": "https://x.com/dkhare/status/1593911101011288064"
+          },
+          "avatar": "avatars/dkhare.jpg"
+        },
+        {
+          "name": "Rajesh Sawhney",
+          "fund": "GSF Accelerator",
+          "handle": "rajeshsawhney",
+          "crowd": "angel",
+          "avatar": "avatars/rajeshsawhney.jpg",
+          "proof": {
+            "kind": "own",
+            "author": "Rajesh Sawhney 🇮🇳",
+            "authorHandle": "rajeshsawhney",
+            "text": "GSF Breakfast mixer at Airlines Hotel in Bangalore #WhereDoWeGoNow @GSFIndia @sidtalwar http://t.co/qZ8WYf1qNk",
+            "date": "Aug 22, 2013",
+            "url": "https://x.com/rajeshsawhney/status/370385807309152256"
+          }
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Tejas",
+          "authorHandle": "TejasTez",
+          "text": "#peakbengaluru Bengaluru at its best, Seeing investors funding startups on the phone by eating maddur vada, scientists discussing Some projects drinking tea, UN based environmentalists snapping the food. all around the Corner in Airlines Hotel 🥵 #bengaluru #startup https://t.co/kGQR5by51F",
+          "date": "Mar 10, 2023",
+          "url": "https://x.com/TejasTez/status/1634233728682823683"
+        },
+        {
+          "kind": "tweet",
+          "author": "Santosh Panda",
+          "authorHandle": "santoshpanda",
+          "text": "Finally WALKUP goes to 👉Cubbon park, we have been doing this for the last several months.\n\nToday The Indus Valley Report WALKUP. \n\n@BlumeVentures \ndeep discussions on the report, \nIndia 🇮🇳 1,2,3 and \ncredit industry\nEnded with customary benne masala dosa at Airlines Hotel. \n\nThx to @skipiit for leading WALKUP as always. \n\nMet so many amazing folks in person @PrashantPansare @anurag_pagaria, @_sethia @shahdappp @sapankaria15 and more",
+          "date": "Mar 17, 2024",
+          "url": "https://x.com/santoshpanda/status/1769273975929176462"
+        }
+      ]
+    },
+    {
+      "slug": "hustle-hsr",
+      "name": "Cafe Hustle",
+      "branch": "22nd Cross Road, Sector 3",
+      "area": "HSR Layout",
+      "address": "188/A, 22nd Cross Road, Sector 3, HSR Layout, Bengaluru 560102",
+      "lat": 12.909097,
+      "lon": 77.642541,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Cafe+Hustle%2C+188%2FA%2C+22nd+Cross+Road%2C+Sector+3%2C+HSR+Layout%2C+Bengaluru+560102",
+      "note": "GSF's Rajesh Sawhney hosted Stellaris partner Alok Goyal for a founder tête-à-tête here, Nov 2019.",
+      "vcs": [
+        {
+          "name": "Rajesh Sawhney",
+          "fund": "GSF Accelerator",
+          "handle": "rajeshsawhney",
+          "crowd": "angel",
+          "avatar": "avatars/rajeshsawhney.jpg",
+          "proof": {
+            "kind": "own",
+            "author": "Rajesh Sawhney 🇮🇳",
+            "authorHandle": "rajeshsawhney",
+            "text": "tête-à-tête in Bangalore!! \n\nI will host my friend & ace VC @alokgoyal1971 @Stellaris_VP on Monday evening at Hustle, HSR Layout \n\nHe led investments in @Whatfix @Vogo_rentals @Slintel_Inc \n\nOpening 5 seats for founders/investors. Request for invitation https://t.co/9ZnG8sfJ41 https://t.co/TVzvDQAtXf",
+            "date": "Nov 16, 2019",
+            "url": "https://x.com/rajeshsawhney/status/1195696209991585792"
+          }
+        },
+        {
+          "name": "Alok Goyal",
+          "fund": "Stellaris",
+          "handle": "alokgoyal1971",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "Rajesh Sawhney 🇮🇳",
+            "authorHandle": "rajeshsawhney",
+            "text": "tête-à-tête in Bangalore!! \n\nI will host my friend & ace VC @alokgoyal1971 @Stellaris_VP on Monday evening at Hustle, HSR Layout \n\nHe led investments in @Whatfix @Vogo_rentals @Slintel_Inc \n\nOpening 5 seats for founders/investors. Request for invitation https://t.co/9ZnG8sfJ41 https://t.co/TVzvDQAtXf",
+            "date": "Nov 16, 2019",
+            "url": "https://x.com/rajeshsawhney/status/1195696209991585792"
+          },
+          "avatar": "avatars/alokgoyal1971.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "humblebean-indiranagar",
+      "name": "HumbleBean Coffee",
+      "branch": "12th Cross Road, HAL 2nd Stage",
+      "area": "Indiranagar",
+      "address": "3165, 12th Cross Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038",
+      "lat": 12.969133,
+      "lon": 77.635859,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=HumbleBean+Coffee%2C+3165%2C+12th+Cross+Road%2C+HAL+2nd+Stage%2C+Indiranagar%2C+Bengaluru+560038",
+      "note": "Mayur Gole said he met a couple of VCs here, Jan 2025; Abhilasha Purwar offered founder happy hours, Aug 2026.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Mayur Gole",
+          "authorHandle": "MayurGole",
+          "text": "@tssheth Humble bean. Met couple of vc last week there 😂",
+          "date": "Jan 30, 2025",
+          "url": "https://x.com/MayurGole/status/1884805496374260096"
+        },
+        {
+          "kind": "tweet",
+          "author": "Abhilasha Purwar",
+          "authorHandle": "AbhilashaPurwar",
+          "text": "Super stoked to announce I’m a Basecamp Local 🔥for@basecampblr !!\n\nAug 6–12 I’ll be covering Bengaluru’s tech week — sessions, side conversations, the works. Real-time posts + round-ups coming.\n\nHope to run into y'all crazy builders at different events. \n\nAlso, daily happy hours at HumbleBean Cafe at Indiranagar (for timing please DM me your github, linkedin, and slide deck).\n\nThere might be a last minute Chill & ClaudeCode party at @BLRxZo for those who wanna continue post day events into the wee hours of morning with their agents & terminals. (again DM github/ linkedin/ slides for more deets) \n\nInterested sector \n1) General AI workplane - context, memory, open models, SLMs\n2) Physical AI - AI for manufacturing, cars, drones, training, sensor fusion and more\n3) AI + Healthcare - Insurance, claims, prior auth, hospital workflow, wellness, diagnostics - you name it, I wanna hear about it. \n\nYours Sincerely, \nAbi, Ex Founder, new VC, might be back to founding, might continue investing, but all the time building and helping others building 🤘",
+          "date": "Aug 1, 2026",
+          "url": "https://x.com/AbhilashaPurwar/status/2083512506690203662"
+        }
+      ]
     }
   ]
 }
