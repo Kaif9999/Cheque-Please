@@ -1,12 +1,14 @@
 import './styles.css';
-import { CITIES, CITY_ORDER } from './data/cities';
-import type { Cafe, CityId, ZoneId } from './data/types';
-import { zoneOf } from './data/zones';
-import { createMap } from './map';
-import { renderDetail } from './ui/detail';
-import { $, icon } from './ui/dom';
-import { handlesText, renderFollow } from './ui/follow';
-import { renderList } from './ui/list';
+import { CITIES, CITY_ORDER } from '@/data/cities';
+import { handlesText } from '@/domain/people';
+import type { Cafe, CityId, ZoneId } from '@/domain/types';
+import { zoneOf } from '@/domain/zones';
+import { $ } from '@/lib/dom';
+import { icon } from '@/lib/icons';
+import { createMap } from '@/map';
+import { renderDetail } from '@/ui/views/detail';
+import { renderFollow } from '@/ui/views/follow';
+import { renderList } from '@/ui/views/list';
 
 interface State {
   city: CityId;
@@ -31,7 +33,7 @@ const map = createMap($('#map'), city(), {
     for (const row of panel.querySelectorAll<HTMLElement>('[data-slug]')) row.classList.toggle('is-hover', row.dataset.slug === slug);
   },
   tilesFailing: () => ($('#banner').hidden = false),
-});
+}, () => wide.matches);
 
 function padding() {
   return wide.matches ? { top: 72, bottom: 72, left: 72, right: 72 } : { top: 48, bottom: 36, left: 36, right: 36 };

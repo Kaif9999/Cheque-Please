@@ -1,47 +1,25 @@
-import type { Cafe, Investor } from '../data/types';
-import { plural } from '../data/zones';
-import { issueUrl } from '../config';
-import { btn } from './classes';
-import { esc, icon } from './dom';
-import { followUrl } from './detail';
-import { face } from './markers';
+import { followable } from '@/domain/people';
+import type { Cafe } from '@/domain/types';
+import { esc } from '@/lib/dom';
+import { icon } from '@/lib/icons';
+import { followUrl, issueUrl } from '@/lib/links';
+import { plural } from '@/lib/text';
+import { avatar } from '../components/avatar';
+import { btn } from '../components/button';
 
-/** Unique investors: followable ones first, then by café count. */
-export function investorsIn(cafes: Cafe[]): (Investor & { cafes: string[] })[] {
-  const byKey = new Map<string, Investor & { cafes: string[] }>();
-  for (const cafe of cafes) {
-    for (const vc of cafe.vcs) {
-      const key = (vc.handle ?? vc.name).toLowerCase();
-      const seen = byKey.get(key);
-      if (seen) {
-        if (!seen.cafes.includes(cafe.name)) seen.cafes.push(cafe.name);
-      } else byKey.set(key, { ...vc, cafes: [cafe.name] });
-    }
-  }
-  return [...byKey.values()].sort(
-    (a, b) => Number(!!b.handle) - Number(!!a.handle) || b.cafes.length - a.cafes.length || a.name.localeCompare(b.name),
-  );
-}
-
-export function handlesText(cafes: Cafe[]): string {
-  return investorsIn(cafes)
-    .filter((p) => p.handle)
-    .map((p) => `@${p.handle}`)
-    .join('\n');
-}
-
+/** Contents of the follow dialog: everyone on X among `cafes`, each with a follow link. */
 export function renderFollow(title: string, cafes: Cafe[], cityName: string): string {
-  const people = investorsIn(cafes).filter((p) => p.handle);
+  const people = followable(cafes);
   const remove = issueUrl({ city: cityName, request: 'Remove me' });
   const rows = people
     .map(
       (p) => `<li class="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-sunk">
-        ${face(p, 'size-11 rounded-full text-sm')}
+        ${avatar(p, 'size-11 rounded-full text-sm')}
         <span class="flex min-w-0 flex-1 flex-col">
           <span class="text-[15.5px] font-semibold leading-[1.3]">${esc(p.name)}</span>
           <span class="truncate text-[13.5px] text-ink-2">${esc([p.fund, `@${p.handle}`].filter(Boolean).join(' · '))}</span>
         </span>
-        <a class="${btn({ small: true })}" href="${followUrl(p.handle!)}" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>
+        <a class="${btn({ small: true })}" href="${followUrl(p.handle)}" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>
       </li>`,
     )
     .join('');

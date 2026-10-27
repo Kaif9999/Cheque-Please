@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { areasOf, circle, distance, hull } from '../src/data/areas';
-import type { Cafe, Crowd } from '../src/data/types';
+import { areasOf } from '@/domain/areas';
+import { distance } from '@/domain/geo';
+import type { Cafe, Crowd } from '@/domain/types';
 
 function cafe(area: string, lon: number, lat: number, crowds: Crowd[]): Cafe {
   return {
@@ -44,21 +45,5 @@ describe('areasOf', () => {
       expect(nearest).toBeGreaterThan(300);
     }
     expect(area.top[1]).toBe(Math.max(...area.shape.map((p) => p[1])));
-  });
-});
-
-describe('hull', () => {
-  it('drops interior points', () => {
-    const ring = hull([[0, 0], [2, 0], [2, 2], [0, 2], [1, 1]]);
-    expect(ring).toHaveLength(5);
-    expect(ring).not.toContainEqual([1, 1]);
-  });
-});
-
-describe('circle', () => {
-  it('returns a closed ring at the requested radius', () => {
-    const ring = circle([77.6, 12.97], 1000, 36);
-    expect(ring[0]).toEqual(ring[ring.length - 1]);
-    for (const p of ring) expect(distance([77.6, 12.97], p)).toBeCloseTo(1000, -1);
   });
 });

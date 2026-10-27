@@ -1,4 +1,4 @@
-import type { Cafe, City, CityId } from './types';
+import type { Cafe, City, CityId } from '@/domain/types';
 import bengaluru from './bengaluru.json';
 import mumbai from './mumbai.json';
 

@@ -16,6 +16,24 @@ npm run build      # tsc --noEmit + vite build -> dist/
 npm run preview    # serve dist/ on http://127.0.0.1:4190
 ```
 
+## Project layout
+
+```
+src/
+  domain/      types and pure logic: zones, areas, geometry, people. No DOM, no map.
+  data/        the city JSON files and city definitions
+  lib/         small helpers: DOM, icons, links, text
+  map/         MapLibre: basemap style, pins and clusters, neighbourhood zones
+  ui/
+    components/  avatar, logo, button, post, zone marks
+    views/       the city list, the café page, the follow dialog
+  main.ts      wires state, routing, views and the map together
+tests/         mirrors src/ (domain, data); tools/smoke.mjs covers the browser flows
+```
+
+Dependencies point one way: `ui` and `map` may use `domain` and `lib`; `domain` uses nothing
+but itself. Imports use the `@/` alias for `src/`.
+
 ## Routes
 
 | Hash | Shows |
@@ -28,7 +46,7 @@ npm run preview    # serve dist/ on http://127.0.0.1:4190
 `src/data/bengaluru.json` and `src/data/mumbai.json`. Each café has `vcs` (named investors, each
 with one `proof`) and `scene` (evidence the café is a startup meeting spot without a named
 investor). An investor's `crowd` (`big`, `first`, `angel`, `cohort`) sets the café's zone; see
-`src/data/zones.ts`.
+`src/domain/zones.ts`.
 
 Rules for adding a café: the post must be public, must name the café, and is quoted verbatim.
 No post, no pin.

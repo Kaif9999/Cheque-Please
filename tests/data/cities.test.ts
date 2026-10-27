@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CITIES } from '../src/data/cities';
+import { CITIES } from '@/data/cities';
 
 const TWEET = /^https:\/\/(x|twitter)\.com\/\w+\/status\/\d+/;
 const CROWDS = ['big', 'first', 'angel', 'cohort'];
