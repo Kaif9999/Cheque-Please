@@ -12,7 +12,13 @@ const CHROME = [
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   '/usr/bin/google-chrome',
+  '/usr/bin/google-chrome-stable',
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
 ].find(existsSync);
+/** On GitHub Actions, failures also become annotations, which show on the run without opening the logs. */
+const annotate = (msg) => process.env.GITHUB_ACTIONS && console.log(`::error title=smoke::${msg.replace(/\s+/g, ' ')}`);
+console.log(`chrome: ${CHROME ?? 'none found'}`);
 
 const browser = await chromium.launch({
   executablePath: CHROME,
@@ -31,6 +37,7 @@ async function check(name, fn) {
   } catch (e) {
     failed++;
     console.log(`✗ ${name}: ${e.message.split('\n')[0]}`);
+    annotate(`${name}: ${e.message.split('\n')[0]}`);
   }
 }
 const expect = (cond, msg) => {
@@ -46,7 +53,12 @@ async function fresh(hash) {
   await page.waitForTimeout(1200);
 }
 
-await fresh('#/bengaluru');
+try {
+  await fresh('#/bengaluru');
+} catch (e) {
+  annotate(`the map never showed its pins: ${e.message.split('\n')[0]} | ${errors.join(' | ')}`);
+  throw e;
+}
 
 await check('opens on the cover for the city', async () => {
   expect((await page.locator('#hero-title').innerText()).includes('Bengaluru'), 'headline missing');
