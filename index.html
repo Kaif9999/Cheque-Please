@@ -3,38 +3,87 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Coffee with VCs: where investors meet founders in Bengaluru and Mumbai</title>
+    <title>Cheque, Please: where investors meet founders in Bengaluru and Mumbai</title>
     <meta name="description" content="The cafés in Bengaluru and Mumbai where VCs and angels have met founders. Every pin links to the post it came from." />
     <meta name="theme-color" content="#FBFAF7" />
-    <meta property="og:title" content="Coffee with VCs" />
+    <meta property="og:title" content="Cheque, Please" />
     <meta property="og:description" content="The Bengaluru and Mumbai cafés where investors meet founders. Every pin links to the post it came from." />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="h-full overflow-hidden bg-paper font-sans text-[15px] leading-normal text-ink antialiased">
-    <div class="h-dvh lg:grid lg:grid-cols-[clamp(400px,34vw,480px)_1fr]">
-      <aside
-        class="fixed inset-x-0 bottom-0 top-[40dvh] z-10 flex flex-col rounded-t-[20px] bg-paper shadow-[0_-10px_30px_-16px_rgb(23_21_17/0.35)] lg:static lg:min-h-0 lg:rounded-none lg:border-r lg:border-line lg:shadow-none"
-        aria-label="Cafés"
-      >
-        <header class="flex items-center justify-between gap-3 border-b border-line px-4 py-3 lg:px-6 lg:py-3.5">
-          <a class="whitespace-nowrap font-serif text-[21px] leading-none tracking-[-0.01em] no-underline lg:text-[23px]" href="#/" id="home">Coffee with VCs</a>
-          <nav class="flex rounded-full bg-sunk p-[3px]" aria-label="City">
-            <a class="seg-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
-            <a class="seg-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
-          </nav>
-        </header>
-        <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain [scrollbar-color:var(--color-line-2)_transparent] [scrollbar-width:thin]" id="panel-body"></div>
-      </aside>
-      <main class="fixed inset-x-0 top-0 h-[calc(40dvh+20px)] lg:relative lg:h-auto lg:min-w-0">
-        <div id="map" class="h-full w-full" aria-label="Map of the cafés"></div>
-        <div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full bg-ink px-3.5 py-2 text-[13px] text-white" id="banner" role="alert" hidden>
-          The map isn't loading. Check your connection.
-        </div>
-      </main>
+  <body class="group/app h-full overflow-hidden bg-paper font-sans text-[15px] leading-normal text-ink antialiased" data-mode="intro" data-sheet="closed">
+    <div id="map" class="fixed! inset-0" aria-label="Map of the cafés"></div>
+
+    <!-- The cover: shown on arrival, cleared as soon as the person starts exploring the map. -->
+    <section
+      id="hero"
+      class="pointer-events-none fixed inset-0 z-10 transition-[opacity,visibility] duration-500 ease-soft group-data-[mode=map]/app:invisible group-data-[mode=map]/app:opacity-0"
+      aria-labelledby="hero-title"
+    >
+      <div
+        class="absolute inset-x-0 top-0 h-[80dvh] bg-linear-to-b from-paper from-60% to-paper/0 lg:inset-y-0 lg:right-auto lg:h-auto lg:w-[calc(min(720px,52vw)+200px)] lg:bg-none lg:[background:linear-gradient(to_right,var(--color-paper)_calc(100%-220px),rgb(251_250_247/0.7)_calc(100%-110px),transparent)]"
+      ></div>
+      <div
+        id="hero-body"
+        class="pointer-events-auto relative px-5 pt-[72px] transition-transform duration-500 ease-soft group-data-[mode=map]/app:-translate-y-3 lg:absolute lg:inset-y-0 lg:left-0 lg:flex lg:w-[min(720px,52vw)] lg:flex-col lg:justify-center lg:pl-[clamp(24px,4.5vw,72px)] lg:pr-0 lg:pt-0"
+      ></div>
+      <footer class="pointer-events-auto absolute bottom-7 left-[clamp(24px,4.5vw,72px)] hidden max-w-[460px] text-[13px] leading-normal text-ink-3 lg:block">
+        <p class="flex items-center gap-2 font-medium text-ink-2">
+          <svg class="flex-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6" /><path d="M12 7v3" stroke-linecap="round" /></svg>
+          Scroll or drag the map to explore
+        </p>
+        <p class="mt-2">Every café links to a public post. A post shows someone was there once, not that they will be there tomorrow.</p>
+      </footer>
+    </section>
+
+    <header id="topbar" class="pointer-events-none fixed inset-x-0 top-0 z-20 flex items-center justify-between gap-3 px-4 pb-2 pt-3 lg:px-6 lg:pt-5">
+      <div class="absolute inset-0 -bottom-6 -z-10 bg-linear-to-b from-paper/90 to-paper/0 transition-opacity duration-500 group-data-[mode=intro]/app:opacity-0"></div>
+      <a class="pointer-events-auto flex items-center gap-2 rounded-full no-underline" href="#/" id="home" aria-label="Cheque, Please: back to the start">
+        <svg class="size-[26px] flex-none lg:size-7" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="currentColor" /><path fill="#fbfaf7" d="M41 26c0 10-6 17.5-16 21.5l-1.8-4c5-2.4 8-5.2 9-8.6A9 9 0 1 1 41 26Z" /></svg>
+        <span class="font-display text-[19px] font-bold tracking-[-0.025em] lg:text-[21px]">Cheque, Please</span>
+      </a>
+      <div class="pointer-events-auto flex items-center gap-2">
+        <div
+          id="top-actions"
+          class="flex items-center gap-2 transition-[opacity,visibility] duration-300 group-data-[mode=intro]/app:invisible group-data-[mode=intro]/app:opacity-0 max-lg:hidden"
+        ></div>
+        <nav class="flex rounded-full bg-white/95 p-[3px] shadow-float" aria-label="City">
+          <a class="seg-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
+          <a class="seg-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
+        </nav>
+      </div>
+    </header>
+
+    <aside
+      id="legend"
+      class="fixed inset-x-0 top-[58px] z-10 transition-[opacity,visibility] duration-300 group-data-[mode=intro]/app:invisible group-data-[mode=intro]/app:opacity-0 lg:inset-x-auto lg:bottom-5 lg:left-5 lg:top-auto lg:w-[260px] lg:rounded-[18px] lg:bg-white/95 lg:p-1.5 lg:shadow-float lg:backdrop-blur"
+      aria-label="Who meets there"
+    ></aside>
+
+    <button
+      type="button"
+      id="list-pill"
+      class="fixed bottom-[calc(20px+env(safe-area-inset-bottom))] left-1/2 z-10 inline-flex h-11 -translate-x-1/2 cursor-pointer items-center gap-2 rounded-full border-0 bg-ink px-4.5 text-[14px] font-semibold text-white shadow-float transition-[opacity,visibility] duration-300 group-data-[sheet=open]/app:invisible group-data-[sheet=open]/app:opacity-0 lg:hidden"
+      data-open-list
+    ></button>
+
+    <!-- Café details and the full list. A panel on the right on wide screens, a sheet from the bottom on phones. -->
+    <aside
+      id="sheet"
+      class="invisible fixed inset-x-0 bottom-0 z-30 flex h-[min(60dvh,600px)] translate-y-[calc(100%+24px)] flex-col overflow-hidden rounded-t-[22px] bg-paper shadow-sheet transition-[translate,visibility] duration-500 ease-soft group-data-[sheet=open]/app:visible group-data-[sheet=open]/app:translate-y-0 lg:inset-x-auto lg:bottom-5 lg:right-5 lg:top-[80px] lg:h-auto lg:w-(--sheet-w) lg:translate-x-[calc(100%+40px)] lg:translate-y-0 lg:rounded-[22px] lg:group-data-[sheet=open]/app:translate-x-0"
+      aria-label="Cafés"
+    >
+      <div id="sheet-body" class="min-h-0 flex-1 overflow-y-auto overscroll-contain [scrollbar-color:var(--color-line-2)_transparent] [scrollbar-width:thin]"></div>
+    </aside>
+
+    <div class="fixed left-1/2 top-16 z-40 -translate-x-1/2 rounded-full bg-ink px-3.5 py-2 text-[13px] text-white" id="banner" role="alert" hidden>
+      The map isn't loading. Check your connection.
     </div>
     <dialog
       class="m-auto max-h-[min(80vh,720px)] w-[min(480px,calc(100vw-32px))] rounded-[20px] border-0 bg-paper p-0 text-ink shadow-sheet backdrop:bg-ink/30 open:flex open:animate-rise open:flex-col"

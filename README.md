@@ -1,4 +1,4 @@
-# Coffee with VCs
+# Cheque, Please
 
 A map of the cafés in Bengaluru and Mumbai where VCs and angels have met founders. Every café
 links to the public post that puts an investor there: a tweet by or about them, or a cited
@@ -25,8 +25,8 @@ src/
   lib/         small helpers: html templates, DOM, icons, links, text
   map/         MapLibre: basemap style, pins and clusters, neighbourhood zones
   ui/
-    components/  avatar, logo, button, post, zone marks
-    views/       the city list, the café page, the follow dialog
+    components/  avatar, logo, button, post, zone marks, the panel's top bar
+    views/       the cover, legend, top bar, café list, café page and follow dialog
   main.ts      wires state, routing, views and the map together
 tests/         mirrors src/ (domain, data, lib); tools/smoke.mjs covers the browser flows
 ```
@@ -42,8 +42,12 @@ is the one place markup is written to the page.
 
 | Hash | Shows |
 | --- | --- |
-| `#/bengaluru`, `#/mumbai` | the city's cafés, grouped by neighbourhood, beside the map |
-| `#/<city>/<café-slug>` | that café's page: who was seen there and the posts that say so |
+| `#/bengaluru`, `#/mumbai` | the city's cover over the map; scrolling, dragging or "Explore the map" clears it |
+| `#/<city>/list` | every café, grouped by neighbourhood, in the side panel |
+| `#/<city>/<café-slug>` | that café in the side panel: who was seen there and the posts that say so |
+
+The side panel sits on the right on wide screens and slides up from the bottom on phones. The
+legend doubles as the filter.
 
 ## Data
 
@@ -65,7 +69,8 @@ node tools/shot.mjs --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png
 
 ## Design
 
-Tokens (colours, fonts, shadows) live in the `@theme` block of `src/styles.css`; everything else
+Bricolage Grotesque for headings, Instrument Sans for everything else. Tokens (colours, fonts,
+shadows) live in the `@theme` block of `src/styles.css`; everything else
 is Tailwind utilities in the markup. Shared class strings are in `src/ui/classes.ts`. Café logos
 are in `public/logos/`, investor photos in `public/avatars/`.
 

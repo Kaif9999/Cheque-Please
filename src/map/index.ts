@@ -32,6 +32,8 @@ export interface CafeMap {
 export interface MapHooks {
   pick(slug: string): void;
   hover(slug: string | null): void;
+  /** The person dragged, scrolled or pinched the map themselves. */
+  userMove(): void;
   tilesFailing(): void;
 }
 
@@ -77,6 +79,15 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
   });
 
+  // Scroll zoom doesn't tag its zoomstart with the wheel event, so listen for the wheel itself.
+  map.on('wheel', () => hooks.userMove());
+  map.on('touchmove', () => hooks.userMove());
+  for (const type of ['dragstart', 'zoomstart'] as const) {
+    map.on(type, (e) => {
+      if ('originalEvent' in e && e.originalEvent) hooks.userMove();
+    });
+  }
+
   map.on('error', (e) => {
     if ((e as { sourceId?: string }).sourceId === 'omt' && ++tileErrors === 4) hooks.tilesFailing();
   });
@@ -110,6 +121,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
       });
     el.addEventListener('click', async (e) => {
       e.stopPropagation();
+      hooks.userMove();
       const zoom = await source().getClusterExpansionZoom(id);
       map.easeTo({ center: coords, zoom: Math.min(zoom + 0.6, 18), padding, duration: 650 });
     });
@@ -141,16 +153,20 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     onScreen = next;
   }
 
+  /** The first framing is instant; later ones glide. */
+  let framed = false;
   function fitTo(list: Cafe[]): void {
     const [only] = list;
     if (!only) return;
+    const duration = framed ? 900 : 0;
+    framed = true;
     if (list.length === 1) {
-      map.easeTo({ center: [only.lon, only.lat], zoom: 15, padding, duration: 800 });
+      map.easeTo({ center: [only.lon, only.lat], zoom: 15, padding, duration });
       return;
     }
     const bounds = new LngLatBounds();
     for (const c of list) bounds.extend([c.lon, c.lat]);
-    map.fitBounds(bounds, { padding, maxZoom: 15, duration: 900 });
+    map.fitBounds(bounds, { padding, maxZoom: 15, duration });
   }
 
   return {

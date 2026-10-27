@@ -29,8 +29,9 @@ async function check(name, fn) {
 const expect = (cond, msg) => {
   if (!cond) throw new Error(msg);
 };
-const rows = () => page.locator('#panel-body a[data-slug]');
-const heading = () => page.locator('#panel-body h1').innerText();
+const rows = () => page.locator('#sheet-body a[data-slug]');
+const mode = () => page.evaluate(() => document.body.dataset.mode);
+const sheet = () => page.evaluate(() => document.body.dataset.sheet);
 async function fresh(hash) {
   await page.goto('about:blank');
   await page.goto(`${base}${hash}`, { waitUntil: 'load' });
@@ -40,9 +41,47 @@ async function fresh(hash) {
 
 await fresh('#/bengaluru');
 
-await check('lists every Bengaluru café beside the map', async () => {
+await check('opens on the cover for the city', async () => {
+  expect((await page.locator('#hero-title').innerText()).includes('Bengaluru'), 'headline missing');
+  expect((await mode()) === 'intro', `mode ${await mode()}`);
+});
+
+await check('explore clears the cover and shows the legend', async () => {
+  await page.locator('[data-explore]').click();
+  await page.waitForTimeout(600);
+  expect((await mode()) === 'map', `mode ${await mode()}`);
+  expect(await page.locator('#legend [data-filter="first"]').isVisible(), 'legend hidden');
+});
+
+await check('a cluster zooms in to separate pins', async () => {
+  const before = await page.locator('.maplibregl-marker[data-slug]').count();
+  await page.locator('.maplibregl-marker[data-slugs]').first().click();
+  await page.waitForTimeout(1500);
+  expect((await page.locator('.maplibregl-marker[data-slug]').count()) > before, 'no new pins');
+});
+
+await check('a pin opens its café in the side panel', async () => {
+  const pin = page.locator('.maplibregl-marker[data-slug]').first();
+  const slug = await pin.getAttribute('data-slug');
+  await pin.click();
+  await page.waitForTimeout(700);
+  expect(page.url().endsWith(`/${slug}`), page.url());
+  expect((await sheet()) === 'open', 'panel closed');
+  expect((await page.locator('.maplibregl-marker.is-selected').count()) >= 1, 'pin not selected');
+});
+
+await check('escape closes the panel', async () => {
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(500);
+  expect((await sheet()) === 'closed', 'panel still open');
+  expect(page.url().endsWith('#/bengaluru'), page.url());
+});
+
+await check('all cafés opens the list in the panel', async () => {
+  await page.locator('#top-actions [data-open-list]').click();
+  await page.waitForTimeout(700);
   expect((await rows().count()) === 12, `rows: ${await rows().count()}`);
-  expect((await heading()).includes('Bengaluru'), 'headline missing');
+  expect(page.url().endsWith('#/bengaluru/list'), page.url());
 });
 
 await check('hovering a row lights up its pin or cluster', async () => {
@@ -51,54 +90,29 @@ await check('hovering a row lights up its pin or cluster', async () => {
   expect((await page.locator('.maplibregl-marker.is-hover').count()) === 1, 'no highlighted marker');
 });
 
-await check('a row opens the café page and routes to it', async () => {
+await check('a row opens the café and the back link returns to the list', async () => {
   const name = (await rows().nth(1).locator('span span').first().innerText()).trim();
   await rows().nth(1).click();
+  await page.waitForTimeout(600);
+  const title = (await page.locator('#sheet-body h1').innerText()).trim();
+  expect(title === name, `heading "${title}" ≠ "${name}"`);
+  await page.locator('#sheet-body a', { hasText: 'All Bengaluru cafés' }).click();
   await page.waitForTimeout(500);
-  expect((await heading()) === name, `heading "${await heading()}" ≠ "${name}"`);
-  expect(/#\/bengaluru\/[\w-]+$/.test(page.url()), page.url());
-  expect((await page.locator('.maplibregl-marker.is-selected').count()) >= 1, 'pin not selected');
-});
-
-await check('escape goes back to the list', async () => {
-  await page.keyboard.press('Escape');
-  await page.waitForTimeout(400);
-  expect((await rows().count()) === 12, 'list not restored');
-});
-
-await check('a cluster zooms in to separate pins', async () => {
-  await fresh('#/bengaluru');
-  const before = await page.locator('.maplibregl-marker[data-slug]').count();
-  await page.locator('.maplibregl-marker[data-slugs]').first().click();
-  await page.waitForTimeout(1500);
-  expect((await page.locator('.maplibregl-marker[data-slug]').count()) > before, 'no new pins');
-});
-
-await check('a pin opens its café page', async () => {
-  const pin = page.locator('.maplibregl-marker[data-slug]').first();
-  const slug = await pin.getAttribute('data-slug');
-  await pin.click();
-  await page.waitForTimeout(500);
-  expect(page.url().endsWith(`/${slug}`), page.url());
-});
-
-await check('the back link returns to the list', async () => {
-  await page.locator('#panel-body a', { hasText: 'All Bengaluru cafés' }).click();
-  await page.waitForTimeout(400);
   expect((await rows().count()) === 12, 'list not shown');
 });
 
-await check('filter chips narrow the list', async () => {
-  const chip = page.locator('[data-filter]:not([data-filter=""])').first();
+await check('the legend filters the list', async () => {
+  const chip = page.locator('#legend [data-filter="first"]');
   const count = Number(await chip.locator('span').last().innerText());
   await chip.click();
-  await page.waitForTimeout(400);
+  await page.waitForTimeout(500);
   expect((await rows().count()) === count, `rows ${await rows().count()} ≠ ${count}`);
-  await page.locator('[data-filter=""]').click();
+  await page.locator('#legend [data-filter=""]').click();
+  await page.waitForTimeout(300);
 });
 
 await check('follow all lists everyone with an X handle', async () => {
-  await page.locator('[data-follow-all]').click();
+  await page.locator('#top-actions [data-follow-all]').click();
   await page.waitForSelector('#follow[open]');
   expect((await page.locator('#follow li').count()) === 8, `rows ${await page.locator('#follow li').count()}`);
   await page.locator('#follow [data-close]').click();
@@ -107,8 +121,25 @@ await check('follow all lists everyone with an X handle', async () => {
 await check('the city switch swaps the list', async () => {
   await page.locator('.seg-opt[data-city="mumbai"]').click();
   await page.waitForTimeout(800);
-  expect((await heading()).includes('Mumbai'), 'headline did not change');
+  await page.locator('#top-actions [data-open-list]').click();
+  await page.waitForTimeout(600);
+  expect((await page.locator('#sheet-body h2').first().innerText()).includes('Mumbai'), 'panel title did not change');
   expect((await rows().count()) === 12, 'Mumbai rows missing');
+});
+
+await check('the wordmark goes back to the cover', async () => {
+  await page.locator('#home').click();
+  await page.waitForTimeout(600);
+  expect((await mode()) === 'intro', `mode ${await mode()}`);
+  expect((await sheet()) === 'closed', 'panel still open');
+  expect((await page.locator('#hero-title').innerText()).includes('Mumbai'), 'cover not for Mumbai');
+});
+
+await check('scrolling over the cover dives into the map', async () => {
+  await page.mouse.move(300, 450);
+  await page.mouse.wheel(0, 200);
+  await page.waitForTimeout(600);
+  expect((await mode()) === 'map', `mode ${await mode()}`);
 });
 
 await check('no page errors', async () => expect(errors.length === 0, errors.join(' | ')));

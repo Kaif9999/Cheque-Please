@@ -5,15 +5,16 @@ import { html, type Html } from '@/lib/html';
 import { icon } from '@/lib/icons';
 import { followUrl, hostOf } from '@/lib/links';
 import { plural } from '@/lib/text';
-import { MX, PX, SERIF_TITLE } from '../classes';
+import { DISPLAY, MX, PX } from '../classes';
 import { avatar } from '../components/avatar';
 import { btn } from '../components/button';
 import { logo } from '../components/logo';
 import { post } from '../components/post';
+import { sheetBar } from '../components/sheet-bar';
 import { zoneDot } from '../components/zone';
 
-const BLOCK = `${PX} pb-1 pt-[30px]`;
-const BLOCK_TITLE = 'mb-3.5 flex gap-1.5 text-[15px] font-semibold';
+const BLOCK = `${PX} pb-1 pt-7`;
+const BLOCK_TITLE = 'mb-3.5 flex items-baseline gap-1.5 font-display text-[17px] font-semibold tracking-[-0.015em]';
 const BLOCK_COUNT = 'font-medium text-ink-3';
 
 /** The post that puts an investor at the café, attributed to whoever wrote it. */
@@ -35,7 +36,7 @@ function person(vc: Investor): Html {
         <span class="text-[15.5px] font-semibold leading-[1.3]">${vc.name}</span>
         <span class="truncate text-[13.5px] text-ink-2">${vc.fund || (vc.handle ? `@${vc.handle}` : 'Investor')}</span>
       </div>
-      ${vc.handle && html`<a class="${btn({ small: true })}" href="${followUrl(vc.handle)}" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>`}
+      ${vc.handle && html`<a class="${btn({ size: 'small' })}" href="${followUrl(vc.handle)}" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>`}
     </div>
     ${proofOf(vc)}
   </article>`;
@@ -71,11 +72,11 @@ export function renderDetail(city: City, cafe: Cafe): Html {
     html`<section class="${BLOCK}"><h2 class="${BLOCK_TITLE}">Also in ${cafe.area}</h2><ul class="m-0 grid list-none gap-0.5 p-0">${nearby.map((c) => nearbyRow(city.id, c))}</ul></section>`;
 
   return html`
-    <a class="ml-2 mt-3.5 inline-flex items-center gap-0.5 rounded-lg py-1.5 pl-1.5 pr-2.5 text-sm font-medium text-ink-2 no-underline hover:bg-sunk hover:text-ink lg:ml-4" href="#/${city.id}">${icon('back')}All ${city.name} cafés</a>
-    <header class="flex items-center gap-4 ${PX} pt-3.5">
-      ${logo(cafe, 'size-16 rounded-2xl text-3xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
-      <div>
-        <h1 class="${SERIF_TITLE} text-[32px] lg:text-[38px]">${cafe.name}</h1>
+    ${sheetBar(html`<a class="inline-flex items-center gap-0.5 rounded-lg py-1.5 pl-1 pr-2.5 text-sm font-medium text-ink-2 no-underline hover:bg-sunk hover:text-ink" href="#/${city.id}/list">${icon('back')}All ${city.name} cafés</a>`)}
+    <header class="flex items-center gap-4 ${PX} pt-2">
+      ${logo(cafe, 'size-[60px] rounded-2xl text-3xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
+      <div class="min-w-0">
+        <h1 class="${DISPLAY} text-[28px] leading-[1.02]">${cafe.name}</h1>
         <p class="mt-1.5 text-[14.5px] text-ink-2">${cafe.branch}, ${cafe.area}</p>
       </div>
     </header>
@@ -85,7 +86,7 @@ export function renderDetail(city: City, cafe: Cafe): Html {
       <a class="${btn()}" href="${cafe.maps_url}" target="_blank" rel="noopener noreferrer">${icon('pin')}Directions</a>
       <button type="button" class="${btn()}" data-share>${icon('share')}<span>Share</span></button>
     </div>
-    ${cafe.note && html`<p class="${MX} mt-6 border-l-2 border-line-2 pl-4 font-serif text-xl italic leading-[1.35] text-pretty">${cafe.note}</p>`}
+    ${cafe.note && html`<p class="${MX} mt-6 border-l-2 border-line-2 pl-4 font-display text-[18px] font-medium leading-[1.4] tracking-[-0.01em] text-pretty">${cafe.note}</p>`}
     ${investors}
     ${scene}
     ${neighbours}

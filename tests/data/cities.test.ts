@@ -13,6 +13,8 @@ for (const city of Object.values(CITIES)) {
     it('has unique slugs', () => {
       const slugs = city.cafes.map((c) => c.slug);
       expect(new Set(slugs).size).toBe(slugs.length);
+      // `#/<city>/list` is the list route, so no café can be called that.
+      expect(slugs).not.toContain('list');
     });
 
     for (const cafe of city.cafes) {

@@ -1,7 +1,8 @@
 /** Layout class strings shared by the views, kept whole so Tailwind's scanner sees every utility. */
 
-/** Horizontal page padding of the panel, matched by every section in it. */
-export const PX = 'px-4 lg:px-6';
-export const MX = 'mx-4 lg:mx-6';
+/** Horizontal padding of the café panel, matched by every section in it. */
+export const PX = 'px-5';
+export const MX = 'mx-5';
 
-export const SERIF_TITLE = 'm-0 font-serif font-normal leading-none tracking-[-0.015em] text-balance';
+/** Headings in the display face. Sizes are set where they are used. */
+export const DISPLAY = 'm-0 font-display font-bold tracking-[-0.03em] text-balance';

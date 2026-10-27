@@ -12,10 +12,11 @@
   --color-ok: #12936f;
 
   --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
 
   --shadow-pin: 0 1px 1px rgb(23 21 17 / 0.06), 0 4px 14px -4px rgb(23 21 17 / 0.3);
   --shadow-sheet: 0 30px 80px -20px rgb(23 21 17 / 0.45);
+  --shadow-float: 0 1px 2px rgb(23 21 17 / 0.06), 0 12px 32px -12px rgb(23 21 17 / 0.28);
 
   --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
 
@@ -26,6 +27,11 @@
       transform: translateY(10px);
     }
   }
+}
+
+:root {
+  /* Width of the café panel on wide screens; the map controls move aside by the same amount. */
+  --sheet-w: clamp(380px, 30vw, 440px);
 }
 
 @layer base {
@@ -53,7 +59,7 @@
 
 /* MapLibre's own controls, brought in line with the rest of the UI. */
 .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group {
-  margin: 0 16px 16px 0;
+  margin: 0 20px 20px 0;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: var(--shadow-pin);
@@ -66,6 +72,16 @@
 
 .maplibregl-ctrl-attrib {
   font: 11px/1.4 var(--font-sans);
+}
+
+@media (width >= 64rem) {
+  .maplibregl-ctrl-bottom-right {
+    transition: translate 0.5s var(--ease-soft);
+  }
+
+  [data-sheet='open'] .maplibregl-ctrl-bottom-right {
+    translate: calc(-1 * (var(--sheet-w) + 20px)) 0;
+  }
 }
 
 @media (width < 64rem) {
