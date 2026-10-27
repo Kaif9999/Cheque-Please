@@ -4,7 +4,7 @@
  *   node tools/smoke.mjs --url http://127.0.0.1:4190/
  */
 import { chromium } from 'playwright-core';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const i = process.argv.indexOf('--url');
 const base = (i > -1 ? process.argv[i + 1] : 'http://127.0.0.1:4190/').replace(/#.*$/, '');
@@ -43,6 +43,15 @@ async function check(name, fn) {
 const expect = (cond, msg) => {
   if (!cond) throw new Error(msg);
 };
+/** Counts the checks expect, read from the same data the site is built from. */
+const cafesOf = (city) => JSON.parse(readFileSync(new URL(`../src/data/${city}.json`, import.meta.url), 'utf8')).cafes;
+const BENGALURU_CAFES = cafesOf('bengaluru').length;
+const MUMBAI_CAFES = cafesOf('mumbai').length;
+const BENGALURU_HANDLES = new Set(
+  cafesOf('bengaluru')
+    .flatMap((c) => c.vcs.map((v) => v.handle?.toLowerCase()))
+    .filter(Boolean),
+).size;
 const rows = () => page.locator('#sheet-body a[data-slug]');
 const mode = () => page.evaluate(() => document.body.dataset.mode);
 const sheet = () => page.evaluate(() => document.body.dataset.sheet);
@@ -87,6 +96,20 @@ await check('switching city on the cover moves the map too', async () => {
   expect(!MUMBAI.test(await onScreen()), 'still on Mumbai');
 });
 
+await check('San Francisco and New York show their own cafés', async () => {
+  const cities = {
+    'san-francisco': /South Park|Palo Alto|Woodside|Sand Hill|Menlo Park|Blue Bottle|Coupa|Rosewood/,
+    'new-york': /SoHo|Flatiron|NoMad|Tribeca|Crosby|Balthazar|Odeon/,
+  };
+  for (const [id, pins] of Object.entries(cities)) {
+    await page.locator(`.seg-opt[data-city="${id}"]`).click();
+    await page.waitForTimeout(1800);
+    expect(pins.test(await onScreen()), `no ${id} pins on screen: ${await onScreen()}`);
+  }
+  await page.locator('.seg-opt[data-city="bengaluru"]').click();
+  await page.waitForTimeout(1800);
+});
+
 await check('a short screen still moves the map when the city changes', async () => {
   // The cover is taller than this map, which once stopped the camera from moving at all.
   const short = await browser.newPage({ viewport: { width: 844, height: 390 } });
@@ -108,10 +131,19 @@ await check('explore clears the cover and shows the legend', async () => {
 });
 
 await check('a cluster zooms in to separate pins', async () => {
-  const before = await page.locator('.maplibregl-marker[data-slug]').count();
-  await page.locator('.maplibregl-marker[data-slugs]').first().click();
+  // Counts only the cluster's own cafés: zooming in can push other pins off the screen.
+  const cluster = page.locator('.maplibregl-marker[data-slugs]').first();
+  const slugs = (await cluster.getAttribute('data-slugs')).split(' ');
+  await cluster.click();
   await page.waitForTimeout(1500);
-  expect((await page.locator('.maplibregl-marker[data-slug]').count()) > before, 'no new pins');
+  const markers = await page.evaluate(
+    (slugs) =>
+      [...document.querySelectorAll('.maplibregl-marker[data-slug], .maplibregl-marker[data-slugs]')].filter((m) =>
+        (m.dataset.slug ?? m.dataset.slugs).split(' ').some((s) => slugs.includes(s)),
+      ).length,
+    slugs,
+  );
+  expect(markers > 1, `${slugs.join(', ')} still in ${markers} marker`);
 });
 
 await check('a pin opens its café in the side panel', async () => {
@@ -134,7 +166,7 @@ await check('escape closes the panel', async () => {
 await check('all cafés opens the list in the panel', async () => {
   await page.locator('#top-actions [data-open-list]').click();
   await page.waitForTimeout(700);
-  expect((await rows().count()) === 12, `rows: ${await rows().count()}`);
+  expect((await rows().count()) === BENGALURU_CAFES, `rows: ${await rows().count()}`);
   expect(page.url().endsWith('#/bengaluru/list'), page.url());
 });
 
@@ -152,7 +184,7 @@ await check('a row opens the café and the back link returns to the list', async
   expect(title === name, `heading "${title}" ≠ "${name}"`);
   await page.locator('#sheet-body a', { hasText: 'All Bengaluru cafés' }).click();
   await page.waitForTimeout(500);
-  expect((await rows().count()) === 12, 'list not shown');
+  expect((await rows().count()) === BENGALURU_CAFES, 'list not shown');
 });
 
 await check('the legend filters the list', async () => {
@@ -168,7 +200,7 @@ await check('the legend filters the list', async () => {
 await check('follow all lists everyone with an X handle', async () => {
   await page.locator('#top-actions [data-follow-all]').click();
   await page.waitForSelector('#follow[open]');
-  expect((await page.locator('#follow li').count()) === 8, `rows ${await page.locator('#follow li').count()}`);
+  expect((await page.locator('#follow li').count()) === BENGALURU_HANDLES, `rows ${await page.locator('#follow li').count()}`);
   await page.locator('#follow [data-close]').click();
 });
 
@@ -178,7 +210,7 @@ await check('the city switch swaps the list', async () => {
   await page.locator('#top-actions [data-open-list]').click();
   await page.waitForTimeout(600);
   expect((await page.locator('#sheet-body h2').first().innerText()).includes('Mumbai'), 'panel title did not change');
-  expect((await rows().count()) === 12, 'Mumbai rows missing');
+  expect((await rows().count()) === MUMBAI_CAFES, 'Mumbai rows missing');
 });
 
 await check('the wordmark goes back to the cover', async () => {
