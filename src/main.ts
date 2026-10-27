@@ -68,7 +68,8 @@ function padding(): PaddingOptions {
   const below = (node: HTMLElement) => node.getBoundingClientRect().bottom;
   if (wide.matches) {
     // Pins are labelled pills centred on the café, so the sides need room for half a label.
-    const left = state.mode === 'intro' ? el.heroBody.getBoundingClientRect().right + 150 : 120;
+    // On the cover, pins start past the gradient, but always keep at least 40% of the width for them.
+    const left = state.mode === 'intro' ? Math.min(el.heroBody.getBoundingClientRect().right + 200, window.innerWidth * 0.6) : 120;
     const right = sheetOpen() ? el.sheet.offsetWidth + 20 + 100 : 120;
     return { top: below(el.topbar) + 72, bottom: 64, left, right };
   }
