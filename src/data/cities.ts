@@ -2,6 +2,7 @@ import type { Cafe, City, CityId } from '@/domain/types';
 import bengaluru from './bengaluru.json';
 import mumbai from './mumbai.json';
 import sanFrancisco from './san-francisco.json';
+import newYork from './new-york.json';
 
 export const CITIES: Record<CityId, City> = {
   bengaluru: {
@@ -62,6 +63,24 @@ export const CITIES: Record<CityId, City> = {
     },
     cafes: sanFrancisco.cafes as Cafe[],
   },
+  'new-york': {
+    id: 'new-york',
+    name: 'New York',
+    headline: "Where New York's VCs get coffee",
+    center: [-73.993, 40.735],
+    zoom: 12.4,
+    bounds: [-74.06, 40.62, -73.85, 40.83],
+    areas: {
+      SoHo: 'Fortune called the Crosby Street Hotel NYC’s venture capital hotspot, Aug 2023.',
+      Tribeca: "Activant's Andrew Steele put NYC's startup belt from Madison Square Park down to Tribeca, Aug 2023.",
+      Flatiron: 'A regular said she stopped going to Devoción on 20th St because of all the VCs, 2024.',
+      NoMad: 'A 2021 post put the Ace Hotel’s Stumptown “smack in middle of the vc offices”.',
+      Midtown: 'Seed investors were overheard debating equity and debt rounds at the Bryant Park Blue Bottle, 2016.',
+      'East Village': 'A founder said you overhear VC pitches in the Bowery Hotel lobby, Jul 2026.',
+      Chelsea: "Eniac's Nihal Mehta brought Pitch and Run back from Chelsea Piers, Nov 2019.",
+    },
+    cafes: newYork.cafes as Cafe[],
+  },
 };
 
-export const CITY_ORDER: CityId[] = ['bengaluru', 'mumbai', 'san-francisco'];
+export const CITY_ORDER: CityId[] = ['bengaluru', 'mumbai', 'san-francisco', 'new-york'];

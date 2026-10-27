@@ -1,0 +1,474 @@
+{
+  "cafes": [
+    {
+      "slug": "crosby-street-hotel-soho",
+      "name": "Crosby Street Hotel",
+      "branch": "Crosby Street",
+      "area": "SoHo",
+      "address": "79 Crosby Street, New York, NY 10012",
+      "lat": 40.723005,
+      "lon": -73.997412,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Crosby+Street+Hotel%2C+79+Crosby+Street%2C+New+York%2C+NY+10012",
+      "note": "Fortune named it NYC’s VC hotspot, Aug 2023; Jenny Fielding posted from there, Sep 2024.",
+      "vcs": [
+        {
+          "name": "Andrew Steele",
+          "fund": "Activant Capital",
+          "handle": null,
+          "crowd": "big",
+          "proof": {
+            "kind": "other",
+            "author": "Fortune (Anne Sraders)",
+            "authorHandle": null,
+            "text": "Steele says he’s been meeting with founders and VCs at the hotel for years (His go-to order is the gnocchi). “VCs are always five years late to anything cool, right? So the Crosby hotel has been really awesome for a very long time,” he jokes",
+            "date": "Aug 14, 2023",
+            "url": "https://fortune.com/2023/08/14/crosby-street-hotel-nyc-venture-capital-hotspot/"
+          }
+        },
+        {
+          "name": "Sarah Hinkfuss",
+          "fund": "Bain Capital Ventures",
+          "handle": null,
+          "crowd": "big",
+          "proof": {
+            "kind": "other",
+            "author": "Fortune (Anne Sraders)",
+            "authorHandle": null,
+            "text": "Sarah Hinkfuss, a BCV partner based in San Francisco, says she always stays at the Crosby when she’s visiting the city. And according to Hinkfuss, the hotel’s ambiance suits the VC crowd well: “There’s plenty of space and the vibe is private but funky—not stuffy,” she told me.",
+            "date": "Aug 14, 2023",
+            "url": "https://fortune.com/2023/08/14/crosby-street-hotel-nyc-venture-capital-hotspot/"
+          }
+        },
+        {
+          "name": "Jenny Fielding",
+          "fund": "Everywhere Ventures",
+          "handle": "jefielding",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jenny Fielding",
+            "authorHandle": "jefielding",
+            "text": "‘No breakfast is the new Power Breakfast’ \n\n-guy at the next table with a glass of water, Crosby Street hotel 🙄",
+            "date": "Sep 26, 2024",
+            "url": "https://x.com/jefielding/status/1839325702233182478"
+          },
+          "avatar": "avatars/jefielding.jpg"
+        },
+        {
+          "name": "Geoff Lewis",
+          "fund": "Bedrock",
+          "handle": "justGLew",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "cindygallop.eth",
+            "authorHandle": "cindygallop",
+            "text": "Great like-minded meeting with @justGLew @BedrockCap at @Firmdale_Hotels @FirmdaleNY Crosby Street Hotel this morning. If you haven't read Geoff and @ericstromberg's investment thesis, it's a must: https://t.co/EP8cOi07Yi We are ALL ABOUT narrative violations (obvs) #sextech https://t.co/0TQFwrV4nu",
+            "date": "May 2, 2018",
+            "url": "https://x.com/cindygallop/status/991768836901924865"
+          },
+          "avatar": "avatars/justglew.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Fortune (Anne Sraders)",
+          "authorHandle": null,
+          "text": "Inside the Crosby Street Hotel restaurant, where VCs take meetings.",
+          "date": "Aug 14, 2023",
+          "url": "https://fortune.com/2023/08/14/crosby-street-hotel-nyc-venture-capital-hotspot/"
+        },
+        {
+          "kind": "tweet",
+          "author": "Anne Sraders",
+          "authorHandle": "AnneSraders",
+          "text": "I had heard the Crosby Street Hotel was the go-to VC hotspot in NYC...so I decided to check it out for myself over coffee and a pricey green juice one morning in early August. Fun one for the newsletter this morning 🫖https://t.co/JQwgIyQFdE",
+          "date": "Aug 14, 2023",
+          "url": "https://x.com/AnneSraders/status/1691077082946662400"
+        },
+        {
+          "kind": "tweet",
+          "author": "zehra",
+          "authorHandle": "zehranaqvi",
+          "text": "places I had to stop going to bc there are too many VCs there \n- devocion on 20th street \n- crosby hotel",
+          "date": "Oct 25, 2024",
+          "url": "https://x.com/zehranaqvi/status/1849889864906416408"
+        },
+        {
+          "kind": "tweet",
+          "author": "𝒹𝒶𝒾𝓈𝓎",
+          "authorHandle": "daisandconfused",
+          "text": "In December 2022 I was waiting for an investor at Crosby Street Hotel and eavesdropping on an actress airing all of her grievances to her dining companion. \n\nOne of them was, “I’ve lost two jobs to Kaia Gerber.”\n\nI think about her often.",
+          "date": "Aug 9, 2023",
+          "url": "https://x.com/daisandconfused/status/1689281584501866496"
+        }
+      ]
+    },
+    {
+      "slug": "balthazar-soho",
+      "name": "Balthazar",
+      "branch": "Spring Street",
+      "area": "SoHo",
+      "address": "80 Spring Street, New York, NY 10012",
+      "lat": 40.722658,
+      "lon": -73.998164,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Balthazar%2C+80+Spring+Street%2C+New+York%2C+NY+10012",
+      "note": "Fred Wilson breakfasted here, Mar 2009; Josh Wolfe checked in, Mar 2014; a VC–founder breakfast, Jun 2024.",
+      "vcs": [
+        {
+          "name": "Fred Wilson",
+          "fund": "Union Square Ventures",
+          "handle": "fredwilson",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Fred Wilson",
+            "authorHandle": "fredwilson",
+            "text": "@genederose i'll be about Balthazar for breakfast today too. i'll look for you and say hi.",
+            "date": "Mar 4, 2009",
+            "url": "https://x.com/fredwilson/status/1278224335"
+          },
+          "avatar": "avatars/fredwilson.jpg"
+        },
+        {
+          "name": "Josh Wolfe",
+          "fund": "Lux Capital",
+          "handle": "wolfejosh",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Josh Wolfe",
+            "authorHandle": "wolfejosh",
+            "text": "I'm at Balthazar Restaurant (New York, NY) w/ 13 others https://t.co/HGrQNBObwC",
+            "date": "Mar 15, 2014",
+            "url": "https://x.com/wolfejosh/status/444873605403656193"
+          },
+          "avatar": "avatars/wolfejosh.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "zehra",
+          "authorHandle": "zehranaqvi",
+          "text": "secret consumer event #5 of nytw was ANOTHER breakfast at balthazar with VCs + founders (there were some b2b people….some….)✨🩵\n\nvibes were great AGAIN!!!  \n\ncc: @amankabeer @Iaylaalexander @sesanaallen @marklxu1 @vaneezehs @besartcopa https://t.co/AuXznIyFqX",
+          "date": "Jun 7, 2024",
+          "url": "https://x.com/zehranaqvi/status/1799088265032835147"
+        }
+      ]
+    },
+    {
+      "slug": "the-odeon-tribeca",
+      "name": "The Odeon",
+      "branch": "West Broadway",
+      "area": "Tribeca",
+      "address": "145 West Broadway, New York, NY 10013",
+      "lat": 40.716908,
+      "lon": -74.007921,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Odeon%2C+145+West+Broadway%2C+New+York%2C+NY+10013",
+      "note": "Fred Wilson posted from an outdoor table here, Apr 2008.",
+      "vcs": [
+        {
+          "name": "Fred Wilson",
+          "fund": "Union Square Ventures",
+          "handle": "fredwilson",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Fred Wilson",
+            "authorHandle": "fredwilson",
+            "text": "http://twitpic.com/iy2 &lt;- Eating outside at odeon: that's my vespa",
+            "date": "Apr 23, 2008",
+            "url": "https://x.com/fredwilson/status/795316128"
+          },
+          "avatar": "avatars/fredwilson.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "gramercy-tavern-flatiron",
+      "name": "Gramercy Tavern",
+      "branch": "East 20th Street",
+      "area": "Flatiron",
+      "address": "42 East 20th Street, New York, NY 10003",
+      "lat": 40.738389,
+      "lon": -73.988414,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Gramercy+Tavern%2C+42+East+20th+Street%2C+New+York%2C+NY+10003",
+      "note": "Fred Wilson dined here, Jul 2008; a NY Tech Week founders’ lunch was held here, Jun 2024.",
+      "vcs": [
+        {
+          "name": "Fred Wilson",
+          "fund": "Union Square Ventures",
+          "handle": "fredwilson",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Fred Wilson",
+            "authorHandle": "fredwilson",
+            "text": "Today was danny meyer day; lunch at shake shack, dinner at gramercy tavern, and bfast at his former partner's whichcraft",
+            "date": "Jul 29, 2008",
+            "url": "https://x.com/fredwilson/status/871204261"
+          },
+          "avatar": "avatars/fredwilson.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "zehra",
+          "authorHandle": "zehranaqvi",
+          "text": "secret consumer event #2 of nytw was at gramercy tavern grabbing lunch with some of my fav founders ✨\n\n@coryokeefe @stephksong (+ others not pictured hehe) https://t.co/lEuDkPLSvz",
+          "date": "Jun 5, 2024",
+          "url": "https://x.com/zehranaqvi/status/1798403912917004394"
+        }
+      ]
+    },
+    {
+      "slug": "union-square-cafe-flatiron",
+      "name": "Union Square Cafe",
+      "branch": "19th & Park Avenue South",
+      "area": "Flatiron",
+      "address": "101 East 19th Street, New York, NY 10003",
+      "lat": 40.737745,
+      "lon": -73.987965,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Union+Square+Cafe%2C+101+East+19th+Street%2C+New+York%2C+NY+10003",
+      "note": "Solo GP Andrew Gluck of irrvrntVC planned meetings here, Jul 2021.",
+      "vcs": [
+        {
+          "name": "Andrew Gluck",
+          "fund": "irrvrntVC",
+          "handle": "irrvrntVC",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Andrew Gluck | Data Buyer | Early-Stage VC ✡︎",
+            "authorHandle": "irrvrntVC",
+            "text": "Also planned my meetings at Blue Bottle Flatiron, Union Sq Cafe, Devocion Flatiron so literally block away each. And it's not that bad out.",
+            "date": "Jul 8, 2021",
+            "url": "https://x.com/irrvrntVC/status/1413177800387964929"
+          },
+          "avatar": "avatars/irrvrntvc.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "devocion-flatiron",
+      "name": "Devoción",
+      "branch": "Flatiron",
+      "area": "Flatiron",
+      "address": "25 East 20th Street, New York, NY 10003",
+      "lat": 40.739116,
+      "lon": -73.989107,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Devoci%C3%B3n%2C+25+East+20th+Street%2C+New+York%2C+NY+10003",
+      "note": "Andrew Gluck planned meetings here, Jul 2021; an investor said VCs crowd it, 2022–2024.",
+      "vcs": [
+        {
+          "name": "Andrew Gluck",
+          "fund": "irrvrntVC",
+          "handle": "irrvrntVC",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Andrew Gluck | Data Buyer | Early-Stage VC ✡︎",
+            "authorHandle": "irrvrntVC",
+            "text": "Also planned my meetings at Blue Bottle Flatiron, Union Sq Cafe, Devocion Flatiron so literally block away each. And it's not that bad out.",
+            "date": "Jul 8, 2021",
+            "url": "https://x.com/irrvrntVC/status/1413177800387964929"
+          },
+          "avatar": "avatars/irrvrntvc.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "zehra",
+          "authorHandle": "zehranaqvi",
+          "text": "if you're looking to raise in nyc i would get a seat at the flatiron devocion and speak loudly about your company \n\njust witnessed an investor walk up to a founder who was sharing her business updates w a friend 💰 get your bag",
+          "date": "Mar 10, 2022",
+          "url": "https://x.com/zehranaqvi/status/1501938626543841280"
+        },
+        {
+          "kind": "tweet",
+          "author": "zehra",
+          "authorHandle": "zehranaqvi",
+          "text": "i spent most of the summer of 2021 meeting 5-6 different founders &amp; 1-2 investors a day at the devocion at flatiron \n\ngoing to take credit for it becoming a tech hub because i always bump into people that i first introduced to devocion that summer 2.5 years ago",
+          "date": "Jan 16, 2024",
+          "url": "https://x.com/zehranaqvi/status/1747293886366560762"
+        },
+        {
+          "kind": "tweet",
+          "author": "zehra",
+          "authorHandle": "zehranaqvi",
+          "text": "places I had to stop going to bc there are too many VCs there \n- devocion on 20th street \n- crosby hotel",
+          "date": "Oct 25, 2024",
+          "url": "https://x.com/zehranaqvi/status/1849889864906416408"
+        }
+      ]
+    },
+    {
+      "slug": "blue-bottle-park-avenue-south",
+      "name": "Blue Bottle Coffee",
+      "branch": "Park Avenue South",
+      "area": "Flatiron",
+      "address": "257 Park Avenue South, New York, NY 10010",
+      "lat": 40.738544,
+      "lon": -73.987438,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Blue+Bottle+Coffee%2C+257+Park+Avenue+South%2C+New+York%2C+NY+10010",
+      "note": "Andrew Gluck planned meetings at Blue Bottle Flatiron, a block from Devoción, Jul 2021.",
+      "vcs": [
+        {
+          "name": "Andrew Gluck",
+          "fund": "irrvrntVC",
+          "handle": "irrvrntVC",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Andrew Gluck | Data Buyer | Early-Stage VC ✡︎",
+            "authorHandle": "irrvrntVC",
+            "text": "Also planned my meetings at Blue Bottle Flatiron, Union Sq Cafe, Devocion Flatiron so literally block away each. And it's not that bad out.",
+            "date": "Jul 8, 2021",
+            "url": "https://x.com/irrvrntVC/status/1413177800387964929"
+          },
+          "avatar": "avatars/irrvrntvc.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "blue-bottle-bryant-park",
+      "name": "Blue Bottle Coffee",
+      "branch": "Bryant Park",
+      "area": "Midtown",
+      "address": "54 West 40th Street, New York, NY 10018",
+      "lat": 40.752956,
+      "lon": -73.984241,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Blue+Bottle+Coffee%2C+54+West+40th+Street%2C+New+York%2C+NY+10018",
+      "note": "A founder overheard seed investors debating equity vs debt rounds here, Jun 2016.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Larry Sukernik",
+          "authorHandle": "lsukernik",
+          "text": "Some seed investors talking equity vs debt rounds at the Bryant Park Blue Bottle coffee. Silicon Valleyification of NYC is happening!",
+          "date": "Jun 27, 2016",
+          "url": "https://x.com/lsukernik/status/747517602809909249"
+        }
+      ]
+    },
+    {
+      "slug": "ace-hotel-lobby-nomad",
+      "name": "Ace Hotel New York",
+      "branch": "The Lobby",
+      "area": "NoMad",
+      "address": "20 West 29th Street, New York, NY 10001",
+      "lat": 40.745667,
+      "lon": -73.98816,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ace+Hotel+New+York%2C+20+West+29th+Street%2C+New+York%2C+NY+10001",
+      "note": "Alexis Ohanian checked into the lobby, Feb 2013.",
+      "vcs": [
+        {
+          "name": "Alexis Ohanian",
+          "fund": "776",
+          "handle": "alexisohanian",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Alexis Ohanian 🗽",
+            "authorHandle": "alexisohanian",
+            "text": "I'm at Ace Hotel Lobby &amp; Bar (New York, NY) w/ 11 others http://t.co/TTbkegyD9G",
+            "date": "Feb 21, 2013",
+            "url": "https://x.com/alexisohanian/status/304427721528852480"
+          },
+          "avatar": "avatars/alexisohanian.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "stumptown-ace-hotel",
+      "name": "Stumptown Coffee Roasters",
+      "branch": "Ace Hotel",
+      "area": "NoMad",
+      "address": "18 West 29th Street, New York, NY 10001",
+      "lat": 40.745699,
+      "lon": -73.988015,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Stumptown+Coffee+Roasters%2C+18+West+29th+Street%2C+New+York%2C+NY+10001",
+      "note": "Recommended in Aug 2021 as the Ace Hotel coffee bar “smack in middle of the vc offices”.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Jackie B",
+          "authorHandle": "jackieberardo",
+          "text": "@MariaGilfoyle . @stumptowncoffee in Flatiron (AMAZING coffee), is technically attached to the Ace Hotel. Recommend renting the Boardroom space for an event w/friends and grabbing Stumptown pastries/coffee below! (+ smack in middle of the vc offices) https://t.co/Q1J1zMwsMQ",
+          "date": "Aug 31, 2021",
+          "url": "https://x.com/jackieberardo/status/1432805160233930760"
+        }
+      ]
+    },
+    {
+      "slug": "bowery-hotel-east-village",
+      "name": "The Bowery Hotel",
+      "branch": "Lobby Bar",
+      "area": "East Village",
+      "address": "335 Bowery, New York, NY 10003",
+      "lat": 40.726037,
+      "lon": -73.991442,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Bowery+Hotel%2C+335+Bowery%2C+New+York%2C+NY+10003",
+      "note": "A founder called the lobby a place to overhear VC pitches, Jul 2026; Greycroft deal check-in, 2014.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Jared Seidel",
+          "authorHandle": "Jared_Seidel_",
+          "text": "The Bowery hotel is great place to take meetings and work while in New York.\n\nOverhear VC pitches and movie director meetings while working here for the day https://t.co/er8SvIWszf",
+          "date": "Jul 29, 2026",
+          "url": "https://x.com/Jared_Seidel_/status/2082584683804582385"
+        },
+        {
+          "kind": "tweet",
+          "author": "Keegan Vance Forte",
+          "authorHandle": "keeganforte",
+          "text": "Thank you @greycroftvc! Excited to go from VC friend to part of the family 😊 @cerosdotcom (@ The Bowery Hotel) https://t.co/DRh2x929vh",
+          "date": "Nov 20, 2014",
+          "url": "https://x.com/keeganforte/status/535251766741565442"
+        }
+      ]
+    },
+    {
+      "slug": "bluestone-lane-chelsea-piers",
+      "name": "Bluestone Lane",
+      "branch": "Chelsea Piers (Pier 62)",
+      "area": "Chelsea",
+      "address": "Pier 62, Chelsea Piers, New York, NY 10011",
+      "lat": 40.748506,
+      "lon": -74.00874,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Bluestone+Lane%2C+Pier+62%2C+Chelsea+Piers%2C+New+York%2C+NY+10011",
+      "note": "Pitch and Run, where founders and funders run together, meets here, 2023.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Kevin Weatherman - in NYC 🗽",
+          "authorHandle": "kevinrunsnyc",
+          "text": "Every Thursday I look forward to Friday morning Pitch and Run! \n\nJoin us for @PitchandrunNYC tomorrow at 9am - Founders and Funders meet at Bluestone Lane at Chelsea Piers for a 4.25 Mile down and back with a stop at Little Island. \n\nAfter 5 runs you get added to the Group Chat - https://t.co/JwrbrJRiNL",
+          "date": "Sep 1, 2023",
+          "url": "https://x.com/kevinrunsnyc/status/1697433815726129202"
+        },
+        {
+          "kind": "tweet",
+          "author": "Alexa Murray",
+          "authorHandle": "_alexa_murray",
+          "text": "If you live in nyc, are interested in VC/tech, and run, then you have to check out #pitchandrun Mondays and Fridays 9am at the Bluestone Lane at Chelsea Piers. It’s an amazing group, would highly recommend https://t.co/Ocxhyow12X",
+          "date": "Feb 20, 2023",
+          "url": "https://x.com/_alexa_murray/status/1627758191009312768"
+        }
+      ]
+    }
+  ]
+}

@@ -19,6 +19,7 @@ body:
         - Bengaluru
         - Mumbai
         - San Francisco
+        - New York
     validations:
       required: true
   - type: input
