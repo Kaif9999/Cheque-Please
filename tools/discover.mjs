@@ -73,6 +73,9 @@ const CAFE = new RegExp(`\\b(cafe|café|cafes|coffee|roaster[sy]?|${CAFES.map(es
 const INVESTOR =
   /\b(vcs?|venture capital(ists?)?|investors?|angels?|pitch(ed|ing)?|term sheets?|cheques?|seed round|fundrais(e|ing)|limited partners?)\b/i;
 const FOUNDER = /\b(founders?|startups?|start-ups?)\b/i;
+/** Funding news about coffee chains matches "investors" and "coffee" but never puts an investor at a table. */
+const FUNDING_NEWS =
+  /\b(rais(e|es|ed|ing) (rs\.? ?|inr ?|usd ?)?[₹$]? ?\d|series [a-e] (round|funding)\b|funding round\b|net loss\b|valuation of\b)|[₹$] ?\d[\d,.]* ?(mn|m|million|bn|billion|cr|crores?)\b/i;
 
 const places = PLACES.join(' OR ');
 const X_QUERIES = [
@@ -149,7 +152,7 @@ const redditComment = (c, thread) => ({
 const found = new Map();
 function keep(item, query) {
   if (!item.url || known.has(item.url) || found.has(item.url)) return;
-  if (!CAFE.test(item.text) || !(INVESTOR.test(item.text) || FOUNDER.test(item.text))) return;
+  if (!CAFE.test(item.text) || !(INVESTOR.test(item.text) || FOUNDER.test(item.text)) || FUNDING_NEWS.test(item.text)) return;
   const cafes = CAFES.filter((c) => item.text.toLowerCase().includes(c));
   const score = cafes.length * 2 + (INVESTOR.test(item.text) ? 2 : 0) + (FOUNDER.test(item.text) ? 1 : 0);
   found.set(item.url, { ...item, cafes, query, score });

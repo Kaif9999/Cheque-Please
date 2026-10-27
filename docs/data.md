@@ -109,7 +109,8 @@ node tools/discover.mjs --city bengaluru [--source x,reddit] [--max-usd 0.10] [-
   "pitched at" and "spotted at". It runs them on X (`treg.x.search.posts`, about $0.0006 a call) and
   in the city's subreddits (`crawl4ai.reddit.search.posts`, about $0.0009 a call). Then it reads
   the comments of the most promising threads.
-- It keeps posts that mention both a café and an investor, and drops ones already on the map.
+- It keeps posts that mention both a café and an investor, and drops ones already on the map and
+  funding news (raises, rounds, losses, amounts in ₹ or $).
   The rest go to `research/candidates-<city>.json` (git-ignored), with the total spend reported.
 - A city run costs about $0.04, and `--max-usd` caps it.
 
