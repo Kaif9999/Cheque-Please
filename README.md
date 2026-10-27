@@ -74,7 +74,7 @@ node tools/shot.mjs --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png
 
 ## Design
 
-Bricolage Grotesque (Google Fonts) for headings, Satoshi (Fontshare) for everything else. Tokens (colours, fonts,
+General Sans for headings and Satoshi for everything else, both from Fontshare. Tokens (colours, fonts,
 shadows) live in the `@theme` block of `src/styles.css`; everything else
 is Tailwind utilities in the markup. Shared class strings are in `src/ui/classes.ts`. Café logos
 are in `public/logos/`, investor photos in `public/avatars/`.

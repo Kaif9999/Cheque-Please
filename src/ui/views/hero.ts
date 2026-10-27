@@ -19,7 +19,7 @@ export function renderHero(city: City): Html {
       ${avatarStack(people, 5, '-ml-2 first:ml-0 size-8 rounded-full text-[10px] ring-2 ring-paper')}
       <p class="text-[13.5px] leading-snug text-ink-2"><b class="font-semibold text-ink">${plural(stats.investors, 'investor')}</b> spotted at ${plural(stats.cafes, 'café')}</p>
     </div>
-    <h1 id="hero-title" class="${DISPLAY} mt-5 text-[42px] leading-[0.98] tracking-[-0.035em] lg:mt-7 lg:text-[clamp(54px,5vw,76px)]">${city.headline}</h1>
+    <h1 id="hero-title" class="${DISPLAY} mt-5 text-[42px] font-semibold leading-[0.98] tracking-[-0.035em] lg:mt-7 lg:text-[clamp(54px,5vw,76px)]">${city.headline}</h1>
     <p class="mt-4 max-w-[34ch] text-[16.5px] leading-[1.5] text-ink-2 text-pretty lg:mt-6 lg:text-[19px]">The cafés where investors have met founders, each pinned to the public post that puts them there.</p>
     <div class="mt-6 flex flex-wrap items-center gap-2.5 lg:mt-8">
       <button type="button" class="${btn({ primary: true, size: 'large' })}" data-explore>Explore the map${icon('forward')}</button>
