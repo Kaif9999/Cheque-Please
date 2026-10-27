@@ -117,6 +117,16 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     return { top, bottom, left, right };
   }
 
+  /**
+   * Where a point lands relative to the map's centre so it sits in the middle of the uncovered part.
+   * Moves to a single point use this rather than `padding`: MapLibre keeps an eased-to padding as the
+   * map's own, adds it to every later fit, and refuses fits once the two together outgrow the screen.
+   */
+  function offset(): [number, number] {
+    const p = room();
+    return [((p.left ?? 0) - (p.right ?? 0)) / 2, ((p.top ?? 0) - (p.bottom ?? 0)) / 2];
+  }
+
   const source = () => map.getSource('cafes') as GeoJSONSource;
   const repaint = () => {
     for (const m of onScreen.values()) paintMarker(m.getElement(), selected, hovered);
@@ -148,7 +158,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
       e.stopPropagation();
       hooks.userMove();
       const zoom = await source().getClusterExpansionZoom(id);
-      map.easeTo({ center: coords, zoom: Math.min(zoom + 0.6, 18), padding: room(), duration: 650 });
+      map.easeTo({ center: coords, zoom: Math.min(zoom + 0.6, 18), offset: offset(), duration: 650 });
     });
     return el;
   }
@@ -186,7 +196,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     const duration = framed ? 900 : 0;
     framed = true;
     if (list.length === 1) {
-      map.easeTo({ center: [only.lon, only.lat], zoom: 15, padding: room(), duration });
+      map.easeTo({ center: [only.lon, only.lat], zoom: 15, offset: offset(), duration });
       return;
     }
     const bounds = new LngLatBounds();
@@ -224,7 +234,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
     focus(cafe) {
       const crowded = cafes.some((c) => c !== cafe && distance([c.lon, c.lat], [cafe.lon, cafe.lat]) < CROWDED_METRES);
       const zoom = Math.max(map.getZoom(), crowded ? CLUSTER_MAX_ZOOM + 1 : 15.5);
-      map.easeTo({ center: [cafe.lon, cafe.lat], zoom, padding: room(), duration: 800 });
+      map.easeTo({ center: [cafe.lon, cafe.lat], zoom, offset: offset(), duration: 800 });
     },
     fit() {
       ready.then(() => fitTo(cafes));

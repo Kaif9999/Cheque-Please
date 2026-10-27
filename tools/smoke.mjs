@@ -196,6 +196,16 @@ await check('scrolling over the cover dives into the map', async () => {
   expect((await mode()) === 'map', `mode ${await mode()}`);
 });
 
+await check('after a café and the wordmark, switching city still moves the map', async () => {
+  // Focusing a café once left padding on the map that made every later fit impossible.
+  await fresh('#/bengaluru/araku-indiranagar');
+  await page.locator('#home').click();
+  await page.waitForTimeout(1500);
+  await page.locator('.seg-opt[data-city="mumbai"]').click();
+  await page.waitForTimeout(2000);
+  expect(MUMBAI.test(await onScreen()), `no Mumbai pins on screen: ${await onScreen()}`);
+});
+
 await check('no page errors', async () => expect(errors.length === 0, errors.join(' | ')));
 
 await browser.close();
