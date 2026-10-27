@@ -1646,7 +1646,8 @@ body.dived .legend {
   .toast,
   .banner,
   .tab-bar,
-  .no-print {
+  .no-print,
+  .person .btn {
     display: none !important;
   }
 
