@@ -121,6 +121,10 @@ Candidates are leads, not receipts. Each one is checked by hand before it is add
 - **Tweets.** X's public embed endpoint
   (`https://cdn.syndication.twimg.com/tweet-result?id=<id>&token=a`) returns the live text. The
   quote must still match it.
+- **Reddit.** Reddit refuses plain fetches, so posts are read through Treg's
+  `treg.reddit.post.detail` and comments through `crawl4ai.reddit.post.comments` (about $0.001 a
+  call; needs `TREG_TOKEN`). The quote must still match. When Treg can't read one, it is flagged to
+  check in a browser.
 - **Articles.** The page must load and show the quoted sentence.
 - `node tools/verify-receipts.mjs` re-checks every receipt in every city. Run it before a release:
   posts get deleted.
