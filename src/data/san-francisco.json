@@ -85,6 +85,21 @@
             "url": "https://x.com/nikunj/status/1917687724452241447"
           },
           "avatar": "avatars/nikunj.jpg"
+        },
+        {
+          "name": "Nate Williams",
+          "fund": "UNION Labs",
+          "handle": "naywilliams",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Nate Williams",
+            "authorHandle": "naywilliams",
+            "text": "obstacle course to get to the Blue Bottle at the top of the street in South Park",
+            "date": "May 28, 2024",
+            "url": "https://x.com/naywilliams/status/1795548922326213102"
+          },
+          "avatar": "avatars/naywilliams.jpg"
         }
       ],
       "scene": [
@@ -154,6 +169,21 @@
             "url": "https://x.com/brackin/status/1649111331256279042"
           },
           "avatar": "avatars/brackin.jpg"
+        },
+        {
+          "name": "Jamie Quint",
+          "fund": "Uncommon Capital",
+          "handle": "jamiequint",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jamie Quint",
+            "authorHandle": "jamiequint",
+            "text": "The Coffee Movement, Golden Goat, HI NRG, and Better Half are the only S tier coffee shops in SF, the others have good coffee but don't prep it consistently.",
+            "date": "Oct 11, 2026",
+            "url": "https://x.com/jamiequint/status/2109330827255685605"
+          },
+          "avatar": "avatars/jamiequint.jpg"
         }
       ],
       "scene": [
@@ -523,6 +553,51 @@
             "url": "https://x.com/semil/status/337988192785543170"
           },
           "avatar": "avatars/semil.jpg"
+        },
+        {
+          "name": "Pejman Nozad",
+          "fund": "Pear VC",
+          "handle": "pejmannozad",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Pejman Nozad",
+            "authorHandle": "pejmannozad",
+            "text": "Thirteen years ago, Mar and I sat at Coupa Café and talked about the kind of venture firm we wanted to build.",
+            "date": "Oct 14, 2026",
+            "url": "https://x.com/pejmannozad/status/2110361253444977022"
+          },
+          "avatar": "avatars/pejmannozad.jpg"
+        },
+        {
+          "name": "Mar Hershenson",
+          "fund": "Pear VC",
+          "handle": "MarHershenson",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "Pejman Nozad",
+            "authorHandle": "pejmannozad",
+            "text": "Mar and I started Pear at Coupa Cafe with one simple belief: back exceptional founders early and be their first true partner.",
+            "date": "Sep 30, 2026",
+            "url": "https://x.com/pejmannozad/status/2105344020289630270"
+          },
+          "avatar": "avatars/marhershenson.jpg"
+        },
+        {
+          "name": "Paige Finn Doherty",
+          "fund": "Behind Genius Ventures",
+          "handle": "paigefinnn",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Paige Finn Doherty",
+            "authorHandle": "paigefinnn",
+            "text": "i love taking meetings at the coupa cafe in palo alto bc everyone has their lil doodle pads",
+            "date": "Sep 12, 2025",
+            "url": "https://x.com/paigefinnn/status/1966633821648154735"
+          },
+          "avatar": "avatars/paigefinnn.jpg"
         }
       ],
       "scene": []
@@ -552,6 +627,21 @@
             "url": "https://x.com/theinformation/status/1639346532221849600"
           },
           "avatar": "avatars/orenzeev.jpg"
+        },
+        {
+          "name": "Mark Scianna",
+          "fund": "Forward Deployed VC",
+          "handle": "markscianna",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Mark Scianna",
+            "authorHandle": "markscianna",
+            "text": "Cafe Venetia: contender for best espresso outside Italy",
+            "date": "Aug 24, 2025",
+            "url": "https://x.com/markscianna/status/1959525636940189999"
+          },
+          "avatar": "avatars/markscianna.jpg"
         }
       ],
       "scene": [
@@ -590,6 +680,21 @@
             "url": "https://x.com/JayaGup10/status/1951333668162773169"
           },
           "avatar": "avatars/jayagup10.jpg"
+        },
+        {
+          "name": "Jason Lemkin",
+          "fund": "SaaStr Fund",
+          "handle": "jasonlk",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jason Lemkin",
+            "authorHandle": "jasonlk",
+            "text": "take him for a walk in downtown Palo Alto, show him where Google and Facebook started, and then just go the new outdoor Starbucks there or Verve outdoors and call it a day :)",
+            "date": "Aug 17, 2024",
+            "url": "https://x.com/jasonlk/status/1824824367488098691"
+          },
+          "avatar": "avatars/jasonlk.jpg"
         }
       ],
       "scene": []
@@ -835,6 +940,341 @@
           "url": "https://x.com/Stammy/status/434797915362439168"
         }
       ]
+    },
+    {
+      "slug": "philz-truck-marina",
+      "name": "Philz Coffee Truck",
+      "branch": "Marina Boulevard",
+      "area": "Marina",
+      "address": "500 Marina Boulevard, San Francisco, CA 94123",
+      "lat": 37.80591,
+      "lon": -122.44203,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Philz+Coffee+Truck%2C+500+Marina+Boulevard%2C+San+Francisco%2C+CA+94123",
+      "note": "Wischoff Ventures' Nichole Wischoff has gone to Greg's Philz truck every day for a year, Aug 2026.",
+      "vcs": [
+        {
+          "name": "Nichole Wischoff",
+          "fund": "Wischoff Ventures",
+          "handle": "NWischoff",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Nichole Wischoff",
+            "authorHandle": "NWischoff",
+            "text": "Used to work in FiDi and walked to the Philz Truck every day. A wonderful man named Greg owns it and opens its window every day at 6am. Post-covid he moved to the Marina.",
+            "date": "Aug 2, 2026",
+            "url": "https://x.com/NWischoff/status/2083987447810297984"
+          },
+          "avatar": "avatars/nwischoff.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "loveski-deli-jackson-square",
+      "name": "Loveski Deli",
+      "branch": "Jackson Street (ex-Postscript)",
+      "area": "Jackson Square",
+      "address": "499 Jackson Street, San Francisco, CA 94111",
+      "lat": 37.796317,
+      "lon": -122.403255,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Loveski+Deli%2C+499+Jackson+Street%2C+San+Francisco%2C+CA+94111",
+      "note": "Loveski took over Postscript, a VC café, in Mar 2026 and still serves Postscript coffee.",
+      "vcs": [
+        {
+          "name": "David Kwon",
+          "fund": "Abstract Ventures",
+          "handle": "dkwon98",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "David Kwon",
+            "authorHandle": "dkwon98",
+            "text": "Postscript is closing...the VCs are not okay",
+            "date": "Jan 26, 2026",
+            "url": "https://x.com/dkwon98/status/2015842617079300124"
+          },
+          "avatar": "avatars/dkwon98.jpg"
+        },
+        {
+          "name": "Kanyi Maqubela",
+          "fund": "Kindred Ventures",
+          "handle": "km",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Kanyi Maqubela",
+            "authorHandle": "km",
+            "text": "oh gosh the postscript vc meet cute",
+            "date": "May 4, 2024",
+            "url": "https://x.com/km/status/1786584459023937945"
+          },
+          "avatar": "avatars/km.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "caffe-centro-south-park",
+      "name": "Caffe Centro",
+      "branch": "South Park",
+      "area": "South Park",
+      "address": "102 South Park Street, San Francisco, CA 94107",
+      "lat": 37.78171,
+      "lon": -122.39425,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Caffe+Centro%2C+102+South+Park+Street%2C+San+Francisco%2C+CA+94107",
+      "note": "Kindred's Kanyi Maqubela caught up with a manager here in 2023; workers reopened it in 2024.",
+      "vcs": [
+        {
+          "name": "Kanyi Maqubela",
+          "fund": "Kindred Ventures",
+          "handle": "km",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Kanyi Maqubela",
+            "authorHandle": "km",
+            "text": "Just had a catch up with a manager at Caffe Centro in South Park. I used to get a bagel/coffee from him every day in '09 when our startup office was a few buildings down.",
+            "date": "Jan 31, 2023",
+            "url": "https://x.com/km/status/1620522849948794881"
+          },
+          "avatar": "avatars/km.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "the-coffee-movement-nob-hill",
+      "name": "The Coffee Movement",
+      "branch": "Washington Street",
+      "area": "Nob Hill",
+      "address": "1030 Washington Street, San Francisco, CA 94133",
+      "lat": 37.794814,
+      "lon": -122.410316,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Coffee+Movement%2C+1030+Washington+Street%2C+San+Francisco%2C+CA+94133",
+      "note": "Uncommon's Jamie Quint and Root's Avidan Ross both name it among SF's best coffee, 2026.",
+      "vcs": [
+        {
+          "name": "Jamie Quint",
+          "fund": "Uncommon Capital",
+          "handle": "jamiequint",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jamie Quint",
+            "authorHandle": "jamiequint",
+            "text": "The Coffee Movement, Golden Goat, HI NRG, and Better Half are the only S tier coffee shops in SF, the others have good coffee but don't prep it consistently.",
+            "date": "Oct 11, 2026",
+            "url": "https://x.com/jamiequint/status/2109330827255685605"
+          },
+          "avatar": "avatars/jamiequint.jpg"
+        },
+        {
+          "name": "Avidan Ross",
+          "fund": "Root Ventures",
+          "handle": "avidan",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Avidan Ross",
+            "authorHandle": "avidan",
+            "text": "coffee movement, HiNRG, wild fox, root ventures.",
+            "date": "Jun 23, 2026",
+            "url": "https://x.com/avidan/status/2069267511829541297"
+          },
+          "avatar": "avatars/avidan.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "better-half-russian-hill",
+      "name": "Better Half Coffee",
+      "branch": "Pacific Avenue",
+      "area": "Russian Hill",
+      "address": "1448 Pacific Avenue, San Francisco, CA 94109",
+      "lat": 37.795522,
+      "lon": -122.419064,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Better+Half+Coffee%2C+1448+Pacific+Avenue%2C+San+Francisco%2C+CA+94109",
+      "note": "Uncommon's Jamie Quint called it a very strong newcomer, Mar 2026.",
+      "vcs": [
+        {
+          "name": "Jamie Quint",
+          "fund": "Uncommon Capital",
+          "handle": "jamiequint",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jamie Quint",
+            "authorHandle": "jamiequint",
+            "text": "Better Half Coffee a very strong newcomer.",
+            "date": "Mar 15, 2026",
+            "url": "https://x.com/jamiequint/status/2033018045401321477"
+          },
+          "avatar": "avatars/jamiequint.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "arsicault-inner-richmond",
+      "name": "Arsicault Bakery",
+      "branch": "Arguello Boulevard",
+      "area": "Inner Richmond",
+      "address": "397 Arguello Boulevard, San Francisco, CA 94118",
+      "lat": 37.783407,
+      "lon": -122.459227,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Arsicault+Bakery%2C+397+Arguello+Boulevard%2C+San+Francisco%2C+CA+94118",
+      "note": "Redpoint's Erica Brescia has been; Gradient's Andrew Brackin says there's always a line, so go early.",
+      "vcs": [
+        {
+          "name": "Erica Brescia",
+          "fund": "Redpoint Ventures",
+          "handle": "ericabrescia",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Erica Brescia",
+            "authorHandle": "ericabrescia",
+            "text": "I have only been to one of these (Arsicault)! Adding to list.",
+            "date": "Oct 20, 2024",
+            "url": "https://x.com/ericabrescia/status/1848034347963519232"
+          },
+          "avatar": "avatars/ericabrescia.jpg"
+        },
+        {
+          "name": "Andrew Brackin",
+          "fund": "Gradient Ventures",
+          "handle": "brackin",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Andrew Brackin",
+            "authorHandle": "brackin",
+            "text": "The chocolate almond at arsicault is life-changing. There's always a line so I'd just get there early",
+            "date": "Feb 8, 2026",
+            "url": "https://x.com/brackin/status/2020552072270422215"
+          },
+          "avatar": "avatars/brackin.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "tartine-guerrero",
+      "name": "Tartine Bakery",
+      "branch": "Guerrero Street",
+      "area": "Mission",
+      "address": "600 Guerrero Street, San Francisco, CA 94110",
+      "lat": 37.761455,
+      "lon": -122.423945,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Tartine+Bakery%2C+600+Guerrero+Street%2C+San+Francisco%2C+CA+94110",
+      "note": "Worklife's Brianne Kimmel vouched for the sandwiches here, Jul 2026.",
+      "vcs": [
+        {
+          "name": "Brianne Kimmel",
+          "fund": "Worklife",
+          "handle": "briannekimmel",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Brianne Kimmel",
+            "authorHandle": "briannekimmel",
+            "text": "I’m sad Tartine is so low. Sandwiches are good there :(",
+            "date": "Jul 15, 2026",
+            "url": "https://x.com/briannekimmel/status/2077509840751251912"
+          },
+          "avatar": "avatars/briannekimmel.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "andytown-salesforce-park",
+      "name": "Andytown Coffee Roasters",
+      "branch": "Salesforce Park",
+      "area": "East Cut",
+      "address": "181 Fremont Street, San Francisco, CA 94105",
+      "lat": 37.78963,
+      "lon": -122.395546,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Andytown+Coffee+Roasters%2C+181+Fremont+Street%2C+San+Francisco%2C+CA+94105",
+      "note": "Sutter Hill's Kevin Kwok recalled writing at Andytown, replying to a Salesforce Park post, Aug 2026.",
+      "vcs": [
+        {
+          "name": "Kevin Kwok",
+          "fund": "Sutter Hill Ventures",
+          "handle": "kevinakwok",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Kevin Kwok",
+            "authorHandle": "kevinakwok",
+            "text": "When I used to write at andytown I accidentally got into fb internal WiFi. And they had a team track me down",
+            "date": "Aug 18, 2026",
+            "url": "https://x.com/kevinakwok/status/2089853666446725397"
+          },
+          "avatar": "avatars/kevinakwok.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "andytown-great-highway",
+      "name": "Andytown Coffee Roasters",
+      "branch": "Great Highway",
+      "area": "Outer Richmond",
+      "address": "800 Great Highway, San Francisco, CA 94121",
+      "lat": 37.772885,
+      "lon": -122.510605,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Andytown+Coffee+Roasters%2C+800+Great+Highway%2C+San+Francisco%2C+CA+94121",
+      "note": "Ahead VC's Prateek Sharma puts this Andytown on his SF coffee list, Oct 2024.",
+      "vcs": [
+        {
+          "name": "Prateek Sharma",
+          "fund": "Ahead VC",
+          "handle": "prateeks",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Prateek Sharma",
+            "authorHandle": "prateeks",
+            "text": "I do a coffee version of this -\nSightglass\nRitual\nAndytown (the one on Great Highway)",
+            "date": "Oct 20, 2024",
+            "url": "https://x.com/prateeks/status/1848069091862405536"
+          },
+          "avatar": "avatars/prateeks.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "cafe-reveille-mission-bay",
+      "name": "Café Réveille",
+      "branch": "Long Bridge Street",
+      "area": "Mission Bay",
+      "address": "610 Long Bridge Street, San Francisco, CA 94158",
+      "lat": 37.773514,
+      "lon": -122.391697,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+R%C3%A9veille%2C+610+Long+Bridge+Street%2C+San+Francisco%2C+CA+94158",
+      "note": "Phosphor's Kulveer Taggar counted 10+ people on laptops here on New Year's Day morning, 2025.",
+      "vcs": [
+        {
+          "name": "Kulveer Taggar",
+          "fund": "Phosphor Capital",
+          "handle": "kul",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Kulveer Taggar",
+            "authorHandle": "kul",
+            "text": "New Year's day I went to get coffee at Cafe Reveille and there were 10+ folks working on their laptops around 9-10am.",
+            "date": "May 29, 2025",
+            "url": "https://x.com/kul/status/1928210709415883143"
+          },
+          "avatar": "avatars/kul.jpg"
+        }
+      ],
+      "scene": []
     }
   ]
 }
