@@ -6,7 +6,7 @@ import { createStore } from '@/app/store';
 import { CITIES, CITY_ORDER } from '@/data/cities';
 import { handlesText } from '@/domain/people';
 import type { Panel, Route } from '@/domain/routes';
-import type { Cafe, ZoneId } from '@/domain/types';
+import type { Cafe, CityId, ZoneId } from '@/domain/types';
 import { zoneOf } from '@/domain/zones';
 import { $ } from '@/lib/dom';
 import { mount } from '@/lib/html';
@@ -17,7 +17,7 @@ import { renderFollow } from '@/ui/views/follow';
 import { renderHero } from '@/ui/views/hero';
 import { renderLegend } from '@/ui/views/legend';
 import { renderList } from '@/ui/views/list';
-import { renderListPill, renderTopActions } from '@/ui/views/topbar';
+import { renderCitySwitch, renderListPill, renderTopActions } from '@/ui/views/topbar';
 
 const store = createStore(initialState);
 const router = createRouter(CITY_ORDER, applyRoute);
@@ -25,6 +25,7 @@ const wide = window.matchMedia('(min-width: 1024px)');
 const el = {
   topbar: $('#topbar'),
   topActions: $('#top-actions'),
+  citySwitch: $('#city-switch'),
   hero: $('#hero'),
   heroBody: $('#hero-body'),
   legend: $('#legend'),
@@ -75,9 +76,13 @@ store.subscribe((s) => {
   document.body.dataset.mode = s.mode;
   document.body.dataset.sheet = sheetOpen(s) ? 'open' : 'closed';
   document.title = cafe ? `${cafe.name}, ${cafe.area} · Cheque, Please` : `Cheque, Please · ${city.name}`;
-  for (const opt of document.querySelectorAll<HTMLAnchorElement>('.seg-opt')) {
-    opt.setAttribute('aria-current', String(opt.dataset.city === city.id));
-  }
+  mount(
+    el.citySwitch,
+    renderCitySwitch(
+      CITY_ORDER.map((id) => CITIES[id]),
+      city.id,
+    ),
+  );
   mount(el.heroBody, renderHero(city));
   mount(el.legend, renderLegend(city.cafes, s.filter));
   mount(el.topActions, renderTopActions(city));
@@ -204,6 +209,11 @@ document.addEventListener('click', (e) => {
   if (target.closest('[data-follow-all]')) return openFollow(city.cafes, `Follow all ${city.name} investors`);
   const cafe = selectedCafe(store.get());
   if (cafe && target.closest('[data-follow-cafe]')) openFollow([cafe], `Seen at ${cafe.name}`);
+});
+
+document.addEventListener('change', (e) => {
+  const select = (e.target as HTMLElement).closest<HTMLSelectElement>('#city-select');
+  if (select) router.go(select.value as CityId, null);
 });
 
 el.sheetBody.addEventListener('pointerover', (e) => {

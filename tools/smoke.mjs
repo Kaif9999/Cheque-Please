@@ -93,7 +93,7 @@ await check('a short screen still moves the map when the city changes', async ()
   await short.goto(`${base}#/bengaluru`, { waitUntil: 'load' });
   await short.waitForSelector('.maplibregl-marker', { timeout: 15000 });
   await short.waitForTimeout(1200);
-  await short.locator('.seg-opt[data-city="mumbai"]').click();
+  await short.locator('#city-select').selectOption('mumbai');
   await short.waitForTimeout(1800);
   const seen = await onScreen(short);
   await short.close();

@@ -5,6 +5,7 @@ const PATHS = {
   arrow: '<path d="M7 17 17 7M8.5 7H17v8.5"/>',
   back: '<path d="M15 18l-6-6 6-6"/>',
   forward: '<path d="M9 6l6 6-6 6"/>',
+  down: '<path d="M6 9l6 6 6-6"/>',
   share: '<path d="M12 15V3.5M7.5 8 12 3.5 16.5 8M5 12.5V19a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6.5"/>',
   pin: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/>',
   check: '<path d="M5 12.5 10 17.5 19.5 7"/>',
