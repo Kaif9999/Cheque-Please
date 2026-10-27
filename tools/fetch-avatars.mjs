@@ -1,6 +1,6 @@
 /**
- * Downloads X profile photos for investors whose receipt is their own tweet,
- * saves them to public/avatars/<handle>.jpg and records the path in the city JSON.
+ * Downloads X profile photos for investors with a handle, saves them to
+ * public/avatars/<handle>.jpg and records the path in the city JSON.
  *
  *   node tools/fetch-avatars.mjs
  */
@@ -19,12 +19,17 @@ for (const city of ['bengaluru', 'mumbai']) {
       const own = data.cafes
         .flatMap((c) => c.vcs)
         .find((v) => v.handle?.toLowerCase() === vc.handle.toLowerCase() && v.proof.kind === 'own');
-      if (!own) continue;
-      const id = /status\/(\d+)/.exec(own.proof.url)?.[1];
-      const res = await fetch(`https://cdn.syndication.twimg.com/tweet-result?id=${id}&token=a`);
-      const img = res.ok ? (await res.json()).user?.profile_image_url_https : null;
+      let img = null;
+      if (own) {
+        const id = /status\/(\d+)/.exec(own.proof.url)?.[1];
+        const res = await fetch(`https://cdn.syndication.twimg.com/tweet-result?id=${id}&token=a`);
+        img = res.ok ? (await res.json()).user?.profile_image_url_https?.replace('_normal.', '_200x200.') : null;
+      } else {
+        // Spotted investors have no tweet of their own to read the photo from.
+        img = `https://unavatar.io/x/${vc.handle}?fallback=false`;
+      }
       if (!img) continue;
-      const pic = await fetch(img.replace('_normal.', '_200x200.'));
+      const pic = await fetch(img);
       if (!pic.ok) continue;
       writeFileSync(new URL(name, dir), Buffer.from(await pic.arrayBuffer()));
       console.log(`saved ${name}`);

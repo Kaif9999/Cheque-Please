@@ -35,8 +35,8 @@ describe('zoneOf', () => {
     expect(zoneOf(cafe(['cohort', 'first']))).toBe('first');
     expect(zoneOf(cafe(['angel', 'big']))).toBe('big');
   });
-  it('calls three or more crowd types mixed', () => {
-    expect(zoneOf(cafe(['angel', 'big', 'cohort']))).toBe('mixed');
+  it('keeps the bigger cheque when three crowds tie', () => {
+    expect(zoneOf(cafe(['angel', 'big', 'cohort']))).toBe('big');
   });
 });
 

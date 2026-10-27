@@ -1,6 +1,6 @@
 /** Who a receipted investor writes cheques as. Drives the café's zone. */
 export type Crowd = 'big' | 'first' | 'angel' | 'cohort';
-export type ZoneId = Crowd | 'mixed' | 'scene';
+export type ZoneId = Crowd | 'scene';
 export type CityId = 'bengaluru' | 'mumbai';
 
 export interface Proof {
@@ -36,6 +36,8 @@ export interface SceneItem {
 export interface Cafe {
   slug: string;
   name: string;
+  /** Path under public/ to the café's own logo, when we have a reliable one. */
+  logo?: string;
   branch: string;
   area: string;
   address: string;
@@ -54,7 +56,9 @@ export interface City {
   /** Initial camera before pins are fitted. */
   center: [number, number];
   zoom: number;
-  /** [west, south, east, north] — every café must sit inside. */
+  /** [west, south, east, north]; every café must sit inside. */
   bounds: [number, number, number, number];
+  /** One factual line per neighbourhood, shown with its zone. */
+  areas: Record<string, string>;
   cafes: Cafe[];
 }

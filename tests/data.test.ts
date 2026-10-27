@@ -6,6 +6,10 @@ const CROWDS = ['big', 'first', 'angel', 'cohort'];
 
 for (const city of Object.values(CITIES)) {
   describe(city.name, () => {
+    it('describes every neighbourhood it has cafés in', () => {
+      for (const cafe of city.cafes) expect(city.areas[cafe.area], cafe.area).toBeTruthy();
+    });
+
     it('has unique slugs', () => {
       const slugs = city.cafes.map((c) => c.slug);
       expect(new Set(slugs).size).toBe(slugs.length);

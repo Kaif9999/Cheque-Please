@@ -3,6 +3,7 @@
     {
       "slug": "third-wave-hsr",
       "name": "Third Wave Coffee",
+      "logo": "logos/thirdwave.png",
       "branch": "17th Cross Road",
       "area": "HSR Layout",
       "address": "17th Cross Road, PWD Quarters, 1st Sector, HSR Layout, Bengaluru 560102",
@@ -49,6 +50,7 @@
     {
       "slug": "third-wave-koramangala",
       "name": "Third Wave Coffee",
+      "logo": "logos/thirdwave.png",
       "branch": "80 Feet Road, 4th Block",
       "area": "Koramangala",
       "address": "1, 984, 80 Feet Road, Maharaja Signal, 4th Block, Koramangala, Bengaluru 560034",
@@ -103,6 +105,7 @@
     {
       "slug": "third-wave-indiranagar",
       "name": "Third Wave Coffee",
+      "logo": "logos/thirdwave.png",
       "branch": "12th Main Road",
       "area": "Indiranagar",
       "address": "12th Main Road, HAL 2nd Stage, Appareddipalya, Indiranagar, Bengaluru 560008",
@@ -165,6 +168,7 @@
     {
       "slug": "starbucks-indiranagar",
       "name": "Starbucks",
+      "logo": "logos/starbucks.png",
       "branch": "12th Main Road",
       "area": "Indiranagar",
       "address": "954, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560008",
@@ -226,6 +230,7 @@
     {
       "slug": "araku-indiranagar",
       "name": "ARAKU Coffee",
+      "logo": "logos/araku.png",
       "branch": "12th Main Road",
       "area": "Indiranagar",
       "address": "968, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560008",
@@ -261,7 +266,8 @@
             "text": "no way, i’m here at araku and @kunalb11 is sitting next to my table!",
             "date": "Dec 20, 2025",
             "url": "https://x.com/whovivekshukla/status/2002257261352407043"
-          }
+          },
+          "avatar": "avatars/kunalb11.jpg"
         }
       ],
       "scene": [
@@ -302,6 +308,7 @@
     {
       "slug": "the-kind-indiranagar",
       "name": "The Kind",
+      "logo": "logos/thekind.png",
       "branch": "12th Main Road",
       "area": "Indiranagar",
       "address": "2985, 12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038",
@@ -331,6 +338,7 @@
     {
       "slug": "subko-koramangala",
       "name": "The Craftery by Subko",
+      "logo": "logos/subko.png",
       "branch": "The Craftery, Sarjapura Road",
       "area": "Koramangala",
       "address": "374, Sarjapura Road, SBI Colony, Koramangala, Bengaluru 560034",
@@ -369,6 +377,7 @@
     {
       "slug": "subko-ajji-house",
       "name": "Ajji House by Subko",
+      "logo": "logos/subko.png",
       "branch": "Ajji House",
       "area": "Shanti Nagar",
       "address": "Plot No. 105, Kengal Hanumanthaiah Road, Raja Ram Mohan Roy Extension, Shanti Nagar, Bengaluru 560027",

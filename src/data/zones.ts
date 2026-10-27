@@ -8,12 +8,11 @@ export interface Zone {
 }
 
 export const ZONES: Record<ZoneId, Zone> = {
-  big: { id: 'big', label: 'Big cheques', blurb: 'Multi-stage and growth funds', color: '#2E49A8' },
-  first: { id: 'first', label: 'First cheques', blurb: 'Institutional pre-seed and seed', color: '#0B8A80' },
-  angel: { id: 'angel', label: 'Angel cheques', blurb: 'Angels, solo GPs and operator-investors', color: '#D98E04' },
-  cohort: { id: 'cohort', label: 'Cohort crowd', blurb: 'Accelerator and programme people', color: '#C23673' },
-  mixed: { id: 'mixed', label: 'Mixed tables', blurb: 'Three or more kinds of cheque on record', color: '#6E4FC0' },
-  scene: { id: 'scene', label: 'Founder scene', blurb: 'Documented startup spot, no named investor yet', color: '#6B7480' },
+  big: { id: 'big', label: 'Multi-stage funds', blurb: 'Partners at funds that write seed through growth cheques', color: '#E0457B' },
+  first: { id: 'first', label: 'Seed funds', blurb: 'Institutional pre-seed and seed investors', color: '#EE9A1F' },
+  angel: { id: 'angel', label: 'Angels & operators', blurb: 'Angels, solo GPs and founders who invest', color: '#4C6BF5' },
+  cohort: { id: 'cohort', label: 'Accelerators', blurb: 'Accelerator and programme partners', color: '#17A07C' },
+  scene: { id: 'scene', label: 'Founder hangouts', blurb: 'Founders post about meetings here; no investor named yet', color: '#8A8174' },
 };
 
 /** Tie-break order: the bigger cheque wins. */
@@ -23,7 +22,6 @@ export function zoneOf(cafe: Cafe): ZoneId {
   if (cafe.vcs.length === 0) return 'scene';
   const counts = new Map<Crowd, number>();
   for (const vc of cafe.vcs) counts.set(vc.crowd, (counts.get(vc.crowd) ?? 0) + 1);
-  if (counts.size >= 3) return 'mixed';
   // Walk in rank order and only switch on a strictly higher count, so ties keep the bigger cheque.
   const first = CROWD_RANK.find((c) => counts.has(c))!;
   return CROWD_RANK.reduce((best, c) => ((counts.get(c) ?? 0) > counts.get(best)! ? c : best), first);

@@ -3,6 +3,7 @@
     {
       "slug": "subko-bandra",
       "name": "Subko",
+      "logo": "logos/subko.png",
       "branch": "Chapel Road",
       "area": "Bandra West",
       "address": "Mary Lodge, 21A Chapel Road, Ranwar, Bandra West, Mumbai 400050",
@@ -23,7 +24,8 @@
             "text": "I saw Nikhil Kamath yesterday.\nHe waved hi to me.\nAnd I gave him this note.\n\nHere is what happened:\n\nI was at Bandra Subko Cafe to meet a VC friend.\n\nAt first, I was just sitting on the first floor.\n\nHe walked in and said:\n“Bro, this is too cramped. Let’s go to the top floor, https://t.co/9LUrdME7gT",
             "date": "Aug 25, 2025",
             "url": "https://x.com/bizibeast/status/1959955434707861680"
-          }
+          },
+          "avatar": "avatars/nikhilkamathcio.jpg"
         }
       ],
       "scene": [
@@ -40,6 +42,7 @@
     {
       "slug": "abcoffee-lower-parel",
       "name": "abCoffee",
+      "logo": "logos/abcoffee.png",
       "branch": "One World Center",
       "area": "Lower Parel",
       "address": "Kiosk D, Lobby Level, Tower 2B, One World Center, 841 Senapati Bapat Marg, Lower Parel, Mumbai 400013",
@@ -69,6 +72,7 @@
     {
       "slug": "starbucks-bkc",
       "name": "Starbucks",
+      "logo": "logos/starbucks.png",
       "branch": "G Block",
       "area": "BKC",
       "address": "G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051",
@@ -98,6 +102,7 @@
     {
       "slug": "starbucks-khar",
       "name": "Starbucks",
+      "logo": "logos/starbucks.png",
       "branch": "15th Road",
       "area": "Khar West",
       "address": "Ground Floor, Red Chillies Entertainment Building, 15th Road / Ramakrishna Mission Road, Khar West, Mumbai 400052",
@@ -156,6 +161,7 @@
     {
       "slug": "starbucks-kamala-mills",
       "name": "Starbucks",
+      "logo": "logos/starbucks.png",
       "branch": "Gate No. 4",
       "area": "Lower Parel",
       "address": "Kamala Mills Gate No. 4, Pandurang Budhkar Marg, Lower Parel, Mumbai 400013",
@@ -185,6 +191,7 @@
     {
       "slug": "starbucks-chowpatty",
       "name": "Starbucks",
+      "logo": "logos/starbucks.png",
       "branch": "Near Wilson College",
       "area": "Chowpatty",
       "address": "Shree Krishna Hindu Merchant Club, near Wilson College, Chowpatty, Girgaon, Mumbai 400007",
@@ -272,6 +279,7 @@
     {
       "slug": "greenr-cafe-bandra",
       "name": "Greenr Cafe",
+      "logo": "logos/greenr.png",
       "branch": "Pali Naka",
       "area": "Bandra West",
       "address": "57/116 Drego House, Pali Naka, Dr Ambedkar Road, Bandra West, Mumbai 400050",
