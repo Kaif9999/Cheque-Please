@@ -1,6 +1,7 @@
 import type { Cafe, Investor } from '../data/types';
 import { issueUrl } from '../config';
 import { ARROW, avatar, esc } from './dom';
+import { followUrl } from './tab';
 
 /** Unique receipted investors: followable ones first, then by café count. */
 export function investorsIn(cafes: Cafe[]): (Investor & { cafes: string[] })[] {
@@ -19,7 +20,8 @@ export function investorsIn(cafes: Cafe[]): (Investor & { cafes: string[] })[] {
   );
 }
 
-export function renderFollow(cityName: string, cafes: Cafe[]): string {
+/** `scope` narrows the sheet to one bill; without it the sheet covers the whole city. */
+export function renderFollow(cityName: string, cafes: Cafe[], scope?: { title: string; intro: string }): string {
   const people = investorsIn(cafes);
   const onX = people.filter((p) => p.handle);
   const remove = issueUrl({ city: cityName, request: 'Remove me' });
@@ -34,7 +36,7 @@ export function renderFollow(cityName: string, cafes: Cafe[]): string {
         </span>
         ${
           p.handle
-            ? `<a class="btn btn--small" href="https://x.com/intent/follow?screen_name=${encodeURIComponent(p.handle)}" target="_blank" rel="noopener noreferrer">Follow</a>`
+            ? `<a class="btn btn--small" href="${followUrl(p.handle)}" target="_blank" rel="noopener noreferrer">Follow</a>`
             : ''
         }
       </li>`,
@@ -42,8 +44,9 @@ export function renderFollow(cityName: string, cafes: Cafe[]): string {
     .join('');
   return `
     <header class="sheet-head">
-      <h2 id="follow-title">Follow the ${onX.length} on X</h2>
-      <p>Every name here has a public receipt on the ${esc(cityName)} map. Follow, read, then ask for a proper intro.</p>
+      <p class="sheet-kicker">${scope ? 'Follow from this bill' : 'Follow the whole tab'}</p>
+      <h2 id="follow-title">${esc(scope?.title ?? `${onX.length} ${onX.length === 1 ? 'investor' : 'investors'} on X`)}</h2>
+      <p>${esc(scope?.intro ?? `Every name here has a public receipt on the ${cityName} map. Follow, read, then ask for a proper intro.`)}</p>
       <button type="button" class="sheet-close" data-close aria-label="Close">×</button>
     </header>
     <ol class="follow-list">${rows || '<li class="empty">No named investors on this map yet.</li>'}</ol>

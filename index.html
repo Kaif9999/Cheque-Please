@@ -14,48 +14,77 @@
     <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
-  <body>
-    <div id="map" aria-label="Map of cafés"></div>
+  <body class="intro">
+    <div id="map" aria-label="Map of cafés where investors have met founders"></div>
 
     <header class="topbar">
-      <a class="brand" href="#/" aria-label="Cheque, Please home">
+      <a class="brand" href="#/" id="brand" aria-label="Cheque, Please — back to the start">
         <span class="brand-stamp" aria-hidden="true">CP</span>
         <span class="brand-name">Cheque, Please</span>
       </a>
-      <nav class="switch" aria-label="City">
-        <a class="switch-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
-        <a class="switch-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
-      </nav>
+      <div class="topbar-right">
+        <div class="top-actions">
+          <button type="button" class="btn btn--ghost btn--small" data-open-tab title="Every café and investor as one list">
+            <span class="icon-list" aria-hidden="true"></span><span class="label">List view</span>
+          </button>
+          <button type="button" class="btn btn--small" data-open-follow></button>
+        </div>
+        <nav class="switch" aria-label="City">
+          <a class="switch-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
+          <a class="switch-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
+        </nav>
+      </div>
     </header>
 
     <section class="hero" aria-labelledby="headline">
       <p class="eyebrow" id="eyebrow"></p>
       <h1 class="headline" id="headline"></h1>
-      <p class="stats" id="stats"></p>
       <div class="actions">
-        <button type="button" class="btn" id="follow-open"></button>
-        <button type="button" class="btn btn--ghost" id="list-open">List view</button>
+        <button type="button" class="btn" data-open-follow></button>
+        <button type="button" class="btn btn--ghost" data-open-tab>
+          <span class="icon-list" aria-hidden="true"></span>List view
+        </button>
       </div>
+      <p class="stats" id="stats"></p>
       <p class="disclaimer" id="disclaimer"></p>
     </section>
 
-    <nav class="legend" id="legend" aria-label="Filter by zone"></nav>
+    <button type="button" class="dive-hint" id="dive-hint">
+      <span aria-hidden="true">↓</span><span class="dive-desk">Scroll or pinch to dive in</span><span class="dive-touch">Pinch to dive in</span>
+    </button>
+
+    <aside class="legend" id="legend" aria-label="Zones">
+      <header class="legend-head">
+        <span>Zones · who's on record</span>
+        <button type="button" class="legend-toggle" id="legend-toggle" aria-expanded="true" aria-controls="legend-body" aria-label="Collapse zones">−</button>
+      </header>
+      <div class="legend-body" id="legend-body">
+        <div class="legend-zones" id="legend-zones"></div>
+        <button type="button" class="btn btn--small legend-cta" data-open-tab>
+          <span class="icon-list" aria-hidden="true"></span>Open the full tab
+        </button>
+      </div>
+    </aside>
 
     <aside class="bill" id="bill" role="dialog" aria-labelledby="bill-title" hidden>
       <button type="button" class="bill-close" id="bill-close" aria-label="Close bill">×</button>
       <div id="bill-body"></div>
     </aside>
 
-    <section class="list" id="list" aria-labelledby="list-title" hidden>
-      <header class="list-head">
-        <h2 id="list-title"></h2>
-        <button type="button" class="sheet-close" id="list-close" aria-label="Close list">×</button>
-      </header>
-      <div class="list-body" id="list-body"></div>
+    <section class="tab" id="tab" aria-label="Full list of cafés and investors" tabindex="-1" hidden>
+      <div class="tab-bar">
+        <span class="brand brand--static">
+          <span class="brand-stamp" aria-hidden="true">CP</span>
+          <span class="brand-name">Cheque, Please</span>
+        </span>
+        <button type="button" class="btn btn--ghost btn--small" id="tab-close">× Back to map</button>
+      </div>
+      <div class="tab-body" id="tab-body"></div>
     </section>
 
     <dialog class="sheet" id="follow" aria-labelledby="follow-title"></dialog>
 
+    <div class="banner" id="banner" role="alert" hidden>Map tiles are not loading. Check the internet connection.</div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script type="module" src="/src/main.ts"></script>

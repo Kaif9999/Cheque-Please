@@ -8,56 +8,65 @@ import { renderBill } from './ui/bill';
 import { $ } from './ui/dom';
 import { handlesText, investorsIn, renderFollow } from './ui/follow';
 import { renderLegend } from './ui/legend';
-import { DISCLAIMER, renderList } from './ui/list';
+import { DISCLAIMER, renderTab } from './ui/tab';
 
 interface State {
   city: CityId;
   zone: ZoneId | null;
   selected: string | null;
+  /** False while the intro hero is up; true once the person has dived into the map. */
+  dived: boolean;
+  tab: boolean;
 }
 
-const state: State = { city: 'bengaluru', zone: null, selected: null };
+const state: State = { city: 'bengaluru', zone: null, selected: null, dived: false, tab: false };
 const desktop = window.matchMedia('(min-width: 900px)');
+const body = document.body;
 
 const el = {
   hero: $('.hero'),
   eyebrow: $('#eyebrow'),
   headline: $('#headline'),
   stats: $('#stats'),
-  followOpen: $<HTMLButtonElement>('#follow-open'),
-  listOpen: $<HTMLButtonElement>('#list-open'),
   legend: $('#legend'),
+  legendZones: $('#legend-zones'),
+  legendToggle: $<HTMLButtonElement>('#legend-toggle'),
   bill: $('#bill'),
   billBody: $('#bill-body'),
-  list: $('#list'),
-  listTitle: $('#list-title'),
-  listBody: $('#list-body'),
+  tab: $('#tab'),
+  tabBody: $('#tab-body'),
   follow: $<HTMLDialogElement>('#follow'),
   toast: $('#toast'),
+  banner: $('#banner'),
 };
 
 $('#disclaimer').textContent = DISCLAIMER;
 
 const city = () => CITIES[state.city];
 const visible = () => city().cafes.filter((c) => !state.zone || zoneOf(c) === state.zone);
+const followable = () => investorsIn(city().cafes).filter((p) => p.handle).length;
 
-const map = createMap($('#map'), city(), (slug) => openCafe(slug));
+const map = createMap($('#map'), city(), {
+  pick: (slug) => go(slug),
+  userMove: () => dive(false),
+  tilesFailing: () => (el.banner.hidden = false),
+});
 
 function padding(): PaddingOptions {
   const billOpen = !el.bill.hidden;
+  // Café cards hang above their pin, so the top edge needs room for a whole card.
   if (desktop.matches) {
-    const hero = el.hero.getBoundingClientRect();
-    return { top: 96, bottom: 96, left: Math.round(hero.right) + 24, right: billOpen ? 460 : 72 };
+    const left = state.dived ? 120 : Math.round(el.hero.getBoundingClientRect().right) + 90;
+    return { top: 190, bottom: 70, left, right: billOpen ? 520 : 120 };
   }
-  // On phones the hero steps aside while a bill is open, so only the top bar is in the way.
-  const top = billOpen ? 72 : Math.round(el.hero.getBoundingClientRect().bottom) + 8;
-  return { top, bottom: billOpen ? Math.round(window.innerHeight * 0.66) : 88, left: 28, right: 28 };
+  if (billOpen) return { top: 160, bottom: Math.round(window.innerHeight * 0.66), left: 70, right: 70 };
+  const top = (state.dived ? 70 : Math.round(el.hero.getBoundingClientRect().bottom)) + 90;
+  return { top, bottom: state.dived ? 130 : 60, left: 70, right: 70 };
 }
 
 function renderCity(fit: boolean): void {
   const c = city();
-  const stats = statsOf(c.cafes);
-  const people = investorsIn(c.cafes).filter((p) => p.handle).length;
+  const n = followable();
   document.title = `Cheque, Please — ${c.name}`;
   document.documentElement.dataset.city = c.id;
   for (const opt of document.querySelectorAll<HTMLAnchorElement>('.switch-opt')) {
@@ -65,73 +74,97 @@ function renderCity(fit: boolean): void {
   }
   el.eyebrow.textContent = `Cheque, Please · ${c.name}`;
   el.headline.textContent = c.headline;
-  el.stats.textContent = statsLine(stats);
-  el.followOpen.textContent = `Follow the ${people} on X`;
-  el.followOpen.hidden = people === 0;
-  el.legend.innerHTML = renderLegend(c.cafes, state.zone);
-  el.listTitle.textContent = `${c.name} · ${statsLine(statsOf(visible()))}`;
-  el.listBody.innerHTML = renderList(c, visible());
+  el.stats.textContent = statsLine(statsOf(c.cafes));
+  for (const b of document.querySelectorAll<HTMLButtonElement>('button[data-open-follow]')) {
+    b.textContent = `Follow the ${n} on X`;
+    b.hidden = n === 0;
+  }
+  el.legendZones.innerHTML = renderLegend(c.cafes, state.zone);
+  if (state.tab) el.tabBody.innerHTML = renderTab(c, c.cafes, n);
   map.setPadding(padding());
   map.show(c, visible(), fit);
 }
 
-function openCafe(slug: string, fly = true): void {
+function dive(fit: boolean): void {
+  if (state.dived) return;
+  state.dived = true;
+  body.classList.replace('intro', 'dived');
+  map.setPadding(padding());
+  if (fit) map.fit();
+}
+
+function surface(): void {
+  closeBill();
+  state.dived = false;
+  body.classList.replace('dived', 'intro');
+  map.setPadding(padding());
+  map.fit();
+}
+
+function openCafe(slug: string): void {
   const c = city();
   const index = c.cafes.findIndex((x) => x.slug === slug);
   if (index < 0) return;
   const cafe = c.cafes[index];
+  dive(false);
   state.selected = slug;
   el.billBody.innerHTML = renderBill(cafe, c, index + 1);
   el.bill.hidden = false;
-  document.body.classList.add('bill-open');
+  body.classList.add('bill-open');
   el.billBody.querySelector('.bill-paper')?.scrollTo(0, 0);
-  closeList();
   map.select(slug);
   map.setPadding(padding());
-  if (fly) map.focus(cafe);
-  writeHash();
+  map.focus(cafe);
 }
 
 function closeBill(): void {
   if (el.bill.hidden) return;
   el.bill.hidden = true;
-  document.body.classList.remove('bill-open');
+  body.classList.remove('bill-open');
   state.selected = null;
   map.select(null);
   map.setPadding(padding());
-  writeHash();
 }
 
-function openList(): void {
-  el.list.hidden = false;
-  document.body.classList.add('list-open');
-  $('#list-close').focus();
+function openTab(): void {
+  state.tab = true;
+  el.tabBody.innerHTML = renderTab(city(), city().cafes, followable());
+  el.tab.hidden = false;
+  el.tab.scrollTop = 0;
+  body.classList.add('tab-open');
+  el.tab.focus({ preventScroll: true });
 }
 
-function closeList(): void {
-  el.list.hidden = true;
-  document.body.classList.remove('list-open');
+function closeTab(): void {
+  if (!state.tab) return;
+  state.tab = false;
+  el.tab.hidden = true;
+  body.classList.remove('tab-open');
 }
 
-function writeHash(): void {
-  const next = `#/${state.city}${state.selected ? `/${state.selected}` : ''}`;
-  if (location.hash !== next) history.replaceState(null, '', next);
+/** Routes: #/<city>, #/<city>/list, #/<city>/<café-slug>. */
+function go(rest: string | null): void {
+  const next = `#/${state.city}${rest ? `/${rest}` : ''}`;
+  if (location.hash === next) readHash();
+  else location.hash = next;
 }
 
 function readHash(): void {
-  const [cityId, slug] = location.hash.replace(/^#\/?/, '').split('/');
+  const [cityId, rest] = location.hash.replace(/^#\/?/, '').split('/');
   const nextCity = CITY_ORDER.includes(cityId as CityId) ? (cityId as CityId) : state.city;
-  const cityChanged = nextCity !== state.city || !el.headline.textContent;
-  state.city = nextCity;
-  if (cityChanged) {
+  if (nextCity !== state.city || !el.headline.textContent) {
+    state.city = nextCity;
     state.zone = null;
-    el.bill.hidden = true;
-    document.body.classList.remove('bill-open');
-    state.selected = null;
-    renderCity(!slug);
+    closeBill();
+    renderCity(!rest || rest === 'list');
   }
-  if (slug && slug !== state.selected) openCafe(slug);
-  else if (!slug) closeBill();
+  if (rest === 'list') {
+    openTab();
+    return;
+  }
+  closeTab();
+  if (rest && rest !== state.selected) openCafe(rest);
+  else if (!rest) closeBill();
 }
 
 function toast(message: string): void {
@@ -140,45 +173,84 @@ function toast(message: string): void {
   window.setTimeout(() => el.toast.classList.remove('is-on'), 1800);
 }
 
-el.legend.addEventListener('click', (e) => {
-  const chip = (e.target as HTMLElement).closest<HTMLButtonElement>('.chip');
-  if (!chip) return;
-  const zone = chip.dataset.zone as ZoneId;
+async function copy(text: string, done: string): Promise<void> {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast(done);
+  } catch {
+    toast('Could not reach the clipboard');
+  }
+}
+
+function openFollow(scoped: boolean): void {
+  const c = city();
+  const cafe = scoped ? c.cafes.find((x) => x.slug === state.selected) : null;
+  el.follow.innerHTML = cafe
+    ? renderFollow(c.name, [cafe], {
+        title: `${cafe.name}, ${cafe.branch}`,
+        intro: 'The investors with a receipt on this bill. Follow, read, then ask for a proper intro.',
+      })
+    : renderFollow(c.name, c.cafes);
+  el.follow.dataset.scope = cafe ? cafe.slug : '';
+  el.follow.showModal();
+}
+
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement;
+  if (target.closest('[data-open-follow]')) openFollow(false);
+  else if (target.closest('[data-follow-bill]')) openFollow(true);
+  else if (target.closest('[data-open-tab]')) go('list');
+  else if (target.closest('[data-copy-link]')) copy(location.href, 'Link copied');
+  else if (target.closest('[data-print]')) window.print();
+});
+
+$('#brand').addEventListener('click', (e) => {
+  e.preventDefault();
+  if (location.hash !== `#/${state.city}`) history.pushState(null, '', `#/${state.city}`);
+  closeTab();
+  surface();
+});
+
+$('#dive-hint').addEventListener('click', () => dive(true));
+
+el.legendZones.addEventListener('click', (e) => {
+  const row = (e.target as HTMLElement).closest<HTMLButtonElement>('.zone-row');
+  if (!row) return;
+  const zone = row.dataset.zone as ZoneId;
   state.zone = state.zone === zone ? null : zone;
-  if (state.selected && !visible().some((c) => c.slug === state.selected)) closeBill();
+  if (state.selected && !visible().some((c) => c.slug === state.selected)) go(null);
+  dive(false);
   renderCity(true);
 });
 
-el.listOpen.addEventListener('click', openList);
-$('#list-close').addEventListener('click', closeList);
-el.listBody.addEventListener('click', (e) => {
-  const row = (e.target as HTMLElement).closest<HTMLButtonElement>('.list-row');
-  if (row?.dataset.slug) openCafe(row.dataset.slug);
+el.legendToggle.addEventListener('click', () => {
+  const open = el.legendToggle.getAttribute('aria-expanded') !== 'true';
+  el.legendToggle.setAttribute('aria-expanded', String(open));
+  el.legendToggle.textContent = open ? '−' : '+';
+  el.legendToggle.setAttribute('aria-label', open ? 'Collapse zones' : 'Expand zones');
+  el.legend.classList.toggle('is-collapsed', !open);
 });
 
-$('#bill-close').addEventListener('click', closeBill);
-
-el.followOpen.addEventListener('click', () => {
-  el.follow.innerHTML = renderFollow(city().name, city().cafes);
-  el.follow.showModal();
+$('#tab-close').addEventListener('click', () => go(null));
+el.tabBody.addEventListener('click', (e) => {
+  const row = (e.target as HTMLElement).closest<HTMLButtonElement>('.tab-cafe');
+  if (row?.dataset.slug) go(row.dataset.slug);
 });
-el.follow.addEventListener('click', async (e) => {
+
+$('#bill-close').addEventListener('click', () => go(null));
+
+el.follow.addEventListener('click', (e) => {
   const target = e.target as HTMLElement;
   if (target === el.follow || target.closest('[data-close]')) el.follow.close();
   if (target.closest('[data-copy]')) {
-    try {
-      await navigator.clipboard.writeText(handlesText(city().cafes));
-      toast('Handles copied');
-    } catch {
-      toast('Could not reach the clipboard');
-    }
+    const scope = city().cafes.filter((c) => c.slug === el.follow.dataset.scope);
+    copy(handlesText(scope.length ? scope : city().cafes), 'Handles copied');
   }
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape' || el.follow.open) return;
-  if (!el.list.hidden) closeList();
-  else closeBill();
+  if (state.tab || state.selected) go(null);
 });
 
 window.addEventListener('hashchange', readHash);
@@ -188,4 +260,4 @@ window.addEventListener('resize', () => map.setPadding(padding()));
 readHash();
 
 // Debug handle for the screenshot harness.
-(window as unknown as Record<string, unknown>).__cheque = { state, open: openCafe, openList, closeBill };
+(window as unknown as Record<string, unknown>).__cheque = { state, go, dive };

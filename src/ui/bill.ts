@@ -55,13 +55,15 @@ function sceneItem(item: SceneItem): string {
 }
 
 export function renderBill(cafe: Cafe, city: City, billNo: number): string {
+  const followable = cafe.vcs.filter((v) => v.handle).length;
+  const no = String(billNo).padStart(2, '0');
   const zone = ZONES[zoneOf(cafe)];
   const n = receiptsOf(cafe);
   const sceneOnly = cafe.vcs.length === 0;
   const add = issueUrl({ city: city.name, cafe: `${cafe.name}, ${cafe.branch}`, request: 'Add a receipt' });
   return `
     <div class="bill-paper">
-      <p class="bill-kicker">Bill no. ${String(billNo).padStart(2, '0')} · ${esc(city.name)}</p>
+      <p class="bill-kicker">Bill no. ${no} · ${esc(city.name)}</p>
       <h2 class="bill-title" id="bill-title">${esc(cafe.name)}</h2>
       <p class="bill-sub">${esc(cafe.branch)}${cafe.branch === cafe.area ? '' : ` · ${esc(cafe.area)}`}</p>
       <p class="zone-tag" style="--zone:${zone.color}"><span class="zone-dot${sceneOnly ? ' zone-dot--hollow' : ''}"></span>${esc(zone.label)}</p>
@@ -71,9 +73,12 @@ export function renderBill(cafe: Cafe, city: City, billNo: number): string {
       ${cafe.scene.length ? `<p class="bill-label">The scene</p><ol class="items">${cafe.scene.map(sceneItem).join('')}</ol>` : ''}
       <p class="bill-total"><span>Total</span><span class="leader" aria-hidden="true"></span><span>${esc(plural(n, 'receipt'))}</span></p>
       <div class="bill-actions">
-        <a class="btn btn--small" href="${esc(cafe.maps_url)}" target="_blank" rel="noopener noreferrer">Open in Maps ${ARROW}</a>
+        ${followable ? `<button type="button" class="btn btn--small" data-follow-bill>Follow the ${followable} on X</button>` : ''}
+        <a class="btn btn--small btn--ghost" href="${esc(cafe.maps_url)}" target="_blank" rel="noopener noreferrer">Open in Maps ${ARROW}</a>
+        <button type="button" class="btn btn--small btn--ghost" data-copy-link>Copy link</button>
         ${add ? `<a class="btn btn--small btn--ghost" href="${esc(add)}" target="_blank" rel="noopener noreferrer">Add a receipt</a>` : ''}
       </div>
       <p class="bill-thanks">Thank you. Visit again.</p>
+      <p class="bill-foot"><span>Cheque, Please · ${esc(city.name)}</span><span>${no}/${String(city.cafes.length).padStart(2, '0')}</span></p>
     </div>`;
 }
