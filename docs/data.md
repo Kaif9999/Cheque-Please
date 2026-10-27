@@ -91,6 +91,7 @@ its cafés fall in. See `src/domain/zones.ts` and `src/domain/areas.ts`.
    camera, bounds and a note per neighbourhood.
 3. Create `src/data/<city>.json` with `{ "cafes": [...] }` and import it in `cities.ts`.
 4. Add the city to the issue form's dropdown in `.github/ISSUE_TEMPLATE/receipt.yml`.
+5. Add its names, neighbourhoods, cafés and subreddits to the table in `tools/discover.mjs`.
 
 The city switch, routes, tests and preview tags pick the new city up from `CITY_ORDER`.
 
