@@ -4,12 +4,15 @@
  *
  *   node tools/fetch-avatars.mjs
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 
 const dir = new URL('../public/avatars/', import.meta.url);
 mkdirSync(dir, { recursive: true });
+const cities = readdirSync(new URL('../src/data/', import.meta.url))
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => f.replace(/\.json$/, ''));
 
-for (const city of ['bengaluru', 'mumbai']) {
+for (const city of cities) {
   const file = new URL(`../src/data/${city}.json`, import.meta.url);
   const data = JSON.parse(readFileSync(file, 'utf8'));
   for (const vc of data.cafes.flatMap((c) => c.vcs)) {
