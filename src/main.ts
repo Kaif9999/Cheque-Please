@@ -1,263 +1,173 @@
 import './styles.css';
-import type { PaddingOptions } from 'maplibre-gl';
 import { CITIES, CITY_ORDER } from './data/cities';
-import type { CityId, ZoneId } from './data/types';
-import { statsLine, statsOf, zoneOf } from './data/zones';
+import type { Cafe, CityId, ZoneId } from './data/types';
+import { zoneOf } from './data/zones';
 import { createMap } from './map';
-import { renderBill } from './ui/bill';
-import { $ } from './ui/dom';
-import { handlesText, investorsIn, renderFollow } from './ui/follow';
-import { renderLegend } from './ui/legend';
-import { DISCLAIMER, renderTab } from './ui/tab';
+import { renderDetail } from './ui/detail';
+import { $, icon } from './ui/dom';
+import { handlesText, renderFollow } from './ui/follow';
+import { renderList } from './ui/list';
 
 interface State {
   city: CityId;
-  zone: ZoneId | null;
+  filter: ZoneId | null;
   selected: string | null;
-  /** False while the intro hero is up; true once the person has dived into the map. */
-  dived: boolean;
-  tab: boolean;
 }
 
-const state: State = { city: 'bengaluru', zone: null, selected: null, dived: false, tab: false };
-const desktop = window.matchMedia('(min-width: 900px)');
-const body = document.body;
-
-const el = {
-  hero: $('.hero'),
-  eyebrow: $('#eyebrow'),
-  headline: $('#headline'),
-  stats: $('#stats'),
-  legend: $('#legend'),
-  legendZones: $('#legend-zones'),
-  legendToggle: $<HTMLButtonElement>('#legend-toggle'),
-  bill: $('#bill'),
-  billBody: $('#bill-body'),
-  tab: $('#tab'),
-  tabBody: $('#tab-body'),
-  follow: $<HTMLDialogElement>('#follow'),
-  toast: $('#toast'),
-  banner: $('#banner'),
-};
-
-$('#disclaimer').textContent = DISCLAIMER;
+const state: State = { city: 'bengaluru', filter: null, selected: null };
+const wide = window.matchMedia('(min-width: 1024px)');
+const panel = $('#panel-body');
+const follow = $<HTMLDialogElement>('#follow');
+/** Where the list was scrolled to, so "back" returns to the same spot. */
+let listScroll = 0;
 
 const city = () => CITIES[state.city];
-const visible = () => city().cafes.filter((c) => !state.zone || zoneOf(c) === state.zone);
-const followable = () => investorsIn(city().cafes).filter((p) => p.handle).length;
+const visible = () => city().cafes.filter((c) => !state.filter || zoneOf(c) === state.filter);
+const selectedCafe = (): Cafe | undefined => city().cafes.find((c) => c.slug === state.selected);
 
 const map = createMap($('#map'), city(), {
   pick: (slug) => go(slug),
-  userMove: () => dive(false),
-  tilesFailing: () => (el.banner.hidden = false),
+  hover: (slug) => {
+    for (const row of panel.querySelectorAll<HTMLElement>('[data-slug]')) row.classList.toggle('is-hover', row.dataset.slug === slug);
+  },
+  tilesFailing: () => ($('#banner').hidden = false),
 });
 
-function padding(): PaddingOptions {
-  const billOpen = !el.bill.hidden;
-  // Café cards hang above their pin, so the top edge needs room for a whole card.
-  if (desktop.matches) {
-    const left = state.dived ? 120 : Math.round(el.hero.getBoundingClientRect().right) + 90;
-    return { top: 190, bottom: 70, left, right: billOpen ? 520 : 120 };
-  }
-  if (billOpen) return { top: 160, bottom: Math.round(window.innerHeight * 0.66), left: 70, right: 70 };
-  const top = (state.dived ? 70 : Math.round(el.hero.getBoundingClientRect().bottom)) + 90;
-  return { top, bottom: state.dived ? 130 : 60, left: 70, right: 70 };
+function padding() {
+  return wide.matches ? { top: 72, bottom: 72, left: 72, right: 72 } : { top: 48, bottom: 36, left: 36, right: 36 };
 }
 
-function renderCity(fit: boolean): void {
+function render(): void {
   const c = city();
-  const n = followable();
-  document.title = `Cheque, Please — ${c.name}`;
-  document.documentElement.dataset.city = c.id;
-  for (const opt of document.querySelectorAll<HTMLAnchorElement>('.switch-opt')) {
+  const cafe = selectedCafe();
+  document.title = cafe ? `${cafe.name}, ${cafe.area} · Coffee with VCs` : `${c.name} · Coffee with VCs`;
+  for (const opt of document.querySelectorAll<HTMLAnchorElement>('.seg-opt')) {
     opt.setAttribute('aria-current', String(opt.dataset.city === c.id));
   }
-  el.eyebrow.textContent = `Cheque, Please · ${c.name}`;
-  el.headline.textContent = c.headline;
-  el.stats.textContent = statsLine(statsOf(c.cafes));
-  for (const b of document.querySelectorAll<HTMLButtonElement>('button[data-open-follow]')) {
-    b.textContent = `Follow the ${n} on X`;
-    b.hidden = n === 0;
-  }
-  el.legendZones.innerHTML = renderLegend(c.cafes, state.zone);
-  if (state.tab) el.tabBody.innerHTML = renderTab(c, c.cafes, n);
-  map.setPadding(padding());
-  map.show(c, visible(), fit);
+  panel.innerHTML = cafe ? renderDetail(c, cafe) : renderList(c, state.filter);
+  panel.scrollTop = cafe ? 0 : listScroll;
 }
 
-function dive(fit: boolean): void {
-  if (state.dived) return;
-  state.dived = true;
-  body.classList.replace('intro', 'dived');
-  map.setPadding(padding());
-  if (fit) map.fit();
-}
-
-function surface(): void {
-  closeBill();
-  state.dived = false;
-  body.classList.replace('dived', 'intro');
-  map.setPadding(padding());
-  map.fit();
-}
-
-function openCafe(slug: string): void {
-  const c = city();
-  const index = c.cafes.findIndex((x) => x.slug === slug);
-  if (index < 0) return;
-  const cafe = c.cafes[index];
-  dive(false);
-  state.selected = slug;
-  el.billBody.innerHTML = renderBill(cafe, c, index + 1);
-  el.bill.hidden = false;
-  body.classList.add('bill-open');
-  el.billBody.querySelector('.bill-paper')?.scrollTo(0, 0);
-  map.select(slug);
-  map.setPadding(padding());
-  map.focus(cafe);
-}
-
-function closeBill(): void {
-  if (el.bill.hidden) return;
-  el.bill.hidden = true;
-  body.classList.remove('bill-open');
-  state.selected = null;
-  map.select(null);
-  map.setPadding(padding());
-}
-
-function openTab(): void {
-  state.tab = true;
-  el.tabBody.innerHTML = renderTab(city(), city().cafes, followable());
-  el.tab.hidden = false;
-  el.tab.scrollTop = 0;
-  body.classList.add('tab-open');
-  el.tab.focus({ preventScroll: true });
-}
-
-function closeTab(): void {
-  if (!state.tab) return;
-  state.tab = false;
-  el.tab.hidden = true;
-  body.classList.remove('tab-open');
-}
-
-/** Routes: #/<city>, #/<city>/list, #/<city>/<café-slug>. */
-function go(rest: string | null): void {
-  const next = `#/${state.city}${rest ? `/${rest}` : ''}`;
+/** Routes: #/<city> and #/<city>/<café-slug>. */
+function go(slug: string | null): void {
+  const next = `#/${state.city}${slug ? `/${slug}` : ''}`;
   if (location.hash === next) readHash();
   else location.hash = next;
 }
 
 function readHash(): void {
-  const [cityId, rest] = location.hash.replace(/^#\/?/, '').split('/');
+  const [cityId, slug] = location.hash.replace(/^#\/?/, '').split('/');
   const nextCity = CITY_ORDER.includes(cityId as CityId) ? (cityId as CityId) : state.city;
-  if (nextCity !== state.city || !el.headline.textContent) {
+  const cityChanged = nextCity !== state.city || !panel.innerHTML;
+  if (!state.selected) listScroll = panel.scrollTop;
+  if (cityChanged) {
     state.city = nextCity;
-    state.zone = null;
-    closeBill();
-    renderCity(!rest || rest === 'list');
+    state.filter = null;
+    listScroll = 0;
   }
-  if (rest === 'list') {
-    openTab();
+  const cafe = slug ? CITIES[nextCity].cafes.find((c) => c.slug === slug) : undefined;
+  if (cafe && state.filter && zoneOf(cafe) !== state.filter) state.filter = null;
+  state.selected = cafe?.slug ?? null;
+  map.setPadding(padding());
+  if (cityChanged) map.show(city(), visible(), !cafe);
+  render();
+  map.select(state.selected);
+  if (cafe) map.focus(cafe);
+}
+
+/** Briefly swaps a button's label for a confirmation, then puts it back. */
+function confirm(button: HTMLElement, text: string): void {
+  const before = button.innerHTML;
+  button.innerHTML = `${icon('check')}<span>${text}</span>`;
+  button.classList.add('is-done');
+  window.setTimeout(() => {
+    button.innerHTML = before;
+    button.classList.remove('is-done');
+  }, 1600);
+}
+
+async function share(button: HTMLElement): Promise<void> {
+  const cafe = selectedCafe();
+  const title = cafe ? `${cafe.name}, ${cafe.area}` : `Where ${city().name}'s VCs get coffee`;
+  if (navigator.share && !wide.matches) {
+    try {
+      await navigator.share({ title, url: location.href });
+      return;
+    } catch {
+      // Dismissed or unsupported; fall through to copying the link.
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(location.href);
+    confirm(button, 'Link copied');
+  } catch {
+    confirm(button, 'Copy the address bar');
+  }
+}
+
+function openFollow(cafes: Cafe[], title: string): void {
+  follow.innerHTML = renderFollow(title, cafes, city().name);
+  follow.dataset.slugs = cafes.map((c) => c.slug).join(' ');
+  follow.showModal();
+}
+
+panel.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement;
+  const chip = target.closest<HTMLButtonElement>('[data-filter]');
+  if (chip) {
+    state.filter = (chip.dataset.filter || null) as ZoneId | null;
+    listScroll = 0;
+    render();
+    map.show(city(), visible(), true);
     return;
   }
-  closeTab();
-  if (rest && rest !== state.selected) openCafe(rest);
-  else if (!rest) closeBill();
-}
-
-function toast(message: string): void {
-  el.toast.textContent = message;
-  el.toast.classList.add('is-on');
-  window.setTimeout(() => el.toast.classList.remove('is-on'), 1800);
-}
-
-async function copy(text: string, done: string): Promise<void> {
-  try {
-    await navigator.clipboard.writeText(text);
-    toast(done);
-  } catch {
-    toast('Could not reach the clipboard');
-  }
-}
-
-function openFollow(scoped: boolean): void {
-  const c = city();
-  const cafe = scoped ? c.cafes.find((x) => x.slug === state.selected) : null;
-  el.follow.innerHTML = cafe
-    ? renderFollow(c.name, [cafe], {
-        title: `${cafe.name}, ${cafe.branch}`,
-        intro: 'The investors with a receipt on this bill. Follow, read, then ask for a proper intro.',
-      })
-    : renderFollow(c.name, c.cafes);
-  el.follow.dataset.scope = cafe ? cafe.slug : '';
-  el.follow.showModal();
-}
-
-document.addEventListener('click', (e) => {
-  const target = e.target as HTMLElement;
-  if (target.closest('[data-open-follow]')) openFollow(false);
-  else if (target.closest('[data-follow-bill]')) openFollow(true);
-  else if (target.closest('[data-open-tab]')) go('list');
-  else if (target.closest('[data-copy-link]')) copy(location.href, 'Link copied');
-  else if (target.closest('[data-print]')) window.print();
+  const shareBtn = target.closest<HTMLElement>('[data-share]');
+  if (shareBtn) share(shareBtn);
+  if (target.closest('[data-follow-all]')) openFollow(city().cafes, `Follow all ${city().name} investors`);
+  const cafe = selectedCafe();
+  if (cafe && target.closest('[data-follow-cafe]')) openFollow([cafe], `Seen at ${cafe.name}`);
 });
 
-$('#brand').addEventListener('click', (e) => {
+panel.addEventListener('pointerover', (e) => {
+  const row = (e.target as HTMLElement).closest<HTMLElement>('a[data-slug]');
+  map.highlight(row?.dataset.slug ?? null);
+});
+panel.addEventListener('pointerleave', () => map.highlight(null));
+
+follow.addEventListener('click', async (e) => {
+  const target = e.target as HTMLElement;
+  if (target === follow || target.closest('[data-close]')) follow.close();
+  const copyBtn = target.closest<HTMLElement>('[data-copy]');
+  if (copyBtn) {
+    const slugs = (follow.dataset.slugs ?? '').split(' ');
+    try {
+      await navigator.clipboard.writeText(handlesText(city().cafes.filter((c) => slugs.includes(c.slug))));
+      confirm(copyBtn, 'Copied');
+    } catch {
+      confirm(copyBtn, 'Clipboard blocked');
+    }
+  }
+});
+
+$('#home').addEventListener('click', (e) => {
   e.preventDefault();
-  if (location.hash !== `#/${state.city}`) history.pushState(null, '', `#/${state.city}`);
-  closeTab();
-  surface();
-});
-
-$('#dive-hint').addEventListener('click', () => dive(true));
-
-el.legendZones.addEventListener('click', (e) => {
-  const row = (e.target as HTMLElement).closest<HTMLButtonElement>('.zone-row');
-  if (!row) return;
-  const zone = row.dataset.zone as ZoneId;
-  state.zone = state.zone === zone ? null : zone;
-  if (state.selected && !visible().some((c) => c.slug === state.selected)) go(null);
-  dive(false);
-  renderCity(true);
-});
-
-el.legendToggle.addEventListener('click', () => {
-  const open = el.legendToggle.getAttribute('aria-expanded') !== 'true';
-  el.legendToggle.setAttribute('aria-expanded', String(open));
-  el.legendToggle.textContent = open ? '−' : '+';
-  el.legendToggle.setAttribute('aria-label', open ? 'Collapse zones' : 'Expand zones');
-  el.legend.classList.toggle('is-collapsed', !open);
-});
-
-$('#tab-close').addEventListener('click', () => go(null));
-el.tabBody.addEventListener('click', (e) => {
-  const row = (e.target as HTMLElement).closest<HTMLButtonElement>('.tab-cafe');
-  if (row?.dataset.slug) go(row.dataset.slug);
-});
-
-$('#bill-close').addEventListener('click', () => go(null));
-
-el.follow.addEventListener('click', (e) => {
-  const target = e.target as HTMLElement;
-  if (target === el.follow || target.closest('[data-close]')) el.follow.close();
-  if (target.closest('[data-copy]')) {
-    const scope = city().cafes.filter((c) => c.slug === el.follow.dataset.scope);
-    copy(handlesText(scope.length ? scope : city().cafes), 'Handles copied');
-  }
+  state.filter = null;
+  listScroll = 0;
+  go(null);
+  map.show(city(), visible(), true);
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key !== 'Escape' || el.follow.open) return;
-  if (state.tab || state.selected) go(null);
+  if (e.key === 'Escape' && !follow.open && state.selected) go(null);
 });
 
 window.addEventListener('hashchange', readHash);
-desktop.addEventListener('change', () => map.setPadding(padding()));
-window.addEventListener('resize', () => map.setPadding(padding()));
+wide.addEventListener('change', () => {
+  map.setPadding(padding());
+  map.resize();
+});
 
 readHash();
 
 // Debug handle for the screenshot harness.
-(window as unknown as Record<string, unknown>).__cheque = { state, go, dive };
+(window as unknown as Record<string, unknown>).__coffee = { state, go };

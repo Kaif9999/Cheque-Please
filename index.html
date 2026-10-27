@@ -1,92 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Cheque, Please — where investors meet founders in Bengaluru and Mumbai</title>
-    <meta name="description" content="The cafés in Bengaluru and Mumbai where VCs and angels have met founders, every pin backed by a public tweet or article." />
-    <meta name="theme-color" content="#ECF1EC" />
-    <meta property="og:title" content="Cheque, Please" />
-    <meta property="og:description" content="Bengaluru and Mumbai cafés where investors meet founders — every pin backed by a public receipt." />
+    <title>Coffee with VCs: where investors meet founders in Bengaluru and Mumbai</title>
+    <meta name="description" content="The cafés in Bengaluru and Mumbai where VCs and angels have met founders. Every pin links to the post it came from." />
+    <meta name="theme-color" content="#FBFAF7" />
+    <meta property="og:title" content="Coffee with VCs" />
+    <meta property="og:description" content="The Bengaluru and Mumbai cafés where investors meet founders. Every pin links to the post it came from." />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,100..800&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   </head>
-  <body class="intro">
-    <div id="map" aria-label="Map of cafés where investors have met founders"></div>
-
-    <header class="topbar">
-      <a class="brand" href="#/" id="brand" aria-label="Cheque, Please — back to the start">
-        <span class="brand-stamp" aria-hidden="true">CP</span>
-        <span class="brand-name">Cheque, Please</span>
-      </a>
-      <div class="topbar-right">
-        <div class="top-actions">
-          <button type="button" class="btn btn--ghost btn--small" data-open-tab title="Every café and investor as one list">
-            <span class="icon-list" aria-hidden="true"></span><span class="label">List view</span>
-          </button>
-          <button type="button" class="btn btn--small" data-open-follow></button>
+  <body class="h-full overflow-hidden bg-paper font-sans text-[15px] leading-normal text-ink antialiased">
+    <div class="h-dvh lg:grid lg:grid-cols-[clamp(400px,34vw,480px)_1fr]">
+      <aside
+        class="fixed inset-x-0 bottom-0 top-[40dvh] z-10 flex flex-col rounded-t-[20px] bg-paper shadow-[0_-10px_30px_-16px_rgb(23_21_17/0.35)] lg:static lg:min-h-0 lg:rounded-none lg:border-r lg:border-line lg:shadow-none"
+        aria-label="Cafés"
+      >
+        <header class="flex items-center justify-between gap-3 border-b border-line px-4 py-3 lg:px-6 lg:py-3.5">
+          <a class="whitespace-nowrap font-serif text-[21px] leading-none tracking-[-0.01em] no-underline lg:text-[23px]" href="#/" id="home">Coffee with VCs</a>
+          <nav class="flex rounded-full bg-sunk p-[3px]" aria-label="City">
+            <a class="seg-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
+            <a class="seg-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
+          </nav>
+        </header>
+        <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain [scrollbar-color:var(--color-line-2)_transparent] [scrollbar-width:thin]" id="panel-body"></div>
+      </aside>
+      <main class="fixed inset-x-0 top-0 h-[calc(40dvh+20px)] lg:relative lg:h-auto lg:min-w-0">
+        <div id="map" class="h-full w-full" aria-label="Map of the cafés"></div>
+        <div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full bg-ink px-3.5 py-2 text-[13px] text-white" id="banner" role="alert" hidden>
+          The map isn't loading. Check your connection.
         </div>
-        <nav class="switch" aria-label="City">
-          <a class="switch-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
-          <a class="switch-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
-        </nav>
-      </div>
-    </header>
-
-    <section class="hero" aria-labelledby="headline">
-      <p class="eyebrow" id="eyebrow"></p>
-      <h1 class="headline" id="headline"></h1>
-      <div class="actions">
-        <button type="button" class="btn" data-open-follow></button>
-        <button type="button" class="btn btn--ghost" data-open-tab>
-          <span class="icon-list" aria-hidden="true"></span>List view
-        </button>
-      </div>
-      <p class="stats" id="stats"></p>
-      <p class="disclaimer" id="disclaimer"></p>
-    </section>
-
-    <button type="button" class="dive-hint" id="dive-hint">
-      <span aria-hidden="true">↓</span><span class="dive-desk">Scroll or pinch to dive in</span><span class="dive-touch">Pinch to dive in</span>
-    </button>
-
-    <aside class="legend" id="legend" aria-label="Zones">
-      <header class="legend-head">
-        <span>Zones · who's on record</span>
-        <button type="button" class="legend-toggle" id="legend-toggle" aria-expanded="true" aria-controls="legend-body" aria-label="Collapse zones">−</button>
-      </header>
-      <div class="legend-body" id="legend-body">
-        <div class="legend-zones" id="legend-zones"></div>
-        <button type="button" class="btn btn--small legend-cta" data-open-tab>
-          <span class="icon-list" aria-hidden="true"></span>Open the full tab
-        </button>
-      </div>
-    </aside>
-
-    <aside class="bill" id="bill" role="dialog" aria-labelledby="bill-title" hidden>
-      <button type="button" class="bill-close" id="bill-close" aria-label="Close bill">×</button>
-      <div id="bill-body"></div>
-    </aside>
-
-    <section class="tab" id="tab" aria-label="Full list of cafés and investors" tabindex="-1" hidden>
-      <div class="tab-bar">
-        <span class="brand brand--static">
-          <span class="brand-stamp" aria-hidden="true">CP</span>
-          <span class="brand-name">Cheque, Please</span>
-        </span>
-        <button type="button" class="btn btn--ghost btn--small" id="tab-close">× Back to map</button>
-      </div>
-      <div class="tab-body" id="tab-body"></div>
-    </section>
-
-    <dialog class="sheet" id="follow" aria-labelledby="follow-title"></dialog>
-
-    <div class="banner" id="banner" role="alert" hidden>Map tiles are not loading. Check the internet connection.</div>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
+      </main>
+    </div>
+    <dialog
+      class="m-auto max-h-[min(80vh,720px)] w-[min(480px,calc(100vw-32px))] rounded-[20px] border-0 bg-paper p-0 text-ink shadow-sheet backdrop:bg-ink/30 open:flex open:animate-rise open:flex-col"
+      id="follow"
+      aria-labelledby="follow-title"
+    ></dialog>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

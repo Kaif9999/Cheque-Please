@@ -1,18 +1,18 @@
 import type { StyleSpecification } from 'maplibre-gl';
 import type { ExpressionSpecification } from '@maplibre/maplibre-gl-style-spec';
 
-/** Cheque-paper basemap over OpenFreeMap's OpenMapTiles vector tiles. */
+/** Warm paper basemap over OpenFreeMap's OpenMapTiles vector tiles. */
 const C = {
-  land: '#E6ECE6',
-  green: '#D8E4D6',
-  water: '#BFD3D9',
-  waterLabel: '#6E8F99',
+  land: '#F1ECE2',
+  green: '#E2E7D2',
+  water: '#C9D8E2',
+  waterLabel: '#7593A3',
   road: '#FFFFFF',
-  roadMinor: '#F6F8F5',
-  building: '#DCE3DC',
-  rail: '#CBD6CF',
-  label: '#6B7480',
-  halo: '#E6ECE6',
+  roadMinor: '#F9F6F0',
+  building: '#E8E1D3',
+  rail: '#DCD3C3',
+  label: '#93897B',
+  halo: '#F1ECE2',
 };
 
 // Prefer English, then OpenMapTiles' transliteration — the bundled Noto glyphs don't cover Kannada or Devanagari.

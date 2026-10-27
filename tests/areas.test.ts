@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { areasOf, circle, distance } from '../src/data/areas';
+import { areasOf, circle, distance, hull } from '../src/data/areas';
 import type { Cafe, Crowd } from '../src/data/types';
 
 function cafe(area: string, lon: number, lat: number, crowds: Crowd[]): Cafe {
@@ -35,10 +35,23 @@ describe('areasOf', () => {
     expect(area.cafes).toBe(3);
   });
 
-  it('covers every café with margin to spare', () => {
+  it('wraps every café with margin to spare', () => {
     const list = [cafe('A', 72.83, 19.05, ['angel']), cafe('A', 72.84, 19.06, [])];
     const [area] = areasOf(list);
-    for (const c of list) expect(distance(area.center, [c.lon, c.lat])).toBeLessThan(area.radius - 300);
+    expect(area.shape[0]).toEqual(area.shape[area.shape.length - 1]);
+    for (const c of list) {
+      const nearest = Math.min(...area.shape.map((p) => distance([c.lon, c.lat], p)));
+      expect(nearest).toBeGreaterThan(300);
+    }
+    expect(area.top[1]).toBe(Math.max(...area.shape.map((p) => p[1])));
+  });
+});
+
+describe('hull', () => {
+  it('drops interior points', () => {
+    const ring = hull([[0, 0], [2, 0], [2, 2], [0, 2], [1, 1]]);
+    expect(ring).toHaveLength(5);
+    expect(ring).not.toContainEqual([1, 1]);
   });
 });
 
