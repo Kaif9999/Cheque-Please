@@ -5,7 +5,7 @@ import { zoneDot } from '../components/zone';
 
 /** A chip on phones, a row in the card on wide screens. */
 const ITEM =
-  'group inline-flex h-8 flex-none cursor-pointer items-center gap-2 rounded-full border-0 bg-white/95 px-3 text-[13px] font-medium text-ink shadow-float transition-colors aria-pressed:bg-ink aria-pressed:text-white lg:h-9 lg:w-full lg:rounded-[11px] lg:bg-transparent lg:px-2.5 lg:text-[13.5px] lg:shadow-none lg:hover:bg-sunk lg:aria-pressed:bg-ink';
+  'group inline-flex h-8 flex-none cursor-pointer items-center gap-2 rounded-full border-0 bg-white bg-linear-to-b from-white to-[#f3f0e9] px-3 text-[13px] font-medium text-ink shadow-raised transition-[box-shadow,translate] duration-150 active:translate-y-px active:shadow-pressed aria-pressed:from-[#3d3931] aria-pressed:to-ink aria-pressed:text-white aria-pressed:shadow-raised-ink lg:h-9 lg:w-full lg:rounded-[11px] lg:bg-transparent lg:bg-none lg:px-2.5 lg:text-[13.5px] lg:shadow-none lg:hover:bg-sunk lg:aria-pressed:bg-ink lg:aria-pressed:bg-linear-to-b lg:aria-pressed:shadow-raised-ink';
 const COUNT = 'tabular-nums text-ink-3 group-aria-pressed:text-white/60 lg:ml-auto';
 
 /** The map's key, which doubles as its filter: pick a kind of investor to see only their cafés. */

@@ -56,7 +56,7 @@
           id="top-actions"
           class="flex items-center gap-2 transition-[opacity,visibility] duration-300 group-data-[mode=intro]/app:invisible group-data-[mode=intro]/app:opacity-0 max-lg:hidden"
         ></div>
-        <nav class="flex rounded-full bg-white/95 p-[3px] shadow-float" aria-label="City">
+        <nav class="flex rounded-full bg-[#ebe7de]/95 p-[3px] shadow-[inset_0_1px_2px_rgb(23_21_17/0.12),var(--shadow-float)]" aria-label="City">
           <a class="seg-opt" data-city="bengaluru" href="#/bengaluru">Bengaluru</a>
           <a class="seg-opt" data-city="mumbai" href="#/mumbai">Mumbai</a>
         </nav>
@@ -72,7 +72,7 @@
     <button
       type="button"
       id="list-pill"
-      class="fixed bottom-[calc(20px+env(safe-area-inset-bottom))] left-1/2 z-10 inline-flex h-11 -translate-x-1/2 cursor-pointer items-center gap-2 rounded-full border-0 bg-ink px-4.5 text-[14px] font-semibold text-white shadow-float transition-[opacity,visibility] duration-300 group-data-[sheet=open]/app:invisible group-data-[sheet=open]/app:opacity-0 lg:hidden"
+      class="fixed bottom-[calc(20px+env(safe-area-inset-bottom))] left-1/2 z-10 inline-flex h-11 -translate-x-1/2 cursor-pointer items-center gap-2 rounded-full border-0 bg-ink bg-linear-to-b from-[#3d3931] to-ink px-4.5 text-[14px] font-semibold text-white shadow-raised-ink transition-[opacity,visibility,box-shadow,translate] duration-300 active:translate-y-px active:shadow-pressed-ink group-data-[sheet=open]/app:invisible group-data-[sheet=open]/app:opacity-0 lg:hidden"
       data-open-list
     ></button>
 

@@ -6,7 +6,7 @@ import { followUrl, issueUrl } from '@/lib/links';
 import { plural } from '@/lib/text';
 import { DISPLAY } from '../classes';
 import { avatar } from '../components/avatar';
-import { btn } from '../components/button';
+import { btn, roundBtn } from '../components/button';
 
 /** Contents of the follow dialog: everyone on X among `cafes`, each with a follow link. */
 export function renderFollow(title: string, cafes: Cafe[], cityName: string): Html {
@@ -26,7 +26,7 @@ export function renderFollow(title: string, cafes: Cafe[], cityName: string): Ht
     <header class="relative pb-3.5 pl-[22px] pr-[60px] pt-[22px]">
       <h2 id="follow-title" class="${DISPLAY} text-[26px] leading-[1.1]">${title}</h2>
       <p class="mt-2 text-sm text-ink-2">${plural(people.length, 'investor')} on X, each with a public post on the ${cityName} map.</p>
-      <button type="button" class="absolute right-4 top-4 grid size-[34px] cursor-pointer place-items-center rounded-full border-0 bg-sunk hover:bg-line" data-close aria-label="Close">${icon('close', 18)}</button>
+      <button type="button" class="${roundBtn()} absolute right-4 top-4" data-close aria-label="Close">${icon('close', 18)}</button>
     </header>
     <ul class="m-0 flex-1 list-none overflow-y-auto px-2.5 pb-2">${rows}</ul>
     <footer class="flex items-center justify-between gap-3 border-t border-line px-[22px] pb-[18px] pt-3.5 text-[13px] text-ink-2">

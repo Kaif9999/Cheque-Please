@@ -8,8 +8,8 @@ import { btn } from '../components/button';
 export function renderTopActions(city: City): Html {
   const toFollow = followable(city.cafes).length;
   return html`
-    <button type="button" class="${btn({ floating: true })}" data-open-list>${icon('list')}All cafés</button>
-    ${toFollow > 0 && html`<button type="button" class="${btn({ primary: true, floating: true })}" data-follow-all>${icon('x', 13)}Follow all ${toFollow}</button>`}`;
+    <button type="button" class="${btn()}" data-open-list>${icon('list')}All cafés</button>
+    ${toFollow > 0 && html`<button type="button" class="${btn({ primary: true })}" data-follow-all>${icon('x', 13)}Follow all ${toFollow}</button>`}`;
 }
 
 /** The phone's way into the list, floating at the bottom of the map. */

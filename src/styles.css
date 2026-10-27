@@ -18,6 +18,18 @@
   --shadow-sheet: 0 30px 80px -20px rgb(23 21 17 / 0.45);
   --shadow-float: 0 1px 2px rgb(23 21 17 / 0.06), 0 12px 32px -12px rgb(23 21 17 / 0.28);
 
+  /* Raised buttons: a lit top edge, a darker lip underneath and a soft drop; pressed ones sink in. */
+  --shadow-raised: inset 0 1px 0 rgb(255 255 255 / 0.95), inset 0 -1px 0 rgb(23 21 17 / 0.06), 0 0 0 1px rgb(23 21 17 / 0.11),
+    0 1.5px 0 rgb(23 21 17 / 0.13), 0 5px 12px -5px rgb(23 21 17 / 0.28);
+  --shadow-raised-hover: inset 0 1px 0 #fff, inset 0 -1px 0 rgb(23 21 17 / 0.06), 0 0 0 1px rgb(23 21 17 / 0.14),
+    0 2.5px 0 rgb(23 21 17 / 0.13), 0 10px 20px -8px rgb(23 21 17 / 0.34);
+  --shadow-pressed: inset 0 1.5px 3px rgb(23 21 17 / 0.16), 0 0 0 1px rgb(23 21 17 / 0.13);
+  --shadow-raised-ink: inset 0 1px 0 rgb(255 255 255 / 0.18), inset 0 -2px 0 rgb(0 0 0 / 0.35), 0 0 0 1px #0c0b09,
+    0 1.5px 0 #0c0b09, 0 6px 14px -5px rgb(23 21 17 / 0.55);
+  --shadow-raised-ink-hover: inset 0 1px 0 rgb(255 255 255 / 0.22), inset 0 -2px 0 rgb(0 0 0 / 0.35), 0 0 0 1px #0c0b09,
+    0 2.5px 0 #0c0b09, 0 12px 22px -8px rgb(23 21 17 / 0.6);
+  --shadow-pressed-ink: inset 0 2px 4px rgb(0 0 0 / 0.5), 0 0 0 1px #0c0b09;
+
   --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   --animate-rise: rise 0.25s var(--ease-soft);
@@ -48,7 +60,7 @@
   }
 
   .seg-opt[aria-current='true'] {
-    @apply bg-white text-ink shadow-[0_1px_2px_rgb(23_21_17/0.1),0_0_0_1px_rgb(23_21_17/0.04)];
+    @apply bg-white bg-linear-to-b from-white to-[#f4f1ea] text-ink shadow-raised;
   }
 }
 
@@ -62,12 +74,18 @@
   margin: 0 20px 20px 0;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: var(--shadow-pin);
+  box-shadow: var(--shadow-raised);
 }
 
 .maplibregl-ctrl-group button {
   width: 36px;
   height: 36px;
+  background-image: linear-gradient(to bottom, #fff, #f4f1ea);
+}
+
+.maplibregl-ctrl-group button:active {
+  background-image: linear-gradient(to bottom, #efebe3, #f6f3ed);
+  box-shadow: var(--shadow-pressed);
 }
 
 .maplibregl-ctrl-attrib {
