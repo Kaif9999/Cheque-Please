@@ -20,7 +20,7 @@ npm run preview    # serve dist/ on http://127.0.0.1:4190
 
 ```
 src/
-  app/         the hash router (and app state)
+  app/         the hash router, a small observable store and the app's state
   domain/      types and pure logic: zones, areas, geometry, people, routes. No DOM, no map.
   data/        the city JSON files and city definitions
   lib/         small helpers: html templates, DOM, icons, links, text
@@ -28,7 +28,7 @@ src/
   ui/
     components/  avatar, logo, button, post, zone marks, the panel's top bar
     views/       the cover, legend, top bar, café list, café page and follow dialog
-  main.ts      wires state, the router, views and the map together
+  main.ts      subscribes the views and the map to the store; actions change state and the camera
 tests/         mirrors src/ (domain, data, lib); tools/smoke.mjs covers the browser flows
 ```
 
