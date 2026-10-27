@@ -1,7 +1,9 @@
 import './styles.css';
 import type { PaddingOptions } from 'maplibre-gl';
+import { createRouter } from '@/app/router';
 import { CITIES, CITY_ORDER } from '@/data/cities';
 import { handlesText } from '@/domain/people';
+import type { Panel, Route } from '@/domain/routes';
 import type { Cafe, CityId, ZoneId } from '@/domain/types';
 import { zoneOf } from '@/domain/zones';
 import { $ } from '@/lib/dom';
@@ -24,9 +26,6 @@ interface State {
   /** 'intro' while the cover is up; 'map' once the person has started exploring. */
   mode: 'intro' | 'map';
 }
-
-/** The route segment that opens the list instead of a café. */
-const LIST = 'list';
 
 const state: State = { city: 'bengaluru', filter: null, selected: null, list: false, mode: 'intro' };
 const wide = window.matchMedia('(min-width: 1024px)');
@@ -53,7 +52,7 @@ const map = createMap(
   $('#map'),
   city(),
   {
-    pick: (slug) => go(slug),
+    pick: (slug) => go({ kind: 'cafe', slug }),
     hover: (slug) => {
       for (const row of el.sheetBody.querySelectorAll<HTMLElement>('[data-slug]')) row.classList.toggle('is-hover', row.dataset.slug === slug);
     },
@@ -145,16 +144,13 @@ function setFilter(zone: ZoneId | null): void {
   if (hidden) go(null);
 }
 
-/** Routes: #/<city>, #/<city>/list and #/<city>/<café-slug>. */
-function go(rest: string | null): void {
-  const next = `#/${state.city}${rest ? `/${rest}` : ''}`;
-  if (location.hash === next) readHash();
-  else location.hash = next;
+/** Opens a panel (or closes it, with null) in the current city. */
+function go(panel: Panel): void {
+  router.go(state.city, panel);
 }
 
-function readHash(): void {
-  const [cityId, rest] = location.hash.replace(/^#\/?/, '').split('/');
-  const nextCity = CITY_ORDER.includes(cityId as CityId) ? (cityId as CityId) : state.city;
+function applyRoute(route: Route): void {
+  const nextCity = route.city ?? state.city;
   const cityChanged = nextCity !== state.city || !el.heroBody.hasChildNodes();
   const wasOpen = sheetOpen();
   if (state.list && !state.selected) listScroll = el.sheetBody.scrollTop;
@@ -163,10 +159,11 @@ function readHash(): void {
     state.filter = null;
     listScroll = 0;
   }
-  const cafe = rest && rest !== LIST ? CITIES[nextCity].cafes.find((c) => c.slug === rest) : undefined;
+  const slug = route.panel?.kind === 'cafe' ? route.panel.slug : null;
+  const cafe = slug ? CITIES[nextCity].cafes.find((c) => c.slug === slug) : undefined;
   if (cafe && state.filter && zoneOf(cafe) !== state.filter) state.filter = null;
   state.selected = cafe?.slug ?? null;
-  state.list = rest === LIST;
+  state.list = route.panel?.kind === 'list';
   if (sheetOpen()) state.mode = 'map';
   renderChrome();
   renderSheet();
@@ -220,7 +217,7 @@ document.addEventListener('click', (e) => {
   const filter = target.closest<HTMLElement>('[data-filter]');
   if (filter) return setFilter((filter.dataset.filter || null) as ZoneId | null);
   if (target.closest('[data-explore]')) return dive(true);
-  if (target.closest('[data-open-list]')) return go(LIST);
+  if (target.closest('[data-open-list]')) return go({ kind: 'list' });
   if (target.closest('[data-close-sheet]')) return go(null);
   const shareBtn = target.closest<HTMLElement>('[data-share]');
   if (shareBtn) return void share(shareBtn);
@@ -263,14 +260,14 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !el.follow.open && sheetOpen()) go(null);
 });
 
-window.addEventListener('hashchange', readHash);
 window.addEventListener('resize', () => map.setPadding(padding()));
 wide.addEventListener('change', () => {
   map.setPadding(padding());
   map.resize();
 });
 
-readHash();
+const router = createRouter(CITY_ORDER, applyRoute);
+router.start();
 
 // Debug handle for the screenshot harness.
 (window as unknown as Record<string, unknown>).__cheque = { state, go, dive, surface };

@@ -20,14 +20,15 @@ npm run preview    # serve dist/ on http://127.0.0.1:4190
 
 ```
 src/
-  domain/      types and pure logic: zones, areas, geometry, people. No DOM, no map.
+  app/         the hash router (and app state)
+  domain/      types and pure logic: zones, areas, geometry, people, routes. No DOM, no map.
   data/        the city JSON files and city definitions
   lib/         small helpers: html templates, DOM, icons, links, text
   map/         MapLibre: basemap style, pins and clusters, neighbourhood zones
   ui/
     components/  avatar, logo, button, post, zone marks, the panel's top bar
     views/       the cover, legend, top bar, café list, café page and follow dialog
-  main.ts      wires state, routing, views and the map together
+  main.ts      wires state, the router, views and the map together
 tests/         mirrors src/ (domain, data, lib); tools/smoke.mjs covers the browser flows
 ```
 

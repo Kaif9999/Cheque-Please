@@ -1,5 +1,6 @@
 import { followable, investorsAt } from '@/domain/people';
-import type { Cafe, City, Investor, SceneItem } from '@/domain/types';
+import { routeHref } from '@/domain/routes';
+import type { Cafe, City, CityId, Investor, SceneItem } from '@/domain/types';
 import { ZONES, zoneOf } from '@/domain/zones';
 import { html, type Html } from '@/lib/html';
 import { icon } from '@/lib/icons';
@@ -46,8 +47,8 @@ function scenePost(item: SceneItem): Html {
   return post({ name: item.author, handle: item.authorHandle, date: item.date, text: item.text, url: item.url });
 }
 
-function nearbyRow(cityId: string, cafe: Cafe): Html {
-  return html`<li><a class="-mx-2 flex items-center gap-3 rounded-xl p-2 no-underline hover:bg-sunk [&.is-hover]:bg-sunk" href="#/${cityId}/${cafe.slug}" data-slug="${cafe.slug}">
+function nearbyRow(cityId: CityId, cafe: Cafe): Html {
+  return html`<li><a class="-mx-2 flex items-center gap-3 rounded-xl p-2 no-underline hover:bg-sunk [&.is-hover]:bg-sunk" href="${routeHref(cityId, { kind: 'cafe', slug: cafe.slug })}" data-slug="${cafe.slug}">
     ${logo(cafe, 'size-9 rounded-[10px] text-lg shadow-[inset_0_0_0_1px_var(--color-line)]')}
     <span class="flex flex-1 flex-col text-[14.5px] font-[550]">${cafe.name}<small class="text-[13px] font-normal text-ink-2">${cafe.branch}</small></span>
     <span class="text-ink-3">${icon('forward', 14)}</span>
@@ -72,7 +73,7 @@ export function renderDetail(city: City, cafe: Cafe): Html {
     html`<section class="${BLOCK}"><h2 class="${BLOCK_TITLE}">Also in ${cafe.area}</h2><ul class="m-0 grid list-none gap-0.5 p-0">${nearby.map((c) => nearbyRow(city.id, c))}</ul></section>`;
 
   return html`
-    ${sheetBar(html`<a class="inline-flex items-center gap-0.5 rounded-lg py-1.5 pl-1 pr-2.5 text-sm font-medium text-ink-2 no-underline hover:bg-sunk hover:text-ink" href="#/${city.id}/list">${icon('back')}All ${city.name} cafés</a>`)}
+    ${sheetBar(html`<a class="inline-flex items-center gap-0.5 rounded-lg py-1.5 pl-1 pr-2.5 text-sm font-medium text-ink-2 no-underline hover:bg-sunk hover:text-ink" href="${routeHref(city.id, { kind: 'list' })}">${icon('back')}All ${city.name} cafés</a>`)}
     <header class="flex items-center gap-4 ${PX} pt-2">
       ${logo(cafe, 'size-[60px] rounded-2xl text-3xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
       <div class="min-w-0">

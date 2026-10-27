@@ -1,4 +1,5 @@
-import { investorsAt, followable, photosFirst } from '@/domain/people';
+import { followable, investorsAt, photosFirst } from '@/domain/people';
+import { routeHref } from '@/domain/routes';
 import type { City } from '@/domain/types';
 import { statsOf } from '@/domain/zones';
 import { html, type Html } from '@/lib/html';
@@ -24,5 +25,5 @@ export function renderHero(city: City): Html {
       <button type="button" class="${btn({ primary: true, size: 'large' })}" data-explore>Explore the map${icon('forward')}</button>
       ${toFollow > 0 && html`<button type="button" class="${btn({ size: 'large' })}" data-follow-all>${icon('x', 15)}Follow all ${toFollow}</button>`}
     </div>
-    <a class="mt-5 hidden self-start text-[14.5px] font-medium text-ink-2 underline decoration-line-2 underline-offset-4 hover:text-ink hover:decoration-ink-3 lg:inline" href="#/${city.id}/list">Or browse all ${stats.cafes} cafés as a list</a>`;
+    <a class="mt-5 hidden self-start text-[14.5px] font-medium text-ink-2 underline decoration-line-2 underline-offset-4 hover:text-ink hover:decoration-ink-3 lg:inline" href="${routeHref(city.id, { kind: 'list' })}">Or browse all ${stats.cafes} cafés as a list</a>`;
 }

@@ -1,7 +1,8 @@
 import { config } from '@/config';
 import { groupByArea } from '@/domain/areas';
 import { followable, investorsAt, photosFirst } from '@/domain/people';
-import type { Cafe, City, ZoneId } from '@/domain/types';
+import { routeHref } from '@/domain/routes';
+import type { Cafe, City, CityId, ZoneId } from '@/domain/types';
 import { ZONES, zoneOf } from '@/domain/zones';
 import { html, type Html } from '@/lib/html';
 import { icon } from '@/lib/icons';
@@ -23,11 +24,11 @@ function names(cafe: Cafe): string {
   return `${people[0]}, ${people[1]} and ${plural(people.length - 2, 'other')}`;
 }
 
-function row(cityId: string, cafe: Cafe): Html {
+function row(cityId: CityId, cafe: Cafe): Html {
   const zone = ZONES[zoneOf(cafe)];
   const people = photosFirst(investorsAt([cafe]));
   return html`<li>
-    <a class="group flex gap-3.5 rounded-[14px] p-3 no-underline transition-colors hover:bg-sunk [&.is-hover]:bg-sunk" href="#/${cityId}/${cafe.slug}" data-slug="${cafe.slug}">
+    <a class="group flex gap-3.5 rounded-[14px] p-3 no-underline transition-colors hover:bg-sunk [&.is-hover]:bg-sunk" href="${routeHref(cityId, { kind: 'cafe', slug: cafe.slug })}" data-slug="${cafe.slug}">
       ${logo(cafe, 'size-12 rounded-xl text-2xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
       <span class="flex min-w-0 flex-col gap-0.5">
         <span class="text-base font-semibold leading-tight tracking-[-0.005em]">${cafe.name}</span>

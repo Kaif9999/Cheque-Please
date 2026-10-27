@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { LIST } from '@/domain/routes';
 import { CITIES } from '@/data/cities';
 
 const TWEET = /^https:\/\/(x|twitter)\.com\/\w+\/status\/\d+/;
@@ -13,8 +14,7 @@ for (const city of Object.values(CITIES)) {
     it('has unique slugs', () => {
       const slugs = city.cafes.map((c) => c.slug);
       expect(new Set(slugs).size).toBe(slugs.length);
-      // `#/<city>/list` is the list route, so no café can be called that.
-      expect(slugs).not.toContain('list');
+      expect(slugs).not.toContain(LIST);
     });
 
     for (const cafe of city.cafes) {
