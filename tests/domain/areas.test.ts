@@ -27,18 +27,18 @@ function cafe(area: string, lon: number, lat: number, crowds: Crowd[]): Cafe {
 
 describe('areasOf', () => {
   it('colours an area by the zone most of its cafés fall in, not by mixing every cheque', () => {
-    const [area] = areasOf([
+    const area = areasOf([
       cafe('Indiranagar', 77.64, 12.97, ['first']),
       cafe('Indiranagar', 77.641, 12.971, ['first']),
       cafe('Indiranagar', 77.642, 12.972, ['big', 'angel']),
-    ]);
+    ])[0]!;
     expect(area.zone).toBe('first');
     expect(area.cafes).toBe(3);
   });
 
   it('wraps every café with margin to spare', () => {
     const list = [cafe('A', 72.83, 19.05, ['angel']), cafe('A', 72.84, 19.06, [])];
-    const [area] = areasOf(list);
+    const area = areasOf(list)[0]!;
     expect(area.shape[0]).toEqual(area.shape[area.shape.length - 1]);
     for (const c of list) {
       const nearest = Math.min(...area.shape.map((p) => distance([c.lon, c.lat], p)));
