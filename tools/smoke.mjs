@@ -14,7 +14,10 @@ const CHROME = [
   '/usr/bin/google-chrome',
 ].find(existsSync);
 
-const browser = await chromium.launch({ executablePath: CHROME, args: ['--use-angle=d3d11', '--enable-unsafe-swiftshader'] });
+const browser = await chromium.launch({
+  executablePath: CHROME,
+  args: [process.platform === 'win32' ? '--use-angle=d3d11' : '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+});
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 const errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
