@@ -18,6 +18,7 @@ body:
       options:
         - Bengaluru
         - Mumbai
+        - San Francisco
     validations:
       required: true
   - type: input

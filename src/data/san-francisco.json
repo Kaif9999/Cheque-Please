@@ -1,0 +1,840 @@
+{
+  "cafes": [
+    {
+      "slug": "blue-bottle-south-park",
+      "name": "Blue Bottle Coffee",
+      "branch": "South Park",
+      "area": "South Park",
+      "address": "2 South Park, San Francisco, CA 94107",
+      "lat": 37.782437,
+      "lon": -122.393264,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Blue+Bottle+Coffee%2C+2+South+Park%2C+San+Francisco%2C+CA+94107",
+      "note": "Lightspeed, Benchmark, Amplify, Contrary and FPV investors placed here, 2023–2026.",
+      "vcs": [
+        {
+          "name": "Guru Chahal",
+          "fund": "Lightspeed",
+          "handle": "guruchahal",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Guru Chahal🇺🇸",
+            "authorHandle": "guruchahal",
+            "text": "Agree @Katie_Roof! \n\n@EverettRandle hasn’t realized this yet but hanging a 🎤 down to that Blue Bottle from the @lightspeedvp offices generates most of my deal flow 😂\n\nMaybe I’ll rent out my window to @tbpn 🙂",
+            "date": "Aug 8, 2026",
+            "url": "https://x.com/guruchahal/status/2086152411593552046"
+          },
+          "avatar": "avatars/guruchahal.jpg"
+        },
+        {
+          "name": "Everett Randle",
+          "fund": "Benchmark",
+          "handle": "EverettRandle",
+          "crowd": "big",
+          "proof": {
+            "kind": "spotted",
+            "author": "Aashay Sanghvi",
+            "authorHandle": "aashaysanghvi_",
+            "text": "There’s no hiding in the windows of the South Park Blue Bottle\n\n@EverettRandle",
+            "date": "Jan 24, 2023",
+            "url": "https://x.com/aashaysanghvi_/status/1618015381364543489"
+          },
+          "avatar": "avatars/everettrandle.jpg"
+        },
+        {
+          "name": "Sarah Catanzaro",
+          "fund": "Amplify Partners",
+          "handle": "sarahcat21",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Sarah Catanzaro",
+            "authorHandle": "sarahcat21",
+            "text": "Some of the crimes I’ve seen at Blue Bottle South Park on a Tuesday afternoon…",
+            "date": "May 8, 2023",
+            "url": "https://x.com/sarahcat21/status/1655435416571621380"
+          },
+          "avatar": "avatars/sarahcat21.jpg"
+        },
+        {
+          "name": "Kyle Harrison",
+          "fund": "Contrary",
+          "handle": "kwharrison13",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "The Information",
+            "authorHandle": "theinformation",
+            "text": "We would be remiss to not mention the @bluebottleroast in San Francisco’s South Park, which has several regulars including @om from @trueventures and @kwharrison13 from @contrary.\n\nhttps://t.co/rPye9X5t3x",
+            "date": "Mar 24, 2023",
+            "url": "https://x.com/theinformation/status/1639346537213091841"
+          },
+          "avatar": "avatars/kwharrison13.jpg"
+        },
+        {
+          "name": "Nikunj Kothari",
+          "fund": "FPV Ventures",
+          "handle": "nikunj",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Nikunj Kothari",
+            "authorHandle": "nikunj",
+            "text": "List of places you should whisper that you have a term sheet..\n\n- Postscript\n- Blue Bottle (South Park on weekdays, Pac Heights Fri-Sun)\n- Sightglass (in Mission, and occasionally 7th St)\n- Tartine Manufactory\n- @ArfurRock\n- @StealthCoSpy\n\n(posting this from the south park BB)",
+            "date": "Apr 30, 2025",
+            "url": "https://x.com/nikunj/status/1917687724452241447"
+          },
+          "avatar": "avatars/nikunj.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Katie Roof",
+          "authorHandle": "Katie_Roof",
+          "text": "TMZN just needs to stake out by the South Park Blue Bottle and The Battery and they’ll see everyone",
+          "date": "Aug 7, 2026",
+          "url": "https://x.com/Katie_Roof/status/2085816008061939921"
+        },
+        {
+          "kind": "tweet",
+          "author": "Lauren Self",
+          "authorHandle": "laurenlself",
+          "text": "Overheard in SF: “At the South Park Blue Bottle I heard a VC say, ‘Billions are no longer enough. You have to target returns in the QUADRILLIONS.’”",
+          "date": "Nov 19, 2025",
+          "url": "https://x.com/laurenlself/status/1991232017757880659"
+        },
+        {
+          "kind": "tweet",
+          "author": "sharoz javaid",
+          "authorHandle": "sharozjavaid",
+          "text": "just got asked to pitch my startup at the blue bottle in south park. \n\nthe guy pressure tests hard, tries to crack it, then i ask what he's doing and he says he's an intern. \n\nluckily some other vcs heard the convo and now i have calls setup for the rest of the week.",
+          "date": "Jul 20, 2026",
+          "url": "https://x.com/sharozjavaid/status/2079324294241304677"
+        }
+      ]
+    },
+    {
+      "slug": "golden-goat-south-park",
+      "name": "Golden Goat Coffee",
+      "branch": "3rd Street",
+      "area": "South Park",
+      "address": "599 3rd Street, San Francisco, CA 94107",
+      "lat": 37.78045,
+      "lon": -122.394274,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Golden+Goat+Coffee%2C+599+3rd+Street%2C+San+Francisco%2C+CA+94107",
+      "note": "Accel's Dan Levine and Gradient's Andrew Brackin both back it over South Park's Blue Bottle, 2023–2026.",
+      "vcs": [
+        {
+          "name": "Dan Levine",
+          "fund": "Accel",
+          "handle": "daniel_levine",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Dan Levine",
+            "authorHandle": "daniel_levine",
+            "text": "@zeeg Whatever is available at golden goat! I like to try a bunch of things and they’re always getting new stuff in",
+            "date": "Jan 15, 2026",
+            "url": "https://x.com/daniel_levine/status/2011875962661851136"
+          },
+          "avatar": "avatars/daniel_levine.jpg"
+        },
+        {
+          "name": "Andrew Brackin",
+          "fund": "Gradient Ventures",
+          "handle": "brackin",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Andrew Brackin",
+            "authorHandle": "brackin",
+            "text": "@thechangj @brexHQ Hot tip: Golden Goat coffee in South Park is better!",
+            "date": "Apr 20, 2023",
+            "url": "https://x.com/brackin/status/1649111331256279042"
+          },
+          "avatar": "avatars/brackin.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "david lietjauw",
+          "authorHandle": "davidfromkansas",
+          "text": "after working in south park (sf) for the last 2 weeks, i can confidently say that the best builders and investors...\n\n...choose to go to golden goat coffee over blue bottle 😤😤\n\n#HotTake #Contrarian",
+          "date": "Aug 15, 2026",
+          "url": "https://x.com/davidfromkansas/status/2088723395458609283"
+        }
+      ]
+    },
+    {
+      "slug": "sightglass-soma",
+      "name": "Sightglass Coffee",
+      "branch": "7th Street",
+      "area": "SoMa",
+      "address": "270 7th Street, San Francisco, CA 94103",
+      "lat": 37.776976,
+      "lon": -122.40855,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Sightglass+Coffee%2C+270+7th+Street%2C+San+Francisco%2C+CA+94103",
+      "note": "FPV's Nikunj Kothari posted founder-and-angel chatter overheard at the 7th St café, Apr 2026.",
+      "vcs": [
+        {
+          "name": "Nikunj Kothari",
+          "fund": "FPV Ventures",
+          "handle": "nikunj",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Nikunj Kothari",
+            "authorHandle": "nikunj",
+            "text": "No one will believe me but this happened this morning..\n\nX (clearly a founder): I’m talking to all the Tier 1 VCs - and have second meetings. \n\nY (angel, friend maybe): You mean the neolab index funds?\n\n💀\n\n📌 Sightglass on 7th St",
+            "date": "Apr 28, 2026",
+            "url": "https://x.com/nikunj/status/2049179647519125976"
+          },
+          "avatar": "avatars/nikunj.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Dumitru Erhan",
+          "authorHandle": "dumierhan",
+          "text": "It really depends on what you want! Here's a handy guide:\nSightglass SoMA: startups pitching to VCs\nNoe Cafe: former OpenAI execs recruiting for their startups\nBluebottle South Park: VCs hanging out with VCs\nSaint Frank Folsom: You may find me recruiting here sometime :)",
+          "date": "Aug 18, 2025",
+          "url": "https://x.com/dumierhan/status/1957424204942323963"
+        },
+        {
+          "kind": "tweet",
+          "author": "Ben Bergman",
+          "authorHandle": "thebenbergman",
+          "text": "These are the top SF coffee shops where founders go, according to Mercury. What are they missing?\n\n• Sightglass Coffee – 270 7th St\n• CoffeeShop – 2761 21st St\n• Equator Coffees – 2 Marina St\n• Saint Frank Coffee – 2340 Polk St\n• Ritual Coffee Roasters – 1026 Valencia St",
+          "date": "Nov 13, 2025",
+          "url": "https://x.com/thebenbergman/status/1989052623526518943"
+        }
+      ]
+    },
+    {
+      "slug": "saint-frank-mira",
+      "name": "Saint Frank Coffee",
+      "branch": "Mira, Folsom Street",
+      "area": "Rincon Hill",
+      "address": "120 Folsom Street, San Francisco, CA 94105",
+      "lat": 37.79011,
+      "lon": -122.391545,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Saint+Frank+Coffee%2C+120+Folsom+Street%2C+San+Francisco%2C+CA+94105",
+      "note": "Posts describe founders doing pitch practice and recruiting at the Folsom St café, 2025–2026.",
+      "vcs": [],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "amber",
+          "authorHandle": "whosamberella",
+          "text": "saint frank at folsom st: \nfounders queuing for the bathroom between pitch practice https://t.co/CHszkfPaba",
+          "date": "Apr 14, 2026",
+          "url": "https://x.com/whosamberella/status/2043909916440834055"
+        },
+        {
+          "kind": "tweet",
+          "author": "Dumitru Erhan",
+          "authorHandle": "dumierhan",
+          "text": "It really depends on what you want! Here's a handy guide:\nSightglass SoMA: startups pitching to VCs\nNoe Cafe: former OpenAI execs recruiting for their startups\nBluebottle South Park: VCs hanging out with VCs\nSaint Frank Folsom: You may find me recruiting here sometime :)",
+          "date": "Aug 18, 2025",
+          "url": "https://x.com/dumierhan/status/1957424204942323963"
+        }
+      ]
+    },
+    {
+      "slug": "saint-frank-russian-hill",
+      "name": "Saint Frank Coffee",
+      "branch": "Polk Street",
+      "area": "Russian Hill",
+      "address": "2340 Polk Street, San Francisco, CA 94109",
+      "lat": 37.798486,
+      "lon": -122.422055,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Saint+Frank+Coffee%2C+2340+Polk+Street%2C+San+Francisco%2C+CA+94109",
+      "note": "Audacious's Nakul Mandan and Bloomberg Beta's James Cham posted from the Polk St café, Jan 2025.",
+      "vcs": [
+        {
+          "name": "Nakul Mandan",
+          "fund": "Audacious Ventures",
+          "handle": "nakul",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Nakul Mandan",
+            "authorHandle": "nakul",
+            "text": "Came back to Saint Frank on Polk after a long time. Still the best coffee in SF!",
+            "date": "Jan 26, 2025",
+            "url": "https://x.com/nakul/status/1883646780535091497"
+          },
+          "avatar": "avatars/nakul.jpg"
+        },
+        {
+          "name": "James Cham",
+          "fund": "Bloomberg Beta",
+          "handle": "jamescham",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "James Cham",
+            "authorHandle": "jamescham",
+            "text": "Continuing to get all of the smart people to have coffee at Saint Frank. https://t.co/3nYlN1l9Yp",
+            "date": "Jan 3, 2025",
+            "url": "https://x.com/jamescham/status/1874993802571808930"
+          },
+          "avatar": "avatars/jamescham.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "William",
+          "authorHandle": "wsepesi",
+          "text": "@sdamico living in russian hill and working out of coffee shops most of the time means I have the privilege (read: am tortured by) of hearing the dumbest VC/founder conversations here and at Saint Frank and at Cafe Reveille. unescapable nightmare blunt rotation",
+          "date": "Aug 13, 2026",
+          "url": "https://x.com/wsepesi/status/2087992289474048032"
+        },
+        {
+          "kind": "tweet",
+          "author": "Ben Bergman",
+          "authorHandle": "thebenbergman",
+          "text": "These are the top SF coffee shops where founders go, according to Mercury. What are they missing?\n\n• Sightglass Coffee – 270 7th St\n• CoffeeShop – 2761 21st St\n• Equator Coffees – 2 Marina St\n• Saint Frank Coffee – 2340 Polk St\n• Ritual Coffee Roasters – 1026 Valencia St",
+          "date": "Nov 13, 2025",
+          "url": "https://x.com/thebenbergman/status/1989052623526518943"
+        }
+      ]
+    },
+    {
+      "slug": "ritual-valencia",
+      "name": "Ritual Coffee Roasters",
+      "branch": "Valencia Street",
+      "area": "Mission",
+      "address": "1026 Valencia Street, San Francisco, CA 94110",
+      "lat": 37.756428,
+      "lon": -122.421376,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ritual+Coffee+Roasters%2C+1026+Valencia+Street%2C+San+Francisco%2C+CA+94110",
+      "note": "The Information reported Homebrew's Hunter Walk is often here at 9am or after 2pm, Mar 2023.",
+      "vcs": [
+        {
+          "name": "Hunter Walk",
+          "fund": "Homebrew",
+          "handle": "hunterwalk",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "The Information",
+            "authorHandle": "theinformation",
+            "text": ".@hunterwalk of @homebrew likes Ritual Coffee Roasters in SF’s Mission district, who is often at the cafe at 9 am for a pour over or after 2 pm for a decaf Americano.\n\nhttps://t.co/rPye9X5t3x",
+            "date": "Mar 24, 2023",
+            "url": "https://x.com/theinformation/status/1639346535644401665"
+          },
+          "avatar": "avatars/hunterwalk.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Ben Bergman",
+          "authorHandle": "thebenbergman",
+          "text": "These are the top SF coffee shops where founders go, according to Mercury. What are they missing?\n\n• Sightglass Coffee – 270 7th St\n• CoffeeShop – 2761 21st St\n• Equator Coffees – 2 Marina St\n• Saint Frank Coffee – 2340 Polk St\n• Ritual Coffee Roasters – 1026 Valencia St",
+          "date": "Nov 13, 2025",
+          "url": "https://x.com/thebenbergman/status/1989052623526518943"
+        }
+      ]
+    },
+    {
+      "slug": "jane-on-fillmore",
+      "name": "Jane on Fillmore",
+      "branch": "Fillmore Street",
+      "area": "Pacific Heights",
+      "address": "2123 Fillmore Street, San Francisco, CA 94115",
+      "lat": 37.789348,
+      "lon": -122.434237,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Jane+on+Fillmore%2C+2123+Fillmore+Street%2C+San+Francisco%2C+CA+94115",
+      "note": "Zeeza Cole told The Information she sees VC catch-ups and VC/founder intro meetings here, Mar 2023.",
+      "vcs": [
+        {
+          "name": "Zeeza Cole",
+          "fund": "Bain Capital Ventures",
+          "handle": "ZeezaCole",
+          "crowd": "big",
+          "proof": {
+            "kind": "spotted",
+            "author": "The Information",
+            "authorHandle": "theinformation",
+            "text": ".@BainCapVC’s @ZeezaCole likes Jane on Fillmore in San Francisco. “I’ve seen it all at Jane,” she said. “The solo grinders, VC catch ups, VC/founder intro meetings, reunions of old friends and colleagues…”\n\nhttps://t.co/rPye9X5t3x",
+            "date": "Mar 24, 2023",
+            "url": "https://x.com/theinformation/status/1639346533996072962"
+          },
+          "avatar": "avatars/zeezacole.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "blue-bottle-fillmore",
+      "name": "Blue Bottle Coffee",
+      "branch": "Fillmore Street",
+      "area": "Pacific Heights",
+      "address": "2453 Fillmore Street, San Francisco, CA 94115",
+      "lat": 37.792038,
+      "lon": -122.434765,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Blue+Bottle+Coffee%2C+2453+Fillmore+Street%2C+San+Francisco%2C+CA+94115",
+      "note": "Susa's Pratyush Buddiga met a future founder here; Gradient's Andrew Brackin says it has more deal activity.",
+      "vcs": [
+        {
+          "name": "Pratyush Buddiga",
+          "fund": "Susa Ventures",
+          "handle": "pratyushbuddiga",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Pratyush",
+            "authorHandle": "pratyushbuddiga",
+            "text": "ANTARES RAISES $470M SERIES C\n\nThree and a half years ago, I sat down in the Blue Bottle on Fillmore St. I thought I was catching up with a friend to talk about fatherhood. We'd both just become dads. It prompted a deep question for me: how do you be a great dad while also being https://t.co/qw4W1eFyWB",
+            "date": "Jul 27, 2026",
+            "url": "https://x.com/pratyushbuddiga/status/2081766929149383048"
+          },
+          "avatar": "avatars/pratyushbuddiga.jpg"
+        },
+        {
+          "name": "Andrew Brackin",
+          "fund": "Gradient Ventures",
+          "handle": "brackin",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Andrew Brackin",
+            "authorHandle": "brackin",
+            "text": "@aashaysanghvi_ @rak_garg Blue bottle on Fillmore has more deal activity",
+            "date": "Jul 20, 2023",
+            "url": "https://x.com/brackin/status/1681828307871076354"
+          },
+          "avatar": "avatars/brackin.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "the-battery",
+      "name": "The Battery",
+      "branch": "Battery Street",
+      "area": "Jackson Square",
+      "address": "717 Battery Street, San Francisco, CA 94111",
+      "lat": 37.797934,
+      "lon": -122.401137,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Battery%2C+717+Battery+Street%2C+San+Francisco%2C+CA+94111",
+      "note": "Sarah Guo posted from The Battery's bar in 2016; Hunter Walk was at a VC party here, Jun 2024.",
+      "vcs": [
+        {
+          "name": "Sarah Guo",
+          "fund": "Conviction",
+          "handle": "saranormous",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "sarah guo",
+            "authorHandle": "saranormous",
+            "text": "It's everywhere. 2 ppl (I can only assume) @Get_Headspace-ing at the Battery bar. Can't you do your zen-ing at home. Or the office.",
+            "date": "May 25, 2016",
+            "url": "https://x.com/saranormous/status/735286206393516032"
+          },
+          "avatar": "avatars/saranormous.jpg"
+        },
+        {
+          "name": "Hunter Walk",
+          "fund": "Homebrew",
+          "handle": "hunterwalk",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "Martine Paris",
+            "authorHandle": "contentnow",
+            "text": "I was at a VC party at The Battery earlier this week with @chrismessina @hunterwalk talking about @Waymo and someone joked they’re going to miss driver chit chat. We all laughed and said that feature is coming, likely with celebrity voices as an option. Only in SF! https://t.co/jk6fGGx6aD",
+            "date": "Jun 9, 2024",
+            "url": "https://x.com/contentnow/status/1799911626990363062"
+          },
+          "avatar": "avatars/hunterwalk.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Katie Roof",
+          "authorHandle": "Katie_Roof",
+          "text": "TMZN just needs to stake out by the South Park Blue Bottle and The Battery and they’ll see everyone",
+          "date": "Aug 7, 2026",
+          "url": "https://x.com/Katie_Roof/status/2085816008061939921"
+        }
+      ]
+    },
+    {
+      "slug": "coupa-cafe-ramona",
+      "name": "Coupa Café",
+      "branch": "Ramona Street",
+      "area": "Downtown Palo Alto",
+      "address": "538 Ramona Street, Palo Alto, CA 94301",
+      "lat": 37.444779,
+      "lon": -122.161583,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Coupa+Caf%C3%A9%2C+538+Ramona+Street%2C+Palo+Alto%2C+CA+94301",
+      "note": "RareBreed's Mac Conwell held open coffee chats \"at Coupa Cafe on Ramona\", Jun 2022; Semil Shah checked in, 2013.",
+      "vcs": [
+        {
+          "name": "Mac Conwell",
+          "fund": "RareBreed Ventures",
+          "handle": "MacConwell",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Mac The VC",
+            "authorHandle": "MacConwell",
+            "text": "Hey Everyone,  I'm currently in California for @KauffmanFellows but I'm going to be at Coupa Cafe on Ramona in Palo Alto today from 2:30 - 4pm today. Come join me for a coffee and chat.",
+            "date": "Jun 16, 2022",
+            "url": "https://x.com/MacConwell/status/1537480778048630784"
+          },
+          "avatar": "avatars/macconwell.jpg"
+        },
+        {
+          "name": "Jason Lemkin",
+          "fund": "SaaStr Fund",
+          "handle": "jasonlk",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jason ✨👾SaaStr.Ai✨ Lemkin",
+            "authorHandle": "jasonlk",
+            "text": "@nimanojoumi Coupa is great, our office is across the way on Emerson, which is great. Ramona and Emerson are the best streets.\n\nBut if it gets worse, I think it will cross the tipping point to not nice anymore \n\nThere is too much quiet vacancy and retail has all left",
+            "date": "Oct 11, 2024",
+            "url": "https://x.com/jasonlk/status/1844543652422615354"
+          },
+          "avatar": "avatars/jasonlk.jpg"
+        },
+        {
+          "name": "Semil Shah",
+          "fund": "Haystack",
+          "handle": "semil",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Semil",
+            "authorHandle": "semil",
+            "text": "I'm at Coupa Café (Palo Alto, CA) http://t.co/KgwBP8xEPU",
+            "date": "May 24, 2013",
+            "url": "https://x.com/semil/status/337988192785543170"
+          },
+          "avatar": "avatars/semil.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "cafe-venetia-palo-alto",
+      "name": "Café Venetia",
+      "branch": "University Avenue",
+      "area": "Downtown Palo Alto",
+      "address": "419 University Avenue, Palo Alto, CA 94301",
+      "lat": 37.447503,
+      "lon": -122.16041,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Venetia%2C+419+University+Avenue%2C+Palo+Alto%2C+CA+94301",
+      "note": "The Information said solo VC Oren Zeev takes almost all his meetings here, Mar 2023.",
+      "vcs": [
+        {
+          "name": "Oren Zeev",
+          "fund": "Zeev Ventures",
+          "handle": "orenzeev",
+          "crowd": "angel",
+          "proof": {
+            "kind": "spotted",
+            "author": "The Information",
+            "authorHandle": "theinformation",
+            "text": "Don’t expect to see investors from major firms at Café Venetia, but there’s a good chance you’ll see solo VC @orenzeev, who takes almost all his meetings there. Read more about Zeev’s “office” in the Palo Alto cafe in this profile ⬇️\n\nhttps://t.co/SFfWM9xqc2",
+            "date": "Mar 24, 2023",
+            "url": "https://x.com/theinformation/status/1639346532221849600"
+          },
+          "avatar": "avatars/orenzeev.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Maximillian Diez (VC Looking Glass)",
+          "authorHandle": null,
+          "text": "Investors from Insight Partners and Zeev Ventures frequently stop by here, often discussing the next big moves in enterprise and healthcare tech.",
+          "date": "Oct 8, 2024",
+          "url": "https://vclookingglass.beehiiv.com/p/ncaffeinated-capital-my-month-long-tour-of-20-vc-hangout-caf-sew-post"
+        }
+      ]
+    },
+    {
+      "slug": "verve-palo-alto",
+      "name": "Verve Coffee Roasters",
+      "branch": "University Avenue",
+      "area": "Downtown Palo Alto",
+      "address": "162 University Avenue, Palo Alto, CA 94301",
+      "lat": 37.444203,
+      "lon": -122.163124,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Verve+Coffee+Roasters%2C+162+University+Avenue%2C+Palo+Alto%2C+CA+94301",
+      "note": "Foundation Capital's Jaya Gupta overheard a debate about which Greylock partner did Figma here, Aug 2025.",
+      "vcs": [
+        {
+          "name": "Jaya Gupta",
+          "fund": "Foundation Capital",
+          "handle": "JayaGup10",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jaya Gupta",
+            "authorHandle": "JayaGup10",
+            "text": "overheard two people at Verve in Palo Alto this morning debating who at Greylock did Figma…. 🥱",
+            "date": "Aug 1, 2025",
+            "url": "https://x.com/JayaGup10/status/1951333668162773169"
+          },
+          "avatar": "avatars/jayagup10.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "cafe-borrone-menlo-park",
+      "name": "Cafe Borrone",
+      "branch": "El Camino Real",
+      "area": "Menlo Park",
+      "address": "1010 El Camino Real, Suite 110, Menlo Park, CA 94025",
+      "lat": 37.453667,
+      "lon": -122.182305,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Cafe+Borrone%2C+1010+El+Camino+Real%2C+Suite+110%2C+Menlo+Park%2C+CA+94025",
+      "note": "Paul Graham posted from here, Aug 2026; Leo Polovets planned meetings here and Bilal Zuberi invites founders.",
+      "vcs": [
+        {
+          "name": "Paul Graham",
+          "fund": "Y Combinator",
+          "handle": "paulg",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Paul Graham",
+            "authorHandle": "paulg",
+            "text": "Sunday morning, Cafe Borrone. I see a man in profile. Are those flip-up sunglasses, or eyebrows? They're eyebrows. There's only one man it could be. It is.",
+            "date": "Aug 16, 2026",
+            "url": "https://x.com/paulg/status/2089039701881819145"
+          },
+          "avatar": "avatars/paulg.jpg"
+        },
+        {
+          "name": "Leo Polovets",
+          "fund": "Susa Ventures",
+          "handle": "lpolovets",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Leo Polovets",
+            "authorHandle": "lpolovets",
+            "text": "@shivon When's your next trip to Cafe Borrone? I want to make sure I set up a meeting there at the same time.",
+            "date": "Jan 13, 2017",
+            "url": "https://x.com/lpolovets/status/820014432763813888"
+          },
+          "avatar": "avatars/lpolovets.jpg"
+        },
+        {
+          "name": "Bilal Zuberi",
+          "fund": "Red Glass Ventures",
+          "handle": "bznotes",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Bilal Zuberi // Red Glass Ventures",
+            "authorHandle": "bznotes",
+            "text": "Come to Cafe Borrone! Or LeVant Dessert. Or Mademoiselle Collette.",
+            "date": "Oct 26, 2026",
+            "url": "https://x.com/bznotes/status/2114810445572014132"
+          },
+          "avatar": "avatars/bznotes.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "saint-frank-menlo-park",
+      "name": "Saint Frank Coffee",
+      "branch": "Alma Street",
+      "area": "Menlo Park",
+      "address": "1018 Alma Street, Menlo Park, CA 94025",
+      "lat": 37.454741,
+      "lon": -122.181517,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Saint+Frank+Coffee%2C+1018+Alma+Street%2C+Menlo+Park%2C+CA+94025",
+      "note": "Bloomberg Beta's James Cham called it the Valley's smartest coffee shop by the people he sees, Dec 2022.",
+      "vcs": [
+        {
+          "name": "James Cham",
+          "fund": "Bloomberg Beta",
+          "handle": "jamescham",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "James Cham",
+            "authorHandle": "jamescham",
+            "text": "Saint Frank Coffee might be the smartest coffee shop in the Valley (at least based on the people I’ve seen there!). https://t.co/vnfXUJq4pK",
+            "date": "Dec 25, 2022",
+            "url": "https://x.com/jamescham/status/1607114519721185280"
+          },
+          "avatar": "avatars/jamescham.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Maximillian Diez (VC Looking Glass)",
+          "authorHandle": null,
+          "text": "Investors from Lightspeed Ventures can often be found here, chatting over espressos about the latest consumer startups.",
+          "date": "Oct 8, 2024",
+          "url": "https://vclookingglass.beehiiv.com/p/ncaffeinated-capital-my-month-long-tour-of-20-vc-hangout-caf-sew-post"
+        }
+      ]
+    },
+    {
+      "slug": "rosewood-sand-hill",
+      "name": "Rosewood Sand Hill",
+      "branch": "Madera",
+      "area": "Sand Hill Road",
+      "address": "2825 Sand Hill Road, Menlo Park, CA 94025",
+      "lat": 37.419532,
+      "lon": -122.212542,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Rosewood+Sand+Hill%2C+2825+Sand+Hill+Road%2C+Menlo+Park%2C+CA+94025",
+      "note": "Ben Narasin took an 8:30am meeting at Madera, which he called 'normally VC central', Jan 2024.",
+      "vcs": [
+        {
+          "name": "Ben Narasin",
+          "fund": "Tenacity Venture Capital",
+          "handle": "BNarasin",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "BΞN / Ben Narasin",
+            "authorHandle": "BNarasin",
+            "text": "Jumped back into the new year w a 8:30 Am at Madera/Rosewood Sand Hill. Normally VC central so I expected it to be humming. I was literally the only meeting there. Wow. Slow start or maybe Monday meetings rolled to Tuesday?",
+            "date": "Jan 2, 2024",
+            "url": "https://x.com/BNarasin/status/1742259512814510271"
+          },
+          "avatar": "avatars/bnarasin.jpg"
+        },
+        {
+          "name": "Reid Hoffman",
+          "fund": "Greylock",
+          "handle": "reidhoffman",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Reid Hoffman",
+            "authorHandle": "reidhoffman",
+            "text": "I'm at Madera in Menlo Park, CA http://gowal.la/s/2XRb",
+            "date": "Mar 30, 2010",
+            "url": "https://x.com/reidhoffman/status/11292355256"
+          },
+          "avatar": "avatars/reidhoffman.jpg"
+        },
+        {
+          "name": "Jeremiah Owyang",
+          "fund": "Blitzscaling Ventures",
+          "handle": "jowyang",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jeremiah Owyang",
+            "authorHandle": "jowyang",
+            "text": "This is awkward and probably embarrassing, last week I announced I’m a VC  l…and within a week I ended up at the Rosewood on Sand Hill. \n\nThinking I need a vest. Next. Actually no. Not doing that. Ever. https://t.co/fJMmqZOXPV",
+            "date": "Nov 9, 2023",
+            "url": "https://x.com/jowyang/status/1722646290037903549"
+          },
+          "avatar": "avatars/jowyang.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "John Coogan",
+          "authorHandle": "johncoogan",
+          "text": "watching a vc visit semianalysis (paywalled) on his laptop at madera rosewood with an irish coffee at 8am in the morning",
+          "date": "Jan 31, 2025",
+          "url": "https://x.com/johncoogan/status/1885367734633967630"
+        },
+        {
+          "kind": "tweet",
+          "author": "Tom Bielecki",
+          "authorHandle": "tombielecki",
+          "text": "@BenjaminHilborn Have you been to Rosewood Sand Hill? VC hangout spot",
+          "date": "Sep 17, 2026",
+          "url": "https://x.com/tombielecki/status/2100416598763089963"
+        }
+      ]
+    },
+    {
+      "slug": "bucks-of-woodside",
+      "name": "Buck's of Woodside",
+      "branch": "Woodside Road",
+      "area": "Woodside",
+      "address": "3062 Woodside Road, Woodside, CA 94062",
+      "lat": 37.429791,
+      "lon": -122.255188,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Buck%27s+of+Woodside%2C+3062+Woodside+Road%2C+Woodside%2C+CA+94062",
+      "note": "First Round's Chris Fralic breakfasted here, Oct 2023; Bill Draper hosted a founder breakfast, Aug 2021.",
+      "vcs": [
+        {
+          "name": "Chris Fralic",
+          "fund": "First Round Capital",
+          "handle": "chrisfralic",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Chris Fralic",
+            "authorHandle": "chrisfralic",
+            "text": "Breakfast at Buck’s Woodside https://t.co/aoShbAEaLr",
+            "date": "Oct 9, 2023",
+            "url": "https://x.com/chrisfralic/status/1711434765436674506"
+          },
+          "avatar": "avatars/chrisfralic.jpg"
+        },
+        {
+          "name": "Bill Draper",
+          "fund": "Draper Richards Kaplan Foundation",
+          "handle": "WilliamHDraper",
+          "crowd": "first",
+          "proof": {
+            "kind": "spotted",
+            "author": "Azis Abakirov",
+            "authorHandle": "AzisAbakirov",
+            "text": "A big honor to have a breakfast with one of the founder fathers of Sillicon Valley, legendary pioneer VC @WilliamHDraper, at the famous Sillicon Valley restaurant  Buck's of Woodside .\n\nI talk about  Tech Innovation and big opportunity of Central Asia. https://t.co/qjvPclHzwZ",
+            "date": "Aug 2, 2021",
+            "url": "https://x.com/AzisAbakirov/status/1422269517464424475"
+          },
+          "avatar": "avatars/williamhdraper.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "NPR",
+          "authorHandle": null,
+          "text": "Jamis MacNiven bought Buck's Restaurant in 1991; it quickly became a hangout for venture capitalists from around Woodside, Calif.",
+          "date": "Aug 2, 2010",
+          "url": "https://www.npr.org/2010/08/02/128874569/checking-a-tech-bellwether-bucks-restaurant"
+        },
+        {
+          "kind": "tweet",
+          "author": "Tom Bedecarre",
+          "authorHandle": "tombed",
+          "text": "a lunch meeting at Buck's of Woodside is always entertaining. Lots of deals going on at all of the tables! http://www.buckswoodside.com/",
+          "date": "Aug 27, 2009",
+          "url": "https://x.com/tombed/status/3586205054"
+        },
+        {
+          "kind": "tweet",
+          "author": "Stammy",
+          "authorHandle": "Stammy",
+          "text": "Mmm Buck's of Woodside. Think the last time I was here I was asking an investor for funding http://t.co/koeWKTpc1j",
+          "date": "Feb 15, 2014",
+          "url": "https://x.com/Stammy/status/434797915362439168"
+        }
+      ]
+    }
+  ]
+}

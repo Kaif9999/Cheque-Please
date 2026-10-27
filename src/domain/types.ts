@@ -1,7 +1,7 @@
 /** Who a receipted investor writes cheques as. Drives the café's zone. */
 export type Crowd = 'big' | 'first' | 'angel' | 'cohort';
 export type ZoneId = Crowd | 'scene';
-export type CityId = 'bengaluru' | 'mumbai';
+export type CityId = 'bengaluru' | 'mumbai' | 'san-francisco';
 
 export interface Proof {
   /** own = the investor posted it; spotted = someone else named them there; other = article/podcast/blog. */
