@@ -100,13 +100,15 @@ The city switch, routes, tests and preview tags pick the new city up from `CITY_
 through [Treg](https://treg.to), a pay-per-call gateway to data providers.
 
 ```bash
-node tools/discover.mjs --city bengaluru [--source x,reddit] [--max-usd 0.10] [--threads 8]
+node tools/discover.mjs --city bengaluru [--source x,reddit] [--max-usd 0.10] [--threads 8] [--from handle,handle]
 ```
 
 - It needs `TREG_TOKEN`, and also `TREG_ORG` for a personal sign-in token. Set them in the
   environment or in `.env.local`, which git ignores.
-- It builds searches from the city's cafés, its known investors and phrases like "coffee with a VC",
-  "pitched at" and "spotted at". It runs them on X (`treg.x.search.posts`, about $0.0006 a call) and
+- It builds searches from the city's cafés, its known investors (plus any `--from` handles) and
+  phrases like "coffee with a VC", "pitched at" and "spotted at". Each city's names, neighbourhoods,
+  well-known cafés and subreddits sit in a table at the top of the script; a city with no data file
+  yet starts from that table alone. It runs them on X (`treg.x.search.posts`, about $0.0006 a call) and
   in the city's subreddits (`crawl4ai.reddit.search.posts`, about $0.0009 a call). Then it reads
   the comments of the most promising threads.
 - It keeps posts that mention both a café and an investor, and drops ones already on the map and

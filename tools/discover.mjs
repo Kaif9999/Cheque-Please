@@ -3,7 +3,7 @@
  * Searches run through Treg (https://treg.to), one pay-per-call token for many data providers.
  * Nothing here touches the map; it writes a review file of candidates to check by hand.
  *
- *   node tools/discover.mjs --city bengaluru [--source x,reddit] [--max-usd 0.10] [--threads 8]
+ *   node tools/discover.mjs --city bengaluru [--source x,reddit] [--max-usd 0.10] [--threads 8] [--from handle,handle]
  *
  * Reads TREG_TOKEN (and TREG_ORG, for a personal sign-in token) from the environment or .env.local.
  */
@@ -25,6 +25,8 @@ const city = arg('city', 'bengaluru');
 const sources = arg('source', 'x,reddit').split(',');
 const maxUsd = Number(arg('max-usd', '0.10'));
 const maxThreads = Number(arg('threads', '8'));
+/** Extra X handles to search the posts of, beyond the investors already on the map. */
+const extraHandles = arg('from', '').split(',').filter(Boolean);
 const TOKEN = env('TREG_TOKEN');
 const ORG = env('TREG_ORG');
 if (!TOKEN) {
@@ -32,41 +34,111 @@ if (!TOKEN) {
   process.exit(1);
 }
 
-const data = JSON.parse(readFileSync(new URL(`../src/data/${city}.json`, import.meta.url), 'utf8'));
+/**
+ * Per city: the names it goes by and the neighbourhoods where meetings cluster, cafés people meet
+ * at beyond the ones already on the map, and the subreddits to search.
+ */
+const CITY = {
+  bengaluru: {
+    places: ['bangalore', 'bengaluru', 'blr', 'indiranagar', 'koramangala', 'hsr'],
+    cafes: [
+      'third wave',
+      'blue tokai',
+      'araku',
+      'starbucks',
+      'dyu',
+      'matteo',
+      'roastery coffee house',
+      'corner house',
+      'perch',
+      'kc roasters',
+      'café coffee day',
+      'ccd',
+      'filter coffee',
+    ],
+    subreddits: ['bangalore', 'IndianStartups', 'StartUpIndia'],
+  },
+  mumbai: {
+    places: ['mumbai', 'bombay', 'bandra', 'lower parel', 'bkc', 'kala ghoda'],
+    cafes: [
+      'subko',
+      'blue tokai',
+      'third wave',
+      'starbucks',
+      'the pantry',
+      'kala ghoda cafe',
+      'prithvi cafe',
+      'candies',
+      'soho house',
+      'bombay coffee',
+      'café coffee day',
+      'filter coffee',
+    ],
+    subreddits: ['mumbai', 'IndianStartups', 'StartUpIndia'],
+  },
+  'san-francisco': {
+    places: ['san francisco', 'sf', 'soma', 'hayes valley', 'palo alto', 'menlo park', 'sand hill'],
+    cafes: [
+      'the creamery',
+      'coupa',
+      'sightglass',
+      'blue bottle',
+      'philz',
+      'saint frank',
+      'réveille',
+      'coffee bar',
+      'ritual',
+      'four barrel',
+      'equator',
+      'andytown',
+      'the battery',
+      "buck's",
+      'rosewood',
+      'cafe venetia',
+      'starbucks',
+      "peet's",
+      'verve',
+      'tartine',
+    ],
+    subreddits: ['sanfrancisco', 'bayarea', 'startups', 'venturecapital'],
+  },
+  'new-york': {
+    places: ['nyc', 'new york', 'manhattan', 'brooklyn', 'soho', 'flatiron', 'west village'],
+    cafes: [
+      "ralph's coffee",
+      'la colombe',
+      'joe coffee',
+      'blue bottle',
+      'bluestone lane',
+      'maman',
+      'felix',
+      'sant ambroeus',
+      'bar pitti',
+      'the smile',
+      'soho house',
+      'ludlow house',
+      'gramercy tavern',
+      'starbucks',
+      'think coffee',
+      'stumptown',
+      'devoción',
+      'sey',
+      'blank street',
+      'partners coffee',
+    ],
+    subreddits: ['nyc', 'AskNYC', 'startups', 'venturecapital'],
+  },
+}[city];
+if (!CITY) {
+  console.error(`Unknown city "${city}".`);
+  process.exit(1);
+}
+
+const file = new URL(`../src/data/${city}.json`, import.meta.url);
+const data = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : { cafes: [] };
 const known = new Set(data.cafes.flatMap((c) => [...c.vcs.map((v) => v.proof.url), ...c.scene.map((s) => s.url)]));
 
-/** Names a city goes by, then the neighbourhoods where meetings cluster. */
-const PLACES = {
-  bengaluru: ['bangalore', 'bengaluru', 'blr', 'indiranagar', 'koramangala', 'hsr'],
-  mumbai: ['mumbai', 'bombay', 'bandra', 'lower parel', 'bkc', 'kala ghoda'],
-}[city];
-
-/** Cafés people meet at, beyond the ones already on the map. */
-const CAFES = [
-  ...new Set([
-    ...data.cafes.map((c) => c.name.toLowerCase()),
-    'third wave',
-    'blue tokai',
-    'subko',
-    'araku',
-    'starbucks',
-    'dyu',
-    'matteo',
-    'roastery coffee house',
-    'corner house',
-    'the pantry',
-    'kala ghoda cafe',
-    'prithvi cafe',
-    'candies',
-    'soho house',
-    'kc roasters',
-    'perch',
-    'bombay coffee',
-    'café coffee day',
-    'ccd',
-    'filter coffee',
-  ]),
-];
+const CAFES = [...new Set([...data.cafes.map((c) => c.name.toLowerCase()), ...CITY.cafes])];
 
 const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const CAFE = new RegExp(`\\b(cafe|café|cafes|coffee|roaster[sy]?|${CAFES.map(escape).join('|')})\\b`, 'i');
@@ -77,22 +149,21 @@ const FOUNDER = /\b(founders?|startups?|start-ups?)\b/i;
 const FUNDING_NEWS =
   /\b(rais(e|es|ed|ing) (rs\.? ?|inr ?|usd ?)?[₹$]? ?\d|series [a-e] (round|funding)\b|funding round\b|net loss\b|valuation of\b)|[₹$] ?\d[\d,.]* ?(mn|m|million|bn|billion|cr|crores?)\b/i;
 
-const places = PLACES.join(' OR ');
+const quote = (s) => (s.includes(' ') ? `"${s}"` : s);
+const places = CITY.places.map(quote).join(' OR ');
+const cafeWords = ['coffee', 'cafe', ...CITY.cafes.slice(0, 5)].map(quote).join(' OR ');
+const handles = [...new Set([...data.cafes.flatMap((c) => c.vcs.map((v) => v.handle)), ...extraHandles].filter(Boolean))];
 const X_QUERIES = [
   `("coffee with a VC" OR "coffee with an investor" OR "met a VC" OR "met an investor") (${places})`,
   `("pitched at" OR "pitch meeting" OR "investor meeting" OR "VC meeting") (cafe OR coffee) (${places})`,
   `("spotted" OR "bumped into" OR "sitting next to" OR "overheard") (VC OR VCs OR investor OR investors) (cafe OR coffee) (${places})`,
   `("office hours") (cafe OR coffee) (VC OR investor OR founders) (${places})`,
-  `(VCs OR investors) ("hang out" OR "favourite cafe" OR "favorite cafe" OR "go-to cafe") (${places})`,
+  `(VCs OR investors) ("hang out" OR "favourite cafe" OR "favorite cafe" OR "go-to cafe" OR "coffee shop") (${places})`,
   ...CAFES.slice(0, 16).map((c) => `"${c}" (VC OR VCs OR investor OR investors OR pitch OR "term sheet") (${places})`),
-  ...[...new Set(data.cafes.flatMap((c) => c.vcs.map((v) => v.handle)).filter(Boolean))].map(
-    (h) => `from:${h} (coffee OR cafe OR "third wave" OR "blue tokai" OR starbucks OR subko OR araku)`,
-  ),
+  ...handles.map((h) => `from:${h} (${cafeWords})`),
 ];
 
-const SUBREDDITS = { bengaluru: ['bangalore', 'IndianStartups', 'StartUpIndia'], mumbai: ['mumbai', 'IndianStartups', 'StartUpIndia'] }[
-  city
-];
+const SUBREDDITS = CITY.subreddits;
 const REDDIT_QUERIES = [
   'VC cafe',
   'investors coffee meeting',
