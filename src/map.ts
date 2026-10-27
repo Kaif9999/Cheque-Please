@@ -106,6 +106,9 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks): 
     container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
   });
 
+  // Scroll zoom doesn't tag its zoomstart with the wheel event, so listen for the wheel itself.
+  map.on('wheel', () => hooks.userMove());
+  map.on('touchmove', () => hooks.userMove());
   for (const type of ['dragstart', 'zoomstart'] as const) {
     map.on(type, (e) => {
       if ('originalEvent' in e && e.originalEvent) hooks.userMove();
