@@ -19,7 +19,7 @@ for (const city of ['bengaluru', 'mumbai']) {
       const own = data.cafes
         .flatMap((c) => c.vcs)
         .find((v) => v.handle?.toLowerCase() === vc.handle.toLowerCase() && v.proof.kind === 'own');
-      let img = null;
+      let img;
       if (own) {
         const id = /status\/(\d+)/.exec(own.proof.url)?.[1];
         const res = await fetch(`https://cdn.syndication.twimg.com/tweet-result?id=${id}&token=a`);

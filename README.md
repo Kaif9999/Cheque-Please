@@ -14,6 +14,9 @@ npm install
 npm run dev        # http://127.0.0.1:5190
 npm run build      # tsc --noEmit + vite build -> dist/
 npm run preview    # serve dist/ on http://127.0.0.1:4190
+npm run check      # typecheck, lint, formatting and unit tests; CI runs the same
+npm run format     # Prettier
+npm run smoke      # drives the main flows in Chrome against the preview server
 ```
 
 ## Project layout
