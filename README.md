@@ -1,93 +1,81 @@
 # Cheque, Please
 
-A map of the cafés in Bengaluru and Mumbai where VCs and angels have met founders. Every café
-links to the public post that puts an investor there: a tweet by or about them, or a cited
-article. Idea from [meetvc.cafe](https://meetvc.cafe).
+**A map of the cafés where VCs and angels meet founders, with every pin backed by a public post.**
 
-Static site: Vite + TypeScript + Tailwind CSS + MapLibre on OpenFreeMap vector tiles. No backend,
-no API keys.
+![The Bengaluru cover: the headline "Where Bengaluru's VCs get coffee" beside a map of café pins](public/og.jpg)
 
-## Run it
+Pick a city and the map shows the cafés where investors have been seen taking meetings. Open a
+café to see who was there and the tweet or article that puts them there, word for word, with a
+link to the original. Nothing is inferred or invented: no post, no pin.
+
+Cities: **Bengaluru** and **Mumbai**. Idea from [meetvc.cafe](https://meetvc.cafe).
+
+## Features
+
+- **Cover and map.** Each city opens on a cover with the headline and the faces of the investors
+  on record. Scrolling, dragging or "Explore the map" clears it.
+- **Pins that carry the story.** Pins show the café's logo, name and the investors seen there.
+  Nearby cafés merge into clusters that open up as you zoom in.
+- **Neighbourhood zones.** Tinted outlines show where meetings cluster. Each is coloured by the
+  kind of investor seen there most: multi-stage funds, seed funds, angels or accelerators.
+- **Side panel.** The full list grouped by neighbourhood, and a page per café with each investor,
+  their receipt, and the other cafés nearby. It sits on the right on wide screens and slides up
+  from the bottom on phones.
+- **Filter by investor type.** The map's legend doubles as a filter, and the list follows it.
+- **Follow on X.** Follow everyone seen at one café, or across the whole city, in one go.
+- **Shareable.** Every view has its own link (`#/bengaluru/araku-indiranagar`), and shared links
+  unfurl with a preview image.
+
+## Quick start
+
+Needs Node 20.19+ or 22.12+ (CI uses Node 24).
 
 ```bash
 npm install
 npm run dev        # http://127.0.0.1:5190
-npm run build      # tsc --noEmit + vite build -> dist/
-npm run preview    # serve dist/ on http://127.0.0.1:4190
-npm run check      # typecheck, lint, formatting and unit tests; CI runs the same
-npm run format     # Prettier
-npm run smoke      # drives the main flows in Chrome against the preview server
 ```
 
-## Project layout
+| Script            | Does                                                                                            |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| `npm run dev`     | Vite dev server on port 5190                                                                    |
+| `npm run build`   | Typecheck, then build the static site into `dist/`                                              |
+| `npm run preview` | Serve `dist/` on port 4190                                                                      |
+| `npm run check`   | Typecheck, lint, formatting and unit tests; CI runs the same                                    |
+| `npm test`        | Unit tests only (Vitest)                                                                        |
+| `npm run format`  | Format with Prettier                                                                            |
+| `npm run smoke`   | Drive the main flows in Chrome against the preview server                                       |
+| `npm run og`      | Re-render the link-preview image (`public/og.jpg`) from the preview server                      |
+| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png` |
 
-```
-src/
-  app/         the hash router, a small observable store and the app's state
-  domain/      types and pure logic: zones, areas, geometry, people, routes. No DOM, no map.
-  data/        the city JSON files and city definitions
-  lib/         small helpers: html templates, DOM, icons, links, text
-  map/         MapLibre: basemap style, pins and clusters, neighbourhood zones
-  ui/
-    components/  avatar, logo, button, post, zone marks, the panel's top bar
-    views/       the cover, legend, top bar, café list, café page and follow dialog
-  main.ts      subscribes the views and the map to the store; actions change state and the camera
-tests/         mirrors src/ (domain, data, lib); tools/smoke.mjs covers the browser flows
-```
+## Stack
 
-Dependencies point one way: `ui` and `map` may use `domain` and `lib`; `domain` uses nothing
-but itself. Imports use the `@/` alias for `src/`.
+Static site, no backend and no API keys: Vite, TypeScript (strict), Tailwind CSS 4, and MapLibre GL
+on [OpenFreeMap](https://openfreemap.org) vector tiles with a custom warm basemap. Headings are set
+in General Sans and text in Satoshi, both from [Fontshare](https://www.fontshare.com).
 
-Markup is built with the `html` tag from `lib/html`, which escapes every interpolated value
-unless it is already `Html`. `raw()` is only for constants such as icon paths, and `mount()`
-is the one place markup is written to the page.
+## Documentation
 
-## Routes
+- [Architecture](docs/architecture.md): how the code is laid out, how state flows from the address
+  bar to the map, and how markup stays safe.
+- [Data](docs/data.md): the data model, what counts as a receipt, how cafés and cities are added,
+  and the tools that find and verify them.
+- [Contributing](CONTRIBUTING.md): the workflow, checks and commit style.
 
-| Hash | Shows |
-| --- | --- |
-| `#/bengaluru`, `#/mumbai` | the city's cover over the map; scrolling, dragging or "Explore the map" clears it |
-| `#/<city>/list` | every café, grouped by neighbourhood, in the side panel |
-| `#/<city>/<café-slug>` | that café in the side panel: who was seen there and the posts that say so |
+## Deploy
 
-The side panel sits on the right on wide screens and slides up from the bottom on phones. The
-legend doubles as the filter.
+Vercel builds every push to `main` with the defaults it detects for Vite (`npm run build`, output
+`dist`). The preview image needs an absolute address. The build reads it from `SITE_URL`, or from
+Vercel's `VERCEL_PROJECT_PRODUCTION_URL` when `SITE_URL` is unset.
 
-## Data
+GitHub Actions runs `npm run check`, the build and the Chrome smoke test on every push and pull
+request (`.github/workflows/ci.yml`).
 
-`src/data/bengaluru.json` and `src/data/mumbai.json`. Each café has `vcs` (named investors, each
-with one `proof`) and `scene` (evidence the café is a startup meeting spot without a named
-investor). An investor's `crowd` (`big`, `first`, `angel`, `cohort`) sets the café's zone; see
-`src/domain/zones.ts`.
+## Credits
 
-Rules for adding a café: the post must be public, must name the café, and is quoted verbatim.
-No post, no pin.
+Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, tiles by
+OpenFreeMap. Every quote belongs to its author and links to its source. Anyone listed can ask to be
+removed through the issue form.
 
-```bash
-npm test                          # schema, bounds and zone-rule checks
-node tools/verify-receipts.mjs    # re-fetches every tweet and article and checks the quotes still match
-node tools/fetch-avatars.mjs      # pulls X profile photos for investors whose receipt is their own tweet
-node tools/smoke.mjs              # drives the main flows in Chrome against the preview server
-node tools/discover.mjs --city bengaluru   # searches X and Reddit through Treg for posts that put investors at cafés
-node tools/shot.mjs --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png
-```
+## License
 
-## Design
-
-General Sans for headings and Satoshi for everything else, both from Fontshare. Tokens (colours, fonts,
-shadows) live in the `@theme` block of `src/styles.css`; everything else
-is Tailwind utilities in the markup. Shared class strings are in `src/ui/classes.ts`. Café logos
-are in `public/logos/`, investor photos in `public/avatars/`.
-
-## Finding new cafés
-
-`tools/discover.mjs` searches X and Reddit through [Treg](https://treg.to), a pay-per-call gateway to
-data providers (about $0.04 per city run). It needs `TREG_TOKEN`, plus `TREG_ORG` for a personal
-sign-in token, in the environment or in a git-ignored `.env.local`. It writes candidates to
-`research/candidates-<city>.json`; each one is checked against its source by hand before it goes on
-the map.
-
-## Config
-
-`src/config.ts`: set `repo` to a GitHub `owner/repo` to turn on the "Suggest a café" and removal
-links (they open `.github/ISSUE_TEMPLATE/receipt.yml`), and `maker` to sign the footer credit.
+[Apache 2.0](LICENSE).
