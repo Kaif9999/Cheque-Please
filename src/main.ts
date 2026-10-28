@@ -1,11 +1,11 @@
 import './styles.css';
 import type { PaddingOptions } from 'maplibre-gl';
-import { startAnalytics } from '@/app/analytics';
+import { startAnalytics, track } from '@/app/analytics';
 import { createRouter } from '@/app/router';
 import { cityOf, initialState, selectedCafe, sheetOpen, visibleCafes, type AppState } from '@/app/state';
 import { createStore } from '@/app/store';
 import { CITIES, CITY_ORDER } from '@/data/cities';
-import { handlesText } from '@/domain/people';
+import { followable, handlesText } from '@/domain/people';
 import type { Panel, Route } from '@/domain/routes';
 import type { Cafe, CityId, ZoneId } from '@/domain/types';
 import { areaNamed } from '@/domain/areas';
@@ -125,6 +125,7 @@ function go(panel: Panel): void {
 function dive(fit: boolean): void {
   if (store.get().mode === 'map') return;
   store.set({ mode: 'map' });
+  track('map_explored');
   if (fit) map.fit();
 }
 
@@ -140,6 +141,7 @@ function surface(): void {
 function setFilter(zone: ZoneId | null): void {
   const s = store.get();
   const filter = s.filter === zone ? null : zone;
+  track('zone_filtered', { zone: filter ?? 'all' });
   // A café the filter hides can't stay open.
   const hidden = !!s.selected && !CITIES[s.city].cafes.some((c) => c.slug === s.selected && (!filter || zoneOf(c) === filter));
   listScroll = 0;
@@ -185,6 +187,7 @@ async function share(button: HTMLElement): Promise<void> {
   if (navigator.share && !wide.matches) {
     try {
       await navigator.share({ title, url: window.location.href });
+      track('shared', { via: 'share sheet' });
       return;
     } catch {
       // Dismissed or unsupported; fall through to copying the link.
@@ -193,15 +196,17 @@ async function share(button: HTMLElement): Promise<void> {
   try {
     await navigator.clipboard.writeText(window.location.href);
     confirm(button, 'Link copied');
+    track('shared', { via: 'link copied' });
   } catch {
     confirm(button, 'Copy the address bar');
   }
 }
 
-function openFollow(cafes: Cafe[], title: string): void {
+function openFollow(cafes: Cafe[], title: string, scope: 'city' | 'area' | 'cafe'): void {
   mount(el.follow, renderFollow(title, cafes, cityOf(store.get()).name));
   el.follow.dataset.slugs = cafes.map((c) => c.slug).join(' ');
   el.follow.showModal();
+  track('follow_list_opened', { scope, investors: followable(cafes).length });
 }
 
 /* Events. */
@@ -217,15 +222,16 @@ document.addEventListener('click', (e) => {
   const shareBtn = target.closest<HTMLElement>('[data-share]');
   if (shareBtn) return void share(shareBtn);
   const city = cityOf(store.get());
-  if (target.closest('[data-follow-all]')) return openFollow(city.cafes, `Follow all ${city.name} investors`);
+  if (target.closest('[data-follow-all]')) return openFollow(city.cafes, `Follow all ${city.name} investors`, 'city');
   const area = store.get().area;
   if (area && target.closest('[data-follow-area]'))
     return openFollow(
       city.cafes.filter((c) => c.area === area),
       `Seen in ${area}`,
+      'area',
     );
   const cafe = selectedCafe(store.get());
-  if (cafe && target.closest('[data-follow-cafe]')) openFollow([cafe], `Seen at ${cafe.name}`);
+  if (cafe && target.closest('[data-follow-cafe]')) openFollow([cafe], `Seen at ${cafe.name}`, 'cafe');
 });
 
 document.addEventListener('change', (e) => {
@@ -249,9 +255,11 @@ el.follow.addEventListener('click', async (e) => {
   const copyBtn = target.closest<HTMLElement>('[data-copy]');
   if (copyBtn) {
     const slugs = (el.follow.dataset.slugs ?? '').split(' ');
+    const cafes = cityOf(store.get()).cafes.filter((c) => slugs.includes(c.slug));
     try {
-      await navigator.clipboard.writeText(handlesText(cityOf(store.get()).cafes.filter((c) => slugs.includes(c.slug))));
+      await navigator.clipboard.writeText(handlesText(cafes));
       confirm(copyBtn, 'Copied');
+      track('handles_copied', { investors: followable(cafes).length });
     } catch {
       confirm(copyBtn, 'Clipboard blocked');
     }

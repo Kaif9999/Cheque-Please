@@ -32,7 +32,7 @@ export function post(p: PostProps): Html {
     <blockquote class="mt-2.5 line-clamp-6 whitespace-pre-line text-[15px] leading-normal [overflow-wrap:anywhere]">${withoutShortLinks(p.text)}</blockquote>
     <footer class="mt-3 flex items-center justify-between gap-3">
       <time class="${LABEL}">${p.date}</time>
-      <a class="${LABEL} inline-flex items-center gap-1 text-ink no-underline hover:underline hover:underline-offset-2" href="${p.url}" target="_blank" rel="noopener noreferrer">${tweet ? 'View on X' : 'Read the source'}${icon('arrow', 12)}</a>
+      <a class="${LABEL} inline-flex items-center gap-1 text-ink no-underline hover:underline hover:underline-offset-2" href="${p.url}" data-link="receipt" target="_blank" rel="noopener noreferrer">${tweet ? 'View on X' : 'Read the source'}${icon('arrow', 12)}</a>
     </footer>
   </figure>`;
 }

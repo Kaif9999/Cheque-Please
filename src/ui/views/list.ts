@@ -100,7 +100,7 @@ export function renderList(city: City, filter: ZoneId | null, area: string | nul
     <div class="mt-2 divide-y divide-line">${groups}</div>
     <footer class="mt-1.5 border-t border-line ${PX} pb-9 pt-5 text-[13px] leading-[1.55] text-ink-3 [&_a]:text-ink-2 [&_a]:underline [&_a]:underline-offset-2 [&_p]:mb-2">
       <p>${DISCLAIMER}</p>
-      ${suggest && html`<p><a href="${suggest}" target="_blank" rel="noopener noreferrer">Suggest a café or ask to be removed</a></p>`}
-      <p>Idea from <a href="https://meetvc.cafe" target="_blank" rel="noopener noreferrer">meetvc.cafe</a>. Map data © OpenStreetMap contributors, tiles by OpenFreeMap.${config.maker && ` Made by ${config.maker}.`}</p>
+      ${suggest && html`<p><a href="${suggest}" data-link="suggestion" target="_blank" rel="noopener noreferrer">Suggest a café or ask to be removed</a></p>`}
+      <p>Idea from <a href="https://meetvc.cafe" data-link="credit" target="_blank" rel="noopener noreferrer">meetvc.cafe</a>. Map data © OpenStreetMap contributors, tiles by OpenFreeMap.${config.maker && ` Made by ${config.maker}.`}</p>
     </footer>`;
 }

@@ -18,9 +18,9 @@
     "og": "node tools/og.mjs"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "maplibre-gl": "^6.16.0"
+    "maplibre-gl": "^6.16.0",
+    "posthog-js": "^1.441.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

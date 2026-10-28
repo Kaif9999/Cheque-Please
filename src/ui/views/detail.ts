@@ -42,7 +42,7 @@ function person(vc: Investor): Html {
       <div class="flex min-w-0 flex-1 flex-col gap-1.5 lg:flex-none">
         <span class="font-display text-[16px] font-bold leading-tight tracking-[-0.015em]">${vc.name}</span>
         <span class="${LABEL} leading-snug">${vc.fund || zone.label}</span>
-        ${vc.handle && html`<a class="${btn({ size: 'small' })} mt-1 self-start" href="${followUrl(vc.handle)}" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>`}
+        ${vc.handle && html`<a class="${btn({ size: 'small' })} mt-1 self-start" href="${followUrl(vc.handle)}" data-link="follow" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>`}
       </div>
     </div>
     ${proofOf(vc)}
@@ -91,7 +91,7 @@ export function renderDetail(city: City, cafe: Cafe): Html {
     ${cafe.note && html`<p class="${MX} mt-5 rounded-lg px-4 py-2.5 text-center font-display text-[15px] font-medium italic leading-[1.45] tracking-[-0.005em] text-pretty" style="background:color-mix(in srgb, ${zone.color} 18%, var(--color-paper))">${cafe.note}</p>`}
     <div class="${PX} mt-5 flex flex-wrap gap-2">
       ${toFollow > 0 && html`<button type="button" class="${btn({ primary: true })}" data-follow-cafe>${icon('x', 14)}Follow ${toFollow === 1 ? 'on X' : `all ${toFollow}`}</button>`}
-      <a class="${btn()}" href="${cafe.maps_url}" target="_blank" rel="noopener noreferrer">${icon('pin')}Directions</a>
+      <a class="${btn()}" href="${cafe.maps_url}" data-link="directions" target="_blank" rel="noopener noreferrer">${icon('pin')}Directions</a>
       <button type="button" class="${btn()}" data-share>${icon('share')}<span>Share</span></button>
     </div>
     ${investors}

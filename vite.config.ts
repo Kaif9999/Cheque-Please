@@ -6,6 +6,6 @@ export default defineConfig({
   base: '/',
   plugins: [tailwindcss()],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
-  define: { __VERCEL__: JSON.stringify(Boolean(process.env.VERCEL)) },
+  define: { __LIVE__: JSON.stringify(process.env.VERCEL_ENV === 'production') },
   build: { target: 'es2022', chunkSizeWarningLimit: 1200 },
 });

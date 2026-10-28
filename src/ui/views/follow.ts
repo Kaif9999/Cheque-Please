@@ -19,7 +19,7 @@ export function renderFollow(title: string, cafes: Cafe[], cityName: string): Ht
           <span class="text-[15.5px] font-semibold leading-[1.3]">${p.name}</span>
           <span class="truncate text-[13.5px] text-ink-2">${[p.fund, `@${p.handle}`].filter(Boolean).join(' · ')}</span>
         </span>
-        <a class="${btn({ size: 'small' })}" href="${followUrl(p.handle)}" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>
+        <a class="${btn({ size: 'small' })}" href="${followUrl(p.handle)}" data-link="follow" target="_blank" rel="noopener noreferrer">${icon('x', 12)}Follow</a>
       </li>`,
   );
   return html`
@@ -31,6 +31,6 @@ export function renderFollow(title: string, cafes: Cafe[], cityName: string): Ht
     <ul class="m-0 flex-1 list-none overflow-y-auto px-2.5 pb-2">${rows}</ul>
     <footer class="flex items-center justify-between gap-3 border-t border-line px-[22px] pb-[18px] pt-3.5 text-[13px] text-ink-2">
       <button type="button" class="${btn({ size: 'small' })}" data-copy>Copy all handles</button>
-      ${remove && html`<a class="underline underline-offset-2" href="${remove}" target="_blank" rel="noopener noreferrer">Listed and want out?</a>`}
+      ${remove && html`<a class="underline underline-offset-2" href="${remove}" data-link="removal" target="_blank" rel="noopener noreferrer">Listed and want out?</a>`}
     </footer>`;
 }

@@ -74,9 +74,12 @@ Vercel builds every push to `main` with the defaults it detects for Vite (`npm r
 (`https://captable.cafe`); set `SITE_URL` to build for another address. `vercel.json` adds the
 trailing slash the built pages live under.
 
-Vercel Web Analytics and Speed Insights (both cookieless) load only in builds Vercel runs, where
-`VERCEL` is set; local and CI builds leave them out. Every city, neighbourhood and café is its own
-path, so page views show which ones people open.
+Analytics run on the production site only (`VERCEL_ENV=production`); local, CI and preview builds
+leave them out. PostHog (`posthog` in `src/config.ts`) records page views, which follow every city,
+neighbourhood and café, plus `map_explored`, `zone_filtered`, `follow_list_opened`,
+`handles_copied`, `shared` and `link_opened` for links out (`data-link` says which). It loads in
+its own chunk after the map, through `/beans`, which `vercel.json` relays to PostHog's US region.
+Vercel Speed Insights measures page speed.
 
 GitHub Actions runs `npm run check`, the build and the Chrome smoke test on every push and pull
 request (`.github/workflows/ci.yml`).
