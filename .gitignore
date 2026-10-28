@@ -5,3 +5,6 @@ shots/
 
 .env.local
 research/
+
+.vercel
+.env*
