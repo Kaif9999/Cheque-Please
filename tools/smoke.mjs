@@ -147,9 +147,17 @@ await check('a cluster zooms in to separate pins', async () => {
 });
 
 await check('a pin opens its café in the side panel', async () => {
-  const pin = page.locator('.maplibregl-marker[data-slug]').first();
-  const slug = await pin.getAttribute('data-slug');
-  await pin.click();
+  // The first pin in the page can sit off screen once the map has zoomed in, so take one in view and on top.
+  const slug = await page.evaluate(() =>
+    [...document.querySelectorAll('.maplibregl-marker[data-slug]')]
+      .find((m) => {
+        const r = m.getBoundingClientRect();
+        return document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)?.closest('.maplibregl-marker') === m;
+      })
+      ?.getAttribute('data-slug'),
+  );
+  expect(slug, 'no pin in view');
+  await page.locator(`.maplibregl-marker[data-slug="${slug}"]`).click();
   await page.waitForTimeout(700);
   expect(page.url().endsWith(`/${slug}/`), page.url());
   expect((await sheet()) === 'open', 'panel closed');
