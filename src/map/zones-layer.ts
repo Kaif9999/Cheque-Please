@@ -26,15 +26,15 @@ export function createZonesLayer(map: MapLibre, isWide: () => boolean) {
   return {
     install(): void {
       map.addSource('areas', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+      // The tint goes under the roads, so the streets run through each neighbourhood like a grid.
       map.addLayer(
         {
           id: 'areas-fill',
           type: 'fill',
           source: 'areas',
-          // Fade the tint as you zoom in, or a whole street view turns one colour.
-          paint: { 'fill-color': ['get', 'color'], 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0.15, 14, 0.07, 16, 0.02] },
+          paint: { 'fill-color': ['get', 'color'], 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0.3, 14, 0.26, 17, 0.18] },
         },
-        'road-label',
+        'rail',
       );
       map.addLayer(
         {
@@ -44,8 +44,8 @@ export function createZonesLayer(map: MapLibre, isWide: () => boolean) {
           layout: { 'line-join': 'round' },
           paint: {
             'line-color': ['get', 'color'],
-            'line-width': ['interpolate', ['linear'], ['zoom'], 11, 1, 15, 2],
-            'line-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.85, 16, 0.4],
+            'line-width': ['interpolate', ['linear'], ['zoom'], 11, 1.5, 15, 2.5],
+            'line-opacity': 0.9,
           },
         },
         'road-label',
