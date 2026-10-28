@@ -2,7 +2,7 @@
 
 **A map of the cafés where VCs and angels meet founders, with every pin backed by a public post.**
 
-![The Bengaluru cover: the headline "Where Bengaluru's VCs get coffee" beside a map of café pins](public/og.jpg)
+![The cover: the headline "Where do VCs actually get coffee?" beside a map of café pins](public/og.jpg)
 
 Pick a city and the map shows the cafés where investors have been seen taking meetings. Open a
 café to see who was there and the tweet or article that puts them there, word for word, with a
@@ -39,17 +39,17 @@ npm install
 npm run dev        # http://127.0.0.1:5190
 ```
 
-| Script            | Does                                                                                            |
-| ----------------- | ----------------------------------------------------------------------------------------------- |
-| `npm run dev`     | Vite dev server on port 5190                                                                    |
-| `npm run build`   | Typecheck, build the static site into `dist/`, then write a page for every address in it         |
-| `npm run preview` | Serve `dist/` on port 4190                                                                      |
-| `npm run check`   | Typecheck, lint, formatting and unit tests; CI runs the same                                    |
-| `npm test`        | Unit tests only (Vitest)                                                                        |
-| `npm run format`  | Format with Prettier                                                                            |
-| `npm run smoke`   | Drive the main flows in Chrome against the preview server                                       |
-| `npm run og`      | Re-render the link-preview image (`public/og.jpg`) from the preview server                      |
-| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4190/mumbai/ --out shots/mumbai.png` |
+| Script            | Does                                                                                                |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| `npm run dev`     | Vite dev server on port 5190                                                                        |
+| `npm run build`   | Typecheck, build the static site into `dist/`, then write a page for every address in it            |
+| `npm run preview` | Serve `dist/` on port 4190                                                                          |
+| `npm run check`   | Typecheck, lint, formatting and unit tests; CI runs the same                                        |
+| `npm test`        | Unit tests only (Vitest)                                                                            |
+| `npm run format`  | Format with Prettier                                                                                |
+| `npm run smoke`   | Drive the main flows in Chrome against the preview server                                           |
+| `npm run og`      | Re-render the link-preview images (`public/og.jpg`, `public/og/<city>.jpg`) from the preview server |
+| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4190/mumbai/ --out shots/mumbai.png`      |
 
 ## Stack
 
