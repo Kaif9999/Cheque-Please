@@ -60,15 +60,15 @@ const map = createMap(
 function padding(s: AppState): PaddingOptions {
   const below = (node: HTMLElement) => node.getBoundingClientRect().bottom;
   if (wide.matches) {
-    // Pins are labelled pills centred on the café, so the sides need room for half a label.
+    // Pins are cards standing on their café: the top needs a card's height, the sides half its width.
     // On the cover, pins start past the gradient, but always keep at least 40% of the width for them.
-    const left = s.mode === 'intro' ? Math.min(el.heroBody.getBoundingClientRect().right + 200, window.innerWidth * 0.6) : 120;
-    const right = sheetOpen(s) ? el.sheet.offsetWidth + 20 + 100 : 120;
-    return { top: below(el.topbar) + 72, bottom: 64, left, right };
+    const left = s.mode === 'intro' ? Math.min(el.heroBody.getBoundingClientRect().right + 200, window.innerWidth * 0.6) : 140;
+    const right = sheetOpen(s) ? el.sheet.offsetWidth + 20 + 120 : 140;
+    return { top: below(el.topbar) + 110, bottom: 48, left, right };
   }
-  const top = (s.mode === 'intro' ? below(el.heroBody) : below(el.legend)) + 36;
-  const bottom = sheetOpen(s) ? el.sheet.offsetHeight + 28 : 96;
-  return { top, bottom, left: 72, right: 72 };
+  const top = (s.mode === 'intro' ? below(el.heroBody) : below(el.legend)) + 80;
+  const bottom = sheetOpen(s) ? el.sheet.offsetHeight + 20 : 84;
+  return { top, bottom, left: 90, right: 90 };
 }
 
 /* Rendering. Each subscriber redraws its part of the page from the state; actions below only change state and move the camera. */

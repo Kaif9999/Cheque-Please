@@ -13,7 +13,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import { distance, type LngLat } from '@/domain/geo';
 import type { Cafe, City } from '@/domain/types';
-import { clusterElement, fillCluster, paintMarker, pinElement } from './markers';
+import { clusterElement, fillCluster, paintMarker, pinElement, TAIL_HEIGHT } from './markers';
 import { mapStyle } from './style';
 import { createZonesLayer } from './zones-layer';
 
@@ -80,8 +80,8 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
       type: 'geojson',
       data: { type: 'FeatureCollection', features: [] },
       cluster: true,
-      // Pins carry the café name, so neighbours merge early rather than overlap.
-      clusterRadius: isWide() ? 64 : 72,
+      // Pins are cards with names and faces, so neighbours merge early rather than overlap.
+      clusterRadius: isWide() ? 80 : 88,
       clusterMaxZoom: CLUSTER_MAX_ZOOM,
     });
     // Markers are HTML; this invisible layer just keeps the clustered source's tiles loaded.
@@ -178,7 +178,8 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
         const cafe = p.cluster ? null : cafes.find((c) => c.slug === p.slug);
         if (!p.cluster && !cafe) continue;
         const el = cafe ? pin(cafe) : cluster(p.cluster_id, p.point_count, coords);
-        marker = new Marker({ element: el, anchor: 'center' }).setLngLat(coords);
+        // The card sits above its café, the tail's tip on the spot.
+        marker = new Marker({ element: el, anchor: 'bottom', offset: [0, -TAIL_HEIGHT] }).setLngLat(coords);
         cache.set(key, marker);
       }
       paintMarker(marker.getElement(), selected, hovered);
