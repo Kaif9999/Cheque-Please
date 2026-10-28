@@ -1,4 +1,4 @@
-# VC Spotted
+# captable.cafe
 
 **A map of the cafés where VCs and angels meet founders, with every pin backed by a public post.**
 
@@ -71,7 +71,7 @@ in General Sans and text in Satoshi, both from [Fontshare](https://www.fontshare
 
 Vercel builds every push to `main` with the defaults it detects for Vite (`npm run build`, output
 `dist`). Canonical links, the sitemap and preview images point at `site` in `src/config.ts`
-(`https://vcspotted.com`); set `SITE_URL` to build for another address. `vercel.json` adds the
+(`https://captable.cafe`); set `SITE_URL` to build for another address. `vercel.json` adds the
 trailing slash the built pages live under.
 
 GitHub Actions runs `npm run check`, the build and the Chrome smoke test on every push and pull

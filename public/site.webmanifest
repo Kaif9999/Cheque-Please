@@ -1,6 +1,6 @@
 {
-  "name": "VC Spotted",
-  "short_name": "VC Spotted",
+  "name": "captable.cafe",
+  "short_name": "captable.cafe",
   "description": "The cafés where VCs and angels have met founders, each pinned to the public post that puts them there.",
   "start_url": "/",
   "display": "standalone",

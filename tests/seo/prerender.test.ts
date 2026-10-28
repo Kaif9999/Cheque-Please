@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { config } from '@/config';
 import { CITIES } from '@/data/cities';
 import { allPages, pathOf } from '@/seo/pages';
 import { buildSite, newestPost, renderPage, robots, sitemap, siteOrigin } from '@/seo/prerender';
@@ -70,7 +71,7 @@ describe('the sitemap and robots.txt', () => {
 describe('buildSite', () => {
   it('uses the configured site unless SITE_URL says otherwise, without a trailing slash', () => {
     expect(siteOrigin('https://preview.test/')).toBe('https://preview.test');
-    expect(buildSite().files['robots.txt']).toContain('https://vcspotted.com/sitemap.xml');
+    expect(buildSite().files['robots.txt']).toContain(`${config.site}/sitemap.xml`);
   });
 });
 
@@ -79,7 +80,7 @@ describe('llms.txt', () => {
 
   it('opens with the name and a summary, then links every city, busy neighbourhood and café', () => {
     const text = files['llms.txt']!;
-    expect(text.startsWith('# VC Spotted\n\n> ')).toBe(true);
+    expect(text.startsWith(`# ${config.name}\n\n> `)).toBe(true);
     for (const page of allPages().filter((p) => p.kind !== 'list' && p.kind !== 'home')) {
       expect(text.includes(`(${SITE}${pathOf(page)})`), pathOf(page)).toBe(true);
     }
