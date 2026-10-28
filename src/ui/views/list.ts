@@ -8,9 +8,9 @@ import { html, type Html } from '@/lib/html';
 import { icon } from '@/lib/icons';
 import { issueUrl } from '@/lib/links';
 import { plural } from '@/lib/text';
-import { DISPLAY, MX, PX } from '../classes';
-import { avatarStack } from '../components/avatar';
+import { DISPLAY, LABEL, MX, PX } from '../classes';
 import { btn } from '../components/button';
+import { faces } from '../components/faces';
 import { logo } from '../components/logo';
 import { areaLink } from '../components/area-link';
 import { backToList, sheetBar } from '../components/sheet-bar';
@@ -30,12 +30,12 @@ function row(cityId: CityId, cafe: Cafe): Html {
   const people = photosFirst(investorsAt([cafe]));
   return html`<li>
     <a class="group flex gap-3.5 rounded-[14px] p-3 no-underline transition-colors hover:bg-sunk [&.is-hover]:bg-sunk" href="${routeHref(cityId, { kind: 'cafe', slug: cafe.slug })}" data-slug="${cafe.slug}">
-      ${logo(cafe, 'size-12 rounded-xl text-2xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
-      <span class="flex min-w-0 flex-col gap-0.5">
-        <span class="text-base font-semibold leading-tight tracking-[-0.005em]">${cafe.name}</span>
-        <span class="flex items-center gap-1.5 text-[13.5px] text-ink-2">${zoneDot(zone.id)}<span>${zone.label}</span><span class="text-ink-3">·</span><span class="truncate">${cafe.branch}</span></span>
-        <span class="mt-[7px] flex min-w-0 items-center gap-2 text-[13.5px] text-ink-2">
-          ${people.length > 0 && avatarStack(people, 3, '-ml-1.5 first:ml-0 size-6 rounded-full text-[9.5px] ring-2 ring-paper transition-shadow group-hover:ring-sunk group-[.is-hover]:ring-sunk')}
+      ${logo(cafe, 'size-12 rounded-full text-2xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
+      <span class="flex min-w-0 flex-col gap-1.5">
+        <span class="font-display text-[16px] font-bold leading-tight tracking-[-0.015em]">${cafe.name}</span>
+        <span class="${LABEL} flex min-w-0 items-center gap-1.5">${zoneDot(zone.id, 'size-1.5')}<span class="truncate">${zone.label} · ${cafe.branch}</span></span>
+        <span class="mt-1 flex min-w-0 items-center gap-2.5 text-[13.5px] text-ink-2">
+          ${people.length > 0 && faces(people, 'row')}
           <span class="truncate">${names(cafe)}</span>
         </span>
       </span>
