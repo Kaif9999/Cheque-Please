@@ -100,6 +100,51 @@
             "url": "https://x.com/naywilliams/status/1795548922326213102"
           },
           "avatar": "avatars/naywilliams.jpg"
+        },
+        {
+          "name": "Mamoon Hamid",
+          "fund": "Kleiner Perkins",
+          "handle": "mamoonha",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Mamoon Hamid",
+            "authorHandle": "mamoonha",
+            "text": "@jw seminal moment: you using @figma at Blue Bottle in South Park all out in the open (circa spring 2018)",
+            "date": "Sep 15, 2022",
+            "url": "https://x.com/mamoonha/status/1570439604410499073"
+          },
+          "avatar": "avatars/mamoonha.jpg"
+        },
+        {
+          "name": "Rak Garg",
+          "fund": "Bain Capital Ventures",
+          "handle": "rak_garg",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Rak Garg",
+            "authorHandle": "rak_garg",
+            "text": "@aadilpickle have you ever been to the blue bottle in South Park SF because you get your preseed through series C done while waiting on a cold brew",
+            "date": "Apr 30, 2022",
+            "url": "https://x.com/rak_garg/status/1520223669364002816"
+          },
+          "avatar": "avatars/rak_garg.jpg"
+        },
+        {
+          "name": "Jake Chapman",
+          "fund": "Marque VC",
+          "handle": "vc",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jake Chapman 🇺🇸🚀 ✨🇺🇸",
+            "authorHandle": "vc",
+            "text": "@ProudMomofaCEO Bucks in woodside, the South Park blue bottle, the marketplace in the twitter building and the SF ferry building.",
+            "date": "May 5, 2020",
+            "url": "https://x.com/vc/status/1257562001548537860"
+          },
+          "avatar": "avatars/vc.jpg"
         }
       ],
       "scene": [
@@ -222,6 +267,36 @@
             "url": "https://x.com/nikunj/status/2049179647519125976"
           },
           "avatar": "avatars/nikunj.jpg"
+        },
+        {
+          "name": "Brett Berson",
+          "fund": "First Round Capital",
+          "handle": "brettberson",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Brett Berson",
+            "authorHandle": "brettberson",
+            "text": "I'm at Sightglass Coffee (San Francisco, CA) w/ 10 others http://t.co/3DQw2Vx5",
+            "date": "Jan 19, 2013",
+            "url": "https://x.com/brettberson/status/292768648542683136"
+          },
+          "avatar": "avatars/brettberson.jpg"
+        },
+        {
+          "name": "Hiten Shah",
+          "fund": "Angel investor",
+          "handle": "hnshah",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Hiten Shah",
+            "authorHandle": "hnshah",
+            "text": "I'm at @sightglass in San Francisco, CA http://gowal.la/s/aLJ",
+            "date": "Jan 8, 2010",
+            "url": "https://x.com/hnshah/status/7498114968"
+          },
+          "avatar": "avatars/hnshah.jpg"
         }
       ],
       "scene": [
@@ -313,6 +388,21 @@
             "url": "https://x.com/jamescham/status/1874993802571808930"
           },
           "avatar": "avatars/jamescham.jpg"
+        },
+        {
+          "name": "Naval Ravikant",
+          "fund": "AngelList",
+          "handle": "naval",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Naval",
+            "authorHandle": "naval",
+            "text": "San Francisco coffee culture keeps upping the ante. (Saint Frank on Polk). http://t.co/6AqbTc7D1b",
+            "date": "Apr 12, 2014",
+            "url": "https://x.com/naval/status/455104887328473088"
+          },
+          "avatar": "avatars/naval.jpg"
         }
       ],
       "scene": [
@@ -359,6 +449,36 @@
             "url": "https://x.com/theinformation/status/1639346535644401665"
           },
           "avatar": "avatars/hunterwalk.jpg"
+        },
+        {
+          "name": "Garry Tan",
+          "fund": "Y Combinator",
+          "handle": "garrytan",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Garry Tan",
+            "authorHandle": "garrytan",
+            "text": "Ritual Coffee Roasters this morning (21st and Valencia), then looking at apartments in SoMA (6 of them!)",
+            "date": "Sep 29, 2008",
+            "url": "https://x.com/garrytan/status/939331081"
+          },
+          "avatar": "avatars/garrytan.jpg"
+        },
+        {
+          "name": "Gustaf Alströmer",
+          "fund": "Y Combinator",
+          "handle": "gustaf",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Gustaf Alströmer",
+            "authorHandle": "gustaf",
+            "text": "ritual coffee roasters on valencia st. is simply great.",
+            "date": "Dec 29, 2006",
+            "url": "https://x.com/gustaf/status/1797273"
+          },
+          "avatar": "avatars/gustaf.jpg"
         }
       ],
       "scene": [
@@ -598,6 +718,96 @@
             "url": "https://x.com/paigefinnn/status/1966633821648154735"
           },
           "avatar": "avatars/paigefinnn.jpg"
+        },
+        {
+          "name": "Eric Bahn",
+          "fund": "Hustle Fund",
+          "handle": "ericbahn",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Eric Bahn 💛",
+            "authorHandle": "ericbahn",
+            "text": "Hanging out at Coupa Cafe, Palo Alto",
+            "date": "Oct 13, 2008",
+            "url": "https://x.com/ericbahn/status/957101292"
+          },
+          "avatar": "avatars/ericbahn.jpg"
+        },
+        {
+          "name": "Steve Jang",
+          "fund": "Kindred Ventures",
+          "handle": "stevejang",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "steve jang",
+            "authorHandle": "stevejang",
+            "text": "Like ole times. (@ Coupa Cafe w/  @bijan) http://4sq.com/2ePxhv",
+            "date": "Mar 24, 2010",
+            "url": "https://x.com/stevejang/status/10990005089"
+          },
+          "avatar": "avatars/stevejang.jpg"
+        },
+        {
+          "name": "Bijan Sabet",
+          "fund": "Spark Capital",
+          "handle": "bijan",
+          "crowd": "big",
+          "proof": {
+            "kind": "spotted",
+            "author": "steve jang",
+            "authorHandle": "stevejang",
+            "text": "Like ole times. (@ Coupa Cafe w/  @bijan) http://4sq.com/2ePxhv",
+            "date": "Mar 24, 2010",
+            "url": "https://x.com/stevejang/status/10990005089"
+          },
+          "avatar": "avatars/bijan.jpg"
+        },
+        {
+          "name": "Manu Kumar",
+          "fund": "K9 Ventures",
+          "handle": "ManuKumar",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Dr. Manu Kumar 👋🏽",
+            "authorHandle": "ManuKumar",
+            "text": "I'm at Coupa Cafe in Palo Alto, CA http://gowal.la/c/2FhM8?137",
+            "date": "Oct 12, 2010",
+            "url": "https://x.com/ManuKumar/status/27155267378"
+          },
+          "avatar": "avatars/manukumar.jpg"
+        },
+        {
+          "name": "Dave McClure",
+          "fund": "500 Startups",
+          "handle": "davemcclure",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Dave McClure",
+            "authorHandle": "davemcclure",
+            "text": "having coffee w/ one of my very few personal heroes: PG! (@ Coupa Cafe) http://4sq.com/2ePxhv",
+            "date": "Feb 22, 2010",
+            "url": "https://x.com/davemcclure/status/9494723346"
+          },
+          "avatar": "avatars/davemcclure.jpg"
+        },
+        {
+          "name": "Garry Tan",
+          "fund": "Y Combinator",
+          "handle": "garrytan",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Garry Tan",
+            "authorHandle": "garrytan",
+            "text": "@bpm140 Where you at? We're at Coupa Cafe in PA",
+            "date": "Jul 21, 2009",
+            "url": "https://x.com/garrytan/status/2763754793"
+          },
+          "avatar": "avatars/garrytan.jpg"
         }
       ],
       "scene": []
@@ -754,6 +964,51 @@
             "url": "https://x.com/bznotes/status/2114810445572014132"
           },
           "avatar": "avatars/bznotes.jpg"
+        },
+        {
+          "name": "Manu Kumar",
+          "fund": "K9 Ventures",
+          "handle": "ManuKumar",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Dr. Manu Kumar 👋🏽",
+            "authorHandle": "ManuKumar",
+            "text": "Awesome time meeting and chatting with @case and @adrianco (@ Cafe Borrone) http://t.co/KoSooDsl",
+            "date": "Dec 8, 2012",
+            "url": "https://x.com/ManuKumar/status/277481303270625280"
+          },
+          "avatar": "avatars/manukumar.jpg"
+        },
+        {
+          "name": "Jeff Morris Jr.",
+          "fund": "Chapter One",
+          "handle": "jmj",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Jeff Morris Jr.",
+            "authorHandle": "jmj",
+            "text": "Best way to spend a Saturday. (@ Cafe Borrone w/ 3 others) http://t.co/AYx3kqTF",
+            "date": "Nov 26, 2011",
+            "url": "https://x.com/jmj/status/140535409066262530"
+          },
+          "avatar": "avatars/jmj.jpg"
+        },
+        {
+          "name": "Dave McClure",
+          "fund": "500 Startups",
+          "handle": "davemcclure",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Dave McClure",
+            "authorHandle": "davemcclure",
+            "text": "planning 4 upcoming \"PayPal Mafia 2.0\" dinner w/ #s2s peeps (@ Cafe Borrone) http://4sq.com/8EPsKs",
+            "date": "Apr 16, 2010",
+            "url": "https://x.com/davemcclure/status/12291405744"
+          },
+          "avatar": "avatars/davemcclure.jpg"
         }
       ],
       "scene": []
@@ -851,6 +1106,36 @@
             "url": "https://x.com/jowyang/status/1722646290037903549"
           },
           "avatar": "avatars/jowyang.jpg"
+        },
+        {
+          "name": "Manu Kumar",
+          "fund": "K9 Ventures",
+          "handle": "ManuKumar",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Dr. Manu Kumar 👋🏽",
+            "authorHandle": "ManuKumar",
+            "text": "Breakfast w/ @satishd — at Madera http://gowal.la/r/5Uit",
+            "date": "Jun 15, 2010",
+            "url": "https://x.com/ManuKumar/status/16232356952"
+          },
+          "avatar": "avatars/manukumar.jpg"
+        },
+        {
+          "name": "Ryan Sarver",
+          "fund": "Angel investor (ex-Redpoint)",
+          "handle": "rsarver",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Ryan Sarver",
+            "authorHandle": "rsarver",
+            "text": "Phew! Made it with two minutes to spare. @chchien doesn't look like he was too worried :) (@ Rosewood Sand Hill) http://t.co/HcVMQJgR",
+            "date": "Nov 11, 2011",
+            "url": "https://x.com/rsarver/status/135059280092086272"
+          },
+          "avatar": "avatars/rsarver.jpg"
         }
       ],
       "scene": [
@@ -912,6 +1197,36 @@
             "url": "https://x.com/AzisAbakirov/status/1422269517464424475"
           },
           "avatar": "avatars/williamhdraper.jpg"
+        },
+        {
+          "name": "Sheel Mohnot",
+          "fund": "Better Tomorrow Ventures",
+          "handle": "pitdesi",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Sheel Mohnot",
+            "authorHandle": "pitdesi",
+            "text": "A quirky fun Silicon Valley field trip I'd recommend is a visit to my buddy's restaurant Buck's of Woodside... it's a museum of oddities from Silicon Valley.\n\nMany companies were started/funded there owing to its location by Sand Hill.\n\nhe was on MNF last night talking about it https://t.co/GJinGco507",
+            "date": "Oct 5, 2022",
+            "url": "https://x.com/pitdesi/status/1577462323626639360"
+          },
+          "avatar": "avatars/pitdesi.jpg"
+        },
+        {
+          "name": "Adam Draper",
+          "fund": "Boost VC",
+          "handle": "AdamDraper",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Adam Draper ⏻",
+            "authorHandle": "AdamDraper",
+            "text": "Last week, my grandpa (Pops) and I filmed a segment for Jamis, the founder of \"Buck's\" Restaurant in Woodside. Such an amazing place, and such an amazing person.\n\nWithout the camera's this would probably be my favorite photo of all time. https://t.co/Ysqy58Pa35",
+            "date": "Aug 28, 2023",
+            "url": "https://x.com/AdamDraper/status/1696019547315380653"
+          },
+          "avatar": "avatars/adamdraper.jpg"
         }
       ],
       "scene": [
@@ -1376,6 +1691,305 @@
             "date": "Jan 18, 2026",
             "url": "https://x.com/kevinakwok/status/2013011647485386987"
           }
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "red-rock-coffee-mountain-view",
+      "name": "Red Rock Coffee",
+      "branch": "Castro Street",
+      "area": "Mountain View",
+      "address": "201 Castro Street, Mountain View, CA 94041",
+      "lat": 37.393644,
+      "lon": -122.078864,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Red+Rock+Coffee%2C+201+Castro+Street%2C+Mountain+View%2C+CA+94041",
+      "note": "Boost VC's Adam Draper credits it for his Coinbase bet; Max Levchin pitched here; YC partners worked here, 2008–2023.",
+      "vcs": [
+        {
+          "name": "Adam Draper",
+          "fund": "Boost VC",
+          "handle": "AdamDraper",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Adam Draper ⏻",
+            "authorHandle": "AdamDraper",
+            "text": "Visiting Red Rock coffee in Mountain View on Fathers Day! \n\nThis coffee place was instrumental in me investing in @coinbase, @benchling, and @PlanGrid. https://t.co/fCMWzI9qDc",
+            "date": "Jun 18, 2023",
+            "url": "https://x.com/AdamDraper/status/1670530731741954049"
+          },
+          "avatar": "avatars/adamdraper.jpg"
+        },
+        {
+          "name": "Max Levchin",
+          "fund": "SciFi VC",
+          "handle": "mlevchin",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Max Levchin",
+            "authorHandle": "mlevchin",
+            "text": "I’ve pitched and been pitched at Red Rock Coffee. Also, definitely the best espresso in Mt View. Please support this Silicon Valley (non-profit!) institution.",
+            "date": "Jul 18, 2020",
+            "url": "https://x.com/mlevchin/status/1284594934180282368"
+          },
+          "avatar": "avatars/mlevchin.jpg"
+        },
+        {
+          "name": "Charles Hudson",
+          "fund": "Precursor Ventures",
+          "handle": "chudson",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Charles Hudson",
+            "authorHandle": "chudson",
+            "text": "working at red rock - this new 2nd floor is quite nice",
+            "date": "Feb 23, 2008",
+            "url": "https://x.com/chudson/status/748576452"
+          },
+          "avatar": "avatars/chudson.jpg"
+        },
+        {
+          "name": "Garry Tan",
+          "fund": "Y Combinator",
+          "handle": "garrytan",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Garry Tan",
+            "authorHandle": "garrytan",
+            "text": "Hanging out on the 2nd floor of Red Rock in Mtn View. The music is quite good. I love this cafe.",
+            "date": "Jul 1, 2009",
+            "url": "https://x.com/garrytan/status/2427884908"
+          },
+          "avatar": "avatars/garrytan.jpg"
+        },
+        {
+          "name": "Gustaf Alströmer",
+          "fund": "Y Combinator",
+          "handle": "gustaf",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Gustaf Alströmer",
+            "authorHandle": "gustaf",
+            "text": "Cafe au laity at Red Rock Coffee Co http://loopt.us/PBDwQQ.t",
+            "date": "Dec 7, 2009",
+            "url": "https://x.com/gustaf/status/6440788594"
+          },
+          "avatar": "avatars/gustaf.jpg"
+        },
+        {
+          "name": "Harj Taggar",
+          "fund": "Y Combinator",
+          "handle": "harjtaggar",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Harj Taggar",
+            "authorHandle": "harjtaggar",
+            "text": "lol, people sat next to me at red rock are filling out their @ycombinator application",
+            "date": "Oct 16, 2010",
+            "url": "https://x.com/harjtaggar/status/27491917999"
+          },
+          "avatar": "avatars/harjtaggar.jpg"
+        },
+        {
+          "name": "Semil Shah",
+          "fund": "Haystack",
+          "handle": "semil",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Semil",
+            "authorHandle": "semil",
+            "text": "Second floor heaven. (@ Red Rock Coffee w/ 2 others) http://4sq.com/86lq6g",
+            "date": "Aug 12, 2010",
+            "url": "https://x.com/semil/status/21005139223"
+          },
+          "avatar": "avatars/semil.jpg"
+        },
+        {
+          "name": "Hiten Shah",
+          "fund": "Angel investor",
+          "handle": "hnshah",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Hiten Shah",
+            "authorHandle": "hnshah",
+            "text": "I'm at Red Rock Coffee (201 Castro St, at Villa St, Mountain View). http://bit.ly/TkmqR",
+            "date": "Oct 30, 2009",
+            "url": "https://x.com/hnshah/status/5290555256"
+          },
+          "avatar": "avatars/hnshah.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Andre Leibovici",
+          "authorHandle": "andreleibovici",
+          "text": "@mlevchin I’ve invested in at least a couple of startups after a 1st pitch at Red Rock Coffee. I don’t live in the Valley anymore, but I agree it is a local institution.",
+          "date": "Jul 18, 2020",
+          "url": "https://x.com/andreleibovici/status/1284631152628649984"
+        }
+      ]
+    },
+    {
+      "slug": "noe-cafe-noe-valley",
+      "name": "Noe Cafe",
+      "branch": "Sanchez Street",
+      "area": "Noe Valley",
+      "address": "1299 Sanchez Street, San Francisco, CA 94114",
+      "lat": 37.748497,
+      "lon": -122.429217,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Noe+Cafe%2C+1299+Sanchez+Street%2C+San+Francisco%2C+CA+94114",
+      "note": "Garry Tan and Designer Fund's Ben Blumenrose named it SF's new meeting spot, Sep 2021; Dovey Wan posted here, 2024.",
+      "vcs": [
+        {
+          "name": "Garry Tan",
+          "fund": "Y Combinator",
+          "handle": "garrytan",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": "Garry Tan",
+            "authorHandle": "garrytan",
+            "text": "@semil @benblumenrose Noe Cafe 👌",
+            "date": "Sep 28, 2021",
+            "url": "https://x.com/garrytan/status/1442704861024309250"
+          },
+          "avatar": "avatars/garrytan.jpg"
+        },
+        {
+          "name": "Ben Blumenrose",
+          "fund": "Designer Fund",
+          "handle": "benblumenrose",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Ben Blumenrose",
+            "authorHandle": "benblumenrose",
+            "text": "@garrytan @semil Noe Cafe is the new Creamery ;)",
+            "date": "Sep 28, 2021",
+            "url": "https://x.com/benblumenrose/status/1442706874206355465"
+          },
+          "avatar": "avatars/benblumenrose.jpg"
+        },
+        {
+          "name": "Dovey Wan",
+          "fund": "Primitive Ventures",
+          "handle": "DoveyWan",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Dovey \"Rug the fiat\" Wan (hiring)",
+            "authorHandle": "DoveyWan",
+            "text": "every corner of the cafe in Noe valley is all abt genAI (sitting in Noe cafe atm) \n\nThis is how LLM turning into MLM \n\nThe greatest bubble ever",
+            "date": "Mar 4, 2024",
+            "url": "https://x.com/DoveyWan/status/1764704926142521622"
+          },
+          "avatar": "avatars/doveywan.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "tweet",
+          "author": "Dumitru Erhan",
+          "authorHandle": "dumierhan",
+          "text": "It really depends on what you want! Here's a handy guide:\nSightglass SoMA: startups pitching to VCs\nNoe Cafe: former OpenAI execs recruiting for their startups\nBluebottle South Park: VCs hanging out with VCs\nSaint Frank Folsom: You may find me recruiting here sometime :)",
+          "date": "Aug 18, 2025",
+          "url": "https://x.com/dumierhan/status/1957424204942323963"
+        }
+      ]
+    },
+    {
+      "slug": "tartine-manufactory-mission",
+      "name": "Tartine Manufactory",
+      "branch": "Alabama Street",
+      "area": "Mission",
+      "address": "595 Alabama Street, San Francisco, CA 94110",
+      "lat": 37.761771,
+      "lon": -122.411796,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Tartine+Manufactory%2C+595+Alabama+Street%2C+San+Francisco%2C+CA+94110",
+      "note": "Coalition Operators' Ashley Mayer takes meetings here, 2025; FPV's Nikunj Kothari lists it among term-sheet whisper spots.",
+      "vcs": [
+        {
+          "name": "Ashley Mayer",
+          "fund": "Coalition Operators",
+          "handle": "ashleymayer",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Ashley Mayer",
+            "authorHandle": "ashleymayer",
+            "text": "@connorado I think about it every time I have a meeting at Tartine Manufactory 🙃",
+            "date": "Aug 18, 2025",
+            "url": "https://x.com/ashleymayer/status/1957412072355954772"
+          },
+          "avatar": "avatars/ashleymayer.jpg"
+        },
+        {
+          "name": "Nikunj Kothari",
+          "fund": "FPV Ventures",
+          "handle": "nikunj",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Nikunj Kothari",
+            "authorHandle": "nikunj",
+            "text": "List of places you should whisper that you have a term sheet..\n\n- Postscript\n- Blue Bottle (South Park on weekdays, Pac Heights Fri-Sun)\n- Sightglass (in Mission, and occasionally 7th St)\n- Tartine Manufactory\n- @ArfurRock\n- @StealthCoSpy\n\n(posting this from the south park BB)",
+            "date": "Apr 30, 2025",
+            "url": "https://x.com/nikunj/status/1917687724452241447"
+          },
+          "avatar": "avatars/nikunj.jpg"
+        },
+        {
+          "name": "Shaun Maguire",
+          "fund": "Sequoia Capital",
+          "handle": "shaunmmaguire",
+          "crowd": "big",
+          "proof": {
+            "kind": "own",
+            "author": "Shaun Maguire",
+            "authorHandle": "shaunmmaguire",
+            "text": "@DanielleFong Start at tartine manufactory end at dandelion chocolate factory \n\nWith a glimpse into OpenAI HQ as a palette cleanser",
+            "date": "Jul 6, 2023",
+            "url": "https://x.com/shaunmmaguire/status/1677026955579850752"
+          },
+          "avatar": "avatars/shaunmmaguire.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "philz-mission-bay",
+      "name": "Philz Coffee",
+      "branch": "Berry Street",
+      "area": "Mission Bay",
+      "address": "201 Berry Street, San Francisco, CA 94158",
+      "lat": 37.775563,
+      "lon": -122.393397,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Philz+Coffee%2C+201+Berry+Street%2C+San+Francisco%2C+CA+94158",
+      "note": "Weekend Fund's Ryan Hoover overheard strangers praising Product Hunt at this Philz, Jun 2014.",
+      "vcs": [
+        {
+          "name": "Ryan Hoover",
+          "fund": "Weekend Fund",
+          "handle": "rrhoover",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Ryan Hoover",
+            "authorHandle": "rrhoover",
+            "text": "I just walked into Philz on Berry st and overheard someone talking enthusiastically about being featured on Product Hunt. 😃👊☕️",
+            "date": "Jun 11, 2014",
+            "url": "https://x.com/rrhoover/status/476848791723597825"
+          },
+          "avatar": "avatars/rrhoover.jpg"
         }
       ],
       "scene": []

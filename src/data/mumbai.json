@@ -36,6 +36,14 @@
           "text": "Gawde, who runs the early-stage venture BeHooked, was deep in conversation with venture capitalist acquaintance Aakash Sood, dissecting the art of pitching, when Kamath walked in with a group and settled into a private room nearby.",
           "date": "Aug 28, 2025",
           "url": "https://www.storyboard18.com/brand-makers/when-preparation-meets-serendipity-how-a-mumbai-based-founder-turned-a-cafe-encounter-into-a-pitch-79742.htm"
+        },
+        {
+          "kind": "article",
+          "author": "Luma",
+          "authorHandle": null,
+          "text": "WTFund is coming to Mumbai! We would love to host you for conversations over coffee. Excited to meet the VC community that's been extremely kind and helpful. Looking forward to finally meeting in person.",
+          "date": "Apr 21, 2025",
+          "url": "https://luma.com/w3fje5u9"
         }
       ]
     },
@@ -612,6 +620,63 @@
           "url": "https://x.com/beofflinee/status/2095006864362864927"
         }
       ]
+    },
+    {
+      "slug": "taj-lands-end-bandra",
+      "name": "Taj Lands End",
+      "branch": "Bandstand",
+      "area": "Bandra West",
+      "address": "Byramji Jeejeebhoy Road, Bandstand, Bandra West, Mumbai 400050",
+      "lat": 19.043396,
+      "lon": 72.819529,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Taj+Lands+End%2C+Byramji+Jeejeebhoy+Road%2C+Bandstand%2C+Bandra+West%2C+Mumbai+400050",
+      "note": "IVY Growth co-founder Mehul Shah offered investors meeting slots here, Aug 2024.",
+      "vcs": [
+        {
+          "name": "Mehul Shah",
+          "fund": "IVY Growth Associates",
+          "handle": "mehulshahca",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "The Startup CA",
+            "authorHandle": "mehulshahca",
+            "text": "Looking for any meetings to explore collaborations for Counselvise or IVY Growth. If you are investing in Startups, would like to undedstand your thesis and explore areas of coinvestments.\n\n#Mumbai, at Taj Land Ends at 11 30 am and 12 30 pm and 1 pm if you are around.\n\nKindly DM.",
+            "date": "Aug 7, 2024",
+            "url": "https://x.com/mehulshahca/status/1821039958133809235"
+          },
+          "avatar": "avatars/mehulshahca.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "willingdon-club-tardeo",
+      "name": "The Willingdon Sports Club",
+      "branch": "Tulsiwadi",
+      "area": "Tardeo",
+      "address": "Arya Nagar, Tulsiwadi, Mumbai 400034",
+      "lat": 18.97635,
+      "lon": 72.815949,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=The+Willingdon+Sports+Club%2C+Arya+Nagar%2C+Tulsiwadi%2C+Mumbai+400034",
+      "note": "Nitish Mittersain met RentoMojo's founder over coffee here in 2016 and invested; posted Sep 2026.",
+      "vcs": [
+        {
+          "name": "Nitish Mittersain",
+          "fund": "Angel investor",
+          "handle": null,
+          "crowd": "angel",
+          "proof": {
+            "kind": "other",
+            "author": "Nitish Mittersain",
+            "authorHandle": null,
+            "text": "Back in 2016, Rajeev Chitrabhanu, Nazara’s first investor, introduced me to Geetansh Bamania, Founder of RentoMojo.\n\nWe met over coffee at the Willingdon Club in Mumbai.\n\nI liked Geetansh, liked what he was building with RentoMojo, and we pretty much closed the deal in that one sitting at around a ₹12 crore valuation.",
+            "date": "Sep 5, 2026",
+            "url": "https://www.linkedin.com/posts/mittersain_my-first-angel-cheque-may-end-up-being-a-activity-7501859132514275328-2464"
+          }
+        }
+      ],
+      "scene": []
     }
   ]
 }

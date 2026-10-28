@@ -68,6 +68,20 @@
             "url": "https://x.com/cindygallop/status/991768836901924865"
           },
           "avatar": "avatars/justglew.jpg"
+        },
+        {
+          "name": "Alan Patricof",
+          "fund": "Greycroft",
+          "handle": null,
+          "crowd": "big",
+          "proof": {
+            "kind": "other",
+            "author": "Fortune (Jeff John Roberts)",
+            "authorHandle": null,
+            "text": "The lobby of Manhattan’s Crosby Street Hotel, with its industrial chic and just-so designer furniture, is very 2017. Alan Patricof, with his loose-fitting suits and mop of gray hair, is very 1967. But on a cloudy recent morning, as the high-ceilinged room buzzes with bankers on the hunt for media deals at a conference, Patricof fits right in.",
+            "date": "Dec 11, 2017",
+            "url": "https://fortune.com/2017/12/11/alan-patricof-greycroft-apple-aol/"
+          }
         }
       ],
       "scene": [
@@ -384,9 +398,47 @@
             "url": "https://x.com/alexisohanian/status/304427721528852480"
           },
           "avatar": "avatars/alexisohanian.jpg"
+        },
+        {
+          "name": "Charlie O'Donnell",
+          "fund": "Brooklyn Bridge Ventures",
+          "handle": "ceonyc",
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "Charlie O'Donnell (This is going to be BIG)",
+            "authorHandle": null,
+            "text": "I just resigned my Foursquare mayorship of the Ace Hotel New York. I’ve been spending nearly every working day there since October, when I first joined First Round.",
+            "date": "May 2, 2010",
+            "url": "https://www.thisisgoingtobebig.com/blog/2010/5/3/resigning-my-mayorship-of-the-ace-hotel-new-york-cc-theaceho.html"
+          },
+          "avatar": "avatars/ceonyc.jpg"
+        },
+        {
+          "name": "Phin Barnes",
+          "fund": "TheGP",
+          "handle": null,
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "Charlie O'Donnell (This is going to be BIG)",
+            "authorHandle": null,
+            "text": "I discovered the Ace Hotel thanks to a coffee invite from Nick Bilton. As it turns out, Phin Barnes, my colleague at First Round had known about it for a while, and on any given day you’re likely to run into one of us taking meetings with entrepreneurs here.",
+            "date": "Nov 24, 2009",
+            "url": "https://www.thisisgoingtobebig.com/blog/2009/11/24/will-the-ace-hotel-embrace-the-innovation-community.html"
+          }
         }
       ],
-      "scene": []
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Charlie O'Donnell (This is going to be BIG)",
+          "authorHandle": null,
+          "text": "Almost overnight, the Ace Hotel lobby has become something of a phenomenon.",
+          "date": "Nov 24, 2009",
+          "url": "https://www.thisisgoingtobebig.com/blog/2009/11/24/will-the-ace-hotel-embrace-the-innovation-community.html"
+        }
+      ]
     },
     {
       "slug": "stumptown-ace-hotel",
@@ -407,6 +459,14 @@
           "text": "@MariaGilfoyle . @stumptowncoffee in Flatiron (AMAZING coffee), is technically attached to the Ace Hotel. Recommend renting the Boardroom space for an event w/friends and grabbing Stumptown pastries/coffee below! (+ smack in middle of the vc offices) https://t.co/Q1J1zMwsMQ",
           "date": "Aug 31, 2021",
           "url": "https://x.com/jackieberardo/status/1432805160233930760"
+        },
+        {
+          "kind": "article",
+          "author": "Charlie O'Donnell (This is going to be BIG)",
+          "authorHandle": null,
+          "text": "The Stumptown Coffee right off the lobby doesn’t hurt the geek pull either—everyone knows high quality caffeine is the fuel that makes code go.",
+          "date": "Nov 24, 2009",
+          "url": "https://www.thisisgoingtobebig.com/blog/2009/11/24/will-the-ace-hotel-embrace-the-innovation-community.html"
         }
       ]
     },
@@ -469,6 +529,103 @@
           "url": "https://x.com/_alexa_murray/status/1627758191009312768"
         }
       ]
+    },
+    {
+      "slug": "leons-union-square",
+      "name": "Leon's",
+      "branch": "817 Broadway",
+      "area": "Union Square",
+      "address": "817 Broadway, New York, NY 10003",
+      "lat": 40.7331313,
+      "lon": -73.9912876,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Leon's%2C+817+Broadway%2C+New+York%2C+NY+10003",
+      "note": "Fred Wilson made it his breakfast-meeting spot, Nov 2024; Howard Lindzon breakfasted with him; Michael Mignano visited, Apr 2026.",
+      "vcs": [
+        {
+          "name": "Fred Wilson",
+          "fund": "Union Square Ventures",
+          "handle": "fredwilson",
+          "crowd": "first",
+          "avatar": "avatars/fredwilson.jpg",
+          "proof": {
+            "kind": "other",
+            "author": "Fred Wilson (AVC)",
+            "authorHandle": null,
+            "text": "I plan to use Leon's the way I used Mailino and before that The Coffee Shop and Taralucci. I hope the NYC startup sector in the Union Square area does the same and we can recreate the vibe we had going at those spots before the pandemic came along and messed things up.",
+            "date": "Nov 21, 2024",
+            "url": "https://avc.xyz/leons"
+          }
+        },
+        {
+          "name": "Howard Lindzon",
+          "fund": "Social Leverage",
+          "handle": "howardlindzon",
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "Howard Lindzon (Howie Town)",
+            "authorHandle": null,
+            "text": "I mentioned yesterday that I had breakfast with my friend Fred Wilson… We were at his new restaurant at 817 Broadway, called Leon’s.",
+            "date": "Nov 21, 2024",
+            "url": "https://www.howardlindzon.com/p/my-new-spite-club-howie-s-degenerate-cafe-and-house-of-memecoins"
+          },
+          "avatar": "avatars/howardlindzon.jpg"
+        },
+        {
+          "name": "Michael Mignano",
+          "fund": "Union Square Ventures",
+          "handle": "mignano",
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "Union Square Ventures (podcast)",
+            "authorHandle": null,
+            "text": "USV General Partners Fred Wilson and Michael Mignano walk that neighborhood together: from Union Square Park to the USV office, up to the rooftop, and into Leon's.",
+            "date": "Apr 29, 2026",
+            "url": "https://podcasts.apple.com/us/podcast/fred-wilson-on-40-years-in-venture-and-why-usv-is/id1895741985?i=1000764128219"
+          },
+          "avatar": "avatars/mignano.jpg"
+        }
+      ],
+      "scene": [
+        {
+          "kind": "article",
+          "author": "Union Square Ventures (podcast)",
+          "authorHandle": null,
+          "text": "48:30 - Leon’s, NYC’s New Tech Watering Hole",
+          "date": "Apr 29, 2026",
+          "url": "https://podcasts.apple.com/us/podcast/fred-wilson-on-40-years-in-venture-and-why-usv-is/id1895741985?i=1000764128219"
+        }
+      ]
+    },
+    {
+      "slug": "hyatt-union-square-lobby",
+      "name": "Hyatt Union Square",
+      "branch": "Lobby",
+      "area": "Union Square",
+      "address": "134 Fourth Avenue, New York, NY 10003",
+      "lat": 40.7334345,
+      "lon": -73.9902118,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Hyatt+Union+Square%2C+134+Fourth+Avenue%2C+New+York%2C+NY+10003",
+      "note": "Charlie O’Donnell said that when in Manhattan you could find him in the lobby, Oct 2013.",
+      "vcs": [
+        {
+          "name": "Charlie O'Donnell",
+          "fund": "Brooklyn Bridge Ventures",
+          "handle": "ceonyc",
+          "crowd": "first",
+          "proof": {
+            "kind": "other",
+            "author": "Charlie O'Donnell (This is going to be BIG)",
+            "authorHandle": null,
+            "text": "In the meantime, you can find me in Brooklyn, and when I'm in the city, in the lobby of the Union Square Hyatt.",
+            "date": "Oct 4, 2013",
+            "url": "https://www.thisisgoingtobebig.com/blog/2013/10/4/what-the-end-of-coworking-at-general-assembly-means-for-new.html"
+          },
+          "avatar": "avatars/ceonyc.jpg"
+        }
+      ],
+      "scene": []
     }
   ]
 }

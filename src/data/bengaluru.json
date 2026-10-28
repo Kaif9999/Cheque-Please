@@ -276,6 +276,21 @@
             "url": "https://x.com/whovivekshukla/status/2002257261352407043"
           },
           "avatar": "avatars/kunalb11.jpg"
+        },
+        {
+          "name": "Gaurav Munjal",
+          "fund": "Angel investor",
+          "handle": "gauravmunjal",
+          "crowd": "angel",
+          "proof": {
+            "kind": "other",
+            "author": "Business Today",
+            "authorHandle": null,
+            "text": "In the bustling tech hub of Bengaluru, it’s not uncommon to spot industry leaders mingling over a cup of coffee. But it is rare when the CEOs of three Indian unicorn startups—Ola’s Bhavish Aggarwal, Unacademy’s Gaurav Munjal, and Swiggy’s Sriharsha Majety—were seen enjoying a casual meet-up at the popular cafe called Araku Coffee.",
+            "date": "Jul 19, 2024",
+            "url": "https://www.businesstoday.in/technology/news/story/another-peak-bengaluru-moment-ola-swiggy-unacademy-chiefs-spotted-together-at-a-popular-coffee-shop-437739-2024-07-19"
+          },
+          "avatar": "avatars/gauravmunjal.jpg"
         }
       ],
       "scene": [
@@ -334,6 +349,14 @@
           "text": "Forget #VC meetings at Araku, TWC et al!\n\nLunchtime #deeptech and #robotics investment convos over ghee podi idli is underrated! https://t.co/NvSNpDaZmR",
           "date": "Mar 11, 2025",
           "url": "https://x.com/alysha_lobo/status/1899404471903666364"
+        },
+        {
+          "kind": "tweet",
+          "author": "Ishan Sukul",
+          "authorHandle": "isawsukul",
+          "text": "Araku Coffee is on fire today: 3 large co CEOs (Swiggy, Unacademy, Ola) and one normie aka me",
+          "date": "Jul 14, 2024",
+          "url": "https://x.com/isawsukul/status/1812438751576031659"
         }
       ]
     },
@@ -664,6 +687,21 @@
             "date": "Aug 22, 2013",
             "url": "https://x.com/rajeshsawhney/status/370385807309152256"
           }
+        },
+        {
+          "name": "Mohit Bhatnagar",
+          "fund": "Peak XV Partners",
+          "handle": "mobhat",
+          "crowd": "big",
+          "proof": {
+            "kind": "spotted",
+            "author": "G V Ravi Shankar",
+            "authorHandle": "gvravishankar",
+            "text": "Fun morning! Burn at padel and refill with dosa and filter coffee at Airlines hotel :) @mobhat @srikanthiy @GuptPiy @peakxvpartners https://t.co/kMya0ybhn5",
+            "date": "Sep 4, 2026",
+            "url": "https://x.com/gvravishankar/status/2095745245648695371"
+          },
+          "avatar": "avatars/mobhat.jpg"
         }
       ],
       "scene": [
@@ -739,7 +777,23 @@
       "lon": 77.635859,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=HumbleBean+Coffee%2C+3165%2C+12th+Cross+Road%2C+HAL+2nd+Stage%2C+Indiranagar%2C+Bengaluru+560038",
       "note": "Mayur Gole said he met a couple of VCs here, Jan 2025; Abhilasha Purwar offered founder happy hours, Aug 2026.",
-      "vcs": [],
+      "vcs": [
+        {
+          "name": "Abhilasha Purwar",
+          "fund": "Hunch Ventures",
+          "handle": "AbhilashaPurwar",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": "Abhilasha Purwar",
+            "authorHandle": "AbhilashaPurwar",
+            "text": "Super stoked to announce I’m a Basecamp Local 🔥for@basecampblr !!\n\nAug 6–12 I’ll be covering Bengaluru’s tech week — sessions, side conversations, the works. Real-time posts + round-ups coming.\n\nHope to run into y'all crazy builders at different events. \n\nAlso, daily happy hours at HumbleBean Cafe at Indiranagar (for timing please DM me your github, linkedin, and slide deck).\n\nThere might be a last minute Chill & ClaudeCode party at @BLRxZo for those who wanna continue post day events into the wee hours of morning with their agents & terminals. (again DM github/ linkedin/ slides for more deets) \n\nInterested sector \n1) General AI workplane - context, memory, open models, SLMs\n2) Physical AI - AI for manufacturing, cars, drones, training, sensor fusion and more\n3) AI + Healthcare - Insurance, claims, prior auth, hospital workflow, wellness, diagnostics - you name it, I wanna hear about it. \n\nYours Sincerely, \nAbi, Ex Founder, new VC, might be back to founding, might continue investing, but all the time building and helping others building 🤘",
+            "date": "Aug 1, 2026",
+            "url": "https://x.com/AbhilashaPurwar/status/2083512506690203662"
+          },
+          "avatar": "avatars/abhilashapurwar.jpg"
+        }
+      ],
       "scene": [
         {
           "kind": "tweet",
@@ -748,16 +802,37 @@
           "text": "@tssheth Humble bean. Met couple of vc last week there 😂",
           "date": "Jan 30, 2025",
           "url": "https://x.com/MayurGole/status/1884805496374260096"
-        },
-        {
-          "kind": "tweet",
-          "author": "Abhilasha Purwar",
-          "authorHandle": "AbhilashaPurwar",
-          "text": "Super stoked to announce I’m a Basecamp Local 🔥for@basecampblr !!\n\nAug 6–12 I’ll be covering Bengaluru’s tech week — sessions, side conversations, the works. Real-time posts + round-ups coming.\n\nHope to run into y'all crazy builders at different events. \n\nAlso, daily happy hours at HumbleBean Cafe at Indiranagar (for timing please DM me your github, linkedin, and slide deck).\n\nThere might be a last minute Chill & ClaudeCode party at @BLRxZo for those who wanna continue post day events into the wee hours of morning with their agents & terminals. (again DM github/ linkedin/ slides for more deets) \n\nInterested sector \n1) General AI workplane - context, memory, open models, SLMs\n2) Physical AI - AI for manufacturing, cars, drones, training, sensor fusion and more\n3) AI + Healthcare - Insurance, claims, prior auth, hospital workflow, wellness, diagnostics - you name it, I wanna hear about it. \n\nYours Sincerely, \nAbi, Ex Founder, new VC, might be back to founding, might continue investing, but all the time building and helping others building 🤘",
-          "date": "Aug 1, 2026",
-          "url": "https://x.com/AbhilashaPurwar/status/2083512506690203662"
         }
       ]
+    },
+    {
+      "slug": "ctr-malleshwaram",
+      "name": "CTR (Central Tiffin Room)",
+      "branch": "Margosa Road",
+      "area": "Malleshwaram",
+      "address": "7th Cross Road, Margosa Road, Malleshwaram, Bengaluru 560003",
+      "lat": 12.998257,
+      "lon": 77.569495,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=CTR+%28Central+Tiffin+Room%29%2C+7th+Cross+Road%2C+Margosa+Road%2C+Malleshwaram%2C+Bengaluru+560003",
+      "note": "OYO founder and Shark Tank India judge Ritesh Agarwal paired its benne dosa with startup convos, Oct 2023.",
+      "vcs": [
+        {
+          "name": "Ritesh Agarwal",
+          "fund": "Angel investor",
+          "handle": "riteshagar",
+          "crowd": "angel",
+          "proof": {
+            "kind": "own",
+            "author": "Ritesh Agarwal",
+            "authorHandle": "riteshagar",
+            "text": "Bengaluru and its many cafes, breweries even the legendary dosa points are the OG Shark Tanks. I consider myself part Bengalurian. Here's me at CTR Malleshwaram, a plate of Benne Dose goes great with startup convos. https://t.co/e5056ZJ7d4",
+            "date": "Oct 3, 2023",
+            "url": "https://x.com/riteshagar/status/1709170471927787909"
+          },
+          "avatar": "avatars/riteshagar.jpg"
+        }
+      ],
+      "scene": []
     }
   ]
 }
