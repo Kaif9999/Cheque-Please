@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5190",
     "build": "tsc --noEmit && vite build && node tools/prerender.mjs",
-    "preview": "vite preview --host 127.0.0.1 --port 4190",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write src tests tools eslint.config.js vite.config.ts",
@@ -18,7 +18,7 @@
     "og": "node tools/og.mjs"
   },
   "dependencies": {
-    "maplibre-gl": "^6.14.0"
+    "maplibre-gl": "^6.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -29,11 +29,12 @@
     "globals": "^17.13.0",
     "happy-dom": "^21.0.4",
     "playwright-core": "^1.64.1",
+    "polygon-clipping": "^0.15.7",
     "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
-    "vite": "^8.3.4",
-    "vitest": "^4.1.12"
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
   }
 }
