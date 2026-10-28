@@ -1010,6 +1010,21 @@
             "url": "https://x.com/km/status/1786584459023937945"
           },
           "avatar": "avatars/km.jpg"
+        },
+        {
+          "name": "Nichole Wischoff",
+          "fund": "Wischoff Ventures",
+          "handle": "NWischoff",
+          "crowd": "angel",
+          "avatar": "avatars/nwischoff.jpg",
+          "proof": {
+            "kind": "own",
+            "author": null,
+            "authorHandle": "NWischoff",
+            "text": "Home secured in SF. Completely insane rental market. Bidding wars for old 2 bedrooms is a first for me. \n\nOffice space in Jackson Square is pending. Cant wait to be a Postscript and Cafe Sebastian regular. \n\nOver the moon to be back. The city is BUSY!",
+            "date": "Jul 30, 2025",
+            "url": "https://x.com/NWischoff/status/1950667724671357002"
+          }
         }
       ],
       "scene": []
@@ -1039,6 +1054,21 @@
             "url": "https://x.com/km/status/1620522849948794881"
           },
           "avatar": "avatars/km.jpg"
+        },
+        {
+          "name": "Villi Iltchev",
+          "fund": "Category Ventures",
+          "handle": "villi",
+          "crowd": "first",
+          "proof": {
+            "kind": "own",
+            "author": null,
+            "authorHandle": "villi",
+            "text": "@km Wow! HRD and now Caffe Centro. Sad.",
+            "date": "Aug 3, 2023",
+            "url": "https://x.com/villi/status/1686949193879887872"
+          },
+          "avatar": "avatars/villi.jpg"
         }
       ],
       "scene": []
@@ -1156,6 +1186,36 @@
             "url": "https://x.com/brackin/status/2020552072270422215"
           },
           "avatar": "avatars/brackin.jpg"
+        },
+        {
+          "name": "Garry Tan",
+          "fund": "Y Combinator",
+          "handle": "garrytan",
+          "crowd": "cohort",
+          "proof": {
+            "kind": "own",
+            "author": null,
+            "authorHandle": "garrytan",
+            "text": "It’s like waiting in line at Arsicault but instead of the best croissants you get the best startups that will make your career as an investor",
+            "date": "Jun 11, 2025",
+            "url": "https://x.com/garrytan/status/1932857087220138300"
+          },
+          "avatar": "avatars/garrytan.jpg"
+        },
+        {
+          "name": "Nichole Wischoff",
+          "fund": "Wischoff Ventures",
+          "handle": "NWischoff",
+          "crowd": "angel",
+          "avatar": "avatars/nwischoff.jpg",
+          "proof": {
+            "kind": "own",
+            "author": null,
+            "authorHandle": "NWischoff",
+            "text": "On a quest to find the best pastry in SF. Ranking number one so far (above Arsicault) is a tiny pop up bakery at La Fromagerie on Chestnut. https://t.co/gCXgJfRKTD",
+            "date": "Sep 7, 2025",
+            "url": "https://x.com/NWischoff/status/1964746249304969224"
+          }
         }
       ],
       "scene": []
@@ -1272,6 +1332,50 @@
             "url": "https://x.com/kul/status/1928210709415883143"
           },
           "avatar": "avatars/kul.jpg"
+        }
+      ],
+      "scene": []
+    },
+    {
+      "slug": "hedge-coffee-mission",
+      "name": "Hedge Coffee",
+      "branch": "Shotwell Street",
+      "area": "Mission",
+      "address": "434 Shotwell Street, San Francisco, CA 94110",
+      "lat": 37.761292,
+      "lon": -122.416195,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Hedge+Coffee%2C+434+Shotwell+Street%2C+San+Francisco%2C+CA+94110",
+      "note": "Accel's Dan Levine called it nice, Apr 2026; Sutter Hill's Kevin Kwok tried to get in, Jan 2026.",
+      "vcs": [
+        {
+          "name": "Dan Levine",
+          "fund": "Accel",
+          "handle": "daniel_levine",
+          "crowd": "big",
+          "avatar": "avatars/daniel_levine.jpg",
+          "proof": {
+            "kind": "own",
+            "author": null,
+            "authorHandle": "daniel_levine",
+            "text": "Hedge Coffee Cafe is nice https://t.co/BfD6N8epoj",
+            "date": "Apr 30, 2026",
+            "url": "https://x.com/daniel_levine/status/2049874323813584920"
+          }
+        },
+        {
+          "name": "Kevin Kwok",
+          "fund": "Sutter Hill Ventures",
+          "handle": "kevinakwok",
+          "crowd": "big",
+          "avatar": "avatars/kevinakwok.jpg",
+          "proof": {
+            "kind": "own",
+            "author": null,
+            "authorHandle": "kevinakwok",
+            "text": "@gorkem Someone tried to go to hedge coffee unsuccessfully*",
+            "date": "Jan 18, 2026",
+            "url": "https://x.com/kevinakwok/status/2013011647485386987"
+          }
         }
       ],
       "scene": []
