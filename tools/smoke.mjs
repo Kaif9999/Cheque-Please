@@ -1,13 +1,13 @@
 /**
  * Drives the main flows in a real browser and fails loudly if one breaks.
  *
- *   node tools/smoke.mjs --url http://127.0.0.1:4190/
+ *   node tools/smoke.mjs --url http://127.0.0.1:4173/
  */
 import { chromium } from 'playwright-core';
 import { existsSync, readFileSync } from 'node:fs';
 
 const i = process.argv.indexOf('--url');
-const base = (i > -1 ? process.argv[i + 1] : 'http://127.0.0.1:4190/').replace(/#.*$/, '');
+const base = (i > -1 ? process.argv[i + 1] : 'http://127.0.0.1:4173/').replace(/#.*$/, '');
 const CHROME = [
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',

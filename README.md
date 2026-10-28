@@ -45,13 +45,13 @@ npm run dev        # http://127.0.0.1:5190
 | ----------------- | --------------------------------------------------------------------------------------------------- |
 | `npm run dev`     | Vite dev server on port 5190                                                                        |
 | `npm run build`   | Typecheck, build the static site into `dist/`, then write a page for every address in it            |
-| `npm run preview` | Serve `dist/` on port 4190                                                                          |
+| `npm run preview` | Serve `dist/` on port 4173                                                                          |
 | `npm run check`   | Typecheck, lint, formatting and unit tests; CI runs the same                                        |
 | `npm test`        | Unit tests only (Vitest)                                                                            |
 | `npm run format`  | Format with Prettier                                                                                |
 | `npm run smoke`   | Drive the main flows in Chrome against the preview server                                           |
 | `npm run og`      | Re-render the link-preview images (`public/og.jpg`, `public/og/<city>.jpg`) from the preview server |
-| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4190/mumbai/ --out shots/mumbai.png`      |
+| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4173/mumbai/ --out shots/mumbai.png`      |
 
 ## Stack
 

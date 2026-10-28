@@ -1,7 +1,7 @@
 /**
  * Screenshot + console-check harness.
  *
- *   node tools/shot.mjs --url http://127.0.0.1:4190/mumbai/ --out shots/mumbai.png
+ *   node tools/shot.mjs --url http://127.0.0.1:4173/mumbai/ --out shots/mumbai.png
  *   node tools/shot.mjs --url ... --mobile --eval "__cheque.go({ kind: 'cafe', slug: 'some-slug' })"
  *
  * Prints console errors and page errors, and exits non-zero if any occurred.
@@ -23,7 +23,7 @@ const CHROME = [
   '/usr/bin/google-chrome',
 ].find((p) => existsSync(p));
 
-const url = arg('url', 'http://127.0.0.1:4190/');
+const url = arg('url', 'http://127.0.0.1:4173/');
 const out = resolve(arg('out', 'shots/shot.png'));
 const mobile = arg('mobile') === 'true';
 const evalJs = arg('eval');

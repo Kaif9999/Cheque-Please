@@ -4,14 +4,14 @@
  * over the first city's map. Run against a server with the current build, then rebuild so dist/
  * picks them up:
  *
- *   npm run build && npm run preview & node tools/og.mjs --url http://127.0.0.1:4190/
+ *   npm run build && npm run preview & node tools/og.mjs --url http://127.0.0.1:4173/
  */
 import { chromium } from 'playwright-core';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const i = process.argv.indexOf('--url');
-const base = (i > -1 ? process.argv[i + 1] : 'http://127.0.0.1:4190/').replace(/#.*$/, '');
+const base = (i > -1 ? process.argv[i + 1] : 'http://127.0.0.1:4173/').replace(/#.*$/, '');
 const out = (name) => fileURLToPath(new URL(`../public/${name}`, import.meta.url));
 const CITIES = ['bengaluru', 'mumbai', 'san-francisco', 'new-york'];
 const CHROME = [
