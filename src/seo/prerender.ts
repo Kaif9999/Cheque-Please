@@ -38,6 +38,7 @@ function headOf(page: Page, site: string): Html {
   const image = imageOf(page);
   return html`
     <meta name="description" content="${description}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${canonical}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${config.name}" />
