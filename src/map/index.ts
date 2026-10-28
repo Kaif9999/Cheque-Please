@@ -35,7 +35,8 @@ export interface CafeMap {
   /** Mirrors hover from the list onto the matching pin. */
   highlight(slug: string | null): void;
   focus(cafe: Cafe): void;
-  fit(): void;
+  /** Frames `only`, or every café on the map. */
+  fit(only?: Cafe[]): void;
   resize(): void;
   setPadding(padding: PaddingOptions): void;
 }
@@ -236,8 +237,8 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
       const zoom = Math.max(map.getZoom(), crowded ? CLUSTER_MAX_ZOOM + 1 : 15.5);
       map.easeTo({ center: [cafe.lon, cafe.lat], zoom, offset: offset(), duration: 800 });
     },
-    fit() {
-      ready.then(() => fitTo(cafes));
+    fit(only) {
+      ready.then(() => fitTo(only ?? cafes));
     },
     resize() {
       map.resize();

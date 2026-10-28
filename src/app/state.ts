@@ -8,11 +8,13 @@ export interface AppState {
   selected: string | null;
   /** The panel shows the café list (when no café is selected). */
   list: boolean;
+  /** With `list`, the neighbourhood the list is narrowed to. */
+  area: string | null;
   /** 'intro' while the cover is up; 'map' once the person has started exploring. */
   mode: 'intro' | 'map';
 }
 
-export const initialState: AppState = { city: 'bengaluru', filter: null, selected: null, list: false, mode: 'intro' };
+export const initialState: AppState = { city: 'bengaluru', filter: null, selected: null, list: false, area: null, mode: 'intro' };
 
 export const cityOf = (s: AppState): City => CITIES[s.city];
 export const visibleCafes = (s: AppState): Cafe[] => cityOf(s).cafes.filter((c) => !s.filter || zoneOf(c) === s.filter);

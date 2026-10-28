@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LIST } from '@/domain/routes';
+import { AREA, LIST, slugify } from '@/domain/routes';
 import { CITIES } from '@/data/cities';
 
 const TWEET = /^https:\/\/(x|twitter)\.com\/\w+\/status\/\d+/;
@@ -15,6 +15,12 @@ for (const city of Object.values(CITIES)) {
       const slugs = city.cafes.map((c) => c.slug);
       expect(new Set(slugs).size).toBe(slugs.length);
       expect(slugs).not.toContain(LIST);
+      expect(slugs).not.toContain(AREA);
+    });
+
+    it('gives each neighbourhood its own address', () => {
+      const areas = [...new Set(city.cafes.map((c) => c.area))];
+      expect(new Set(areas.map(slugify)).size).toBe(areas.length);
     });
 
     for (const cafe of city.cafes) {

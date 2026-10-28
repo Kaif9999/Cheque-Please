@@ -1,8 +1,9 @@
 // @vitest-environment happy-dom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { CITIES } from '@/data/cities';
+import { areaPages } from '@/domain/areas';
 import { followable, investorsAt } from '@/domain/people';
-import { routeHref } from '@/domain/routes';
+import { routeHref, slugify } from '@/domain/routes';
 import { zoneOf } from '@/domain/zones';
 import { mount, type Html } from '@/lib/html';
 import { renderDetail } from '@/ui/views/detail';
@@ -32,6 +33,24 @@ describe('the list', () => {
     const expected = city.cafes.filter((c) => zoneOf(c) === 'first');
     expect(rows()).toHaveLength(expected.length);
     expect(root.querySelector('[data-filter=""]')?.textContent).toContain('Show all');
+  });
+
+  it('links each neighbourhood with a page of its own', () => {
+    render(renderList(city, null));
+    const linked = [...root.querySelectorAll<HTMLAnchorElement>('h2 a')].map((a) => a.getAttribute('href'));
+    expect(linked).toEqual(areaPages(city.cafes).map(([area]) => routeHref(city.id, { kind: 'area', slug: slugify(area) })));
+  });
+
+  it('narrows to one neighbourhood, headed by its name', () => {
+    const [area, list] = areaPages(city.cafes)[0]!;
+    render(renderList(city, null, area));
+    expect(root.querySelector('h1')?.textContent).toBe(area);
+    expect(
+      rows()
+        .map((a) => a.dataset.slug)
+        .sort(),
+    ).toEqual(list.map((c) => c.slug).sort());
+    expect(root.querySelector('[data-follow-area]')).not.toBeNull();
   });
 });
 

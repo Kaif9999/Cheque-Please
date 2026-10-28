@@ -55,15 +55,15 @@ const BENGALURU_HANDLES = new Set(
 const rows = () => page.locator('#sheet-body a[data-slug]');
 const mode = () => page.evaluate(() => document.body.dataset.mode);
 const sheet = () => page.evaluate(() => document.body.dataset.sheet);
-async function fresh(hash) {
+async function fresh(path) {
   await page.goto('about:blank');
-  await page.goto(`${base}${hash}`, { waitUntil: 'load' });
+  await page.goto(new URL(path, base).href, { waitUntil: 'load' });
   await page.waitForSelector('.maplibregl-marker', { timeout: 15000 });
   await page.waitForTimeout(1200);
 }
 
 try {
-  await fresh('#/bengaluru');
+  await fresh('/bengaluru/');
 } catch (e) {
   annotate(`the map never showed its pins: ${e.message.split('\n')[0]} | ${errors.join(' | ')}`);
   throw e;
@@ -113,7 +113,7 @@ await check('San Francisco and New York show their own cafés', async () => {
 await check('a short screen still moves the map when the city changes', async () => {
   // The cover is taller than this map, which once stopped the camera from moving at all.
   const short = await browser.newPage({ viewport: { width: 844, height: 390 } });
-  await short.goto(`${base}#/bengaluru`, { waitUntil: 'load' });
+  await short.goto(new URL('/bengaluru/', base).href, { waitUntil: 'load' });
   await short.waitForSelector('.maplibregl-marker', { timeout: 15000 });
   await short.waitForTimeout(1200);
   await short.locator('#city-select').selectOption('mumbai');
@@ -151,7 +151,7 @@ await check('a pin opens its café in the side panel', async () => {
   const slug = await pin.getAttribute('data-slug');
   await pin.click();
   await page.waitForTimeout(700);
-  expect(page.url().endsWith(`/${slug}`), page.url());
+  expect(page.url().endsWith(`/${slug}/`), page.url());
   expect((await sheet()) === 'open', 'panel closed');
   expect((await page.locator('.maplibregl-marker.is-selected').count()) >= 1, 'pin not selected');
 });
@@ -160,14 +160,14 @@ await check('escape closes the panel', async () => {
   await page.keyboard.press('Escape');
   await page.waitForTimeout(500);
   expect((await sheet()) === 'closed', 'panel still open');
-  expect(page.url().endsWith('#/bengaluru'), page.url());
+  expect(page.url().endsWith('/bengaluru/'), page.url());
 });
 
 await check('all cafés opens the list in the panel', async () => {
   await page.locator('#top-actions [data-open-list]').click();
   await page.waitForTimeout(700);
   expect((await rows().count()) === BENGALURU_CAFES, `rows: ${await rows().count()}`);
-  expect(page.url().endsWith('#/bengaluru/list'), page.url());
+  expect(page.url().endsWith('/bengaluru/list/'), page.url());
 });
 
 await check('hovering a row lights up its pin or cluster', async () => {
@@ -230,12 +230,36 @@ await check('scrolling over the cover dives into the map', async () => {
 
 await check('after a café and the wordmark, switching city still moves the map', async () => {
   // Focusing a café once left padding on the map that made every later fit impossible.
-  await fresh('#/bengaluru/araku-indiranagar');
+  await fresh('/bengaluru/araku-indiranagar/');
   await page.locator('#home').click();
   await page.waitForTimeout(1500);
   await page.locator('.seg-opt[data-city="mumbai"]').click();
   await page.waitForTimeout(2000);
   expect(MUMBAI.test(await onScreen()), `no Mumbai pins on screen: ${await onScreen()}`);
+});
+
+await check('a neighbourhood page lists only its cafés', async () => {
+  await fresh('/bengaluru/area/indiranagar/');
+  const expected = cafesOf('bengaluru').filter((c) => c.area === 'Indiranagar').length;
+  expect((await sheet()) === 'open', 'panel closed');
+  expect((await page.locator('#sheet-body h1').innerText()).trim() === 'Indiranagar', 'heading is not the neighbourhood');
+  expect((await rows().count()) === expected, `rows ${await rows().count()} ≠ ${expected}`);
+});
+
+await check('a link shared before paths opens at its path', async () => {
+  await fresh('/#/mumbai/subko-bandra');
+  expect(new URL(page.url()).pathname === '/mumbai/subko-bandra/', page.url());
+  expect((await page.locator('#sheet-body h1').innerText()).trim() === 'Subko', 'café not open');
+});
+
+await check('back and forward follow the panel', async () => {
+  await fresh('/bengaluru/list/');
+  await rows().first().click();
+  await page.waitForTimeout(500);
+  await page.goBack();
+  await page.waitForTimeout(500);
+  expect(page.url().endsWith('/bengaluru/list/'), page.url());
+  expect((await rows().count()) === BENGALURU_CAFES, 'list not back');
 });
 
 await check('no page errors', async () => expect(errors.length === 0, errors.join(' | ')));

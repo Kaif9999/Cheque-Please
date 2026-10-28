@@ -24,7 +24,7 @@ Cities: **Bengaluru**, **Mumbai**, **San Francisco** (with Palo Alto and Menlo P
   from the bottom on phones.
 - **Filter by investor type.** The map's legend doubles as a filter, and the list follows it.
 - **Follow on X.** Follow everyone seen at one café, or across the whole city, in one go.
-- **Shareable.** Every view has its own link (`#/bengaluru/araku-indiranagar`), and shared links
+- **Shareable.** Every view has its own address (`/bengaluru/araku-indiranagar/`), and shared links
   unfurl with a preview image.
 
 ## Quick start
@@ -46,7 +46,7 @@ npm run dev        # http://127.0.0.1:5190
 | `npm run format`  | Format with Prettier                                                                            |
 | `npm run smoke`   | Drive the main flows in Chrome against the preview server                                       |
 | `npm run og`      | Re-render the link-preview image (`public/og.jpg`) from the preview server                      |
-| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png` |
+| `npm run shot`    | Screenshot a URL: `npm run shot -- --url http://127.0.0.1:4190/mumbai/ --out shots/mumbai.png` |
 
 ## Stack
 

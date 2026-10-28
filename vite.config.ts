@@ -12,7 +12,7 @@ const siteUrl = (): Plugin => ({
 });
 
 export default defineConfig({
-  base: './',
+  base: '/',
   plugins: [tailwindcss(), siteUrl()],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
   build: { target: 'es2022', chunkSizeWarningLimit: 1200 },

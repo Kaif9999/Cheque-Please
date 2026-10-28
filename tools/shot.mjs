@@ -1,7 +1,7 @@
 /**
  * Screenshot + console-check harness.
  *
- *   node tools/shot.mjs --url http://127.0.0.1:4190/#/mumbai --out shots/mumbai.png
+ *   node tools/shot.mjs --url http://127.0.0.1:4190/mumbai/ --out shots/mumbai.png
  *   node tools/shot.mjs --url ... --mobile --eval "__cheque.go({ kind: 'cafe', slug: 'some-slug' })"
  *
  * Prints console errors and page errors, and exits non-zero if any occurred.

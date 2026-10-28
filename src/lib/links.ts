@@ -1,5 +1,10 @@
 import { config } from '@/config';
 
+/** A file under public/, addressed from the site root so it loads at any page depth. */
+export function asset(path: string): string {
+  return /^(https?:)?\/\//.test(path) ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+}
+
 export function followUrl(handle: string): string {
   return `https://x.com/intent/follow?screen_name=${encodeURIComponent(handle)}`;
 }

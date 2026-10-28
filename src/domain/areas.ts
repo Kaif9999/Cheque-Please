@@ -1,4 +1,5 @@
 import { circle, hull, type LngLat } from './geo';
+import { slugify } from './routes';
 import type { Cafe, ZoneId } from './types';
 import { ZONE_ORDER, zoneOf } from './zones';
 
@@ -28,6 +29,21 @@ export function groupByArea(cafes: Cafe[]): Map<string, Cafe[]> {
   const groups = new Map<string, Cafe[]>();
   for (const c of cafes) groups.set(c.area, [...(groups.get(c.area) ?? []), c]);
   return groups;
+}
+
+/** A neighbourhood gets its own page once it has this many cafés; one café is just that café's page. */
+export const AREA_PAGE_MIN = 2;
+
+/** The neighbourhoods with a page of their own, biggest first. */
+export function areaPages(cafes: Cafe[]): [string, Cafe[]][] {
+  return [...groupByArea(cafes)]
+    .filter(([, list]) => list.length >= AREA_PAGE_MIN)
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+}
+
+/** The neighbourhood a slug names, as the data spells it. */
+export function areaNamed(cafes: Cafe[], slug: string): string | undefined {
+  return cafes.find((c) => slugify(c.area) === slug)?.area;
 }
 
 /** One zone per neighbourhood. */

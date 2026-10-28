@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { areasOf } from '@/domain/areas';
+import { areaNamed, areaPages, areasOf } from '@/domain/areas';
 import { distance } from '@/domain/geo';
 import type { Cafe, Crowd } from '@/domain/types';
 
@@ -45,5 +45,29 @@ describe('areasOf', () => {
       expect(nearest).toBeGreaterThan(300);
     }
     expect(area.top[1]).toBe(Math.max(...area.shape.map((p) => p[1])));
+  });
+});
+
+describe('areaPages', () => {
+  it('gives a page only to neighbourhoods with two or more cafés, biggest first', () => {
+    const list = [
+      cafe('HSR Layout', 77.64, 12.91, []),
+      cafe('Indiranagar', 77.64, 12.97, []),
+      cafe('Indiranagar', 77.641, 12.971, []),
+      cafe('Koramangala', 77.62, 12.93, []),
+    ];
+    list.push(cafe('Indiranagar', 77.642, 12.972, []), cafe('HSR Layout', 77.641, 12.911, []));
+    expect(areaPages(list).map(([area, cafes]) => [area, cafes.length])).toEqual([
+      ['Indiranagar', 3],
+      ['HSR Layout', 2],
+    ]);
+  });
+});
+
+describe('areaNamed', () => {
+  it('finds the neighbourhood a slug stands for', () => {
+    const list = [cafe('HSR Layout', 77.64, 12.91, [])];
+    expect(areaNamed(list, 'hsr-layout')).toBe('HSR Layout');
+    expect(areaNamed(list, 'nowhere')).toBeUndefined();
   });
 });

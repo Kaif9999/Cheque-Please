@@ -7,6 +7,7 @@ import { CITIES, CITY_ORDER } from '@/data/cities';
 import { handlesText } from '@/domain/people';
 import type { Panel, Route } from '@/domain/routes';
 import type { Cafe, CityId, ZoneId } from '@/domain/types';
+import { areaNamed } from '@/domain/areas';
 import { zoneOf } from '@/domain/zones';
 import { $ } from '@/lib/dom';
 import { mount } from '@/lib/html';
@@ -91,13 +92,14 @@ store.subscribe((s) => {
 
 /** The panel keeps its last contents while closed, so it doesn't empty out as it slides away. */
 store.subscribe((s, prev) => {
-  if (s.city === prev.city && s.filter === prev.filter && s.selected === prev.selected && s.list === prev.list) return;
+  if (s.city === prev.city && s.filter === prev.filter && s.selected === prev.selected && s.list === prev.list && s.area === prev.area)
+    return;
   const cafe = selectedCafe(s);
   if (cafe) {
     mount(el.sheetBody, renderDetail(cityOf(s), cafe));
     el.sheetBody.scrollTop = 0;
   } else if (s.list) {
-    mount(el.sheetBody, renderList(cityOf(s), s.filter));
+    mount(el.sheetBody, renderList(cityOf(s), s.filter, s.area));
     el.sheetBody.scrollTop = listScroll;
   }
 });
@@ -125,7 +127,7 @@ function dive(fit: boolean): void {
 /** Back to the cover for the current city. */
 function surface(): void {
   listScroll = 0;
-  store.set({ mode: 'intro', filter: null, selected: null, list: false });
+  store.set({ mode: 'intro', filter: null, selected: null, list: false, area: null });
   const s = store.get();
   map.show(cityOf(s), visibleCafes(s), true);
   go(null);
@@ -152,19 +154,23 @@ function applyRoute(route: Route): void {
   const filter = cityChanged ? null : s.filter;
   const slug = route.panel?.kind === 'cafe' ? route.panel.slug : null;
   const cafe = slug ? CITIES[city].cafes.find((c) => c.slug === slug) : undefined;
-  const list = route.panel?.kind === 'list';
+  const area = route.panel?.kind === 'area' ? (areaNamed(CITIES[city].cafes, route.panel.slug) ?? null) : null;
+  const list = route.panel?.kind === 'list' || !!area;
+  if (area !== s.area) listScroll = 0;
   store.set({
     city,
     filter: cafe && filter && zoneOf(cafe) !== filter ? null : filter,
     selected: cafe?.slug ?? null,
     list,
+    area,
     mode: cafe || list ? 'map' : s.mode,
   });
   const next = store.get();
-  if (cityChanged) map.show(cityOf(next), visibleCafes(next), !cafe);
+  if (cityChanged) map.show(cityOf(next), visibleCafes(next), !cafe && !area);
   // On phones the sheet leaves too little map to refit into; the pins stay where they were.
-  else if (list && !sheetOpen(s) && wide.matches) map.fit();
+  else if (list && !area && !sheetOpen(s) && wide.matches) map.fit();
   if (cafe) map.focus(cafe);
+  if (area && !cafe) map.fit(cityOf(next).cafes.filter((c) => c.area === area));
 }
 
 async function share(button: HTMLElement): Promise<void> {
@@ -207,6 +213,12 @@ document.addEventListener('click', (e) => {
   if (shareBtn) return void share(shareBtn);
   const city = cityOf(store.get());
   if (target.closest('[data-follow-all]')) return openFollow(city.cafes, `Follow all ${city.name} investors`);
+  const area = store.get().area;
+  if (area && target.closest('[data-follow-area]'))
+    return openFollow(
+      city.cafes.filter((c) => c.area === area),
+      `Seen in ${area}`,
+    );
   const cafe = selectedCafe(store.get());
   if (cafe && target.closest('[data-follow-cafe]')) openFollow([cafe], `Seen at ${cafe.name}`);
 });

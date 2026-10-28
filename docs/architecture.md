@@ -8,7 +8,7 @@ escaped HTML, and a small store tells them when to redraw.
 ```
 src/
   main.ts      the bootstrap: wires the store, router, views and map, and handles events
-  app/         router.ts (hash routing), store.ts (observable store), state.ts (app state and selectors)
+  app/         router.ts (path routing), store.ts (observable store), state.ts (app state and selectors)
   domain/      types and pure logic: zones, areas, geometry, people, routes. No DOM, no map.
   data/        cities.ts (city definitions) and one JSON file of cafés per city
   lib/         html.ts (safe templates), dom.ts, icons.ts, links.ts, text.ts
@@ -29,16 +29,20 @@ Dependencies point one way. `domain` uses nothing outside itself. `ui` and `map`
 The address bar is the source of truth for the city and what the side panel shows.
 
 ```
-#/<city>                  the city (the cover, or the open map)
-#/<city>/list             the café list in the side panel
-#/<city>/<café-slug>      one café in the side panel
+/<city>/                     the city (the cover, or the open map)
+/<city>/list/                the café list in the side panel
+/<city>/area/<area-slug>/    one neighbourhood's cafés in the side panel
+/<city>/<café-slug>/         one café in the side panel
 ```
 
-1. **Router** (`app/router.ts`). It parses the hash with `domain/routes.ts`, which `routeHref`
-   inverts, so every link in the views is built the same way. It hands the parsed route to
+Links shared before paths (`/#/<city>/<café-slug>`) are moved to their path on load.
+
+1. **Router** (`app/router.ts`). It parses the path with `domain/routes.ts`, which `routeHref`
+   inverts, so every link in the views is built the same way. Plain clicks on those links stay in
+   the page through the History API; back and forward replay them. It hands the parsed route to
    `applyRoute` in `main.ts`.
 2. **Store** (`app/store.ts`). `applyRoute` and the other actions (`dive`, `surface`, `setFilter`)
-   merge changes into one state object: `{ city, filter, selected, list, mode }`. `mode` is
+   merge changes into one state object: `{ city, filter, selected, list, area, mode }`. `mode` is
    `'intro'` while the cover is up and `'map'` once the person starts exploring.
 3. **Subscribers** in `main.ts` redraw from the state, in order:
    - the chrome: the body's `data-mode` and `data-sheet`, the title, the city switch, the cover,

@@ -11,7 +11,8 @@ import { avatar } from '../components/avatar';
 import { btn } from '../components/button';
 import { logo } from '../components/logo';
 import { post } from '../components/post';
-import { sheetBar } from '../components/sheet-bar';
+import { areaLink } from '../components/area-link';
+import { backToList, sheetBar } from '../components/sheet-bar';
 import { zoneDot } from '../components/zone';
 
 const BLOCK = `${PX} pb-1 pt-7`;
@@ -73,12 +74,12 @@ export function renderDetail(city: City, cafe: Cafe): Html {
     html`<section class="${BLOCK}"><h2 class="${BLOCK_TITLE}">Also in ${cafe.area}</h2><ul class="m-0 grid list-none gap-0.5 p-0">${nearby.map((c) => nearbyRow(city.id, c))}</ul></section>`;
 
   return html`
-    ${sheetBar(html`<a class="inline-flex items-center gap-0.5 rounded-lg py-1.5 pl-1 pr-2.5 text-sm font-medium text-ink-2 no-underline hover:bg-sunk hover:text-ink" href="${routeHref(city.id, { kind: 'list' })}">${icon('back')}All ${city.name} cafés</a>`)}
+    ${sheetBar(backToList(city))}
     <header class="flex items-center gap-4 ${PX} pt-2">
       ${logo(cafe, 'size-[60px] rounded-2xl text-3xl shadow-[inset_0_0_0_1px_var(--color-line)]')}
       <div class="min-w-0">
         <h1 class="${DISPLAY} text-[28px] leading-[1.02]">${cafe.name}</h1>
-        <p class="mt-1.5 text-[14.5px] text-ink-2">${cafe.branch}, ${cafe.area}</p>
+        <p class="mt-1.5 text-[14.5px] text-ink-2">${cafe.branch}, ${areaLink(city, cafe.area)}</p>
       </div>
     </header>
     <p class="${MX} mt-4 flex items-center gap-2 text-[13.5px] text-ink-2">${zoneDot(zone.id)}${zone.label}<span class="size-[3px] rounded-full bg-ink-3"></span>${plural(sources, 'source')}</p>
