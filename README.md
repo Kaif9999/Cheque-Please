@@ -18,9 +18,9 @@ Cities: **Bengaluru**, **Mumbai**, **San Francisco** (with Palo Alto and Menlo P
 - **Pins that carry the story.** Each café is a card with its logo, name and the faces of the
   investors seen there, each marked with the kind of cheque they write. Nearby cafés stack into a
   deck with a count, which fans out as you zoom in.
-- **Neighbourhood zones.** Each neighbourhood with cafés is a tinted block with the streets running
-  through it, coloured by the kind of investor seen there most: multi-stage funds, seed funds,
-  angels or accelerators.
+- **Neighbourhood zones.** Each neighbourhood with cafés is tinted on its real outline (or a block
+  squared to its street grid), with the streets running through it, coloured by the kind of
+  investor seen there most: multi-stage funds, seed funds, angels or accelerators.
 - **Side panel.** The full list grouped by neighbourhood, and a page per café with each investor
   set beside the post that puts them there, and the other cafés nearby. It sits on the right on wide screens and slides up
   from the bottom on phones.
@@ -80,7 +80,9 @@ request (`.github/workflows/ci.yml`).
 ## Credits
 
 Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, tiles by
-OpenFreeMap. Every quote belongs to its author and links to its source. Anyone listed can ask to be
+OpenFreeMap. Neighbourhood outlines also come from [DataSF](https://datasf.org/opendata/) (SF Find
+Neighborhoods) and [NYC Open Data](https://opendata.cityofnewyork.us/) (2020 Neighborhood
+Tabulation Areas). Every quote belongs to its author and links to its source. Anyone listed can ask to be
 removed through the issue form.
 
 ## License

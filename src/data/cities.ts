@@ -1,8 +1,16 @@
-import type { Cafe, City, CityId } from '@/domain/types';
+import type { Cafe, City, CityId, Outline } from '@/domain/types';
 import bengaluru from './bengaluru.json';
 import mumbai from './mumbai.json';
 import sanFrancisco from './san-francisco.json';
 import newYork from './new-york.json';
+import bengaluruAreas from './areas/bengaluru.json';
+import mumbaiAreas from './areas/mumbai.json';
+import sanFranciscoAreas from './areas/san-francisco.json';
+import newYorkAreas from './areas/new-york.json';
+
+/** The outlines file keeps each one's source beside it; the map needs only the shape. */
+const outlines = (file: Record<string, { outline: unknown }>): Record<string, Outline> =>
+  Object.fromEntries(Object.entries(file).map(([area, { outline }]) => [area, outline as Outline]));
 
 export const CITIES: Record<CityId, City> = {
   bengaluru: {
@@ -21,6 +29,7 @@ export const CITIES: Record<CityId, City> = {
       'Shanti Nagar': 'Three days of free founder office hours at Ajji House, Nov 2025.',
       'Shanthala Nagar': "Peak XV's GV Ravishankar refuelled with dosa and filter coffee at Airlines Hotel, Sep 2026.",
     },
+    outlines: outlines(bengaluruAreas),
     cafes: bengaluru.cafes as Cafe[],
   },
   mumbai: {
@@ -47,6 +56,7 @@ export const CITIES: Record<CityId, City> = {
       Colaba: 'Vishal Gondal called the Taj his new breakfast joint, Jun 2013.',
       'Goregaon East': 'A founder meetup was held at Third Wave Coffee in Oberoi Mall, Sep 2026.',
     },
+    outlines: outlines(mumbaiAreas),
     cafes: mumbai.cafes as Cafe[],
   },
   'san-francisco': {
@@ -78,6 +88,7 @@ export const CITIES: Record<CityId, City> = {
       'Outer Richmond': "Ahead VC's Prateek Sharma lists the Andytown on Great Highway among his SF coffee picks, Oct 2024.",
       'Mission Bay': "Kulveer Taggar called Mission Bay the city's densest part, with 10+ laptops at Cafe Reveille, 2025.",
     },
+    outlines: outlines(sanFranciscoAreas),
     cafes: sanFrancisco.cafes as Cafe[],
   },
   'new-york': {
@@ -98,6 +109,7 @@ export const CITIES: Record<CityId, City> = {
       'East Village': 'A founder said you overhear VC pitches in the Bowery Hotel lobby, Jul 2026.',
       Chelsea: "Eniac's Nihal Mehta brought Pitch and Run back from Chelsea Piers, Nov 2019.",
     },
+    outlines: outlines(newYorkAreas),
     cafes: newYork.cafes as Cafe[],
   },
 };

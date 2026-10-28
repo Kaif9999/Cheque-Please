@@ -1,15 +1,15 @@
 import { circle, hull, type LngLat } from './geo';
 import { slugify } from './routes';
-import type { Cafe, ZoneId } from './types';
+import type { Cafe, Outline, ZoneId } from './types';
 import { ZONE_ORDER, zoneOf } from './zones';
 
 export interface AreaZone {
   area: string;
   zone: ZoneId;
   center: LngLat;
-  /** Closed ring hugging the area's cafés: a rounded hull, so a street of cafés reads as a street. */
-  shape: LngLat[];
-  /** Northernmost point of the shape, where the area's label sits. */
+  /** The neighbourhood's outline, or a ring hugging its cafés when it has none. */
+  outline: Outline;
+  /** Northernmost point of the outline, where the area's label sits. */
   top: LngLat;
   cafes: number;
 }
@@ -48,12 +48,18 @@ export function areaNamed(cafes: Cafe[], slug: string): string | undefined {
   return cafes.find((c) => slugify(c.area) === slug)?.area;
 }
 
-/** One zone per neighbourhood. */
-export function areasOf(cafes: Cafe[]): AreaZone[] {
+/** A ring hugging the cafés: few enough corners that it reads as a drawn block, not a bubble. */
+export function ringAround(cafes: Cafe[]): Outline {
+  return { type: 'Polygon', coordinates: [hull(cafes.flatMap((c) => circle([c.lon, c.lat], PAD, SIDES).slice(0, -1)))] };
+}
+
+/** One zone per neighbourhood, on its outline when it has one. */
+export function areasOf(cafes: Cafe[], outlines: Record<string, Outline> = {}): AreaZone[] {
   return [...groupByArea(cafes)].map(([area, list]) => {
     const center: LngLat = [list.reduce((s, c) => s + c.lon, 0) / list.length, list.reduce((s, c) => s + c.lat, 0) / list.length];
-    const shape = hull(list.flatMap((c) => circle([c.lon, c.lat], PAD, SIDES).slice(0, -1)));
-    const top = shape.reduce((best, p) => (p[1] > best[1] ? p : best));
-    return { area, zone: dominantZone(list), center, shape, top, cafes: list.length };
+    const outline = outlines[area] ?? ringAround(list);
+    const outer = outline.type === 'Polygon' ? [outline.coordinates[0]!] : outline.coordinates.map((p) => p[0]!);
+    const top = outer.flat().reduce((best, p) => (p[1] > best[1] ? p : best));
+    return { area, zone: dominantZone(list), center, outline, top, cafes: list.length };
   });
 }

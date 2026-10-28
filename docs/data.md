@@ -73,11 +73,20 @@ A café's zone is the crowd most of its investors belong to, and ties go to the 
 café with no named investor is a "Founder hangout". A neighbourhood is coloured by the zone most of
 its cafés fall in. See `src/domain/zones.ts` and `src/domain/areas.ts`.
 
+Each neighbourhood is drawn on its outline from `src/data/areas/<city>.json`, which
+`node tools/areas.mjs [city]` builds. An official outline is used when a source has the
+neighbourhood under the same name and it holds at least half of its cafés: DataSF's SF Find
+Neighborhoods, NYC's 2020 Neighborhood Tabulation Areas, or OpenStreetMap places and wards
+(Koramangala's blocks are joined into one). Otherwise the outline is a rectangle around the cafés,
+turned to the local street grid read from OpenStreetMap's roads. Overlaps go to the smaller
+outline. A neighbourhood missing from the file falls back to a ring around its cafés.
+
 ## Adding a café
 
 1. Find the receipt (see [Finding cafés](#finding-cafés)) and check it against its source.
 2. Add the café to `src/data/<city>.json`. If its neighbourhood is new, add a one-line, sourced note
-   to that city's `areas` in `src/data/cities.ts`.
+   to that city's `areas` in `src/data/cities.ts`, and run `node tools/areas.mjs <city>` to give it
+   an outline.
 3. Run `node tools/fetch-avatars.mjs` to pull X profile photos for new investors.
 4. For a logo, save the café's own mark as a square PNG in `public/logos/` and point `logo` at it.
    Check it by eye: a wrong logo is worse than the fallback letter.
@@ -89,7 +98,8 @@ its cafés fall in. See `src/domain/zones.ts` and `src/domain/areas.ts`.
 1. Add its id to `CityId` in `src/domain/types.ts`.
 2. Add the city to `CITIES` and `CITY_ORDER` in `src/data/cities.ts`, with name, headline, starting
    camera, bounds and a note per neighbourhood.
-3. Create `src/data/<city>.json` with `{ "cafes": [...] }` and import it in `cities.ts`.
+3. Create `src/data/<city>.json` with `{ "cafes": [...] }` and import it in `cities.ts`. Run
+   `node tools/areas.mjs <city>` and import `src/data/areas/<city>.json` as its `outlines`.
 4. Add the city to the issue form's dropdown in `.github/ISSUE_TEMPLATE/receipt.yml`.
 5. Add its names, neighbourhoods, cafés and subreddits to the table in `tools/discover.mjs`.
 

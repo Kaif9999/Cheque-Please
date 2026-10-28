@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { areaNamed, areaPages, areasOf } from '@/domain/areas';
 import { distance } from '@/domain/geo';
-import type { Cafe, Crowd } from '@/domain/types';
+import type { Cafe, Crowd, Outline } from '@/domain/types';
 
 function cafe(area: string, lon: number, lat: number, crowds: Crowd[]): Cafe {
   return {
@@ -36,15 +36,34 @@ describe('areasOf', () => {
     expect(area.cafes).toBe(3);
   });
 
-  it('wraps every café with margin to spare', () => {
+  it('without an outline, wraps every café with margin to spare', () => {
     const list = [cafe('A', 72.83, 19.05, ['angel']), cafe('A', 72.84, 19.06, [])];
     const area = areasOf(list)[0]!;
-    expect(area.shape[0]).toEqual(area.shape[area.shape.length - 1]);
+    const ring = (area.outline.coordinates as [number, number][][])[0]!;
+    expect(ring[0]).toEqual(ring[ring.length - 1]);
     for (const c of list) {
-      const nearest = Math.min(...area.shape.map((p) => distance([c.lon, c.lat], p)));
+      const nearest = Math.min(...ring.map((p) => distance([c.lon, c.lat], p)));
       expect(nearest).toBeGreaterThan(300);
     }
-    expect(area.top[1]).toBe(Math.max(...area.shape.map((p) => p[1])));
+    expect(area.top[1]).toBe(Math.max(...ring.map((p) => p[1])));
+  });
+
+  it("uses the neighbourhood's own outline when there is one", () => {
+    const square: Outline = {
+      type: 'Polygon',
+      coordinates: [
+        [
+          [72.8, 19.0],
+          [72.9, 19.0],
+          [72.9, 19.1],
+          [72.8, 19.1],
+          [72.8, 19.0],
+        ],
+      ],
+    };
+    const area = areasOf([cafe('A', 72.83, 19.05, ['angel'])], { A: square })[0]!;
+    expect(area.outline).toBe(square);
+    expect(area.top[1]).toBe(19.1);
   });
 });
 

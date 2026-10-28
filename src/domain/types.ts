@@ -49,6 +49,10 @@ export interface Cafe {
   scene: SceneItem[];
 }
 
+/** A neighbourhood's outline, as GeoJSON geometry in [lon, lat]. */
+export type Outline =
+  { type: 'Polygon'; coordinates: [number, number][][] } | { type: 'MultiPolygon'; coordinates: [number, number][][][] };
+
 export interface City {
   id: CityId;
   name: string;
@@ -62,5 +66,7 @@ export interface City {
   bounds: [number, number, number, number];
   /** One factual line per neighbourhood, shown with its zone. */
   areas: Record<string, string>;
+  /** Each neighbourhood's outline (tools/areas.mjs). One without falls back to a ring around its cafés. */
+  outlines: Record<string, Outline>;
   cafes: Cafe[];
 }

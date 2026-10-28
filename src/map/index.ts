@@ -219,7 +219,7 @@ export function createMap(container: HTMLElement, city: City, hooks: MapHooks, i
           properties: { slug: cafe.slug },
         }));
         source().setData({ type: 'FeatureCollection', features });
-        zones.draw(list);
+        zones.draw(list, c.outlines);
         if (!doFit) return;
         if (list.length) fitTo(list);
         else map.jumpTo({ center: c.center, zoom: c.zoom });

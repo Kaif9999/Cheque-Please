@@ -1,19 +1,21 @@
-import { Marker, type GeoJSONSource, type Map as MapLibre } from 'maplibre-gl';
-import type { Feature, Polygon } from 'geojson';
+import { Marker, type FillLayerSpecification, type GeoJSONSource, type Map as MapLibre } from 'maplibre-gl';
+import type { Feature, MultiPolygon, Polygon } from 'geojson';
 import { areasOf } from '@/domain/areas';
-import type { Cafe } from '@/domain/types';
+import type { Cafe, Outline } from '@/domain/types';
 import { ZONES } from '@/domain/zones';
 import { mount } from '@/lib/html';
 import { zonePill } from '@/ui/components/zone';
 
-type AreaShape = Feature<Polygon, { color: string }>;
+type AreaShape = Feature<Polygon | MultiPolygon, { color: string }>;
 
 /** Area labels only make sense once neighbourhoods are distinguishable; phones need to be closer still. */
 const LABEL_ZOOM = { wide: 12, narrow: 12.8 };
 
 /**
- * Tinted outlines around each neighbourhood's cafés, with the area's name on top.
- * Call `install` once the style has loaded, then `draw` whenever the cafés change.
+ * Each neighbourhood as a tinted block with a coloured edge and its name on top. The tint and edge
+ * sit under the roads, so the streets run through each block like a grid, and under a copy of the
+ * water, so a block drawn past the shore stops at it. Call `install` once the style has loaded,
+ * then `draw` whenever the cafés change.
  */
 export function createZonesLayer(map: MapLibre, isWide: () => boolean) {
   let labels: Marker[] = [];
@@ -26,13 +28,16 @@ export function createZonesLayer(map: MapLibre, isWide: () => boolean) {
   return {
     install(): void {
       map.addSource('areas', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-      // The tint goes under the roads, so the streets run through each neighbourhood like a grid.
+      // Strongest when the whole city is in view, fading as the streets take over.
       map.addLayer(
         {
           id: 'areas-fill',
           type: 'fill',
           source: 'areas',
-          paint: { 'fill-color': ['get', 'color'], 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0.3, 14, 0.26, 17, 0.18] },
+          paint: {
+            'fill-color': ['get', 'color'],
+            'fill-opacity': ['interpolate', ['linear'], ['zoom'], 9, 0.42, 12, 0.3, 15, 0.2, 17, 0.12],
+          },
         },
         'rail',
       );
@@ -44,22 +49,24 @@ export function createZonesLayer(map: MapLibre, isWide: () => boolean) {
           layout: { 'line-join': 'round' },
           paint: {
             'line-color': ['get', 'color'],
-            'line-width': ['interpolate', ['linear'], ['zoom'], 11, 1.5, 15, 2.5],
-            'line-opacity': 0.9,
+            'line-opacity': 0.8,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 9, 1, 14, 2.4],
           },
         },
-        'road-label',
+        'rail',
       );
+      const water = map.getStyle().layers.find((l) => l.id === 'water') as FillLayerSpecification | undefined;
+      if (water) map.addLayer({ ...water, id: 'areas-water' }, 'rail');
       map.on('zoom', syncLabels);
       syncLabels();
     },
 
-    draw(cafes: Cafe[]): void {
+    draw(cafes: Cafe[], outlines: Record<string, Outline>): void {
       for (const m of labels) m.remove();
-      const areas = areasOf(cafes);
+      const areas = areasOf(cafes, outlines);
       const shapes: AreaShape[] = areas.map((a) => ({
         type: 'Feature',
-        geometry: { type: 'Polygon', coordinates: [a.shape] },
+        geometry: a.outline,
         properties: { color: ZONES[a.zone].color },
       }));
       (map.getSource('areas') as GeoJSONSource).setData({ type: 'FeatureCollection', features: shapes });

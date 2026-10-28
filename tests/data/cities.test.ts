@@ -2,6 +2,17 @@ import { describe, expect, it } from 'vitest';
 import { AREA, LIST, slugify } from '@/domain/routes';
 import { CITIES } from '@/data/cities';
 
+/** Ray casting; the outlines are small enough to treat lon/lat as flat. */
+function inside([x, y]: [number, number], ring: [number, number][]): boolean {
+  let hit = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i]!;
+    const [xj, yj] = ring[j]!;
+    if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) hit = !hit;
+  }
+  return hit;
+}
+
 const TWEET = /^https:\/\/(x|twitter)\.com\/\w+\/status\/\d+/;
 const CROWDS = ['big', 'first', 'angel', 'cohort'];
 
@@ -16,6 +27,17 @@ for (const city of Object.values(CITIES)) {
       expect(new Set(slugs).size).toBe(slugs.length);
       expect(slugs).not.toContain(LIST);
       expect(slugs).not.toContain(AREA);
+    });
+
+    it("draws each neighbourhood's outline around at least one of its cafés", () => {
+      for (const [area, outline] of Object.entries(city.outlines)) {
+        const polygons = outline.type === 'Polygon' ? [outline.coordinates] : outline.coordinates;
+        const near = (c: { lon: number; lat: number }) =>
+          polygons.some(
+            ([ring]) => inside([c.lon, c.lat], ring!) || ring!.some(([x, y]) => Math.hypot((x - c.lon) * 0.8, y - c.lat) < 0.0012),
+          );
+        expect(city.cafes.filter((c) => c.area === area).some(near), area).toBe(true);
+      }
     });
 
     it('gives each neighbourhood its own address', () => {
