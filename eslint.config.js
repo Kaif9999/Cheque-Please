@@ -5,7 +5,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig(
-  { ignores: ['dist', 'shots'] },
+  { ignores: ['dist', 'shots', 'brag-output*'] },
   js.configs.recommended,
   tseslint.configs.recommended,
   { files: ['src/**/*.ts'], languageOptions: { globals: globals.browser } },
