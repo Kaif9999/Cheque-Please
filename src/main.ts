@@ -78,6 +78,7 @@ store.subscribe((s) => {
   const city = cityOf(s);
   document.body.dataset.mode = s.mode;
   document.body.dataset.sheet = sheetOpen(s) ? 'open' : 'closed';
+  document.body.dataset.panel = s.selected ? 'cafe' : 'list';
   document.title = titleOf(pageOf(city, s, window.location.pathname === '/'));
   mount(
     el.citySwitch,

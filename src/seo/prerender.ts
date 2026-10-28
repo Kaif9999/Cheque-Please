@@ -19,6 +19,8 @@ export interface Rendered {
   head: string;
   mode: 'intro' | 'map';
   sheet: 'open' | 'closed';
+  /** Which panel width the page opens with: a café's is wider. */
+  panel: 'cafe' | 'list';
   /** Markup for each region of index.html, by element id. */
   regions: Record<string, string>;
 }
@@ -73,6 +75,7 @@ export function renderPage(page: Page, site: string): Rendered {
     head: headOf(page, site).toString(),
     mode: open ? 'map' : 'intro',
     sheet: open ? 'open' : 'closed',
+    panel: page.kind === 'cafe' ? 'cafe' : 'list',
     regions: {
       'hero-body': renderHero(city).toString(),
       'city-switch': renderCitySwitch(

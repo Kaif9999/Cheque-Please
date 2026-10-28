@@ -49,6 +49,11 @@
   --sheet-w: clamp(380px, 30vw, 440px);
 }
 
+/* A café's page sets each investor beside their post, so it needs a wider panel. */
+[data-panel='cafe'] {
+  --sheet-w: clamp(560px, 44vw, 720px);
+}
+
 @layer base {
   :focus-visible {
     outline: 2px solid var(--color-focus);

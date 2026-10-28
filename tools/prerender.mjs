@@ -33,7 +33,7 @@ const window = new Window({
 });
 
 /** The template with a page's head and first render in place. */
-function fill({ title, head, mode, sheet, regions = {} }) {
+function fill({ title, head, mode, sheet, panel, regions = {} }) {
   const doc = new window.DOMParser().parseFromString(template, 'text/html');
   const titleEl = doc.querySelector('title');
   titleEl.textContent = title;
@@ -43,6 +43,7 @@ function fill({ title, head, mode, sheet, regions = {} }) {
   titleEl.after(...tags.content.childNodes);
   if (mode) doc.body.dataset.mode = mode;
   if (sheet) doc.body.dataset.sheet = sheet;
+  if (panel) doc.body.dataset.panel = panel;
   for (const [id, markup] of Object.entries(regions)) {
     const el = doc.getElementById(id);
     if (!el) throw new Error(`index.html has no #${id}`);
