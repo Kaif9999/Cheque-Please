@@ -73,3 +73,25 @@ describe('buildSite', () => {
     expect(buildSite().files['robots.txt']).toContain('https://vcspotted.com/sitemap.xml');
   });
 });
+
+describe('llms.txt', () => {
+  const files = buildSite(SITE).files;
+
+  it('opens with the name and a summary, then links every city, busy neighbourhood and café', () => {
+    const text = files['llms.txt']!;
+    expect(text.startsWith('# VC Spotted\n\n> ')).toBe(true);
+    for (const page of allPages().filter((p) => p.kind !== 'list' && p.kind !== 'home')) {
+      expect(text.includes(`(${SITE}${pathOf(page)})`), pathOf(page)).toBe(true);
+    }
+    expect(text).toContain(`${SITE}/llms-full.txt`);
+  });
+
+  it('quotes every post in full in llms-full.txt, with its link', () => {
+    const text = files['llms-full.txt']!;
+    for (const c of Object.values(CITIES).flatMap((x) => x.cafes)) {
+      for (const vc of c.vcs) expect(text).toContain(vc.proof.url);
+      for (const item of c.scene) expect(text).toContain(item.url);
+    }
+    expect(text).toContain(`  > ${cafe.vcs[0]!.proof.text.trim().split('\n')[0]!.trimEnd()}`);
+  });
+});

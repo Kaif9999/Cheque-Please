@@ -8,6 +8,7 @@ import { renderLegend } from '@/ui/views/legend';
 import { renderList } from '@/ui/views/list';
 import { renderCitySwitch, renderListPill, renderTopActions } from '@/ui/views/topbar';
 import { allPages, canonicalOf, descriptionOf, headlineOf, imageOf, pathOf, titleOf, type Page } from './pages';
+import { llmsFullTxt, llmsTxt } from './llms';
 import { jsonForScript, schemaOf } from './schema';
 
 /** One built page: where it goes, what its head says, and the app's first render of each region. */
@@ -124,12 +125,15 @@ export function buildSite(siteOverride?: string): {
 } {
   const site = siteOrigin(siteOverride);
   const pages = allPages();
+  const updated = newestPost(CITY_ORDER.flatMap((id) => CITIES[id].cafes));
   return {
     pages: pages.map((p) => renderPage(p, site)),
     notFound: { title: `Page not found · ${config.name}`, head: '<meta name="robots" content="noindex" />' },
     files: {
       'sitemap.xml': sitemap(pages, site),
       'robots.txt': robots(site),
+      'llms.txt': llmsTxt(site, updated),
+      'llms-full.txt': llmsFullTxt(site, updated),
     },
   };
 }
