@@ -1,4 +1,4 @@
-# Cheque, Please
+# VC Spotted
 
 **A map of the cafés where VCs and angels meet founders, with every pin backed by a public post.**
 

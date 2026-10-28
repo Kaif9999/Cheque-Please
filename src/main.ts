@@ -75,7 +75,7 @@ store.subscribe((s) => {
   const cafe = selectedCafe(s);
   document.body.dataset.mode = s.mode;
   document.body.dataset.sheet = sheetOpen(s) ? 'open' : 'closed';
-  document.title = cafe ? `${cafe.name}, ${cafe.area} · Cheque, Please` : `Cheque, Please · ${city.name}`;
+  document.title = cafe ? `${cafe.name}, ${cafe.area} · VC Spotted` : `VC Spotted · ${city.name}`;
   mount(
     el.citySwitch,
     renderCitySwitch(

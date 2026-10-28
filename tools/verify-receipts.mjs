@@ -113,7 +113,7 @@ for (const city of cities) {
           else if (live === '') flag = "Treg couldn't read it; check it in a browser";
           else if (!norm(live).includes(norm(item.text).slice(0, 60))) problem = `text differs: "${live.slice(0, 90)}…"`;
         } else {
-          const res = await fetch(item.url, { redirect: 'follow', headers: { 'user-agent': 'Mozilla/5.0 cheque-please-verify' } });
+          const res = await fetch(item.url, { redirect: 'follow', headers: { 'user-agent': 'Mozilla/5.0 vc-spotted-verify' } });
           if (!res.ok) problem = `HTTP ${res.status}`;
           else if (!norm((await res.text()).replace(/<[^>]+>/g, ' ')).includes(norm(item.text).slice(0, 60))) {
             flag = 'quote not found in the page source; check it in a browser';
