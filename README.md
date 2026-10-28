@@ -15,12 +15,14 @@ Cities: **Bengaluru**, **Mumbai**, **San Francisco** (with Palo Alto and Menlo P
 
 - **Cover and map.** Each city opens on a cover with the headline and the faces of the investors
   on record. Scrolling, dragging or "Explore the map" clears it.
-- **Pins that carry the story.** Pins show the café's logo, name and the investors seen there.
-  Nearby cafés merge into clusters that open up as you zoom in.
-- **Neighbourhood zones.** Tinted outlines show where meetings cluster. Each is coloured by the
-  kind of investor seen there most: multi-stage funds, seed funds, angels or accelerators.
-- **Side panel.** The full list grouped by neighbourhood, and a page per café with each investor,
-  their receipt, and the other cafés nearby. It sits on the right on wide screens and slides up
+- **Pins that carry the story.** Each café is a card with its logo, name and the faces of the
+  investors seen there, each marked with the kind of cheque they write. Nearby cafés stack into a
+  deck with a count, which fans out as you zoom in.
+- **Neighbourhood zones.** Each neighbourhood with cafés is a tinted block with the streets running
+  through it, coloured by the kind of investor seen there most: multi-stage funds, seed funds,
+  angels or accelerators.
+- **Side panel.** The full list grouped by neighbourhood, and a page per café with each investor
+  set beside the post that puts them there, and the other cafés nearby. It sits on the right on wide screens and slides up
   from the bottom on phones.
 - **Filter by investor type.** The map's legend doubles as a filter, and the list follows it.
 - **Follow on X.** Follow everyone seen at one café, or across the whole city, in one go.
