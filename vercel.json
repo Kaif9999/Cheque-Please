@@ -1,4 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.captable.cafe" }],
+      "destination": "https://captable.cafe/:path*",
+      "permanent": true
+    }
+  ]
 }
