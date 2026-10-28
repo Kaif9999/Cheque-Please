@@ -8,6 +8,7 @@ export const CITIES: Record<CityId, City> = {
   bengaluru: {
     id: 'bengaluru',
     name: 'Bengaluru',
+    country: 'IN',
     headline: "Where Bengaluru's VCs get coffee",
     center: [77.61, 12.95],
     zoom: 11.4,
@@ -24,6 +25,7 @@ export const CITIES: Record<CityId, City> = {
   mumbai: {
     id: 'mumbai',
     name: 'Mumbai',
+    country: 'IN',
     headline: "Where Mumbai's VCs get coffee",
     center: [72.84, 19.05],
     zoom: 11.2,
@@ -48,6 +50,7 @@ export const CITIES: Record<CityId, City> = {
   'san-francisco': {
     id: 'san-francisco',
     name: 'San Francisco',
+    country: 'US',
     headline: "Where San Francisco's VCs get coffee",
     center: [-122.3, 37.62],
     zoom: 9.8,
@@ -76,6 +79,7 @@ export const CITIES: Record<CityId, City> = {
   'new-york': {
     id: 'new-york',
     name: 'New York',
+    country: 'US',
     headline: "Where New York's VCs get coffee",
     center: [-73.993, 40.735],
     zoom: 12.4,

@@ -52,6 +52,8 @@ export interface Cafe {
 export interface City {
   id: CityId;
   name: string;
+  /** ISO 3166-1 alpha-2, for addresses in structured data. */
+  country: string;
   headline: string;
   /** Initial camera before pins are fitted. */
   center: [number, number];

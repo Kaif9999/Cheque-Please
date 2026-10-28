@@ -26,6 +26,9 @@ Cities: **Bengaluru**, **Mumbai**, **San Francisco** (with Palo Alto and Menlo P
 - **Follow on X.** Follow everyone seen at one café, or across the whole city, in one go.
 - **Shareable.** Every view has its own address (`/bengaluru/araku-indiranagar/`), and shared links
   unfurl with a preview image.
+- **Found by search.** Each city, busy neighbourhood and café is built as its own page, with its
+  own title, description, canonical link, structured data (schema.org) and first render, and all
+  of them are listed in `sitemap.xml`.
 
 ## Quick start
 
@@ -39,7 +42,7 @@ npm run dev        # http://127.0.0.1:5190
 | Script            | Does                                                                                            |
 | ----------------- | ----------------------------------------------------------------------------------------------- |
 | `npm run dev`     | Vite dev server on port 5190                                                                    |
-| `npm run build`   | Typecheck, then build the static site into `dist/`                                              |
+| `npm run build`   | Typecheck, build the static site into `dist/`, then write a page for every address in it         |
 | `npm run preview` | Serve `dist/` on port 4190                                                                      |
 | `npm run check`   | Typecheck, lint, formatting and unit tests; CI runs the same                                    |
 | `npm test`        | Unit tests only (Vitest)                                                                        |
@@ -65,8 +68,9 @@ in General Sans and text in Satoshi, both from [Fontshare](https://www.fontshare
 ## Deploy
 
 Vercel builds every push to `main` with the defaults it detects for Vite (`npm run build`, output
-`dist`). The preview image needs an absolute address. The build reads it from `SITE_URL`, or from
-Vercel's `VERCEL_PROJECT_PRODUCTION_URL` when `SITE_URL` is unset.
+`dist`). Canonical links, the sitemap and preview images point at `site` in `src/config.ts`
+(`https://vcspotted.com`); set `SITE_URL` to build for another address. `vercel.json` adds the
+trailing slash the built pages live under.
 
 GitHub Actions runs `npm run check`, the build and the Chrome smoke test on every push and pull
 request (`.github/workflows/ci.yml`).

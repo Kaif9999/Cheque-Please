@@ -19,6 +19,7 @@ import { renderHero } from '@/ui/views/hero';
 import { renderLegend } from '@/ui/views/legend';
 import { renderList } from '@/ui/views/list';
 import { renderCitySwitch, renderListPill, renderTopActions } from '@/ui/views/topbar';
+import { pageOf, titleOf } from '@/seo/pages';
 
 const store = createStore(initialState);
 const router = createRouter(CITY_ORDER, applyRoute);
@@ -37,6 +38,8 @@ const el = {
 };
 /** Where the list was scrolled to, so coming back from a café returns to the same spot. */
 let listScroll = 0;
+/** False until the first route is applied. Built pages arrive with the cover drawn, so the DOM can't tell. */
+let started = false;
 
 const map = createMap(
   $('#map'),
@@ -73,10 +76,9 @@ function padding(s: AppState): PaddingOptions {
 /** Everything outside the panel: page state, title, city switch, cover, legend and shortcuts. */
 store.subscribe((s) => {
   const city = cityOf(s);
-  const cafe = selectedCafe(s);
   document.body.dataset.mode = s.mode;
   document.body.dataset.sheet = sheetOpen(s) ? 'open' : 'closed';
-  document.title = cafe ? `${cafe.name}, ${cafe.area} · VC Spotted` : `VC Spotted · ${city.name}`;
+  document.title = titleOf(pageOf(city, s, window.location.pathname === '/'));
   mount(
     el.citySwitch,
     renderCitySwitch(
@@ -148,7 +150,8 @@ function setFilter(zone: ZoneId | null): void {
 function applyRoute(route: Route): void {
   const s = store.get();
   const city = route.city ?? s.city;
-  const cityChanged = city !== s.city || !el.heroBody.hasChildNodes();
+  const cityChanged = city !== s.city || !started;
+  started = true;
   if (s.list && !s.selected) listScroll = el.sheetBody.scrollTop;
   if (cityChanged) listScroll = 0;
   const filter = cityChanged ? null : s.filter;
