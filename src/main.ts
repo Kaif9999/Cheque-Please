@@ -1,5 +1,6 @@
 import './styles.css';
 import type { PaddingOptions } from 'maplibre-gl';
+import { startAnalytics } from '@/app/analytics';
 import { createRouter } from '@/app/router';
 import { cityOf, initialState, selectedCafe, sheetOpen, visibleCafes, type AppState } from '@/app/state';
 import { createStore } from '@/app/store';
@@ -273,6 +274,7 @@ wide.addEventListener('change', () => {
 });
 
 router.start();
+startAnalytics();
 
 // Debug handle for the screenshot harness.
 (window as unknown as Record<string, unknown>).__cheque = { store, go, dive, surface };

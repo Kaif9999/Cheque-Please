@@ -74,6 +74,10 @@ Vercel builds every push to `main` with the defaults it detects for Vite (`npm r
 (`https://captable.cafe`); set `SITE_URL` to build for another address. `vercel.json` adds the
 trailing slash the built pages live under.
 
+Vercel Web Analytics and Speed Insights (both cookieless) load only in builds Vercel runs, where
+`VERCEL` is set; local and CI builds leave them out. Every city, neighbourhood and café is its own
+path, so page views show which ones people open.
+
 GitHub Actions runs `npm run check`, the build and the Chrome smoke test on every push and pull
 request (`.github/workflows/ci.yml`).
 
