@@ -7,12 +7,14 @@
  * Tabulation Areas, or OpenStreetMap (pieces named after the area, such as Koramangala's blocks, are
  * joined). Otherwise it is a rectangle around the cafés, turned to the local street grid, which is
  * read from OpenStreetMap's roads. Where outlines overlap, the smaller keeps the overlap.
+ * Outlines already on file are kept, so only new neighbourhoods are fetched; --refresh rebuilds all.
  *
- *   node tools/areas.mjs [city ...]
+ *   node tools/areas.mjs [city ...] [--refresh]
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import polygonClipping from 'polygon-clipping';
+import * as prettier from 'prettier';
 import { createServer } from 'vite';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -116,7 +118,8 @@ const OVERPASS = [
 async function getJson(url, init, tries = 6) {
   for (let i = 1; ; i++) {
     const at = url === OVERPASS[0] ? OVERPASS[(i - 1) % OVERPASS.length] : url;
-    const res = await fetch(at, { ...init, headers: { ...UA, ...init?.headers } }).catch(() => null);
+    // A server that hangs counts as busy: give up on it after 45 s and try the next.
+    const res = await fetch(at, { ...init, headers: { ...UA, ...init?.headers }, signal: AbortSignal.timeout(45_000) }).catch(() => null);
     if (res?.ok) return res.json();
     if (i >= tries || (res && !(res.status === 429 || res.status >= 500))) throw new Error(`${res?.status ?? 'network error'} ${at}`);
     await sleep(3000 * i);
@@ -212,10 +215,32 @@ async function streetGrid(lon, lat) {
   return best;
 }
 
-async function rectangle(cafes) {
+/** The grid angle of the nearest rectangle already on file, for when Overpass can't be reached. */
+function nearestGrid(kept, lon, lat) {
+  let best = { deg: 0, d: Infinity, area: null };
+  for (const [area, { source, outline }] of Object.entries(kept)) {
+    const deg = source.match(/\((\d+)°\)/)?.[1];
+    if (!deg) continue;
+    const ring = asMulti(outline)[0][0];
+    const [x, y] = ring.reduce(([sx, sy], [px, py]) => [sx + px / ring.length, sy + py / ring.length], [0, 0]);
+    const d = Math.hypot(x - lon, y - lat);
+    if (d < best.d) best = { deg: Number(deg), d, area };
+  }
+  return best;
+}
+
+async function rectangle(cafes, kept) {
   const lon0 = cafes.reduce((s, c) => s + c.lon, 0) / cafes.length;
   const lat0 = cafes.reduce((s, c) => s + c.lat, 0) / cafes.length;
-  const deg = await streetGrid(lon0, lat0);
+  let deg;
+  let from = 'from OpenStreetMap roads';
+  try {
+    deg = await streetGrid(lon0, lat0);
+  } catch {
+    const near = nearestGrid(kept, lon0, lat0);
+    deg = near.deg;
+    from = near.area ? `as ${near.area}'s, Overpass being down` : 'north-up, Overpass being down';
+  }
   const t = (deg * Math.PI) / 180;
   const k = Math.cos((lat0 * Math.PI) / 180);
   // Into metres on axes along the grid, take the box, pad it, and back out.
@@ -244,20 +269,24 @@ async function rectangle(cafes) {
     [u0, v1],
     [u0, v0],
   ].map(fromGrid);
-  return { multi: [[ring]], source: `Rectangle on the street grid (${deg}°), from OpenStreetMap roads` };
+  return { multi: [[ring]], source: `Rectangle on the street grid (${deg}°), ${from}` };
 }
 
 // --- Per city.
-async function outlinesFor(city) {
+/** `kept` holds the outlines already on file, reused as they are. */
+async function outlinesFor(city, kept) {
   const byArea = new Map();
   for (const cafe of city.cafes) byArea.set(cafe.area, [...(byArea.get(cafe.area) ?? []), cafe]);
   const found = [];
   for (const [area, cafes] of byArea) {
     const enough = (o) => o && cafes.filter((c) => holds(o.multi, [c.lon, c.lat])).length >= Math.ceil(cafes.length / 2);
-    let o = await fromOpenData(city, area).catch(() => null);
-    if (!enough(o)) o = await fromOsm(city, area).catch(() => null);
-    if (!enough(o)) o = await rectangle(cafes);
-    else o.multi = simplify(o.multi);
+    let o = kept[area] ? { multi: asMulti(kept[area].outline), source: kept[area].source } : null;
+    if (!o) {
+      o = await fromOpenData(city, area).catch(() => null);
+      if (!enough(o)) o = await fromOsm(city, area).catch(() => null);
+      if (!enough(o)) o = await rectangle(cafes, kept);
+      else o.multi = simplify(o.multi);
+    }
     const size = km2(o.multi);
     console.log(`${city.id.padEnd(14)} ${area.padEnd(20)} ${size.toFixed(2).padStart(6)} km²  ${o.source}`);
     found.push({ area, size, ...o });
@@ -278,11 +307,15 @@ async function outlinesFor(city) {
   return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
 }
 
-const only = process.argv.slice(2);
+const refresh = process.argv.includes('--refresh');
+const only = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 mkdirSync(fileURLToPath(new URL('../src/data/areas', import.meta.url)), { recursive: true });
 for (const city of Object.values(CITIES)) {
   if (only.length && !only.includes(city.id)) continue;
-  const out = await outlinesFor(city);
-  writeFileSync(fileURLToPath(new URL(`../src/data/areas/${city.id}.json`, import.meta.url)), `${JSON.stringify(out)}\n`);
+  const file = fileURLToPath(new URL(`../src/data/areas/${city.id}.json`, import.meta.url));
+  const kept = !refresh && existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : {};
+  const out = await outlinesFor(city, kept);
+  // Written as Prettier would, so the format check passes as is.
+  writeFileSync(file, await prettier.format(JSON.stringify(out), { ...(await prettier.resolveConfig(file)), filepath: file }));
   console.log(`wrote ${Object.keys(out).length} outlines for ${city.id}\n`);
 }
